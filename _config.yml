@@ -1,0 +1,100 @@
+title: MATH 124
+tagline: Vectors, Matrices, and Applications, Fall 2026 at the University of Michigan
+description: "Information about MATH 124: Vectors, Matrices, and Applications in Fall 2026 at the University of Michigan."
+author: MATH 124 course staff
+baseurl: ''
+url: 'https://math-124.github.io'
+repository: math-124/math-124.github.io
+
+exclude:
+  - _site
+  - Gemfile
+  - Gemfile.lock
+  - LICENSE
+  - node_modules
+  - vendor/bundle
+  - vendor/cache
+  - vendor/gems
+  - vendor/ruby
+
+theme: just-the-docs
+color_scheme: um
+search_enabled: true
+heading_anchors: true
+permalink: pretty
+
+sass:
+  custom_css: _sass/custom/custom.scss
+
+aux_links_new_tab: true
+css:
+  - /assets/css/custom.css
+footer_content:
+
+compress_html:
+  clippings: all
+  comments: all
+  endings: all
+  startings: []
+  blanklines: false
+  profile: false
+
+liquid:
+  error_mode: strict
+  strict_filters: true
+
+callouts:
+  red:
+    title:
+    color: red
+  yellow:
+    title:
+    color: yellow
+  blue:
+    title:
+    color: blue
+  green:
+    title:
+    color: green
+
+plugins:
+  - jekyll-redirect-from
+  - jekyll-seo-tag
+
+collections:
+  staffers:
+  staffersnobio:
+  modules:
+  schedules:
+  announcements:
+
+defaults:
+  - scope:
+      path: ''
+      type: staffers
+    values:
+      layout: staffer
+      height: 300
+      width: 300
+  - scope:
+      path: ''
+      type: staffersnobio
+    values:
+      layout: staffer-no-bio
+      height: 300
+      width: 300
+  - scope:
+      path: ''
+      type: modules
+    values:
+      layout: module
+  - scope:
+      path: ''
+      type: schedules
+    values:
+      layout: schedule
+  - scope:
+      path: ''
+      type: announcements
+    values:
+      layout: announcement
