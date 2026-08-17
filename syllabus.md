@@ -60,9 +60,9 @@ We'll be using a variety of platforms to facilitate Math 124.
 
 ### Lectures
 
-There will be 28 lectures in total. Each lecture you attend will earn you 1 "lecture point”, up to a maximum of 24 lecture points. Your lecture score will be the number of lecture points you earn out of 24. This means you can miss up to 4 lectures for any reason (late add, extenuating circumstances, etc.) and still earn a full lecture attendance score. Lectures will be recorded, but the recordings are intended for review and occasional absences rather than as a replacement for attending class.
+There will be 28 lectures in total. Each lecture you attend will earn you 1 "lecture point”, up to a maximum of 24 lecture points. Your lecture score will be the number of lecture points you earn out of 24. This means you can miss up to 4 lectures for any reason (late add, extenuating circumstances, etc.) and still earn a full lecture attendance score. **Lecture attendance comprises 5% of your course grade**.
 
-Expect lectures to be engaging, with substantial time spent working on activities and discussing approaches.
+Lectures will be recorded, but the recordings are intended for review and occasional absences rather than as a replacement for attending class. Expect lectures to be engaging, with substantial time spent working on activities and discussing approaches.
 
 ### Course Notes
  The [course notes](https://notes.math124.org) contain the main written explanations and examples for the course and should be used alongside lecture. The notes do not carry a separate grade.
