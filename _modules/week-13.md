@@ -1,5 +1,5 @@
 ---
-title: "Week 13: Determinants and Thanksgiving Recess"
+title: "Week 13: Determinants and Thanksgiving"
 weekNumber: 13
 days:
   - date: "2026-11-23"
@@ -16,15 +16,10 @@ days:
     events:
       - name: BREAK
         type: holiday
-        title: Thanksgiving Recess — no classes
+        title: "No Lab: Thanksgiving 🍁"
   - date: "2026-11-26"
     events:
       - name: BREAK
         type: holiday
-        title: Thanksgiving Recess — no classes
-  - date: "2026-11-27"
-    events:
-      - name: BREAK
-        type: holiday
-        title: Thanksgiving Recess — no classes
+        title: "No Lecture: Thanksgiving 🍁"
 ---

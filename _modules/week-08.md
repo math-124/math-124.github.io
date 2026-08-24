@@ -1,5 +1,5 @@
 ---
-title: "Week 8: Fall Study Break and PLU"
+title: "Week 8: Fall Break and PLU"
 weekNumber: 8
 days:
   - date: "2026-10-19"
@@ -7,14 +7,11 @@ days:
       - name: HW
         type: hw
         title: Homework 7
-      - name: BREAK
-        type: holiday
-        title: Fall Study Break — no classes
   - date: "2026-10-20"
     events:
       - name: BREAK
         type: holiday
-        title: Fall Study Break — no classes
+        title: "No Lecture: Fall Break 🍂"
   - date: "2026-10-21"
     events:
       - name: LAB

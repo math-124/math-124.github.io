@@ -24,7 +24,9 @@
                 {{ event.title }}
                 {% endif %}
               {% elsif event.url %}
-                <a href="{{ event.url }}">{{ event.title }}</a>
+                <a href="{{ event.url }}">{% if event.type == "quiz" or event.type == "exam" %}<b>{{ event.title }}</b>{% else %}{{ event.title }}{% endif %}</a>
+              {% elsif event.type == "quiz" or event.type == "exam" %}
+                <b>{{ event.title }}</b>
               {% else %}
                 {{ event.title }}
               {% endif %}

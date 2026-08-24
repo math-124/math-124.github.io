@@ -1,6 +1,7 @@
 ---
 name: Suraj Rampure
 role: Instructor
+staff_order: 2
 pronouns: he/him
 email: rampure@umich.edu
 website: https://rampure.org

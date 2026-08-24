@@ -1,5 +1,5 @@
 ---
-title: "Week 7: Inverses and Linear Systems"
+title: "Week 7: Inverses and Linear Systems; Quiz 2"
 weekNumber: 7
 days:
   - date: "2026-10-12"
@@ -26,5 +26,6 @@ days:
     events:
       - name: QUIZ
         type: quiz
-        title: Quiz 2
+        title: Quiz 2 (open from Oct 12 to Oct 16)
+        note: 'Scheduling opens on <b>Oct 5</b> on <a href="us.prairietest.com"><b>PrairieTest</b></a>.<br>Quizzes are taken in-person in the <a href="https://etf.engin.umich.edu/"><b>ETF</b></a>.'
 ---

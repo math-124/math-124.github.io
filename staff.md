@@ -1,29 +1,13 @@
 ---
 layout: page
 title: 👩‍🏫 Staff
-description: A listing of the MATH 124 course staff.
-nav_order: 3
+description: A listing of the Math 124 course staff.
+nav_order: 4
 ---
 
 # 👩‍🏫 Staff
 
-## Instructors
-
-{% assign instructors = site.staffers | where: 'role', 'Instructor' | sort: 'name' %}
-{% for staffer in instructors %}
-{{ staffer }}
-{% endfor %}
-
-## Graduate Student Instructor
-
-{% assign gsis = site.staffers | where: 'role', 'GSI' %}
-{% for staffer in gsis %}
-{{ staffer }}
-{% endfor %}
-
-## Instructional Assistant
-
-{% assign ias = site.staffers | where: 'role', 'IA' %}
-{% for staffer in ias %}
+{% assign course_staff = site.staffers | sort: "staff_order" %}
+{% for staffer in course_staff %}
 {{ staffer }}
 {% endfor %}

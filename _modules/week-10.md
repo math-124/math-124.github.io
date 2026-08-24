@@ -1,5 +1,5 @@
 ---
-title: "Week 10: Bases, Dimension, and QR"
+title: "Week 10: Bases, Dimension, and QR; Quiz 3"
 weekNumber: 10
 days:
   - date: "2026-11-02"
@@ -26,5 +26,6 @@ days:
     events:
       - name: QUIZ
         type: quiz
-        title: Quiz 3
+        title: Quiz 3 (open from Nov 2 to Nov 6)
+        note: 'Scheduling opens on <b>Oct 26</b> on <a href="us.prairietest.com"><b>PrairieTest</b></a>.<br>Quizzes are taken in-person in the <a href="https://etf.engin.umich.edu/"><b>ETF</b></a>.'
 ---

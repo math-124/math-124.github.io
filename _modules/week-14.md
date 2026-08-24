@@ -1,5 +1,5 @@
 ---
-title: "Week 14: Eigenvalues and Diagonalization"
+title: "Week 14: Eigenvalues and Diagonalization; Quiz 4"
 weekNumber: 14
 days:
   - date: "2026-11-30"
@@ -26,5 +26,6 @@ days:
     events:
       - name: QUIZ
         type: quiz
-        title: Quiz 4
+        title: Quiz 4 (open from Nov 30 to Dec 4)
+        note: 'Scheduling opens on <b>Nov 23</b> on <a href="us.prairietest.com"><b>PrairieTest</b></a>.<br>Quizzes are taken in-person in the <a href="https://etf.engin.umich.edu/"><b>ETF</b></a>.'
 ---

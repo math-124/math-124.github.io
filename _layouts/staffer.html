@@ -4,6 +4,10 @@
   {% endif %}
   <div>
     <h3 class="staffer-name">
+      {% if page.role %}
+      <span class="staffer-role">{{ page.role }}</span>
+      {% endif %}
+
       {% if page.website %}
       <a href="{{ page.website }}">{{ page.name }}</a>
       {% else %}
@@ -42,7 +46,5 @@
     <p>{{ page.note }}</p>
     {% endif %}
 
-    <!-- {{ content }} -->
-    
   </div>
 </div>

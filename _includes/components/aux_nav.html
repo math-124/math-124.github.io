@@ -1,0 +1,19 @@
+<nav aria-label="Auxiliary" class="aux-nav">
+  <ul class="aux-nav-list">
+    {% for link in site.aux_links %}
+      <li class="aux-nav-list-item">
+        {% if link.last %}
+          <a href="{{ link.last }}" class="site-button"
+            {% if site.aux_links_new_tab %}
+            target="_blank" rel="noopener noreferrer"
+            {% endif %}
+          >
+            {{ link.first }}
+          </a>
+        {% else %}
+          <span class="site-button">{{ link.first }}</span>
+        {% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+</nav>

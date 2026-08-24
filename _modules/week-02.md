@@ -1,5 +1,5 @@
 ---
-title: "Week 2: Vectors and Lines"
+title: "Week 2: Vectors and Lines; Quiz 0"
 weekNumber: 2
 days:
   - date: "2026-09-08"
@@ -24,5 +24,6 @@ days:
     events:
       - name: QUIZ
         type: quiz
-        title: Quiz 0
+        title: Quiz 0 (open from Sep 8 to Sep 11)
+        note: 'Scheduling opens on <b>Aug 31</b> on <a href="us.prairietest.com"><b>PrairieTest</b></a>.<br>Quizzes are taken in-person in the <a href="https://etf.engin.umich.edu/"><b>ETF</b></a>.'
 ---

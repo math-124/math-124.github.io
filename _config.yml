@@ -1,7 +1,7 @@
-title: MATH 124
+title: Math 124
 tagline: Vectors, Matrices, and Applications, Fall 2026 at the University of Michigan
-description: "Information about MATH 124: Vectors, Matrices, and Applications in Fall 2026 at the University of Michigan."
-author: MATH 124 course staff
+description: "Information about Math 124: Vectors, Matrices, and Applications in Fall 2026 at the University of Michigan."
+author: Math 124 course staff
 baseurl: ''
 url: 'https://math-124.github.io'
 repository: math-124/math-124.github.io
@@ -29,6 +29,14 @@ sass:
 aux_links_new_tab: true
 css:
   - /assets/css/custom.css
+
+aux_links:
+  📖 Course Notes:
+    - 'https://notes.math124.org'
+  Ed:
+    - 'https://edstem.org/us/courses/103314'
+  TODO Grading:
+  TODO PL:
 footer_content:
 
 compress_html:

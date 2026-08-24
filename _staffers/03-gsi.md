@@ -1,5 +1,7 @@
 ---
-name: GSI (TBD)
+name: Aaron Kim
 role: GSI
-note: To be announced.
+staff_order: 3
+email: kimhg@umich.edu
+photo: assets/site-images/block-m.svg
 ---
