@@ -10,6 +10,12 @@ days:
       - name: HW
         type: hw
         title: Homework 1
+      - name: SURV
+        type: survey
+        title: <a href="https://umich.qualtrics.com/jfe/form/SV_77nPiZpKNSEVMns">FCI Survey &#x23;1</a>
+      - name: SURV
+        type: survey
+        title: <a href="https://docs.google.com/forms/d/e/1FAIpQLSea-GmUzdWpLHDOmTHa82q4j5b_D8uwsF5A-VRYLoEK7N1JOw/viewform?usp=dialog">Welcome Survey</a>
   - date: "2026-09-09"
     events:
       - name: LAB

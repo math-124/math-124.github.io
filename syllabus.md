@@ -72,7 +72,7 @@ Most homework assignments will have accompanying code to run, hosted on Google C
 There are two surveys we need you to fill out at the start of the semester:
 
 1. The first is the [Welcome Survey](https://docs.google.com/forms/d/e/1FAIpQLSea-GmUzdWpLHDOmTHa82q4j5b_D8uwsF5A-VRYLoEK7N1JOw/viewform?usp=header). This survey is designed to help us understand your background and whether you need any alternate exams. The responses are **not anonymous**.
-1. The second is [FCI Survey 1](TODO). Throughout the semester, we will administer a series of "FCI Surveys", which are designed to help us track your experience in the course. FCI stands for "Foundational Course Initiative", a program run by the University of Michigan to improve the quality of foundational courses, like this one. The responses to FCI surveys are not anonymous, but **the instructors do not have access to your responses** – only FCI staff does. FCI staff will summarize the responses and provide insights to us.
+1. The second is [FCI Survey 1](https://umich.qualtrics.com/jfe/form/SV_77nPiZpKNSEVMns). Throughout the semester, we will administer a series of "FCI Surveys", which are designed to help us track your experience in the course. FCI stands for "Foundational Course Initiative", a program run by the University of Michigan to improve the quality of foundational courses, like this one. The responses to FCI surveys are not anonymous, but **the instructors do not have access to your responses** – only FCI staff does. FCI staff will summarize the responses and provide insights to us.
 
 Both surveys are due along with Homework 1, on Tuesday, September 8th.
 
