@@ -2,7 +2,7 @@
 layout: page
 title: 👩‍🏫 Staff
 description: A listing of the Math 124 course staff.
-nav_order: 4
+nav_order: 6
 ---
 
 # 👩‍🏫 Staff

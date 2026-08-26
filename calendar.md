@@ -10,13 +10,14 @@ nav_order: 3
 The times and locations of office hours, as well as lectures and labs, are all in the calendar below. **The times of office hours are subject to change week-to-week, so make sure to check the calendar before attending.**
 
 The events are color-coded:
-- Lectures and labs appear in <span style="color:#0066cc"><b>blue</b></span>. These are all held on North Campus.
-- In-person North Campus office hours appear TODO.
-<!-- - In-person Central Campus office hours – if we hold any – appear in <span style="color:#c0ca33"><b>lime green</b></span>. These are typically held in the UgLi Basement. -->
+- Lectures and labs appear in <span style="color:#0066cc"><b>blue</b></span>. These are all held on Central Campus.
+- In-person office hours appear in <span style="color:#009688"><b>turquoise</b></span>. Some of these are held on Central Campus in East Hall, and others are held on North Campus in the Bob and Betty Beyster Building (BBB). Click on a calendar event to see more location details.
 - Remote office hours, if any, appear in <span style="color:#a54f1f"><b>orange</b></span>, and can be accessed at the Zoom link below.
 
+If you can’t find us, post on Ed! Can’t make it to any of the office hours? Send one of the instructors [an email](./staff).
+
 <div align="center" markdown="1">
-<a class="btn" style="background-color: #e6804d; color: white;" href="https://umich.zoom.us/j/92715921873">Zoom link for remote office hours</a>
+<a class="btn" style="background-color: #e6804d; color: white;" href="https://umich.zoom.us/j/92286161318">Zoom link for remote office hours</a>
 </div>
 
 

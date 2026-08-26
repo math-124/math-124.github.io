@@ -35,8 +35,10 @@ aux_links:
     - 'https://notes.math124.org'
   Ed:
     - 'https://edstem.org/us/courses/103314'
-  TODO Grading:
-  TODO PL:
+  Pensive:
+    - 'https://www.pensive.com/teacher/classes/umich_math124_fa26'
+  PrairieLearn:
+    - 'https://us.prairielearn.com/pl/course_instance/228907'
 footer_content:
 
 compress_html:

@@ -166,6 +166,30 @@ $link-color: #0066cc;
   vertical-align: middle;
 }
 
+.aux-nav-list-item a[href*="pensive.com"]::before {
+  content: '';
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  background-image: url("../../assets/site-images/pensive.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  margin-right: 5px;
+  vertical-align: middle;
+}
+
+.aux-nav-list-item a[href*="prairielearn.com"]::before {
+  content: '';
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  background-image: url("../../assets/site-images/prairielearn.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  margin-right: 5px;
+  vertical-align: middle;
+}
+
 // header bar sticky scroll
 #main-header {
   position: -webkit-sticky; /* For Safari */
