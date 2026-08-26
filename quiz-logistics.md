@@ -6,8 +6,15 @@ nav_order: 4
 ---
 
 # 📝 Quiz Logistics
+{:.no_toc}
 
-There are five quizzes this semester.
+{% include floating-toc.html %}
+
+## Overview
+
+There are five quizzes this semester. As described in the syllabus, quizzes are meant to be checks of your understanding of the basic computational ideas introduced in the class, while exams assess your deeper theoretical understanding of the ideas and problem-solving skills. Quiz 0 is designed to assess your understanding of high school-level algebra and geometry.
+
+Exams will be administered in person and on paper, and everyone in the class will take each exam at the same time (subject to accommodations). Quizzes, on the other hand, are administered in person, but in the College of Engineering's [Engineering Testing Facility (ETF)](https://etf.engin.umich.edu/). You will take each quiz on a computer in the facility, rather than writing your work out on paper. Each quiz is open for a 4-5 day window, and it is your responsibility to schedule one 50 minute slot in which you will take the quiz. 
 
 - **Quiz 0:** Open from **September 8 to September 11**. Scheduling opens on **August 31**.
 - **Quiz 1:** Open from **September 21 to September 25**. Scheduling opens on **September 14**.
@@ -15,25 +22,35 @@ There are five quizzes this semester.
 - **Quiz 3:** Open from **November 2 to November 6**. Scheduling opens on **October 26**.
 - **Quiz 4:** Open from **November 30 to December 4**. Scheduling opens on **November 23**.
 
-Each quiz is **15 minutes long** and is administered in person in the College of Engineering's [Engineering Testing Facility (ETF)](https://etf.engin.umich.edu/). Check the ETF website and your PrairieTest reservation for the current facility locations and the exact room for your session.
+With this system, you can schedule each quiz at a time that is convenient for you. When you go to take your quiz, there may be students taking assessments from other classes at the same time!
 
 ## Scheduling a Quiz
 
 You must reserve a time for each quiz through [PrairieTest](https://us.prairietest.com/). To make a reservation:
 
-1. Log in to PrairieTest and select **University of Michigan**. The first time you log in, accept the invitation to join Math 124.
-2. Find the quiz you want to schedule. PrairieTest may label every assessment as an “exam,” including our quizzes.
-3. Click **Make a reservation**, choose an available session, and click **Reserve this session**. Remember to allow enough time to travel to the ETF.
+1. Log in to PrairieTest and select **University of Michigan**. The first time you log in, accept the invitation to join Math 124. If this doesn't work, let us know on Ed.
+2. Find the quiz you want to schedule. PrairieTest may label every assessment as an "exam," including our quizzes.
+3. Click **Make a reservation**, choose an available session, and click **Reserve this session**. Remember to allow enough time to travel to the Engineering Testing Facility.
 4. Confirm the date, time, and location shown in your reservation, then add the reservation to your calendar.
 
-Reservations can be made after scheduling opens and until 15 minutes before an available session. However, spots are not guaranteed if you wait until the end of the quiz window. We strongly recommend scheduling in the first half of the window so that you have time to reschedule if something goes wrong.
+Reservations can be made after scheduling opens and until 15 minutes before an available session. However, spots are not guaranteed if you wait until the end of the quiz window. **We strongly recommend scheduling in the first half of the window so that you have time to reschedule if something goes wrong.**
 
 To change a reservation, open it in PrairieTest and select **Change or delete this reservation**. Changes can be made until 30 minutes before the session begins.
+
+## Location
+
+The Engineering Testing Facility is located on the 
+
+{: .red }
+> **Plan extra travel time.** Make sure to arrive at the testing facility **30 minutes before your scheduled time**, especially the first time you use it. It is in a slightly hard-to-reach location on North Campus. **Don't search for the Engineering Auxiliary Building on Apple Maps** since, as of this writing, it does not appear there. Use the Google Map below instead.
+
+<iframe src="https://www.google.com/maps?q=Engineering%20Auxiliary%20Building%2C%201075%20Beal%20Avenue%2C%20Ann%20Arbor%2C%20MI&output=embed" width="800" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Google Map showing the Engineering Auxiliary Building"></iframe>
+
 
 ## Before You Arrive
 
 - Double-check your reservation for the correct ETF location and room.
-- Arrive **at least 15 minutes early**. Arriving late does not give you extra quiz time.
+- Arrive **30 minutes before your scheduled time**. Arriving late does not give you extra quiz time.
 - Bring your **M-Card**, a **pen or pencil**, and the device you use for **Duo two-factor authentication**. Make sure the Duo app is installed before you arrive.
 - Leave enough time for travel, check-in, and logging in to the testing computer.
 

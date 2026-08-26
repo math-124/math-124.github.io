@@ -6,6 +6,9 @@ nav_order: 5
 ---
 
 # 💻 Running Code
+{:.no_toc}
+
+{% include floating-toc.html %}
 
 Many homework assignments and some labs will have an accompanying Jupyter Notebook. Jupyter Notebooks allow us to write and run code within a single document, while also including explanations, images, and interactive visualizations. You will learn more about them in Lab 1.
 

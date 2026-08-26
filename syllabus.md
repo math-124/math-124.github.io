@@ -76,6 +76,12 @@ There are two surveys we need you to fill out at the start of the semester:
 
 Both surveys are due along with Homework 1, on Tuesday, September 8th.
 
+{: .red }
+> **Action Items**
+>
+> 1. Fill out the surveys above.
+> 2. Make a reservation for quiz 0.
+
 ---
 
 ## Communication
