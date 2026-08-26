@@ -12,7 +12,7 @@ nav_order: 4
 
 ## Overview
 
-There are five quizzes this semester. As described in the syllabus, quizzes are meant to be checks of your understanding of the basic computational ideas introduced in the class, while exams assess your deeper theoretical understanding of the ideas and problem-solving skills. Quiz 0 is designed to assess your understanding of high school-level algebra and geometry.
+There are five quizzes this semester. Quizzes are meant to be checks of your understanding of the basic computational ideas introduced in the class, while exams assess your deeper theoretical understanding of the ideas and problem-solving skills. Quiz 0 is designed to assess your understanding of high school-level algebra and geometry. See the Grades section of the [syllabus](https://math124.org/syllabus#grades) for more details on how quizzes factor into your grade in the course.
 
 Exams will be administered in person and on paper, and everyone in the class will take each exam at the same time (subject to accommodations). 
 
@@ -26,7 +26,7 @@ Quizzes, on the other hand, are administered in person, but in the College of En
 
 ---
 
-## Quiz Dates and Scheduling Windows
+## Quiz Dates and Scheduling
 
 - **Quiz 0:** Open from **September 8 to September 11**. Scheduling opens on **August 31**.
 - **Quiz 1:** Open from **September 21 to September 25**. Scheduling opens on **September 14**.
@@ -36,15 +36,7 @@ Quizzes, on the other hand, are administered in person, but in the College of En
 
 With this system, you can schedule each quiz at a time that is convenient for you. When you go to take your quiz, there may be students taking assessments from other classes at the same time!
 
----
-
-## Scheduling a Quiz
-
-You must reserve a time for each quiz through [PrairieTest](https://us.prairietest.com). 
-
-<!-- <center><a class="btn" style="background-color: #00274C; color: white;" data-current-week-link href="https://us.prairietest.com">Launch PrairieTest, the scheduling software</a></center> -->
-
-To make a reservation:
+To make a quiz reservation, use [PrairieTest](https://us.prairietest.com), following these instructions:
 
 1. Log in to PrairieTest and select **University of Michigan**. The first time you log in, accept the invitation to join Math 124. If this doesn't work, let us know on Ed.
 2. Find the quiz you want to schedule. PrairieTest may label every assessment as an "exam," including our quizzes.
