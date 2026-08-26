@@ -205,9 +205,9 @@ The course has two in-person, on-paper midterms and one cumulative final exam.
 
 | Exam | Date | Weight |
 | --- | --- | ---: |
-| Midterm 1 | Monday, October 5 | 15% |
-| Midterm 2 | Monday, November 16 | 15% |
-| Final Exam | Friday, December 18 | 20% |
+| Midterm 1 | Monday, October 5, 7-9PM | 15% |
+| Midterm 2 | Monday, November 16, 7-9PM | 15% |
+| Final Exam | Friday, December 18, 4-6PM | 20% |
 
 The two midterms are not cumulative. Exam times, locations, and detailed policies will be announced later.
 
