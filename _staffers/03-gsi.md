@@ -8,6 +8,6 @@ photo: assets/staff-images/aaron.jpeg
 description: 2nd year PhD, Mathematics
 hometown: Seoul, South Korea
 askabout: any music (jazz, alternative/indie, classical, choral), korean literature, skiing and hiking
-foodemoji: 🍦☕️
-food: Bun Chai, Dairy 
+foodemoji: ☕️
+food: Bun Chai, Dairy
 ---

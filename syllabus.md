@@ -189,7 +189,7 @@ To summarize the details above, here's what a typical week looks like in Math 12
 
 To get help on assignments and concepts, course staff will be hosting several office hours per week. In-person office hours will be held across a mix of Central Campus and North Campus locations, and we will also hold remote office hours depending on staff availability. See the [Calendar](../calendar) tab of the course website for the most up-to-date schedule and directions. If you aren’t able to consistently attend at least one office hours slot a week, please email the instructor – we will try our best to move things around to get you the support you need.
 
-We highly encourage you to attend office hours. Even if you don’t have specific questions, you will likely get a lot out of conversing about the material and hearing others’ questions. **And even if you’ve mastered the material, still come and say hi – take advantage of the fact that this is a relatively small class!**
+We highly encourage you to attend office hours. Even if you don’t have specific questions, you will likely get a lot out of conversing about the material and hearing others’ questions. **And even if you’ve mastered the material, still come and say hi – take advantage of the fact that this is a relatively small class!** Attending office hours with one of the instructors (Kartik or Suraj), one before fall break and one after, will earn you **1%** of the course grade. 
 
 ---
 
@@ -227,8 +227,9 @@ Math 124 is a new course. As a result, we will administer more surveys than you 
 | Homework | 20% | • 2 lowest scores dropped <br> • 6 slip days available to use with a max of 1 per homework |
 | Quizzes | 12% | 5 total; 2 lowest scores dropped |
 | Labs | 10% | 2 lowest scores dropped |
-| Lecture Attendance | 5% | 28 total; 4 lowest scores dropped |
+| Lecture Attendance | 4% | 28 total; 4 lowest scores dropped |
 | Course Improvement Surveys | 3% | 6 total; each worth .5% |
+| Office Hours | 1% | See [Office Hours](#office-hours) section above |
 
 ---
 
