@@ -29,7 +29,7 @@ The course is taught by a staff of two instructors (who you may think of as the 
 
 ### Credit
 
-This course is worth 4 credits. Math 124 is part of a **brand-new** two-course sequence for first-year students in the College of Engineering, along with Math 125. For more information on how these courses satisfy requirements in your program,contact the Engineering Advising Center.
+This course is worth 4 credits. Math 124 is part of a **brand-new** two-course sequence for first-year students in the College of Engineering, along with Math 125. For more information on how these courses satisfy requirements in your program, contact the Engineering Advising Center.
 
 ### Prerequisites
 
@@ -74,7 +74,7 @@ There are two types of regularly-scheduled class meetings in Math 124: lectures 
 
 Lectures are held on Tuesdays and Thursdays from 2:30-3:50PM in Room G127 of Angell Hall, and are co-taught by the instructors, Kartik and Suraj, who will each teach roughly half of the lectures throughout the semester. Lectures are where we introduce core concepts. The term "lecture" makes it sound like you're just going to sit and listen, but we will do our best to make them engaging and interactive. Expect to spend a lot of time working on activities and discussing approaches.
 
-**Lecture attendance is required, and is worth 5% of your overall grade.** How is this assessed?
+**Lecture attendance is required, and is worth 4% of your overall grade.** How is this assessed?
 - There will be 28 lectures in total; each lecture you attend will earn you 1 "lecture point”, up to a maximum of 24 lecture points.
 - Your lecture score will be the number of lecture points you earn out of 24. This means you can miss up to 4 lectures for any reason (late add, extenuating circumstances, etc.) and still earn a full lecture attendance score.
 
