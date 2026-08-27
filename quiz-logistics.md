@@ -14,11 +14,11 @@ nav_order: 4
 
 There are five quizzes this semester. Quizzes are meant to be checks of your understanding of the basic computational ideas introduced in the class, while exams assess your deeper theoretical understanding of the ideas and problem-solving skills. Quiz 0 is designed to assess your understanding of high school-level algebra and geometry. See the Grades section of the [syllabus](https://math124.org/syllabus#grades) for more details on how quizzes factor into your grade in the course.
 
-Exams will be administered in person and on paper, and everyone in the class will take each exam at the same time (subject to accommodations). 
+Exams will be administered in person and on paper, and everyone in the class will take each exam at the same time and in the same room (subject to accommodations). 
 
-Quizzes, on the other hand, are administered in person, but in the College of Engineering's [Engineering Testing Facility (ETF)](https://etf.engin.umich.edu/). Here are the key ideas:
+Quizzes, on the other hand, are administered in person, but in the College of Engineering's [Engineering Testing Facility (ETF)](https://etf.engin.umich.edu/) on North Campus. Here are the key ideas:
 - You will take each quiz on a computer in the facility, rather than writing your work out on paper.
-- Quizzes are run on [PrairieLearn](https://us.prairielearn.com), a website that allows us to provide randomized assessments.
+- Quizzes are run on [PrairieLearn](https://us.prairielearn.com/pl/course_instance/228907), a website that allows us to provide randomized assessments.
 - Each quiz is open for a 4-5 day window, and it is your responsibility to schedule one 50 minute slot in which you will take the quiz, using [PrairieTest](https://us.prairietest.com). 
 - You can only take each quiz once, but as we describe in the [Practice Quizzes](#practice-quizzes) section below, you can take unlimited practice quizzes from home to prepare.
 

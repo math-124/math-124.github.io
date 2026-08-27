@@ -5,18 +5,16 @@ description: Information about Math 124 in Fall 2026 at the University of Michig
 nav_order: 1
 ---
 
-{: .green }
-> **Welcome to Math 124!** Make sure to read the [syllabus](syllabus) and complete the action items in the [Getting Started](syllabus#getting-started) section.
-
 # Vectors, Matrices, and Applications 🧮
 {: .no_toc }
 {: .mb-2 }
 Math 124, Fall 2026 at the <b><span style="background-color: #FFCB05; color: #00274C">University of Michigan</span></b>
 {: .no_toc }
 {: .fs-6 .fw-300 .mb-2 }
+**Lectures**: Tuesday and Thursdays, 2:30-4PM, G127 Angell Hall • **Labs**: Various [times](calendar) on Wednesday
 
-<!-- **Lectures: Tuesdays and Thursdays, 2:30–4:00 PM in G127 Angell Hall**
-{: .fs-5 .fw-500 .mb-4 } -->
+{: .green }
+> **Welcome to Math 124, and to the University of Michigan! 👋** Make sure to read the [syllabus](syllabus). See you in lecture on Tuesday and lab on Wednesday!
 
 <a class="btn" style="background-color: #00274C; color: white;" data-current-week-link href="#{{ site.modules.first.title | slugify }}">Jump to the current week</a>
 

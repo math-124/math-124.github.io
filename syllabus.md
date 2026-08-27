@@ -29,7 +29,7 @@ The course is taught by a staff of two instructors (who you may think of as the 
 
 ### Credit
 
-This course is worth 4 credits. Math 124 is part of a new two-course sequence for first-year students in the College of Engineering, along with Math 125.
+This course is worth 4 credits. Math 124 is part of a **brand-new** two-course sequence for first-year students in the College of Engineering, along with Math 125. For more information on how these courses satisfy requirements in your program,contact the Engineering Advising Center.
 
 ### Prerequisites
 
@@ -37,15 +37,11 @@ Students should have a strong background in high school algebra and geometry. Qu
 
 ---
 
-## Getting Started
+## Websites
 
 Your source of truth for all things Math 124 is this course website, [math124.org](https://math124.org). All course content will be linked from this website, so make sure to bookmark it and check it regularly for updates.
 
----
-
-## Websites
-
-We will be using a variety of platforms to facilitate Math 124, some of which you will need an account for.
+In addition, we will be using a variety of platforms to facilitate Math 124, some of which you will need an account for.
 
 ### Ed
 [Ed](https://edstem.org/us/courses/103314/discussion) is our course message and discussion board. **This is where all announcements will be made, not Canvas.** More details are in the Communication section below. If you didn’t already receive an invitation to Ed, sign up [here](https://edstem.org/us/join/4N5F7F).
@@ -72,29 +68,13 @@ Most homework assignments will have accompanying code to run, hosted on Google C
 
 ---
 
-## Forms
-
-To start, there are two surveys we need you to fill out:
-
-1. The first is the [Welcome Survey](https://docs.google.com/forms/d/e/1FAIpQLSea-GmUzdWpLHDOmTHa82q4j5b_D8uwsF5A-VRYLoEK7N1JOw/viewform?usp=header). This survey is designed to help us understand your background and whether you need any alternate exams. The responses are **not anonymous**.
-1. The second is [FCI Survey 1](https://umich.qualtrics.com/jfe/form/SV_77nPiZpKNSEVMns). Throughout the semester, we will administer a series of "FCI Surveys", which are designed to help us track your experience in the course. FCI stands for "Foundational Course Initiative", a program run by the University of Michigan to improve the quality of foundational courses, like this one. The responses to FCI surveys are not anonymous, but **the instructors do not have access to your responses** – only FCI staff does. FCI staff will summarize the responses and provide insights to us.
-
-Both surveys are due along with Homework 1, on Tuesday, September 8th. Each one is worth 0.5% of your overall grade.
-
-{: .red }
-> **Action Items**
-> 1. Fill out the Welcome Survey and FCI Survey 1.
-> 2. Make a reservation for Quiz 0, following the instructions [here](../quiz-logistics).
-
----
-
 ## Lectures
 
 There are two types of regularly-scheduled class meetings in Math 124: lectures and labs.
 
 Lectures are held on Tuesdays and Thursdays from 2:30-3:50PM in Room G127 of Angell Hall, and are co-taught by the instructors, Kartik and Suraj, who will each teach roughly half of the lectures throughout the semester. Lectures are where we introduce core concepts. The term "lecture" makes it sound like you're just going to sit and listen, but we will do our best to make them engaging and interactive. Expect to spend a lot of time working on activities and discussing approaches.
 
-**Lecture attendance is required, and is worth 5% of your overall course grade.** How is this assessed?
+**Lecture attendance is required, and is worth 5% of your overall grade.** How is this assessed?
 - There will be 28 lectures in total; each lecture you attend will earn you 1 "lecture point”, up to a maximum of 24 lecture points.
 - Your lecture score will be the number of lecture points you earn out of 24. This means you can miss up to 4 lectures for any reason (late add, extenuating circumstances, etc.) and still earn a full lecture attendance score.
 
@@ -115,7 +95,7 @@ The other type of regularly-scheduled class meeting is labs. While everyone in t
 
 Labs are run by our GSI, Aaron, and IA, Sanjana. During the first half of lab, you will work on a physical worksheet that reviews content from the previous two lectures (so bring a pencil!). Once you've finished the worksheet, you'll spend the rest of lab getting a headstart on that week's homework. Homeworks may involve writing code, so make sure to bring your laptop to lab.
 
-To earn credit for a lab, you must show the GSI or IA **a completed lab worksheet and meaningful progress on that week's homework**. This means that there is no option to receive credit for labs remotely. Labs are primarily completion-based and contribute **10%** of the course grade. Your lowest two lab scores will be dropped. On Wednesday evenings, we will post the lab worksheet and its solutions on the course website.
+To earn credit for a lab, you must show the GSI or IA **a completed lab worksheet and meaningful progress on that week's homework**. This means that there is no option to receive credit for labs remotely. Labs are primarily completion-based and contribute **10%** of your overall grade. Your lowest two lab scores will be dropped. On Wednesday evenings, we will post the lab worksheet and its solutions on the course website.
 
 ---
 
@@ -125,7 +105,7 @@ Weekly homework develops the ideas from lecture and lab in greater depth. Homewo
 
 Homeworks must be handwritten on paper or tablet by each student individually, scanned into a single PDF, and submitted to Pensive. That is, no typing and no LaTeX, unless you have accommodations specifying otherwise. We believe that handwriting the material helps you learn it better, better prepares you for exams, and frankly is harder to cheat with AI.
 
-Homework contributes **20%** of the course grade and is graded by accuracy. Your lowest two homework scores will be dropped.
+Homeworks are worth **20%** of your overall grade and is graded by accuracy. Your lowest two homework scores will be dropped.
 
 ### Collaboration and Generative AI Policy
 
@@ -167,9 +147,15 @@ If you believe that we have made a mistake in applying the rubric shown to you o
 
 ## Quizzes
 
-There are five quizzes this semester. Quizzes are worth a total of 12% of your overall grade; your lowest two quiz scores are dropped.
+There are five quizzes this semester, worth a total of **12%** of your overall grade. Your lowest two quiz scores are dropped.
 
 Quizzes are meant to be checks of your understanding of the basic computational ideas introduced in the class, while exams assess your deeper theoretical understanding of the ideas and problem-solving skills. Quiz 0 is designed to assess your understanding of high school-level algebra and geometry.
+
+Quizzes are administered in person, but in the College of Engineering's [Engineering Testing Facility (ETF)](https://etf.engin.umich.edu/) on North Campus. Here are the key ideas:
+- You will take each quiz on a computer in the facility, rather than writing your work out on paper.
+- Quizzes are run on [PrairieLearn](https://us.prairielearn.com/pl/course_instance/228907), a website that allows us to provide randomized assessments.
+- Each quiz is open for a 4-5 day window, and it is your responsibility to schedule one 50 minute slot in which you will take the quiz, using [PrairieTest](https://us.prairietest.com). 
+- You can only take each quiz once, but as we describe in the [Practice Quizzes](../quiz-logistics#practice-quizzes) section of the [Quiz Logistics](../quiz-logistics) page, you can take unlimited practice quizzes from home to prepare.
 
 | | Open From | Scheduling Opens On | Content |
 | --- | --- | --- | --- |
@@ -195,21 +181,23 @@ To summarize the details above, here's what a typical week looks like in Math 12
 
 ## Office Hours
 
-To get help on assignments and concepts, course staff will be hosting several office hours per week. In-person office hours will be held across a mix of Central Campus and North Campus locations, and we will also hold remote office hours depending on staff availability. See the [Calendar](../calendar) tab of the course website for the most up-to-date schedule and directions. If you aren’t able to consistently attend at least one office hours slot a week, please email the instructor – we will try our best to move things around to get you the support you need.
+To get help on assignments and concepts, course staff will be hosting several office hours per week. In-person office hours will be held across a mix of Central Campus and North Campus locations, and we will also hold remote office hours depending on staff availability. See the [Calendar](../calendar) tab of the course website for the most up-to-date schedule and directions. If you aren’t able to consistently attend at least one office hours slot a week, please email one of the instructors – we will try our best to move things around to get you the support you need.
 
-We highly encourage you to attend office hours. Even if you don’t have specific questions, you will likely get a lot out of conversing about the material and hearing others’ questions. **And even if you’ve mastered the material, still come and say hi – take advantage of the fact that this is a relatively small class!** Attending office hours with one of the instructors (Kartik or Suraj), one before fall break and one after, will earn you **1%** of the course grade. 
+We highly encourage you to attend office hours. Even if you don’t have specific questions, you will likely get a lot out of conversing about the material and hearing others’ questions. **And even if you’ve mastered the material, still come and say hi – take advantage of the fact that this is a relatively small class!**
+
+You are required to attend at least two office hours with the instructors (Kartik or Suraj) – one before Fall Break and one after. This is worth **1%** of your overall grade.
 
 ---
 
 ## Exams
 
-This class has two Midterm Exams and one Final Exam, all of which will be administered in-person and on paper.
+This class has two Midterm Exams and one Final Exam, all of which will be administered in-person and on paper. Together, exams are worth **50%** of your overall grade.
 
 | Exam | Date and Time | Content | Weight |
 | --- | --- | --- | --- |
-| Midterm 1 | Monday, October 5, 7-9PM | Lectures 1-8 | 15% |
-| Midterm 2 | Monday, November 16, 7-9PM | Lectures 9-19 | 15% |
-| Final Exam | Friday, December 18, 4-6PM | Cumulative | 20% |
+| Midterm 1 | Monday, October 5, 7-9PM | Lectures 1-8 | **15%** |
+| Midterm 2 | Monday, November 16, 7-9PM | Lectures 9-19 | **15%** |
+| Final Exam | Friday, December 18, 4-6PM | Cumulative | **20%** |
 
 If you have conflicts with any of the exams, please let us know on the [Welcome Survey](https://docs.google.com/forms/d/e/1FAIpQLSea-GmUzdWpLHDOmTHa82q4j5b_D8uwsF5A-VRYLoEK7N1JOw/viewform?usp=header). We may provide alternate exam times for students with a valid, documented conflict with a required activity in another course or official university-affiliated activity, or to help students avoid negative academic consequences when their religious obligations conflict with academic requirements.
 
@@ -219,9 +207,18 @@ Exams are to be completed individually, with absolutely no collaboration allowed
 
 ## Course Improvement Surveys
 
-Math 124 is a new course. As a result, we will administer more surveys than you might normally receive in a course so that we can learn from your experience and improve future offerings.
+Math 124 is a new course. As a result, we will administer more surveys than you might normally receive in a course so that we can learn from your experience and improve future offerings. To account for the time you'll spend completing surveys, completing surveys counts as **3%** of your overall grade.
 
-Some surveys will be "internal" surveys, run directly by the course staff through Google Forms. These will usually **not** be anonymous. TODO talk more about FCI surveys, maybe combine here
+Some surveys will be "internal" surveys, run directly by the course staff through Google Forms. These will usually **not** be anonymous, because they involve questions where the instructors want to know your specific responses (e.g. whether you need alternate exams, or how much time you spent on recent homeworks so we know whether to reach out to you for support).
+
+The other surveys are called FCI Surveys, which are designed to help track your experience in the course more broadly. FCI stands for "Foundational Course Initiative", a program run by the University of Michigan to improve the quality of foundational courses, like this one. The responses to FCI surveys are not anonymous, but **the instructors do not have access to your responses** – only FCI staff does. FCI staff will summarize the responses and provide insights to us. (They will tell us _who_ filled out the FCI Surveys, though, since we need that information to give you credit for them.)
+
+To start, there are two surveys we need you to fill out:
+
+1. The first is the [Welcome Survey](https://docs.google.com/forms/d/e/1FAIpQLSea-GmUzdWpLHDOmTHa82q4j5b_D8uwsF5A-VRYLoEK7N1JOw/viewform?usp=header). This survey is designed to help us understand your background and whether you need any alternate exams. The responses are **not anonymous**.
+1. The second is [FCI Survey 1](https://umich.qualtrics.com/jfe/form/SV_77nPiZpKNSEVMns), which asks slightly different questions about your background and experiences.
+
+Both surveys are due along with Homework 1, on Tuesday, September 8th. Each one is worth 0.5% of your overall grade. We have tried to make them different enough so that you don't feel that you are repeating yourself.
 
 ---
 
@@ -236,7 +233,7 @@ Some surveys will be "internal" surveys, run directly by the course staff throug
 | Quizzes | 12% | 5 total; 2 lowest scores dropped |
 | Labs | 10% | 2 lowest scores dropped |
 | Lecture Attendance | 4% | 28 total; 4 lowest scores dropped |
-| Course Improvement Surveys | 3% | Weights stated in survey |
+| Course Improvement Surveys | 3% | |
 | Office Hours | 1% | See [Office Hours](#office-hours) section above |
 
 ---
