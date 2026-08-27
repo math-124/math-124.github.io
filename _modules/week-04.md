@@ -26,6 +26,8 @@ days:
     events:
       - name: QUIZ
         type: quiz
-        title: Quiz 1 (open from Sep 21 to Sep 25)
-        note: 'Scheduling opens on <b>Sep 14</b> on <a href="us.prairietest.com"><b>PrairieTest</b></a>.<br>Quizzes are taken in-person in the <a href="https://etf.engin.umich.edu/"><b>ETF</b></a>.'
+        title: Quiz 1 (open Sep 21-25; slots open Sep 14)
+        buttons:
+          - label: "📝 Logistics"
+            url: /quiz-logistics/
 ---

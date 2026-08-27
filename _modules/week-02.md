@@ -27,6 +27,11 @@ days:
     events:
       - name: QUIZ
         type: quiz
-        title: Quiz 0 (open from Sep 8 to Sep 11)
-        note: 'Scheduling opens on <b>Aug 31</b> on <a href="us.prairietest.com"><b>PrairieTest</b></a>.<br>Quizzes are taken in-person in the <a href="https://etf.engin.umich.edu/"><b>ETF</b></a>.'
+        title: Quiz 0 (open Sep 8-11; slots open Aug 31)
+        buttons:
+          - label: "📝 Logistics"
+            url: /quiz-logistics/
+          - label: Practice Quiz
+            url: https://us.prairielearn.com/pl/course_instance/228907/assessment/2724795
+            icon: prairielearn
 ---

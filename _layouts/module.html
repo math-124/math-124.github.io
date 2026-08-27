@@ -107,6 +107,9 @@
                 <a href="{{ event.videos2 }}" class="btn btn-info btn-sm">⏯️ Videos{%- if event.videos2_text -%}: {{ event.videos2_text }}{%- endif -%}</a>
                 {%- endif -%}
               {%- endif -%}
+              {%- for button in event.buttons -%}
+              <a href="{{ button.url }}" class="btn btn-info btn-sm">{%- if button.icon == "prairielearn" -%}<img src="{{ '/assets/site-images/prairielearn.png' | relative_url }}" alt="" width="15" height="15" style="vertical-align: middle; margin-right: 5px;">{%- endif -%}{{ button.label }}</a>
+              {%- endfor -%}
               <!-- {%- if event.type == "hw" or event.type == "disc" -%}
                 {%- if event.slides -%}
                 <small><a href="{{ event.slides }}" class="btn btn-info btn-sm">🧑‍🏫 mini-lecture slides</a></small>
