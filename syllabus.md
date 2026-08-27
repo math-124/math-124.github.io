@@ -216,7 +216,7 @@ The other surveys are called FCI Surveys, which are designed to help track your 
 To start, there are two surveys we need you to fill out:
 
 1. The first is the [Welcome Survey](https://docs.google.com/forms/d/e/1FAIpQLSea-GmUzdWpLHDOmTHa82q4j5b_D8uwsF5A-VRYLoEK7N1JOw/viewform?usp=header). This survey is designed to help us understand your background and whether you need any alternate exams. The responses are **not anonymous**.
-1. The second is [FCI Survey 1](https://umich.qualtrics.com/jfe/form/SV_77nPiZpKNSEVMns), which asks slightly different questions about your background and experiences.
+1. The second is [FCI Survey 1](https://umich.qualtrics.com/jfe/form/SV_77nPiZpKNSEVMns), which asks slightly different questions about your background and experiences. (FCI Survey 1 opens on August 31.)
 
 Both surveys are due along with Homework 1, on Tuesday, September 8th. Each one is worth 0.5% of your overall grade. We have tried to make them different enough so that you don't feel that you are repeating yourself.
 
