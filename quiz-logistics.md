@@ -28,11 +28,13 @@ Quizzes, on the other hand, are administered in person, but in the College of En
 
 ## Quiz Dates and Scheduling
 
-- **Quiz 0:** Open from **September 8 to September 11**. Scheduling opens on **August 31**.
-- **Quiz 1:** Open from **September 21 to September 25**. Scheduling opens on **September 14**.
-- **Quiz 2:** Open from **October 12 to October 16**. Scheduling opens on **October 5**.
-- **Quiz 3:** Open from **November 2 to November 6**. Scheduling opens on **October 26**.
-- **Quiz 4:** Open from **November 30 to December 4**. Scheduling opens on **November 23**.
+| | Open From | Scheduling Opens On | Content |
+| --- | --- | --- | --- |
+| Quiz 0 | September 8 to September 11 | August 31 | High school algebra and geometry |
+| Quiz 1 | September 21 to September 25 | September 14 | Lectures 2–6 |
+| Quiz 2 | October 12 to October 16 | October 5 | Lectures 9–12 |
+| Quiz 3 | November 2 to November 6 | October 26 | Lectures 13–17 |
+| Quiz 4 | November 30 to December 4 | November 23 | Lectures 22–26 |
 
 With this system, you can schedule each quiz at a time that is convenient for you. When you go to take your quiz, there may be students taking assessments from other classes at the same time!
 
