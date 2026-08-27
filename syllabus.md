@@ -45,52 +45,46 @@ Your source of truth for all things Math 124 is this course website, [math124.or
 
 ## Websites
 
-We will be using a variety of platforms to facilitate Math 124, some of which you will need an account for. TODO, add hyperlinks to all the platforms directly.
-
+We will be using a variety of platforms to facilitate Math 124, some of which you will need an account for.
 
 ### Ed
-We’ll be using Ed as our course message and discussion board. **This is where all announcements will be made, not Canvas.** More details are in the Communication section below. If you didn’t already receive an invitation to Ed, sign up [here](https://edstem.org/us/join/4N5F7F).
+[Ed](https://edstem.org/us/courses/103314/discussion) is our course message and discussion board. **This is where all announcements will be made, not Canvas.** More details are in the Communication section below. If you didn’t already receive an invitation to Ed, sign up [here](https://edstem.org/us/join/4N5F7F).
+
+If you have a question about anything to do with the course — if you’re stuck on a problem, didn’t understand something from lecture, want clarification on course logistics, or just have a general question about mathematics or engineering — **please ask on Ed**! We know that generative AI tools can answer your questions, and while we encourage you to use those tools responsibly as well, part of the benefit of attending a school like Michigan is the ability to form connections with your instructors and peers. We only ask that if your question includes some or all of an answer (even if you’re not sure it’s right), please make your post private so that others cannot see it. You can also post anonymously to other students if you prefer.
+
+Course staff will regularly check Ed and try to answer any questions that you have. You’re also encouraged to answer questions asked by other students. Explaining something is a great way to solidify your understanding of it!
 
 ### Pensive
 [Pensive](https://www.pensive.com/teacher/classes/umich_math124_fa26) is where you'll submit your homeworks, and where we will show you your grades on exams. As is discussed below, all homeworks must be handwritten, scanned into a PDF, and submitted to Pensive. If you didn't already receive an invitation to Pensive, please let an instructor know. Pensive is like Gradescope – a tool you may use in other classes – but it allows for AI grading of handwritten work, with human review and the ability to ask for a regrade. Not only does this enable faster and more accurate grading, but it also frees up instructor time to spend working with students one-on-one, which AI cannot do. Pensive has been approved by the College of Engineering, who ensured that it meets the necessary privacy and accessibility standards; rest assured, Pensive does not train AI models on your work.
 
 ### Canvas
-Canvas will only be used for accessing lecture recordings. All other content will be posted on the course website.
+[Canvas](https://umich.instructure.com/courses/878905) will only be used for accessing lecture recordings. All other content will be posted on the course website.
 
 ### PrairieLearn and PrairieTest
-[PrairieLearn](https://us.prairielearn.com/pl/course_instance/228907) is the platform on which you will take quizzes and practice quizzes. If you didn't already receive an invitation to PrairieLearn, please let an instructor know.
+[PrairieLearn](https://us.prairielearn.com/pl/course_instance/228907) is the platform on which you will take practice quizzes, and is the same interface quizzes will use. If you didn't already receive an invitation to PrairieLearn, please let an instructor know.
 
-PrairieTest is used for scheduling quizzes; we discuss this in more detail in the [Quizzes](#quizzes) section below. If you didn't already receive an invitation to PrairieTest, please let an instructor know.
+[PrairieTest](https://us.prairietest.com) is used for scheduling quizzes. If you didn't already receive an invitation to PrairieTest, please let an instructor know.
+
+Both PrairieLearn and PrairieTest are discussed in detail in the [Quiz Logistics](../quiz-logistics) page of the course website. **Read this page ASAP: scheduling for Quiz 0 opens on August 31, and Quiz 0 is administered from September 8 to 11.**
 
 ### Google Colab
-Most homework assignments will have accompanying code to run, hosted on Google Colab. You don't need to make an account specifically for this, since you can sign in with your UMich email.
+Most homework assignments will have accompanying code to run, hosted on Google Colab. More details are in the [Running Code](../running-code) page of the course website.
 
 ---
 
 ## Forms
 
-There are two surveys we need you to fill out at the start of the semester:
+To start, there are two surveys we need you to fill out:
 
 1. The first is the [Welcome Survey](https://docs.google.com/forms/d/e/1FAIpQLSea-GmUzdWpLHDOmTHa82q4j5b_D8uwsF5A-VRYLoEK7N1JOw/viewform?usp=header). This survey is designed to help us understand your background and whether you need any alternate exams. The responses are **not anonymous**.
 1. The second is [FCI Survey 1](https://umich.qualtrics.com/jfe/form/SV_77nPiZpKNSEVMns). Throughout the semester, we will administer a series of "FCI Surveys", which are designed to help us track your experience in the course. FCI stands for "Foundational Course Initiative", a program run by the University of Michigan to improve the quality of foundational courses, like this one. The responses to FCI surveys are not anonymous, but **the instructors do not have access to your responses** – only FCI staff does. FCI staff will summarize the responses and provide insights to us.
 
-Both surveys are due along with Homework 1, on Tuesday, September 8th.
+Both surveys are due along with Homework 1, on Tuesday, September 8th. Each one is worth 0.5% of your overall grade.
 
 {: .red }
 > **Action Items**
->
-> 1. Fill out the surveys above.
-> 2. Make a reservation for quiz 0.
-
----
-
-## Communication
-
-This semester, we’ll be using Ed as our course message board. You will be added to Ed automatically; use the invite link in the section above if you weren't added.
-
-If you have a question about anything to do with the course — if you’re stuck on a problem, didn’t understand something from lecture, want clarification on course logistics, or just have a general question about mathematics or engineering — **please ask on Ed**! We know that generative AI tools can answer your questions, and while we encourage you to use those tools responsibly as well, part of the benefit of attending a school like Michigan is the ability to form connections with your instructors and peers. We only ask that if your question includes some or all of an answer (even if you’re not sure it’s right), please make your post private so that others cannot see it. You can also post anonymously to other students if you prefer.
-
-Course staff will regularly check Ed and try to answer any questions that you have. You’re also encouraged to answer questions asked by other students. Explaining something is a great way to solidify your understanding of it!
+> 1. Fill out the Welcome Survey and FCI Survey 1.
+> 2. Make a reservation for Quiz 0, following the instructions [here](../quiz-logistics).
 
 ---
 
@@ -173,11 +167,19 @@ If you believe that we have made a mistake in applying the rubric shown to you o
 
 ## Quizzes
 
-There are 5 quizzes throughout the term, administered in-person in the College of Engineering's Engineering Testing Facility on North Campus. Quizzes are designed to be (TODO)
+There are five quizzes this semester. Quizzes are worth a total of 12% of your overall grade; your lowest two quiz scores are dropped.
 
-Each quiz lasts for 50 minutes and is open for 4-5 days. You can take each quiz once, but you have access to unlimited practice quizzes (TODO)
+Quizzes are meant to be checks of your understanding of the basic computational ideas introduced in the class, while exams assess your deeper theoretical understanding of the ideas and problem-solving skills. Quiz 0 is designed to assess your understanding of high school-level algebra and geometry.
 
-Read the [Quiz Logistics](./quiz-logistics) page for more logistical information.
+| | Open From | Scheduling Opens On | Content |
+| --- | --- | --- | --- |
+| Quiz 0 | September 8 to September 11 | August 31 | High school algebra and geometry |
+| Quiz 1 | September 21 to September 25 | September 14 | Lectures 2–6 |
+| Quiz 2 | October 12 to October 16 | October 5 | Lectures 9–12 |
+| Quiz 3 | November 2 to November 6 | October 26 | Lectures 13–17 |
+| Quiz 4 | November 30 to December 4 | November 23 | Lectures 22–26 |
+
+Read the [Quiz Logistics](../quiz-logistics) page for more logistical information. **Remember to do this ASAP, since Quiz 0 is very early on into the semester.**
 
 ---
 
@@ -201,15 +203,13 @@ We highly encourage you to attend office hours. Even if you don’t have specifi
 
 ## Exams
 
-The course has two in-person, on-paper midterms and one cumulative final exam.
+This class has two Midterm Exams and one Final Exam, all of which will be administered in-person and on paper.
 
-| Exam | Date | Weight |
-| --- | --- | ---: |
-| Midterm 1 | Monday, October 5, 7-9PM | 15% |
-| Midterm 2 | Monday, November 16, 7-9PM | 15% |
-| Final Exam | Friday, December 18, 4-6PM | 20% |
-
-The two midterms are not cumulative. Exam times, locations, and detailed policies will be announced later.
+| Exam | Date and Time | Content | Weight |
+| --- | --- | --- | --- |
+| Midterm 1 | Monday, October 5, 7-9PM | Lectures 1-8 | 15% |
+| Midterm 2 | Monday, November 16, 7-9PM | Lectures 9-19 | 15% |
+| Final Exam | Friday, December 18, 4-6PM | Cumulative | 20% |
 
 If you have conflicts with any of the exams, please let us know on the [Welcome Survey](https://docs.google.com/forms/d/e/1FAIpQLSea-GmUzdWpLHDOmTHa82q4j5b_D8uwsF5A-VRYLoEK7N1JOw/viewform?usp=header). We may provide alternate exam times for students with a valid, documented conflict with a required activity in another course or official university-affiliated activity, or to help students avoid negative academic consequences when their religious obligations conflict with academic requirements.
 
@@ -219,7 +219,9 @@ Exams are to be completed individually, with absolutely no collaboration allowed
 
 ## Course Improvement Surveys
 
-Math 124 is a new course. As a result, we will administer more surveys than you might normally receive in a course so that we can learn from your experience and improve future offerings. These 6 surveys collectively contribute **3%** of the course grade, so each survey is worth **.5%** of your grade.
+Math 124 is a new course. As a result, we will administer more surveys than you might normally receive in a course so that we can learn from your experience and improve future offerings.
+
+Some surveys will be "internal" surveys, run directly by the course staff through Google Forms. These will usually **not** be anonymous. TODO talk more about FCI surveys, maybe combine here
 
 ---
 
@@ -234,7 +236,7 @@ Math 124 is a new course. As a result, we will administer more surveys than you 
 | Quizzes | 12% | 5 total; 2 lowest scores dropped |
 | Labs | 10% | 2 lowest scores dropped |
 | Lecture Attendance | 4% | 28 total; 4 lowest scores dropped |
-| Course Improvement Surveys | 3% | 6 total; each worth .5% |
+| Course Improvement Surveys | 3% | Weights stated in survey |
 | Office Hours | 1% | See [Office Hours](#office-hours) section above |
 
 ---

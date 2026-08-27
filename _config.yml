@@ -39,6 +39,8 @@ aux_links:
     - 'https://www.pensive.com/teacher/classes/umich_math124_fa26'
   PrairieLearn:
     - 'https://us.prairielearn.com/pl/course_instance/228907'
+  Canvas:
+    - 'https://umich.instructure.com/courses/878905'
 footer_content:
 
 compress_html:
