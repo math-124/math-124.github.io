@@ -1,5 +1,5 @@
 ---
-title: "Week 1: Vectors"
+title: "Week 1: Welcome! 👋<br><small>Signups for Quiz 0 open on August 31.</small>"
 weekNumber: 1
 days:
   - date: "2026-09-01"

@@ -1,5 +1,5 @@
 ---
-title: "Week 3: Lines, Planes, and Orthogonality"
+title: "Week 3: Lines, Planes, and Orthogonality<br><small>Signups for Quiz 1 open on September 14.</small>"
 weekNumber: 3
 days:
   - date: "2026-09-14"

@@ -1,5 +1,5 @@
 ---
-title: "Week 13: Determinants and Thanksgiving"
+title: "Week 13: Determinants and Thanksgiving<br><small>Signups for Quiz 4 open on November 23.</small>"
 weekNumber: 13
 days:
   - date: "2026-11-23"

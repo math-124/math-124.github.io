@@ -1,5 +1,5 @@
 ---
-title: "Week 6: Linear Transformations and Matrix Multiplication"
+title: "Week 6: Linear Transformations and Matrix Multiplication; Midterm 1<br><small>Signups for Quiz 2 open on October 5.</small>"
 weekNumber: 6
 days:
   - date: "2026-10-05"

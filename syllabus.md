@@ -72,13 +72,11 @@ Most homework assignments will have accompanying code to run, hosted on Google C
 
 There are two types of regularly-scheduled class meetings in Math 124: lectures and labs.
 
-Lectures are held on Tuesdays and Thursdays from 2:30-3:50PM in Room G127 of Angell Hall, and are co-taught by the instructors, Kartik and Suraj, who will each teach roughly half of the lectures throughout the semester. Lectures are where we introduce core concepts. The term "lecture" makes it sound like you're just going to sit and listen, but we will do our best to make them engaging and interactive. Expect to spend a lot of time working on activities and discussing approaches.
+Lectures are held on Tuesdays and Thursdays from 2:30-3:50PM in Room G127 of Angell Hall, and are co-taught by the instructors, Kartik and Suraj, who will each teach roughly half of the lectures throughout the semester. 
 
-**Lecture attendance is required, and is worth 4% of your overall grade.** How is this assessed?
-- There will be 28 lectures in total; each lecture you attend will earn you 1 "lecture point”, up to a maximum of 24 lecture points.
-- Your lecture score will be the number of lecture points you earn out of 24. This means you can miss up to 4 lectures for any reason (late add, extenuating circumstances, etc.) and still earn a full lecture attendance score.
+Lectures are where we introduce core concepts. The term "lecture" makes it sound like you're just going to sit and listen, but we will do our best to make them engaging and interactive. Expect to spend a lot of time working on activities and discussing approaches. Lectures will be recorded and posted on Canvas, but the recordings are intended for review and occasional absences rather than as a replacement for attending class.
 
-Lectures will be recorded, but the recordings are intended for review and occasional absences rather than as a replacement for attending class. Recordings are available on Canvas.
+### Course Notes
 
 Instead of relying on an existing textbook, we've written a set of notes specifically for the course, which you can find at [notes.math124.org](https://notes.math124.org). Lectures will follow the notes very closely, and will contain additional examples and explanations. We will try our best to make the notes for each lecture available before the lecture, but we are actively writing them as we go, so there may be delays. (That is to say, you aren't expected to read the notes before class, but you should read them after class.)
 
@@ -86,6 +84,12 @@ Instead of relying on an existing textbook, we've written a set of notes specifi
 > **These notes aren’t optional readings, they’re mandatory.** Reading course notes regularly will help you stay up to speed and succeed on assessments.
 
 If you find any typos or ways to improve the notes, please fill out this [form](https://docs.google.com/forms/d/e/1FAIpQLScbG8tqhFHc-F9FkQHBofSxFmyBxTmngf4mTi-8juMdWGAHuQ/viewform?usp=dialog).
+
+### Attendance
+
+**Lecture attendance is required, and is worth 4% of your overall grade.** How is this assessed?
+- There will be 28 lectures in total; each lecture you attend will earn you 1 "lecture point”, up to a maximum of 24 lecture points.
+- Your lecture score will be the number of lecture points you earn out of 24. This means you can miss up to 4 lectures for any reason (late add, extenuating circumstances, etc.) and still earn a full lecture attendance score.
 
 ---
 
@@ -213,6 +217,14 @@ Some surveys will be "internal" surveys, run directly by the course staff throug
 
 The other surveys are called FCI Surveys, which are designed to help track your experience in the course more broadly. FCI stands for "Foundational Course Initiative", a program run by the University of Michigan to improve the quality of foundational courses, like this one. The responses to FCI surveys are not anonymous, but **the instructors do not have access to your responses** – only FCI staff does. FCI staff will summarize the responses and provide insights to us. (They will tell us _who_ filled out the FCI Surveys, though, since we need that information to give you credit for them.)
 
+<details><summary>Read more about the Foundational Course Initiative here.</summary>
+This semester, Math 124 is partnering with the Foundational Course Initiative (FCI) at the Center for Research on Learning and Teaching (CRLT). FCI is a program to improve undergraduate experience and learning in large enrollment courses and involves a course design collaboration between instructional staff, former course students, and FCI consultants. Over the course of the term, outside observers may attend class sessions, and you may be asked to complete surveys and/or participate in focus groups aimed at evaluating the effectiveness of specific course elements. While this is an educational improvement project, it also has a research component to understand educational experiences and document the effectiveness of various course design strategies (IRB: HUM00150716). Your participation in surveys and focus groups will be voluntary, and at no time will your name or any identifying details be included in any research presented either within or beyond the University of Michigan.<br><br>
+
+More information on FCI can be found <a href="http://crlt.umich.edu/fci">here</a>.<br><br>
+ 
+Please feel free to contact crltfciteam@umich.edu if you have any questions or concerns about this project.
+</details>
+
 To start, there are two surveys we need you to fill out:
 
 1. The first is the [Welcome Survey](https://docs.google.com/forms/d/e/1FAIpQLSea-GmUzdWpLHDOmTHa82q4j5b_D8uwsF5A-VRYLoEK7N1JOw/viewform?usp=header). This survey is designed to help us understand your background and whether you need any alternate exams. The responses are **not anonymous**.
@@ -235,6 +247,8 @@ Both surveys are due along with Homework 1, on Tuesday, September 8th. Each one 
 | Lecture Attendance | 4% | 28 total; 4 lowest scores dropped |
 | Course Improvement Surveys | 3% | |
 | Office Hours | 1% | See [Office Hours](#office-hours) section above |
+
+Grades will not be any stricter than the standard grading scale, where an A+ is a 97+, A is 93+, A- is 90+, etc. For instance, the threshold for an "A" will never be higher than 93%.
 
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: "Week 9: PLU and Subspaces"
+title: "Week 9: PLU and Subspaces<br><small>Signups for Quiz 3 open on October 26.</small>"
 weekNumber: 9
 days:
   - date: "2026-10-26"

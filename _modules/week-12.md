@@ -1,5 +1,5 @@
 ---
-title: "Week 12: Least Squares"
+title: "Week 12: Midterm 2; Least Squares"
 weekNumber: 12
 days:
   - date: "2026-11-16"

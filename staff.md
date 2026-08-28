@@ -11,3 +11,12 @@ nav_order: 6
 {% for staffer in course_staff %}
 {{ staffer }}
 {% endfor %}
+
+---
+
+### Acknowledgements
+
+This is a brand-new course, and many people had a hand in developing it over Summer 2026. Special thanks to:
+
+- Undergraduate assistants Sarah Shapin and Malik Alabbas
+- Foundational Course Initiative consultants Blair Beuche and Sewwandi Abeywardana
