@@ -11,6 +11,8 @@ days:
         reading_text: Ch. 1.1
         reading2: https://notes.math124.org/ch01/01-02/
         reading2_text: Ch. 1.2
+        reading3: https://notes.math124.org/ch01/01-03/
+        reading3_text: Ch. 1.3
   - date: "2026-09-02"
     events:
       - name: LAB
