@@ -212,11 +212,7 @@ After you solve the puzzle, compare your thinking with the rest of your group. W
 
 <details markdown="1"><summary>Solution</summary>
 
-The completed grid is
-
 <div class="crossnumber-grid" role="img" aria-label="Completed cross-number grid"> <div class="crossnumber-cell"><span class="crossnumber-label">A</span>6</div> <div class="crossnumber-cell"><span class="crossnumber-label">B</span>4</div> <div class="crossnumber-cell"><span class="crossnumber-label">C</span>2</div> <div class="crossnumber-cell"><span class="crossnumber-label">D</span>7</div> <div class="crossnumber-cell">2</div> <div class="crossnumber-cell">3</div> <div class="crossnumber-cell"><span class="crossnumber-label">E</span>8</div> <div class="crossnumber-cell">8</div> <div class="crossnumber-cell crossnumber-missing"></div> </div>
-
-The written insight will vary. See a walkthrough of the puzzle solution on [page 75 of this PDF](https://berkeley.mt/resources/archives/bmmt-2023/puzzle-solutions.pdf#page=75).
 </details>
 
 **Overview: Sets and set-builder notation**
