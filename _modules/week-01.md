@@ -7,6 +7,7 @@ days:
       - name: LEC 1
         type: lecture
         title: Introduction
+        recording: https://leccap.engin.umich.edu/leccap/player/r/AdNP9N
         reading: https://notes.math124.org/ch01/01-01/
         reading_text: Ch. 1.1
         reading2: https://notes.math124.org/ch01/01-02/
