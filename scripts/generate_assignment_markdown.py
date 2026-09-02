@@ -14,7 +14,8 @@ from pathlib import Path
 
 MATHJAX_SNIPPET = """<script>
 window.MathJax = {
-  tex: {inlineMath: [['$', '$'], ['\\\\(', '\\\\)']]}
+  tex: {inlineMath: [['$', '$'], ['\\\\(', '\\\\)']]},
+  options: {ignoreHtmlClass: 'tex2jax_ignore'}
 };
 </script>
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>"""
@@ -1838,6 +1839,11 @@ def fix_latex_for_mathjax(text: str) -> str:
             r'<span class="math-inline">\1</span>',
             segment,
             flags=re.S,
+        )
+        segment = re.sub(
+            r"\\\$(\d+(?:,\d{3})*(?:\.\d+)?)",
+            r'<span class="currency tex2jax_ignore">$\1</span>',
+            segment,
         )
         return segment.replace(r"\$", "&#36;")
 

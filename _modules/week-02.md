@@ -9,7 +9,8 @@ days:
         title: Length, Distance, and Dot Product
       - name: HW
         type: hw
-        title: Homework 1
+        title: "<b>Mathematical Foundations</b>"
+        problems: ../resources/homeworks/hw01/
       - name: SURV
         type: survey
         title: <b><a href="https://docs.google.com/forms/d/e/1FAIpQLSea-GmUzdWpLHDOmTHa82q4j5b_D8uwsF5A-VRYLoEK7N1JOw/viewform?usp=dialog">Welcome Survey</a></b> and <b><a href="https://umich.qualtrics.com/jfe/form/SV_77nPiZpKNSEVMns">FCI Survey &#x23;1</a></b>

@@ -128,6 +128,8 @@ def check_source_markdown(source_md: Path, allow_solutions: bool) -> list[str]:
         failures.append(f"{source_md}: escaped alignment marker leaked into display math")
     if r"\hdots" in text:
         failures.append(f"{source_md}: unsupported \\hdots command leaked into generated Markdown")
+    if re.search(r"(?:&#36;|&dollar;)\d", text):
+        failures.append(f"{source_md}: unprotected currency dollar may be parsed as MathJax")
     if re.search(r"\\text\{[^}]*\\vec", text):
         failures.append(f"{source_md}: vector command leaked inside a \\text{{...}} block")
     if re.search(r'\[[^\]]+\]\{style="color:', text):
