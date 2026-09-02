@@ -18,7 +18,7 @@ days:
     events:
       - name: LAB
         type: lab
-        title: Lab 1
+        title: "Lab 1: Mathematical Foundations"
         colab_link: https://colab.research.google.com/github/math-124/fa26-code/blob/main/labs/lab01/lab01.ipynb
         note: The worksheet will be posted at the end of the day.
   - date: "2026-09-03"
