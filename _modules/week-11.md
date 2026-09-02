@@ -4,7 +4,7 @@ weekNumber: 11
 days:
   - date: "2026-11-09"
     events:
-      - name: HW
+      - name: HW 10
         type: hw
         title: Homework 10
   - date: "2026-11-10"
@@ -14,7 +14,7 @@ days:
         title: Orthogonal Matrices and Orthogonal Transformations
   - date: "2026-11-11"
     events:
-      - name: LAB
+      - name: LAB 11
         type: lab
         title: Lab 11
   - date: "2026-11-12"

@@ -4,7 +4,7 @@ weekNumber: 10
 days:
   - date: "2026-11-02"
     events:
-      - name: HW
+      - name: HW 9
         type: hw
         title: Homework 9
   - date: "2026-11-03"
@@ -14,7 +14,7 @@ days:
         title: Bases and Dimension
   - date: "2026-11-04"
     events:
-      - name: LAB
+      - name: LAB 10
         type: lab
         title: Lab 10
   - date: "2026-11-05"

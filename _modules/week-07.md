@@ -4,7 +4,7 @@ weekNumber: 7
 days:
   - date: "2026-10-12"
     events:
-      - name: HW
+      - name: HW 6
         type: hw
         title: Homework 6
   - date: "2026-10-13"
@@ -14,7 +14,7 @@ days:
         title: Transpose and Inverses
   - date: "2026-10-14"
     events:
-      - name: LAB
+      - name: LAB 7
         type: lab
         title: Lab 7
   - date: "2026-10-15"

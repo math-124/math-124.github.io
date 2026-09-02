@@ -16,14 +16,13 @@ days:
         reading3_text: Ch. 1.3
   - date: "2026-09-02"
     events:
-      - name: LAB
+      - name: LAB 1
         type: lab
-        title: "Lab 1: Mathematical Foundations"
-        colab_link: https://colab.research.google.com/github/math-124/fa26-code/blob/main/labs/lab01/lab01.ipynb
-        note: The worksheet will be posted at the end of the day.
+        title: "Mathematical Foundations"
+        problems: ../resources/labs/lab01/
   - date: "2026-09-03"
     events:
       - name: LEC 2
         type: lecture
-        title: Vectors as Lists and Arrows
+        title: Vectors
 ---

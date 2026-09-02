@@ -4,7 +4,7 @@ weekNumber: 13
 days:
   - date: "2026-11-23"
     events:
-      - name: HW
+      - name: HW 12
         type: hw
         title: Homework 12
   - date: "2026-11-24"

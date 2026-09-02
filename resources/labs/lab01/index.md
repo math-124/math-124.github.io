@@ -10,7 +10,8 @@ hide_footer_hr: true
 
 <script>
 window.MathJax = {
-  tex: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
+  tex: {inlineMath: [['$', '$'], ['\\(', '\\)']]},
+  options: {ignoreHtmlClass: 'tex2jax_ignore'}
 };
 </script>
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
@@ -543,6 +544,10 @@ Plot the line on the axes below.
 </div>
 
 <details markdown="1"><summary>Solution</summary>
+
+<div style="text-align: center;">
+<img src="imgs/activity5-solution.png" alt="image" style="height: 14.17rem; width: auto; max-width: 100%;">
+</div>
 
 The line has slope <span class="math-inline">\\(\frac54\\)</span> and <span class="math-inline">\\(y\\)</span>-intercept <span class="math-inline">\\(-3\\)</span>. It passes through <span class="math-inline">\\((0,-3)\\)</span> and <span class="math-inline">\\((4,2)\\)</span>, for example.
 </details>

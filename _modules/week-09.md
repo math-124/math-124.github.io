@@ -4,7 +4,7 @@ weekNumber: 9
 days:
   - date: "2026-10-26"
     events:
-      - name: HW
+      - name: HW 8
         type: hw
         title: Homework 8
   - date: "2026-10-27"
@@ -14,7 +14,7 @@ days:
         title: PLU Factorization in General
   - date: "2026-10-28"
     events:
-      - name: LAB
+      - name: LAB 9
         type: lab
         title: Lab 9
   - date: "2026-10-29"

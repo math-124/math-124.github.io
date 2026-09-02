@@ -154,16 +154,20 @@ Before proceeding, make sure you're familiar with the [collaboration policy](htt
 
 ## Problems
 
-- [Problem 1: Triangle Time](#problem-1-triangle-time)
-- [Problem 2: Paralleling the Lab Activity](#problem-2-paralleling-the-lab-activity)
-- [Problem 3: Bob the Builder](#problem-3-bob-the-builder)
-- [Problem 4: Mathematical Feng Shui](#problem-4-mathematical-feng-shui)
-- [Problem 5: A Systematic Start](#problem-5-a-systematic-start)
-- [Problem 6: Programming Activity](#problem-6-programming-activity)
+- [Problem 1: Triangle Time](#problem-1-triangle-time-24-pts)
+- [Problem 2: Paralleling the Lab Activity](#problem-2-paralleling-the-lab-activity-14-pts)
+- [Problem 3: Bob the Builder](#problem-3-bob-the-builder-16-pts)
+- [Problem 4: Mathematical Feng Shui](#problem-4-mathematical-feng-shui-16-pts)
+- [Problem 5: A Systematic Start](#problem-5-a-systematic-start-16-pts)
+- [Problem 6: Programming Activity](#problem-6-programming-activity-14-pts)
 
 ---
 
-## Problem 1: Triangle Time
+Total Points: 24 + 14 + 16 + 16 + 16 + 14 = 100
+
+---
+
+## Problem 1: Triangle Time (24 pts)
 
 Solve each part using any method you'd like. But, as with all homework problems, explain your solutions clearly. For expressions involving square roots or inverse trigonometric functions, make sure to provide both the unsimplified expression (e.g. <span class="math-inline">\\(2 \cos^{-1}\left(\frac{1}{3}\right)\\)</span> or <span class="math-inline">\\(\sqrt{15}\\)</span>) **and** a rounded estimate to two decimal places (e.g. <span class="math-inline">\\(141.06^\circ\\)</span> or <span class="math-inline">\\(3.87\\)</span>).
 
@@ -171,7 +175,7 @@ Solve each part using any method you'd like. But, as with all homework problems,
 <div class="assignment-part" markdown="1">
 <div class="assignment-part-label">a)</div>
 <div class="assignment-part-content" markdown="1">
-Let <span class="math-inline">\\(A = (1, 2)\\)</span>, <span class="math-inline">\\(B = (8, 1)\\)</span>, and <span class="math-inline">\\(C = (6, 8)\\)</span>. Compute the area of the triangle ABC.
+(8 pts) Let <span class="math-inline">\\(A = (1, 2)\\)</span>, <span class="math-inline">\\(B = (8, 1)\\)</span>, and <span class="math-inline">\\(C = (6, 8)\\)</span>. Compute the area of the triangle ABC.
 
 </div>
 </div>
@@ -179,7 +183,7 @@ Let <span class="math-inline">\\(A = (1, 2)\\)</span>, <span class="math-inline"
 <div class="assignment-part" markdown="1">
 <div class="assignment-part-label">b)</div>
 <div class="assignment-part-content" markdown="1">
-A right triangle has side lengths <span class="math-inline">\\(9\\)</span> cm, <span class="math-inline">\\(18\\)</span> cm, and <span class="math-inline">\\(x\\)</span> cm. Compute **all possible** values of <span class="math-inline">\\(x\\)</span>, and find all three angles of the triangle in each case.
+(8 pts) A right triangle has side lengths <span class="math-inline">\\(9\\)</span> cm, <span class="math-inline">\\(18\\)</span> cm, and <span class="math-inline">\\(x\\)</span> cm. Compute **all possible** values of <span class="math-inline">\\(x\\)</span>, and find all three angles of the triangle in each case.
 
 </div>
 </div>
@@ -187,7 +191,7 @@ A right triangle has side lengths <span class="math-inline">\\(9\\)</span> cm, <
 <div class="assignment-part" markdown="1">
 <div class="assignment-part-label">c)</div>
 <div class="assignment-part-content" markdown="1">
-In a triangle <span class="math-inline">\\(ABC\\)</span>, let side <span class="math-inline">\\(a = 9\\)</span> cm, side <span class="math-inline">\\(b = 17\\)</span> cm, and angle <span class="math-inline">\\(C = 13^\circ\\)</span>. Compute the length of side <span class="math-inline">\\(c\\)</span>, and the angles <span class="math-inline">\\(A\\)</span> and <span class="math-inline">\\(B\\)</span> in degrees. <em>Hint: use the law of cosines and law of sines.</em>
+(8 pts) In a triangle <span class="math-inline">\\(ABC\\)</span>, let side <span class="math-inline">\\(a = 9\\)</span> cm, side <span class="math-inline">\\(b = 17\\)</span> cm, and angle <span class="math-inline">\\(C = 13^\circ\\)</span>. Compute the length of side <span class="math-inline">\\(c\\)</span>, and the angles <span class="math-inline">\\(A\\)</span> and <span class="math-inline">\\(B\\)</span> in degrees. <em>Hint: use the law of cosines and law of sines.</em>
 
 </div>
 </div>
@@ -196,7 +200,7 @@ In a triangle <span class="math-inline">\\(ABC\\)</span>, let side <span class="
 
 ---
 
-## Problem 2: Paralleling the Lab Activity
+## Problem 2: Paralleling the Lab Activity (14 pts)
 
 Consider the line
 
@@ -210,7 +214,7 @@ $$
 <div class="assignment-part" markdown="1">
 <div class="assignment-part-label">a)</div>
 <div class="assignment-part-content" markdown="1">
-Plot the line by hand. Make sure to label your axes and label at least two points on the line.
+(4 pts) Plot the line by hand. Make sure to label your axes and label at least two points on the line.
 
 </div>
 </div>
@@ -218,7 +222,7 @@ Plot the line by hand. Make sure to label your axes and label at least two point
 <div class="assignment-part" markdown="1">
 <div class="assignment-part-label">b)</div>
 <div class="assignment-part-content" markdown="1">
-Find an equation for a line that is parallel to this line and passes through the point <span class="math-inline">\\((5,3)\\)</span>.
+(5 pts) Find an equation for a line that is parallel to this line and passes through the point <span class="math-inline">\\((5,3)\\)</span>.
 
 </div>
 </div>
@@ -226,7 +230,7 @@ Find an equation for a line that is parallel to this line and passes through the
 <div class="assignment-part" markdown="1">
 <div class="assignment-part-label">c)</div>
 <div class="assignment-part-content" markdown="1">
-Find an equation for a line that is perpendicular to this line and passes through the point <span class="math-inline">\\((1,2)\\)</span>.
+(5 pts) Find an equation for a line that is perpendicular to this line and passes through the point <span class="math-inline">\\((1,2)\\)</span>.
 
 </div>
 </div>
@@ -235,7 +239,7 @@ Find an equation for a line that is perpendicular to this line and passes throug
 
 ---
 
-## Problem 3: Bob the Builder
+## Problem 3: Bob the Builder (16 pts)
 
 Write each of the following sets in set-builder notation. Refer to [Chapter 1.2](https://notes.math124.org/ch01/01-02/) of the course notes and Lab 1 for examples.
 
@@ -243,7 +247,7 @@ Write each of the following sets in set-builder notation. Refer to [Chapter 1.2]
 <div class="assignment-part" markdown="1">
 <div class="assignment-part-label">a)</div>
 <div class="assignment-part-content" markdown="1">
-All even integers.
+(4 pts) All even integers.
 
 </div>
 </div>
@@ -251,7 +255,7 @@ All even integers.
 <div class="assignment-part" markdown="1">
 <div class="assignment-part-label">b)</div>
 <div class="assignment-part-content" markdown="1">
-All <span class="math-inline">\\(y\\)</span>-values of points on the parabola <span class="math-inline">\\(y = x^2+3\\)</span>.
+(6 pts) All <span class="math-inline">\\(y\\)</span>-values of points on the parabola <span class="math-inline">\\(y = x^2+3\\)</span>.
 
 </div>
 </div>
@@ -259,7 +263,7 @@ All <span class="math-inline">\\(y\\)</span>-values of points on the parabola <s
 <div class="assignment-part" markdown="1">
 <div class="assignment-part-label">c)</div>
 <div class="assignment-part-content" markdown="1">
-The unit circle in <span class="math-inline">\\(\mathbb{R}^2\\)</span> (two-dimensional space), i.e., the circle with center <span class="math-inline">\\((0,0)\\)</span> and radius <span class="math-inline">\\(1\\)</span>.
+(6 pts) The unit circle in <span class="math-inline">\\(\mathbb{R}^2\\)</span> (two-dimensional space), i.e., the circle with center <span class="math-inline">\\((0,0)\\)</span> and radius <span class="math-inline">\\(1\\)</span>.
 
 </div>
 </div>
@@ -268,7 +272,7 @@ The unit circle in <span class="math-inline">\\(\mathbb{R}^2\\)</span> (two-dime
 
 ---
 
-## Problem 4: Mathematical Feng Shui
+## Problem 4: Mathematical Feng Shui (16 pts)
 
 In each of the following subparts, you are given a problem along with a potential solution. Identify the mistakes in each solution, and rewrite the solution so that it is mathematically valid. *Note that a solution may yield the right answer, but may make grammatical mistakes along the way.*
 
@@ -276,7 +280,7 @@ In each of the following subparts, you are given a problem along with a potentia
 <div class="assignment-part" markdown="1">
 <div class="assignment-part-label">a)</div>
 <div class="assignment-part-content" markdown="1">
-Problem: Solve for <span class="math-inline">\\(x\\)</span> in the equation
+(7 pts) Problem: Solve for <span class="math-inline">\\(x\\)</span> in the equation
 
 <div class="math-display">
 $$
@@ -301,7 +305,7 @@ Solution:
 <div class="assignment-part" markdown="1">
 <div class="assignment-part-label">b)</div>
 <div class="assignment-part-content" markdown="1">
-Problem: Solve the inequality
+(9 pts) Problem: Solve the inequality
 
 <div class="math-display">
 $$
@@ -351,7 +355,7 @@ Solution:
 
 ---
 
-## Problem 5: A Systematic Start
+## Problem 5: A Systematic Start (16 pts)
 
 A big focus of this class is learning how to solve systems of equations at scale. For now, let's review your prior knowledge of solving systems. Each part of this problem defines a system of equations --- your job is to state it and solve it without any calculator or software assistance.
 
@@ -359,7 +363,7 @@ A big focus of this class is learning how to solve systems of equations at scale
 <div class="assignment-part" markdown="1">
 <div class="assignment-part-label">a)</div>
 <div class="assignment-part-content" markdown="1">
-The University of Michigan has been hacked by conniving tricksters, and now their football ticket prices are all wrong! One boothsperson reported that they sold 3 student tickets and 5 adult tickets for <span class="currency tex2jax_ignore">$87.50</span>. Another boothsperson reported that they sold 41 student tickets and 6 adult tickets for <span class="currency tex2jax_ignore">$217.20</span>. What are the current costs of 1 student ticket and 1 adult ticket?
+(7 pts) The University of Michigan has been hacked by conniving tricksters, and now their football ticket prices are all wrong! One boothsperson reported that they sold 3 student tickets and 5 adult tickets for <span class="currency tex2jax_ignore">$87.50</span>. Another boothsperson reported that they sold 41 student tickets and 6 adult tickets for <span class="currency tex2jax_ignore">$217.20</span>. What are the current costs of 1 student ticket and 1 adult ticket?
 
 </div>
 </div>
@@ -367,7 +371,7 @@ The University of Michigan has been hacked by conniving tricksters, and now thei
 <div class="assignment-part" markdown="1">
 <div class="assignment-part-label">b)</div>
 <div class="assignment-part-content" markdown="1">
-You, Sarah, and Stephen each have a pet bug. Each bug begins at position <span class="math-inline">\\(0\\)</span> on the number line. A positive position means that the bug moved to the right of its starting point, while a negative position means that it moved to the left.
+(9 pts) You, Sarah, and Stephen each have a pet bug. Each bug begins at position <span class="math-inline">\\(0\\)</span> on the number line. A positive position means that the bug moved to the right of its starting point, while a negative position means that it moved to the left.
 
 At the end of the experiment, the following statements are true:
 
@@ -386,12 +390,16 @@ Find the final position of each bug. If the winner is the bug whose final positi
 
 ---
 
-## Problem 6: Programming Activity
+## Problem 6: Programming Activity (14 pts)
 
 Most homeworks and some labs will have a Jupyter Notebook, containing Python code that supplements our understanding of the relevant mathematical ideas of the week.
 
-To open the notebook for Homework 1, click **this link, coming soon**. Instructions on how to use Google Colab are at [math124.org/running-code](https://math124.org/running-code).
+To open the notebook for Homework 1, click [**this link**](https://colab.research.google.com/github/math-124/fa26-code/blob/main/homeworks/hw01/hw01.ipynb). Instructions on how to use Google Colab are at [math124.org/running-code](https://math124.org/running-code).
 
-Instructions on what to submit from your notebook are coming soon.
+You do not need to submit the notebook anywhere. To get credit for the work you did in this notebook, include screenshots of the following parts of your notebook as part of your PDF submission to Homework 1 on Pensive, specifically under Problem 6:
+
+-   A screenshot of the **code** you wrote in Task 2, to implement the sepia filter.
+
+-   A screenshot of the grayscale and sepia versions of the image you uploaded.
 
 {% endraw %}

@@ -4,7 +4,7 @@ weekNumber: 3
 days:
   - date: "2026-09-14"
     events:
-      - name: HW
+      - name: HW 2
         type: hw
         title: Homework 2
   - date: "2026-09-15"
@@ -14,7 +14,7 @@ days:
         title: "Geometry in R²: Orthonormal Coordinates and Projection"
   - date: "2026-09-16"
     events:
-      - name: LAB
+      - name: LAB 3
         type: lab
         title: Lab 3
   - date: "2026-09-17"

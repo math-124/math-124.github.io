@@ -4,7 +4,7 @@ weekNumber: 8
 days:
   - date: "2026-10-19"
     events:
-      - name: HW
+      - name: HW 7
         type: hw
         title: Homework 7
   - date: "2026-10-20"
@@ -14,7 +14,7 @@ days:
         title: "No Lecture: Fall Break 🍂"
   - date: "2026-10-21"
     events:
-      - name: LAB
+      - name: LAB 8
         type: lab
         title: Lab 8
   - date: "2026-10-22"

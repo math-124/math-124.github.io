@@ -4,7 +4,7 @@ weekNumber: 5
 days:
   - date: "2026-09-28"
     events:
-      - name: HW
+      - name: HW 4
         type: hw
         title: Homework 4
   - date: "2026-09-29"
@@ -14,7 +14,7 @@ days:
         title: Matrices and Matrix-Vector Multiplication
   - date: "2026-09-30"
     events:
-      - name: LAB
+      - name: LAB 5
         type: lab
         title: Lab 5
   - date: "2026-10-01"

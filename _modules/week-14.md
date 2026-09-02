@@ -4,7 +4,7 @@ weekNumber: 14
 days:
   - date: "2026-11-30"
     events:
-      - name: HW
+      - name: HW 13
         type: hw
         title: Homework 13
   - date: "2026-12-01"
@@ -14,7 +14,7 @@ days:
         title: Eigenvalues and Eigenvectors
   - date: "2026-12-02"
     events:
-      - name: LAB
+      - name: LAB 13
         type: lab
         title: Lab 13
   - date: "2026-12-03"

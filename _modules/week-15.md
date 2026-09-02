@@ -4,7 +4,7 @@ weekNumber: 15
 days:
   - date: "2026-12-07"
     events:
-      - name: HW
+      - name: HW 14
         type: hw
         title: Homework 14
   - date: "2026-12-08"
@@ -14,7 +14,7 @@ days:
         title: Symmetric Matrices and the Spectral Theorem
   - date: "2026-12-09"
     events:
-      - name: LAB
+      - name: LAB 14
         type: lab
         title: Lab 14
   - date: "2026-12-10"

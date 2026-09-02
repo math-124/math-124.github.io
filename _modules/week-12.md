@@ -4,7 +4,7 @@ weekNumber: 12
 days:
   - date: "2026-11-16"
     events:
-      - name: HW
+      - name: HW 11
         type: hw
         title: Homework 11
       - name: EXAM
@@ -17,7 +17,7 @@ days:
         title: Least Squares
   - date: "2026-11-18"
     events:
-      - name: LAB
+      - name: LAB 12
         type: lab
         title: Lab 12
   - date: "2026-11-19"

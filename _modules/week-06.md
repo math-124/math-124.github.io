@@ -4,7 +4,7 @@ weekNumber: 6
 days:
   - date: "2026-10-05"
     events:
-      - name: HW
+      - name: HW 5
         type: hw
         title: Homework 5
       - name: EXAM
@@ -17,7 +17,7 @@ days:
         title: Linear Transformations
   - date: "2026-10-07"
     events:
-      - name: LAB
+      - name: LAB 6
         type: lab
         title: Lab 6
   - date: "2026-10-08"
