@@ -25,4 +25,8 @@ days:
       - name: LEC 2
         type: lecture
         title: Vectors
+        reading: https://notes.math124.org/ch01/01-03/
+        reading_text: Ch. 1.3
+        reading2: https://notes.math124.org/ch01/01-04
+        reading2_text: Ch. 1.4
 ---
