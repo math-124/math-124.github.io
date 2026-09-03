@@ -6,7 +6,7 @@ days:
     events:
       - name: LEC 3
         type: lecture
-        title: Length, Distance, and Dot Product
+        title: Vector Arithmetic, Lengths, and the Dot Product
       - name: HW 1
         type: hw
         title: "<b>Mathematical Foundations</b>"
