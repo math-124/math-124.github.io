@@ -29,7 +29,18 @@ The course is taught by a staff of two instructors (who you may think of as the 
 
 ### Credit
 
-This course is worth 4 credits. Math 124 is part of a **brand-new** two-course sequence for first-year students in the College of Engineering, along with Math 125. For more information on how these courses satisfy requirements in your program, contact the Engineering Advising Center.
+This course is worth 4 credits. Math 124 is part of a **brand-new** two-course sequence for first-year students in the College of Engineering, along with Math 125.
+
+<details markdown="1"><summary>Click here to read more about the course and how it fits in the College of Engineering curriculum.</summary>
+
+The College of Engineering is piloting these two courses through an initiative to eventually update the general math requirement for all Engineering undergraduates. With the increasing importance of computational approaches (such as AI) across all engineering disciplines, there is a growing need for all engineers to be fluent in linear algebra, which is the mathematical backbone of such approaches. Furthermore, there are advantages for calculus topics to be taught in a way that highlights computational approaches, engineering-based examples, and analytical methods most relevant to engineering. Therefore, you have the opportunity to take this updated math sequence that is specially designed for engineering students (and co-taught by College of Engineering faculty) to provide benefits beyond the traditional sequence for your subsequent engineering studies.
+
+- Math 124 and Math 125 are unique in that they have been designed from scratch to introduce students to mathematical theory and to show how it is applied to solve real engineering problems.
+- For students in programs that don’t currently require linear algebra, Math 124 will nevertheless give them a deeper understanding of how their field works – every single engineering discipline relies on linear algebra. For students in programs that do require linear algebra courses – like Math 214, Math 217, or EECS 245 – Math 124 will provide a strong foundation for success in those courses.
+- Both pilot courses will be small and co-taught by Michigan Math and Engineering professors, giving you a tighter-knit experience than in the existing calculus courses.
+- In Math 124, rather than teaching students how vectors, matrices, and systems of equations work just in theory, they will be taught those same fundamentals while understanding how they power machine learning, physics, aerodynamics, circuits, cryptography, fluid mechanics, and more.
+</details>
+
 
 ### Prerequisites
 
