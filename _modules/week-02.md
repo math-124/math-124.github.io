@@ -7,6 +7,8 @@ days:
       - name: LEC 3
         type: lecture
         title: Vector Arithmetic, Lengths, and the Dot Product
+        reading: https://notes.math124.org/ch01/01-04
+        reading_text: Ch. 1.4
       - name: HW 1
         type: hw
         title: "<b>Mathematical Foundations</b>"
