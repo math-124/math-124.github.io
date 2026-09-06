@@ -175,7 +175,7 @@ Solve each part using any method you'd like. But, as with all homework problems,
 <div class="assignment-part" markdown="1">
 <div class="assignment-part-label">a)</div>
 <div class="assignment-part-content" markdown="1">
-(8 pts) Let <span class="math-inline">\\(A = (1, 2)\\)</span>, <span class="math-inline">\\(B = (8, 1)\\)</span>, and <span class="math-inline">\\(C = (6, 8)\\)</span>. Compute the area of the triangle ABC.
+(8 pts) Let <span class="math-inline">\\(A = (1, 2)\\)</span>, <span class="math-inline">\\(B = (8, 1)\\)</span>, and <span class="math-inline">\\(C = (6, 8)\\)</span>. Compute the area of the triangle ABC. See [**here**](https://edstem.org/us/courses/103314/discussion/8236522) on Ed for a hint.
 
 </div>
 </div>
