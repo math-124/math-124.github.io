@@ -7,6 +7,7 @@ days:
       - name: LEC 3
         type: lecture
         title: Vector Arithmetic, Lengths, and the Dot Product
+        recording: https://leccap.engin.umich.edu/leccap/player/r/ftBKgV
         reading: https://notes.math124.org/ch01/01-04
         reading_text: Ch. 1.4
         reading2: https://notes.math124.org/ch01/01-05
