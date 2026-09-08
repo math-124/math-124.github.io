@@ -8,7 +8,11 @@ days:
         type: lecture
         title: Vector Arithmetic, Lengths, and the Dot Product
         reading: https://notes.math124.org/ch01/01-04
-        reading_text: Ch. 1.4 (Ch. 1.5 coming soon)
+        reading_text: Ch. 1.4
+        reading2: https://notes.math124.org/ch01/01-05
+        reading2_text: Ch. 1.5
+        reading3: https://notes.math124.org/ch01/01-06
+        reading3_text: Ch. 1.6
       - name: HW 1
         type: hw
         title: "<b>Mathematical Foundations</b>"
