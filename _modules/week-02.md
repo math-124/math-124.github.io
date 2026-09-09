@@ -25,7 +25,8 @@ days:
     events:
       - name: LAB 2
         type: lab
-        title: Lab 2
+        title: "Vector Arithmetic, Lengths, and the Dot Product"
+        problems: ../resources/labs/lab02/
   - date: "2026-09-10"
     events:
       - name: LEC 4

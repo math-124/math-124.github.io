@@ -37,6 +37,12 @@ HOMEWORK_STYLE_SNIPPET = """<style>
   gap: 0.55rem;
   margin: 0 0 1rem;
 }
+.assignment-vector-plot {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 1rem auto;
+}
 .math-display,
 mjx-container[jax="CHTML"][display="true"] {
   max-width: 100%;
@@ -233,6 +239,7 @@ def main() -> int:
     transformed_tex = transform_assignment_tex(
         expanded_tex, include_solutions=args.include_solutions
     )
+    transformed_tex = render_pgfplots_for_web(transformed_tex, output_md)
     transformed_tex, tabular_html = replace_tabulars_with_html_placeholders(
         transformed_tex
     )
@@ -441,6 +448,13 @@ def transform_assignment_tex(text: str, include_solutions: bool = False) -> str:
     text = strip_document_wrapper(text)
     text = strip_false_blocks(text)
     text = strip_latex_comments(text)
+    text = re.sub(
+        r"(?s)\\ifshowsolutions\b(.*?)\\fi\b",
+        lambda match: (re.split(r"\\else\b", match.group(1), maxsplit=1) + [""])[
+            0 if include_solutions else 1
+        ],
+        text,
+    )
     text = replace_crossnumber_tikz_grids(text)
     text = mark_enumerate_environments(text)
     text = strip_layout_commands(text)
@@ -460,6 +474,48 @@ def transform_assignment_tex(text: str, include_solutions: bool = False) -> str:
     text = text.replace("\\newpage", "")
     text = text.replace("\\makemytitle", "% stripped makemytitle")
     return text
+
+
+def render_pgfplots_for_web(text: str, output_md: Path) -> str:
+    """Keep source-drawn coordinate plots in the generated assignment page."""
+    pattern = re.compile(r"(?s)\\begin\{tikzpicture\}.*?\\end\{tikzpicture\}")
+    plot_number = 0
+
+    def replace(match: re.Match[str]) -> str:
+        nonlocal plot_number
+        block = match.group(0)
+        if r"\begin{axis}" not in block:
+            return block
+        plot_number += 1
+        image_dir = output_md.parent / "imgs"
+        image_dir.mkdir(parents=True, exist_ok=True)
+        stem = f"{output_md.parent.name}-plot-{plot_number:02d}"
+        with tempfile.TemporaryDirectory() as temp:
+            temp_dir = Path(temp)
+            plot_tex = temp_dir / "plot.tex"
+            plot_tex.write_text(
+                r"\documentclass[border=6pt]{standalone}" + "\n"
+                r"\usepackage{pgfplots,amsmath,amssymb,fontspec}" + "\n"
+                r"\IfFontExistsTF{Palatino}{\setmainfont{Palatino}}{}" + "\n"
+                r"\begin{document}" + "\n" + block + "\n"
+                r"\end{document}" + "\n"
+            )
+            subprocess.run(
+                ["xelatex", "-interaction=nonstopmode", "-halt-on-error", "plot.tex"],
+                cwd=temp_dir, check=True, capture_output=True,
+            )
+            subprocess.run(
+                ["pdftoppm", "-png", "-r", "180", "-singlefile",
+                 str(temp_dir / "plot.pdf"), str(image_dir / stem)],
+                check=True, capture_output=True,
+            )
+        description = "Vector diagram" if r"\addplot" in block else "Blank coordinate axes"
+        return (
+            f'\n<img src="imgs/{stem}.png" alt="{description}" '
+            'class="assignment-vector-plot">\n'
+        )
+
+    return pattern.sub(replace, text)
 
 
 def strip_person_labels_for_empty_boxes(text: str) -> str:
@@ -656,7 +712,7 @@ def add_solution_choice_summaries(text: str) -> str:
         parts.append(before_solution)
         options = extract_last_choice_group(before_solution)
         solution_body = match.group(1)
-        if options:
+        if any(option.is_correct for option in options):
             summary = render_solution_choice_summary(options)
             solution_body = f"\n{summary}\n\n{solution_body.lstrip()}"
         parts.append(f"\\begin{{solution}}\n{solution_body.rstrip()}\n\\end{{solution}}\n")
@@ -1060,6 +1116,17 @@ def cleanup_markdown(text: str, use_point_badges: bool = True) -> str:
     text = collapse_repeated_section_separators(text)
     text = re.sub(r"\n{3,}", "\n\n", text)
     text = remove_trailing_section_separator(text)
+    # These raw HTML blocks bypass Markdown's backslash unescaping.
+    text = re.sub(
+        r'(?s)(<div class="math-display">)(.*?)(</div>)',
+        lambda m: m[1] + m[2].replace("\\\\\\\\", "\\\\") + m[3],
+        text,
+    )
+    text = re.sub(
+        r'(?m)^<div class="mc-options">.*</div>$',
+        lambda m: m[0].replace("\\\\", "\\"),
+        text,
+    )
     return text.strip()
 
 
