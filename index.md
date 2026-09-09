@@ -13,9 +13,6 @@ Math 124, Fall 2026 at the <b><span style="background-color: #FFCB05; color: #00
 {: .fs-6 .fw-300 .mb-2 }
 **Lectures**: Tuesday and Thursdays, 2:30-4PM, G127 Angell Hall • **Labs**: Various [times](calendar) on Wednesday
 
-{: .green }
-> **Welcome to Math 124, and to the University of Michigan! 👋** Make sure to read the [syllabus](syllabus). See you in lecture on Tuesday and lab on Wednesday!
-
 <a class="btn" style="background-color: #00274C; color: white;" data-current-week-link href="#{{ site.modules.first.title | slugify }}">Jump to the current week</a>
 
 {% for module in site.modules %}

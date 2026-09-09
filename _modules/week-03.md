@@ -6,7 +6,8 @@ days:
     events:
       - name: HW 2
         type: hw
-        title: Homework 2
+        title: "<b>Vector Arithmetic, Lengths, and the Dot Product</b>"
+        problems: ../resources/homeworks/hw02/
   - date: "2026-09-15"
     events:
       - name: LEC 5

@@ -60,6 +60,7 @@ mjx-container[jax="CHTML"][display="true"] {
   margin: 1rem 0;
 }
 .assignment-part {
+  align-items: baseline;
   column-gap: 0.55rem;
   display: grid;
   grid-template-columns: 1.4rem minmax(0, 1fr);
@@ -71,6 +72,30 @@ mjx-container[jax="CHTML"][display="true"] {
 }
 .assignment-part-content > :first-child {
   margin-top: 0;
+}
+.main-content ol.assignment-enumeration {
+  padding-left: 0;
+  list-style: none;
+}
+.main-content ol.assignment-enumeration > li {
+  display: grid;
+  grid-template-columns: 2.5em minmax(0, 1fr);
+  align-items: baseline;
+  column-gap: 0.5em;
+  padding-left: 0;
+  margin: 0.8em 0;
+}
+.main-content ol.assignment-enumeration > li::before {
+  content: none;
+}
+.assignment-enumeration-label {
+  text-align: right;
+}
+.assignment-enumeration-content > :first-child {
+  margin-top: 0;
+}
+.assignment-enumeration-content > :last-child {
+  margin-bottom: 0;
 }
 .mc-options {
   display: flex;
@@ -386,6 +411,7 @@ def expand_inputs_from_text(text: str, base_dir: Path) -> str:
 
 def strip_latex_comments(text: str) -> str:
     """Remove TeX comments while preserving escaped percent signs like \%."""
+    text = re.sub(r"(?ms)^[ \t]*\\begin\{comment\}[^\n]*\n.*?^[ \t]*\\end\{comment\}[^\n]*(?:\n|$)", "", text)
     stripped_lines: list[str] = []
     for line in text.splitlines(keepends=True):
         body = line[:-1] if line.endswith("\n") else line
@@ -490,13 +516,17 @@ def restore_tabular_html(markdown: str, tables: list[str]) -> str:
 
 
 def mark_enumerate_environments(text: str) -> str:
-    """Preserve LaTeX list boundaries across display math for Kramdown."""
-
-    pattern = re.compile(r"(?s)\\begin\{enumerate\}(.*?)\\end\{enumerate\}")
+    """Preserve enumitem labels without sending its options to Pandoc."""
+    pattern = re.compile(r"(?s)\\begin\{enumerate\}(?:\[([^\]]*)\])?(.*?)\\end\{enumerate\}")
 
     def replace(match: re.Match[str]) -> str:
-        body = re.sub(r"(?m)^\s*\\item\s*", "\n\nENUMERATION_ITEM\n\n", match.group(1))
-        return f"\n\nENUMERATION_START\n\n{body}\n\nENUMERATION_END\n\n"
+        options = match.group(1) or ""
+        label = re.search(r"(?:^|,)\s*label\s*=\s*([^,]+)", options)
+        template = label.group(1).strip() if label else r"\arabic*."
+        # Hex keeps TeX label syntax out of Pandoc's math and Markdown parsers.
+        marker = "ENUMERATION_START:" + template.encode().hex()
+        body = re.sub(r"(?m)^\s*\\item\s*", "\n\nENUMERATION_ITEM\n\n", match.group(2))
+        return f"\n\n{marker}\n\n{body}\n\nENUMERATION_END\n\n"
 
     return pattern.sub(replace, text)
 
@@ -1033,33 +1063,39 @@ def cleanup_markdown(text: str, use_point_badges: bool = True) -> str:
     return text.strip()
 
 
-def render_marked_enumerations(text: str) -> str:
-    lines = text.splitlines()
-    rendered: list[str] = []
-    in_list = False
-    in_item = False
+def enumeration_label(template: str, number: int) -> str:
+    labels = {"arabic": str(number), "roman": to_lower_roman(number),
+              "Roman": to_lower_roman(number).upper(), "alph": chr(96 + number), "Alph": chr(64 + number)}
+    return re.sub(r"\\(arabic|roman|Roman|alph|Alph)\*", lambda m: labels[m[1]], template)
 
-    for line in lines:
+
+def render_marked_enumerations(text: str) -> str:
+    rendered: list[str] = []
+    template = None
+    number = 0
+    for line in text.splitlines():
         marker = line.strip()
-        if marker == "ENUMERATION_START":
+        if marker.startswith("ENUMERATION_START:"):
+            template = bytes.fromhex(marker.split(":", 1)[1]).decode()
+            number = 0
             rendered.append('<ol class="assignment-enumeration" markdown="1">')
-            in_list = True
             continue
-        if marker == "ENUMERATION_ITEM" and in_list:
-            if in_item:
-                rendered.append("</li>")
+        if marker == "ENUMERATION_ITEM" and template is not None:
+            if number:
+                rendered.append("</div></li>")
+            number += 1
+            label = html.escape(enumeration_label(template, number))
             rendered.append('<li markdown="1">')
-            in_item = True
+            rendered.append(f'<div class="assignment-enumeration-label">{label}</div>')
+            rendered.append('<div class="assignment-enumeration-content" markdown="1">')
             continue
-        if marker == "ENUMERATION_END" and in_list:
-            if in_item:
-                rendered.append("</li>")
+        if marker == "ENUMERATION_END" and template is not None:
+            if number:
+                rendered.append("</div></li>")
             rendered.append("</ol>")
-            in_list = False
-            in_item = False
+            template = None
             continue
         rendered.append(line)
-
     return "\n".join(rendered)
 
 
@@ -1960,6 +1996,7 @@ def find_recap_inside_assignment_part(markdown: str) -> str | None:
 
 
 def extract_source_items(source_tex: str) -> list[AssignmentItem]:
+    source_tex = strip_latex_comments(source_tex)
     source_tex = strip_false_blocks(source_tex)
     source_tex = strip_showsolutions_blocks(source_tex)
     items: list[AssignmentItem] = []
@@ -1994,6 +2031,7 @@ def extract_generated_items(markdown: str, item_kind: str) -> list[AssignmentIte
 
 
 def normalize_item_title(title: str) -> str:
+    title = re.sub(r"\{\\it\s+([^{}]*)\}", r"*\1*", title)
     title = collapse_whitespace(re.sub(r"<[^>]*>", "", title))
     title = title.replace(r"\\(", "$").replace(r"\\)", "$")
     title = title.replace("\\\\", "\\")
