@@ -31,6 +31,12 @@ window.MathJax = {
   gap: 0.55rem;
   margin: 0 0 1rem;
 }
+.assignment-vector-plot {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 1rem auto;
+}
 .math-display,
 mjx-container[jax="CHTML"][display="true"] {
   max-width: 100%;
@@ -201,7 +207,7 @@ Note: While working on the homework, have Chapters [1.4](https://notes.math124.o
 
 ## Problem 1: Homework 1 Solutions Review (8 pts)
 
-Review the solutions to Homework 1 (once they're posted). Pick **two problem parts** (for example, Problem 3a and Problem 5b) from Homework 1 in which your solutions have the most room for improvement, i.e., where they have unsound reasoning, could be significantly more efficient or clearer, etc. **Include a screenshot of your solution to each problem part**, and in a few sentences, explain what was deficient and how it could be fixed.
+Review [the solutions to Homework 1](https://math124.org/resources/homeworks/hw01/). Pick **two problem parts** (for example, Problem 3a and Problem 5b) from Homework 1 in which your solutions have the most room for improvement, i.e., where they have unsound reasoning, could be significantly more efficient or clearer, etc. **Include a screenshot of your solution to each problem part**, and in a few sentences, explain what was deficient and how it could be fixed.
 
 Alternatively, if you think one of your solutions is significantly better than the posted one, copy it here and explain why you think it is better. If you didn't do Homework 1, choose two problem parts from it that look challenging to you, and in a few sentences, explain the key ideas behind their solutions in your own words.
 
@@ -250,8 +256,8 @@ A cake recipe uses three ingredients: sugar, flour, and milk. We represent the i
 <div class="math-display">
 $$
 \begin{bmatrix}
-\text{sugar in tbsp}\\\\
-\text{flour in cups}\\\\
+\text{sugar in tbsp}\\
+\text{flour in cups}\\
 \text{milk in tbsp}
 \end{bmatrix}.
 $$
@@ -294,7 +300,7 @@ The length, or norm, of a vector is denoted by <span class="math-inline">\\(\lVe
 
 <div class="math-display">
 $$
-\vec{v}=\begin{bmatrix}-5\\\\12\end{bmatrix}\in\mathbb{R}^2.
+\vec{v}=\begin{bmatrix}-5\\12\end{bmatrix}\in\mathbb{R}^2.
 $$
 </div>
 
