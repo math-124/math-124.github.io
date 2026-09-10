@@ -31,6 +31,12 @@ window.MathJax = {
   gap: 0.55rem;
   margin: 0 0 1rem;
 }
+.assignment-vector-plot {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 1rem auto;
+}
 .math-display,
 mjx-container[jax="CHTML"][display="true"] {
   max-width: 100%;
@@ -54,6 +60,7 @@ mjx-container[jax="CHTML"][display="true"] {
   margin: 1rem 0;
 }
 .assignment-part {
+  align-items: baseline;
   column-gap: 0.55rem;
   display: grid;
   grid-template-columns: 1.4rem minmax(0, 1fr);
@@ -65,6 +72,30 @@ mjx-container[jax="CHTML"][display="true"] {
 }
 .assignment-part-content > :first-child {
   margin-top: 0;
+}
+.main-content ol.assignment-enumeration {
+  padding-left: 0;
+  list-style: none;
+}
+.main-content ol.assignment-enumeration > li {
+  display: grid;
+  grid-template-columns: 2.5em minmax(0, 1fr);
+  align-items: baseline;
+  column-gap: 0.5em;
+  padding-left: 0;
+  margin: 0.8em 0;
+}
+.main-content ol.assignment-enumeration > li::before {
+  content: none;
+}
+.assignment-enumeration-label {
+  text-align: right;
+}
+.assignment-enumeration-content > :first-child {
+  margin-top: 0;
+}
+.assignment-enumeration-content > :last-child {
+  margin-bottom: 0;
 }
 .mc-options {
   display: flex;
@@ -139,6 +170,7 @@ mjx-container[jax="CHTML"][display="true"] {
 
 <div class="assignment-actions">
 <a class="btn btn-info assignment-pdf-button" href="/resources/homeworks/hw01/hw01.pdf" target="_blank">View as PDF ✏️</a>
+<a class="btn btn-info assignment-pdf-button" href="/resources/homeworks/hw01/hw01-solutions.pdf" target="_blank">Solutions PDF ✅</a>
 </div>
 
 {: .yellow }
@@ -177,6 +209,25 @@ Solve each part using any method you'd like. But, as with all homework problems,
 <div class="assignment-part-content" markdown="1">
 (8 pts) Let <span class="math-inline">\\(A = (1, 2)\\)</span>, <span class="math-inline">\\(B = (8, 1)\\)</span>, and <span class="math-inline">\\(C = (6, 8)\\)</span>. Compute the area of the triangle ABC. See [**here**](https://edstem.org/us/courses/103314/discussion/8236522) on Ed for a hint.
 
+<details markdown="1"><summary>Solution</summary>
+
+There are two different approaches. One is to inscribe the triangle in a rectangle:
+
+<div style="text-align: center;">
+<img src="imgs/hw01-plot-01.png" alt="Coordinate diagram" class="assignment-vector-plot">
+</div>
+
+The rectangle has area <span class="math-inline">\\(49\\)</span>, while the three triangles each have areas <span class="math-inline">\\(15,7,\frac{7}{2}\\)</span>. Hence the area is <span class="math-inline">\\(49 - 15-7-\frac{7}{2} = \frac{47}{2}\\)</span>.
+
+The other is to internally subdivide the triangle into three pieces:
+
+<div style="text-align: center;">
+<img src="imgs/hw01-plot-02.png" alt="Coordinate diagram" class="assignment-vector-plot">
+</div>
+
+The three internal triangles have areas <span class="math-inline">\\(15,6,\frac{5}{2}\\)</span>, hence the area of the triangle is the sum of these areas which is <span class="math-inline">\\(15+6+\frac{5}{2} = \frac{47}{2}\\)</span>.
+</details>
+
 </div>
 </div>
 
@@ -185,6 +236,15 @@ Solve each part using any method you'd like. But, as with all homework problems,
 <div class="assignment-part-content" markdown="1">
 (8 pts) A right triangle has side lengths <span class="math-inline">\\(9\\)</span> cm, <span class="math-inline">\\(18\\)</span> cm, and <span class="math-inline">\\(x\\)</span> cm. Compute **all possible** values of <span class="math-inline">\\(x\\)</span>, and find all three angles of the triangle in each case.
 
+<details markdown="1"><summary>Solution</summary>
+
+Here <span class="math-inline">\\(x\\)</span> can either be the base/height or the hypotenuse. We use Pythagoras' theorem to find the length of <span class="math-inline">\\(x\\)</span> and inverse trigonometric functions to find the angles.
+
+For the first case, <span class="math-inline">\\(x=\sqrt{18^2 - 9^2} = 9\sqrt{3}\approx 15.59\text{ cm}\\)</span> and the angles are 30, 60, and 90 degrees.
+
+For the second case, <span class="math-inline">\\(x = \sqrt{9^2 + 18^2} = 9\sqrt{5}\approx 20.12\text{ cm}\\)</span> and the angles are <span class="math-inline">\\(\sin^{-1}(1/\sqrt{5})\approx 26.57\\)</span>, <span class="math-inline">\\(\sin^{-1}(2/\sqrt{5}) \approx 63.43\\)</span>, and 90 degrees. Other valid answers for the first angle are <span class="math-inline">\\(\cos^{-1}(2/\sqrt{5})\\)</span> or <span class="math-inline">\\(\tan^{-1}(1/2)\\)</span>; for the second angle are <span class="math-inline">\\(\cos^{-1}(1/\sqrt5)\\)</span> or <span class="math-inline">\\(\tan^{-1}(2)\\)</span>.
+</details>
+
 </div>
 </div>
 
@@ -192,6 +252,34 @@ Solve each part using any method you'd like. But, as with all homework problems,
 <div class="assignment-part-label">c)</div>
 <div class="assignment-part-content" markdown="1">
 (8 pts) In a triangle <span class="math-inline">\\(ABC\\)</span>, let side <span class="math-inline">\\(a = 9\\)</span> cm, side <span class="math-inline">\\(b = 17\\)</span> cm, and angle <span class="math-inline">\\(C = 13^\circ\\)</span>. Compute the length of side <span class="math-inline">\\(c\\)</span>, and the angles <span class="math-inline">\\(A\\)</span> and <span class="math-inline">\\(B\\)</span> in degrees. <em>Hint: use the law of cosines and law of sines.</em>
+
+<details markdown="1"><summary>Solution</summary>
+
+By the law of cosines,
+
+<div class="math-display">
+$$
+c= \sqrt{9^2 + 17^2 - 2\cdot 9\cdot 17\cos C} = \sqrt{370 - 306\cos(13^\circ)} \approx 8.48\text{ cm}.
+$$
+</div>
+
+ Sketching the triangle, we see that <span class="math-inline">\\(A\\)</span> must be an acute angle, while <span class="math-inline">\\(B\\)</span> must be obtuse. Finding the angle at <span class="math-inline">\\(A\\)</span> using the law of sines, we obtain
+
+<div class="math-display">
+$$
+A = \sin^{-1}\left(\frac{9\sin(13^\circ)}{\sqrt{370 - 306\cos(13^\circ)}}\right) \approx 13.82^\circ.
+$$
+</div>
+
+ The remaining angle at <span class="math-inline">\\(B\\)</span> is found by subtracting the angles at <span class="math-inline">\\(A,C\\)</span> from 180 degrees:
+
+<div class="math-display">
+$$
+B = 180^\circ - 13^\circ - \sin^{-1}\left(\frac{9\sin(13^\circ)}{\sqrt{370 - 306\cos(13^\circ)}}\right) \approx 153.18^\circ.
+$$
+</div>
+
+</details>
 
 </div>
 </div>
@@ -216,6 +304,15 @@ $$
 <div class="assignment-part-content" markdown="1">
 (4 pts) Plot the line by hand. Make sure to label your axes and label at least two points on the line.
 
+<details markdown="1"><summary>Solution</summary>
+
+The line has slope <span class="math-inline">\\(\frac{2}{3}\\)</span>, <span class="math-inline">\\(x\\)</span>-intercept <span class="math-inline">\\((3,0)\\)</span>, and <span class="math-inline">\\(y\\)</span>-intercept <span class="math-inline">\\((0,-2)\\)</span>.
+
+<div style="text-align: center;">
+<img src="imgs/hw01-plot-03.png" alt="Coordinate diagram" class="assignment-vector-plot">
+</div>
+</details>
+
 </div>
 </div>
 
@@ -224,6 +321,11 @@ $$
 <div class="assignment-part-content" markdown="1">
 (5 pts) Find an equation for a line that is parallel to this line and passes through the point <span class="math-inline">\\((5,3)\\)</span>.
 
+<details markdown="1"><summary>Solution</summary>
+
+The answer is <span class="math-inline">\\(2x-3y=1\\)</span>. An equivalent form is <span class="math-inline">\\(y = \frac{2}{3}x - \frac{1}{3}\\)</span>.
+</details>
+
 </div>
 </div>
 
@@ -231,6 +333,11 @@ $$
 <div class="assignment-part-label">c)</div>
 <div class="assignment-part-content" markdown="1">
 (5 pts) Find an equation for a line that is perpendicular to this line and passes through the point <span class="math-inline">\\((1,2)\\)</span>.
+
+<details markdown="1"><summary>Solution</summary>
+
+Tne answer is <span class="math-inline">\\(3x+2y=7\\)</span>. An equivalent form is <span class="math-inline">\\(y = -\frac{3}{2}x + \frac{7}{2}\\)</span>.
+</details>
 
 </div>
 </div>
@@ -249,6 +356,11 @@ Write each of the following sets in set-builder notation. Refer to [Chapter 1.2]
 <div class="assignment-part-content" markdown="1">
 (4 pts) All even integers.
 
+<details markdown="1"><summary>Solution</summary>
+
+<span class="math-inline">\\(\lbrace{}2x : x \in \mathbb{Z}\rbrace{}\\)</span>; another valid answer is <span class="math-inline">\\(\lbrace{} x\in \mathbb{Z}: x=2n,\ n\in \mathbb{Z}\rbrace{}\\)</span>.
+</details>
+
 </div>
 </div>
 
@@ -257,6 +369,11 @@ Write each of the following sets in set-builder notation. Refer to [Chapter 1.2]
 <div class="assignment-part-content" markdown="1">
 (6 pts) All <span class="math-inline">\\(y\\)</span>-values of points on the parabola <span class="math-inline">\\(y = x^2+3\\)</span>.
 
+<details markdown="1"><summary>Solution</summary>
+
+<span class="math-inline">\\(\lbrace{}y \in \mathbb{R} : y = x^2+3, x \in \mathbb{R}\rbrace{}\\)</span>; other valid answers include <span class="math-inline">\\(\lbrace{} y\in \mathbb{R}: y\geq 3\rbrace{}\\)</span> and <span class="math-inline">\\(\lbrace{} x^2 + 3: x\in \mathbb{R} \rbrace{}\\)</span>.
+</details>
+
 </div>
 </div>
 
@@ -264,6 +381,11 @@ Write each of the following sets in set-builder notation. Refer to [Chapter 1.2]
 <div class="assignment-part-label">c)</div>
 <div class="assignment-part-content" markdown="1">
 (6 pts) The unit circle in <span class="math-inline">\\(\mathbb{R}^2\\)</span> (two-dimensional space), i.e., the circle with center <span class="math-inline">\\((0,0)\\)</span> and radius <span class="math-inline">\\(1\\)</span>.
+
+<details markdown="1"><summary>Solution</summary>
+
+<span class="math-inline">\\(\lbrace{}\begin{bmatrix} x\\\\y \end{bmatrix} \in \mathbb{R}^2 : x^2 + y^2 = 1\rbrace{}\\)</span> or <span class="math-inline">\\(\lbrace{}(x,y) \in \mathbb{R}^2 : x^2 + y^2 = 1\rbrace{}\\)</span> or other equivalent forms.
+</details>
 
 </div>
 </div>
@@ -298,6 +420,23 @@ Solution:
 </tr>
 </tbody>
 </table>
+
+<details markdown="1"><summary>Solution</summary>
+
+A correctly written solution is
+
+<div class="math-display">
+$$
+\begin{aligned}
+3(x-2)+4&=2x+7,\\
+3x-2&=2x+7,\\
+x&=9.
+\end{aligned}
+$$
+</div>
+
+ The original answer incorrectly chains together expressions and equations with equals signs. While it correctly finds that <span class="math-inline">\\(x=9\\)</span>, it is not true that <span class="math-inline">\\(3(x-2) + 4 = 9\\)</span>, which is an implication of the equation written.
+</details>
 
 </div>
 </div>
@@ -348,6 +487,11 @@ Solution:
 </tbody>
 </table>
 
+<details markdown="1"><summary>Solution</summary>
+
+Multiplying by <span class="math-inline">\\(x\\)</span> without knowing its sign is not valid. If <span class="math-inline">\\(x&gt;0\\)</span>, then multiplying by <span class="math-inline">\\(x\\)</span> gives <span class="math-inline">\\(1&gt;2x\\)</span>, so <span class="math-inline">\\(0&lt;x&lt;\frac{1}{2}\\)</span>. If <span class="math-inline">\\(x&lt;0\\)</span>, then <span class="math-inline">\\(\frac{1}{x}&lt;0\\)</span>, so there are no solutions. Thus, the solution set is <span class="math-inline">\\(\lbrace{} x \in \mathbb{R}: 0 &lt; x &lt; \frac{1}{2} \rbrace{}\\)</span>.
+</details>
+
 </div>
 </div>
 
@@ -364,6 +508,22 @@ A big focus of this class is learning how to solve systems of equations at scale
 <div class="assignment-part-label">a)</div>
 <div class="assignment-part-content" markdown="1">
 (7 pts) The University of Michigan has been hacked by conniving tricksters, and now their football ticket prices are all wrong! One boothsperson reported that they sold 3 student tickets and 5 adult tickets for <span class="currency tex2jax_ignore">$87.50</span>. Another boothsperson reported that they sold 41 student tickets and 6 adult tickets for <span class="currency tex2jax_ignore">$217.20</span>. What are the current costs of 1 student ticket and 1 adult ticket?
+
+<details markdown="1"><summary>Solution</summary>
+
+Set the student ticket price as <span class="math-inline">\\(x\\)</span> and the adult ticket price as <span class="math-inline">\\(y\\)</span>. The system is
+
+<div class="math-display">
+$$
+\begin{cases}
+        3x+5y=87.50,\\
+        41x+6y=217.20.
+      \end{cases}
+$$
+</div>
+
+ We eliminate <span class="math-inline">\\(y\\)</span> by multiplying 6 to the first equation, 5 to the second equation and then subtracting the first from the second. This gives <span class="math-inline">\\(187x=561\\)</span>, so <span class="math-inline">\\(x=3\\)</span>. Substituting this into the first equation gives <span class="math-inline">\\(y=15.70\\)</span>. Hence the student ticket is <span class="currency tex2jax_ignore">$3.00</span> and the adult ticket is <span class="currency tex2jax_ignore">$15.70</span>.
+</details>
 
 </div>
 </div>
@@ -382,6 +542,23 @@ At the end of the experiment, the following statements are true:
 -   Stephen's bug is <span class="math-inline">\\(7\\)</span> centimeters to the right of Sarah's bug.
 
 Find the final position of each bug. If the winner is the bug whose final position has the greatest absolute value, which bug wins?
+
+<details markdown="1"><summary>Solution</summary>
+
+Let <span class="math-inline">\\(x\\)</span>, <span class="math-inline">\\(y\\)</span>, and <span class="math-inline">\\(z\\)</span> be your, Sarah's, and Stephen's bugs' final positions, respectively. Then the system of equations is
+
+<div class="math-display">
+$$
+\begin{cases}
+        x+y+z=35,\\
+        5x+4y+z=7,\\
+        z=y+7.
+      \end{cases}
+$$
+</div>
+
+ Substituting <span class="math-inline">\\(z=y+7\\)</span> into the first two equations gives <span class="math-inline">\\(x+2y=28\\)</span> and <span class="math-inline">\\(5x+5y=0\\)</span>. The second equation gives <span class="math-inline">\\(x=-y\\)</span>, so substituting this into the first gives <span class="math-inline">\\(y=28\\)</span>. It follows that <span class="math-inline">\\(x=-28\\)</span> and <span class="math-inline">\\(z=35\\)</span>. Therefore your bug finishes at <span class="math-inline">\\(-28\\)</span> cm, Sarah's at <span class="math-inline">\\(28\\)</span> cm, and Stephen's at <span class="math-inline">\\(35\\)</span> cm. Stephen's bug wins.
+</details>
 
 </div>
 </div>

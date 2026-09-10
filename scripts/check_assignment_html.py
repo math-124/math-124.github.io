@@ -99,6 +99,9 @@ def check_source_markdown(source_md: Path, allow_solutions: bool) -> list[str]:
 
     if re.search(r"(?m)^ {4}<div class=\"math-display\">", text):
         failures.append(f"{source_md}: indented math-display block will render as code")
+    for block in re.findall(r'<div class="math-display">(.*?)</div>', text, re.S):
+        if "```" in block:
+            failures.append(f"{source_md}: code fence leaked inside display math")
     if re.search(r"(?m)^[ \t]*:::[ \t]*(?:[A-Za-z].*)?$", text):
         failures.append(f"{source_md}: Pandoc fenced div marker leaked into Markdown")
     if "ENUMERATION_" in text:

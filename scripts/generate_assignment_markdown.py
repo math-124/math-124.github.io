@@ -484,8 +484,6 @@ def render_pgfplots_for_web(text: str, output_md: Path) -> str:
     def replace(match: re.Match[str]) -> str:
         nonlocal plot_number
         block = match.group(0)
-        if r"\begin{axis}" not in block:
-            return block
         plot_number += 1
         image_dir = output_md.parent / "imgs"
         image_dir.mkdir(parents=True, exist_ok=True)
@@ -504,12 +502,24 @@ def render_pgfplots_for_web(text: str, output_md: Path) -> str:
                 ["xelatex", "-interaction=nonstopmode", "-halt-on-error", "plot.tex"],
                 cwd=temp_dir, check=True, capture_output=True,
             )
-            subprocess.run(
-                ["pdftoppm", "-png", "-r", "180", "-singlefile",
-                 str(temp_dir / "plot.pdf"), str(image_dir / stem)],
-                check=True, capture_output=True,
-            )
-        description = "Vector diagram" if r"\addplot" in block else "Blank coordinate axes"
+            if shutil.which("pdftoppm"):
+                render_command = [
+                    "pdftoppm", "-png", "-r", "180", "-singlefile",
+                    str(temp_dir / "plot.pdf"), str(image_dir / stem),
+                ]
+            else:
+                render_command = [
+                    "gs", "-q", "-dSAFER", "-dBATCH", "-dNOPAUSE",
+                    "-sDEVICE=png16m", "-r180", "-dTextAlphaBits=4",
+                    "-dGraphicsAlphaBits=4",
+                    f"-sOutputFile={image_dir / (stem + '.png')}",
+                    str(temp_dir / "plot.pdf"),
+                ]
+            subprocess.run(render_command, check=True, capture_output=True)
+        description = (
+            "Coordinate diagram" if r"\begin{axis}" not in block else
+            "Vector diagram" if r"\addplot" in block else "Blank coordinate axes"
+        )
         return (
             f'\n<img src="imgs/{stem}.png" alt="{description}" '
             'class="assignment-vector-plot">\n'
@@ -796,7 +806,10 @@ def wrap_bare_alignment_environments(text: str) -> str:
         end_tag = match.group(4)
         cleaned_content = clean_align_content(content)
         result = f"{begin_tag}\n{cleaned_content}\n{end_tag}"
-        if "$$" in before.split('\n')[-1] or "$$" in after.split('\n')[0]:
+        if (
+            before.rstrip().endswith(("$$", r"\["))
+            and after.lstrip().startswith(("$$", r"\]"))
+        ):
             return result
         return f"\n$$\n{result}\n$$\n"
 
@@ -1587,6 +1600,16 @@ def fence_indented_code_blocks(text: str) -> str:
     i = 0
 
     while i < len(lines):
+        if lines[i].strip() == '<div class="math-display">':
+            # Equations can resemble assignments and retain TeX indentation.
+            # Preserve the complete math block before detecting Python code.
+            while i < len(lines):
+                line = lines[i]
+                converted.append(line)
+                i += 1
+                if line.strip() == "</div>":
+                    break
+            continue
         indent_width = code_block_indent_width(lines[i])
         if indent_width is None:
             converted.append(lines[i])
@@ -1900,6 +1923,14 @@ def fix_latex_for_mathjax(text: str) -> str:
     text = re.sub(r"\$\$(.*?)\$\$", process_display_math, text, flags=re.S)
 
     def protect_inline_math_outside_display(segment: str) -> str:
+        # A currency amount written as $\$3.00$ is text, not a pair of
+        # neighboring math expressions. Normalize it before scanning dollars.
+        segment = re.sub(
+            r"(?<![\\$])\$\\\$(\d+(?:,\d{3})*(?:\.\d+)?)\$(?!\$)",
+            r"\\$\1",
+            segment,
+        )
+
         def convert_multiline_inline_math(match: re.Match[str]) -> str:
             content = match.group(1)
             if "\n\n" in content:
