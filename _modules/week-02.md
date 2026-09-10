@@ -16,7 +16,7 @@ days:
         reading3_text: Ch. 1.6
       - name: HW 1
         type: hw
-        title: "<b>Mathematical Foundations</b>"
+        title: "<b>Mathematical Foundations</b> (click for solutions!)"
         problems: ../resources/homeworks/hw01/
       - name: SURV
         type: survey
