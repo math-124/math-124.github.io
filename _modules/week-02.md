@@ -32,6 +32,7 @@ days:
       - name: LEC 4
         type: lecture
         title: "Dot Product; Geometry in R²: Lines and Equations"
+        recording: https://leccap.engin.umich.edu/leccap/player/r/3034jY
         reading: https://notes.math124.org/ch01/01-06
         reading_text: Ch. 1.6
         reading2: https://notes.math124.org/ch02/02-01
