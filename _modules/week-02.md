@@ -31,7 +31,11 @@ days:
     events:
       - name: LEC 4
         type: lecture
-        title: "Geometry in R²: Lines and Equations"
+        title: "Dot Product; Geometry in R²: Lines and Equations"
+        reading: https://notes.math124.org/ch01/01-06
+        reading_text: Ch. 1.6
+        reading2: https://notes.math124.org/ch02/02-01
+        reading2_text: Ch. 2.1
   - date: "2026-09-11"
     events:
       - name: QUIZ
