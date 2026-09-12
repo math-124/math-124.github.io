@@ -243,6 +243,7 @@ def main() -> int:
     transformed_tex, tabular_html = replace_tabulars_with_html_placeholders(
         transformed_tex
     )
+    transformed_tex, itemize_html = replace_itemize_with_html_placeholders(transformed_tex)
     pdf_link = compute_pdf_link(repo_root, output_md)
     solutions_pdf_link = (
         compute_solutions_pdf_link(repo_root, output_md)
@@ -274,6 +275,8 @@ def main() -> int:
             output_md=output_md,
         )
         final_markdown = restore_tabular_html(final_markdown, tabular_html)
+        for index, block in enumerate(itemize_html):
+            final_markdown = final_markdown.replace(f"ITEMIZEHTMLPLACEHOLDER{index}", block, 1)
         validate_visible_items_match_source(
             assignment=metadata.assignment,
             source_tex=expanded_tex,
@@ -550,6 +553,31 @@ def replace_tabulars_with_html_placeholders(text: str) -> tuple[str, list[str]]:
 
     return pattern.sub(replace, text), tables
 
+
+
+def replace_itemize_with_html_placeholders(text: str) -> tuple[str, list[str]]:
+    """Preserve bullet nesting and display equations through Markdown cleanup."""
+    blocks: list[str] = []
+    depth = 0
+    start = 0
+    spans: list[tuple[int, int]] = []
+    for match in re.finditer(r"\\(begin|end)\{itemize\}", text):
+        if match.group(1) == "begin":
+            if depth == 0:
+                start = match.start()
+            depth += 1
+        else:
+            depth -= 1
+            if depth == 0:
+                spans.append((start, match.end()))
+    for start, end in reversed(spans):
+        if text[start:end].count(r"\begin{itemize}") < 2:
+            continue
+        block = latex_tabular_to_html(text[start:end])
+        placeholder = f"ITEMIZEHTMLPLACEHOLDER{len(blocks)}"
+        blocks.append(block)
+        text = text[:start] + f"\n\n{placeholder}\n\n" + text[end:]
+    return text, blocks
 
 def latex_tabular_to_html(tabular: str) -> str:
     """Let Pandoc preserve LaTeX's explicit header semantics in HTML."""

@@ -4,10 +4,30 @@ import unittest
 from pathlib import Path
 
 from check_assignment_html import check_source_markdown
-from generate_assignment_markdown import cleanup_markdown, fence_indented_code_blocks
+from generate_assignment_markdown import (cleanup_markdown, fence_indented_code_blocks,
+    replace_itemize_with_html_placeholders)
 
 
 class SolutionFormattingTests(unittest.TestCase):
+    def test_nested_bullets_preserve_display_math_and_case_continuation(self):
+        source = r"""\begin{itemize}
+\item First approach: $$0<x<\frac{1}{2}.$$
+\item Two cases:
+\begin{itemize}
+\item $x>0$: positive case.
+\item $x<0$: $$1<2x.$$ This is a \textbf{contradiction}.
+\end{itemize}
+\end{itemize}"""
+        marked, blocks = replace_itemize_with_html_placeholders(source)
+        self.assertEqual(len(blocks), 1)
+        self.assertIn("ITEMIZEHTMLPLACEHOLDER0", cleanup_markdown(marked))
+        rendered = blocks[0]
+        self.assertEqual(rendered.count("<ul>"), 2)
+        self.assertEqual(rendered.count("<li>"), 4)
+        self.assertIn('<span class="math display">', rendered)
+        self.assertIn("<strong>contradiction</strong>", rendered)
+        self.assertLess(rendered.index("contradiction"), rendered.rindex("</li>"))
+
     def test_indented_cases_remain_math(self):
         source = r"""$$
 \begin{cases}

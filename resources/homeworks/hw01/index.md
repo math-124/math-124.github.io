@@ -489,7 +489,18 @@ Solution:
 
 <details markdown="1"><summary>Solution</summary>
 
-Multiplying by <span class="math-inline">\\(x\\)</span> without knowing its sign is not valid. If <span class="math-inline">\\(x&gt;0\\)</span>, then multiplying by <span class="math-inline">\\(x\\)</span> gives <span class="math-inline">\\(1&gt;2x\\)</span>, so <span class="math-inline">\\(0&lt;x&lt;\frac{1}{2}\\)</span>. If <span class="math-inline">\\(x&lt;0\\)</span>, then <span class="math-inline">\\(\frac{1}{x}&lt;0\\)</span>, so there are no solutions. Thus, the solution set is <span class="math-inline">\\(\lbrace{} x \in \mathbb{R}: 0 &lt; x &lt; \frac{1}{2} \rbrace{}\\)</span>.
+The issue with the provided solution is that we don't know the sign of <span class="math-inline">\\(x\\)</span>. If <span class="math-inline">\\(x\\)</span> were negative, then multiplying both sides of the inequality by <span class="math-inline">\\(x\\)</span> would require changing the direction of the inequality.
+
+Here are two ways to correctly present this solution.
+
+<ul>
+<li><p>Notice that <span class="math-inline">\(\frac{1}{x} &gt; 2\)</span> implies that <span class="math-inline">\(x &gt; 0\)</span>, because if <span class="math-inline">\(x\)</span> were negative, then the left-hand side would be negative and could never be greater than positive <span class="math-inline">\(2\)</span>. Then, when <span class="math-inline">\(x &gt; 0\)</span>, we can multiply both sides of <span class="math-inline">\(\frac{1}{x} &gt; 2\)</span> by <span class="math-inline">\(x\)</span> without needing to change the direction of the inequality (as the original solution did), giving <span class="math-inline">\(1 &gt; 2x\)</span> and <span class="math-inline">\(\frac{1}{2} &gt; x\)</span>. This makes the complete solution <span class="math display">\[\{ x \in \mathbb{R} : 0 &lt; x &lt; \frac{1}{2} \}\]</span></p></li>
+<li><p>Start from scratch, and break into two cases: <span class="math-inline">\(x &gt; 0\)</span> and <span class="math-inline">\(x &lt; 0\)</span>. (<span class="math-inline">\(x = 0\)</span> is not a valid case; we can’t divide by <span class="math-inline">\(0\)</span>).</p>
+<ul>
+<li><p><span class="math-inline">\(x &gt; 0\)</span>: Same logic as above.</p></li>
+<li><p><span class="math-inline">\(x &lt; 0\)</span>: From <span class="math-inline">\(\frac{1}{x} &gt; 2\)</span>, we multiply both sides by <span class="math-inline">\(x\)</span> to get <span class="math display">\[1 &lt; 2x.\]</span> Notice that the direction of the inequality is flipped here since we are assuming <span class="math-inline">\(x\)</span> to be negative in this case. Then, dividing both sides by <span class="math-inline">\(2\)</span> gives <span class="math-inline">\(\frac{1}{2} &lt; x\)</span>. But, it is impossible for <span class="math-inline">\(x\)</span> to be less than <span class="math-inline">\(0\)</span> and greater than <span class="math-inline">\(\frac{1}{2}\)</span> at the same time – this is a <strong>contradiction</strong>. So, no values of <span class="math-inline">\(x\)</span> can satisfy the inequality and be negative.</p></li>
+</ul></li>
+</ul>
 </details>
 
 </div>
