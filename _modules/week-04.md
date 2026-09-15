@@ -6,7 +6,7 @@ days:
     events:
       - name: HW 3
         type: hw
-        title: "<b>Lines, Orthogonality, and Projections in $\\mathbb{R}^2$</b>"
+        title: "<b>Lines, Orthogonality, and Projections in ℝ²</b>"
         problems: ../resources/homeworks/hw03/
   - date: "2026-09-22"
     events:
