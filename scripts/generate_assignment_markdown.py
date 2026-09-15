@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import argparse
+import json
 import html
 import re
 import shutil
@@ -2356,7 +2357,7 @@ def collapse_whitespace(text: str) -> str:
 
 
 def escape_frontmatter(text: str) -> str:
-    return text.replace('"', '\\"')
+    return json.dumps(text, ensure_ascii=False)[1:-1]
 
 
 def compute_default_problems_link(week_file: Path, output_md: Path) -> str:

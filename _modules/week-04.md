@@ -6,7 +6,8 @@ days:
     events:
       - name: HW 3
         type: hw
-        title: Homework 3
+        title: "<b>Lines, Orthogonality, and Projections in $\\mathbb{R}^2$</b>"
+        problems: ../resources/homeworks/hw03/
   - date: "2026-09-22"
     events:
       - name: LEC 7
