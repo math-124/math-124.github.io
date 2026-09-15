@@ -36,7 +36,7 @@ Math 124, Fall 2026 at the <b><span style="background-color: #FFCB05; color: #00
     const header = moduleEl.querySelector('.module-header');
     if (!start || !end || !header || !header.id) return null;
 
-    // Module dates list class meetings, but a course week runs Monday through Sunday.
+    /* Module dates list class meetings, but a course week runs Monday through Sunday. */
     start.setDate(start.getDate() - ((start.getDay() + 6) % 7));
     end.setDate(end.getDate() + ((7 - end.getDay()) % 7));
     return { start, end, header };
