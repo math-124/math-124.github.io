@@ -13,6 +13,7 @@ days:
       - name: LEC 5
         type: lecture
         title: "Geometry in R²: Orthonormal Coordinates and Projection"
+        recording: https://leccap.engin.umich.edu/leccap/player/r/FYu7tf
   - date: "2026-09-16"
     events:
       - name: LAB 3
