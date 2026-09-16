@@ -498,6 +498,8 @@ def render_pgfplots_for_web(text: str, output_md: Path) -> str:
             plot_tex.write_text(
                 r"\documentclass[border=6pt]{standalone}" + "\n"
                 r"\usepackage{pgfplots,amsmath,amssymb,fontspec}" + "\n"
+                r"\definecolor{courseblue}{HTML}{1F5FBF}" + "\n"
+                r"\definecolor{lightgray}{gray}{0.94}" + "\n"
                 r"\IfFontExistsTF{Palatino}{\setmainfont{Palatino}}{}" + "\n"
                 r"\begin{document}" + "\n" + block + "\n"
                 r"\end{document}" + "\n"

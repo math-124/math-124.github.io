@@ -170,6 +170,7 @@ mjx-container[jax="CHTML"][display="true"] {
 
 <div class="assignment-actions">
 <a class="btn btn-info assignment-pdf-button" href="/resources/homeworks/hw02/hw02.pdf" target="_blank">View as PDF ✏️</a>
+<a class="btn btn-info assignment-pdf-button" href="/resources/homeworks/hw02/hw02-solutions.pdf" target="_blank">Solutions PDF ✅</a>
 </div>
 
 {: .yellow }
@@ -211,6 +212,11 @@ Review [the solutions to Homework 1](https://math124.org/resources/homeworks/hw0
 
 Alternatively, if you think one of your solutions is significantly better than the posted one, copy it here and explain why you think it is better. If you didn't do Homework 1, choose two problem parts from it that look challenging to you, and in a few sentences, explain the key ideas behind their solutions in your own words.
 
+<details markdown="1"><summary>Solution</summary>
+
+Responses will vary. Look for specific comparisons with the posted solutions and clear explanations of how to improve the selected work.
+</details>
+
 ---
 
 ## Problem 2: Setting Ourselves Up (10 pts)
@@ -224,6 +230,15 @@ Given the following sets, translate the set notation into plain English and sket
 (3 pts)
 <span class="math-inline">\\(\lbrace{}\begin{bmatrix} x\\\\y \end{bmatrix} \in \mathbb{R}^2 : x &gt; 0, y &lt; 0\rbrace{}\\)</span>
 
+<details markdown="1"><summary>Solution</summary>
+
+This is the set of all vectors in <span class="math-inline">\\(\mathbb{R}^2\\)</span> with a positive first coordinate and negative second coordinate. Shade the fourth quadrant, excluding both axes; draw the boundary rays dashed.
+
+<div style="text-align: center;">
+<img src="imgs/hw02-plot-01.png" alt="Coordinate diagram" class="assignment-vector-plot">
+</div>
+</details>
+
 </div>
 </div>
 
@@ -233,6 +248,15 @@ Given the following sets, translate the set notation into plain English and sket
 (3 pts)
 <span class="math-inline">\\(\lbrace{}\begin{bmatrix} x\\\\y \end{bmatrix} \in \mathbb{R}^2 : x &lt; 0, y \geq 3\rbrace{}\\)</span>
 
+<details markdown="1"><summary>Solution</summary>
+
+This is the set of vectors in <span class="math-inline">\\(\mathbb{R}^2\\)</span> with a negative first coordinate and a second coordinate at least <span class="math-inline">\\(3\\)</span>. Shade the region to the left of the <span class="math-inline">\\(y\\)</span>-axis and on or above the line <span class="math-inline">\\(y=3\\)</span>. Include the boundary <span class="math-inline">\\(y=3\\)</span> for <span class="math-inline">\\(x&lt;0\\)</span> and exclude the boundary <span class="math-inline">\\(x=0\\)</span>, including <span class="math-inline">\\((0,3)\\)</span>; draw the horizontal boundary solid and the vertical boundary dashed.
+
+<div style="text-align: center;">
+<img src="imgs/hw02-plot-02.png" alt="Coordinate diagram" class="assignment-vector-plot">
+</div>
+</details>
+
 </div>
 </div>
 
@@ -241,6 +265,15 @@ Given the following sets, translate the set notation into plain English and sket
 <div class="assignment-part-content" markdown="1">
 (4 pts)
 <span class="math-inline">\\(\lbrace{}\begin{bmatrix} x\\\\y\\\\z \end{bmatrix} \in \mathbb{R}^3 : x, z \in \mathbb{R}, y = -5\rbrace{}\\)</span>
+
+<details markdown="1"><summary>Solution</summary>
+
+This is the plane <span class="math-inline">\\(y=-5\\)</span> in <span class="math-inline">\\(\mathbb{R}^3\\)</span>: the first and third coordinates can be any real numbers, and the second coordinate is always <span class="math-inline">\\(-5\\)</span>. Sketch a plane parallel to the <span class="math-inline">\\(xz\\)</span>-plane passing through the point <span class="math-inline">\\((0,-5,0)\\)</span>.
+
+<div style="text-align: center;">
+<img src="imgs/hw02-plot-03.png" alt="Coordinate diagram" class="assignment-vector-plot">
+</div>
+</details>
 
 </div>
 </div>
@@ -279,6 +312,22 @@ $$
 <div class="assignment-part-content" markdown="1">
 (4 pts) Write vectors <span class="math-inline">\\(\vec{v}&#95;1,\vec{v}&#95;2,\vec{v}&#95;3,\vec{v}&#95;4\\)</span> representing the four recipes. Identify a relationship between two of the vectors and explain what that relationship means in the context of the recipes.
 
+<details markdown="1"><summary>Solution</summary>
+
+The recipe vectors are
+
+<div class="math-display">
+$$
+\vec{v}_1=\begin{bmatrix}2\\1\\3\end{bmatrix},\quad
+\vec{v}_2=\begin{bmatrix}3\\2\\4\end{bmatrix},\quad
+\vec{v}_3=\begin{bmatrix}4\\2\\6\end{bmatrix},\quad
+\vec{v}_4=\begin{bmatrix}1\\1\\2\end{bmatrix}.
+$$
+</div>
+
+ Since <span class="math-inline">\\(\vec{v}&#95;3=2\vec{v}&#95;1\\)</span>, Recipe 3 is a double batch of Recipe 1, with the same ingredient proportions.
+</details>
+
 </div>
 </div>
 
@@ -286,6 +335,23 @@ $$
 <div class="assignment-part-label">b)</div>
 <div class="assignment-part-content" markdown="1">
 (4 pts) Suppose you make two batches of Recipe 1, no batches of Recipe 2, three batches of Recipe 3, and two batches of Recipe 4. Write a linear combination representing the total ingredients used. Then determine the total amount of sugar, flour, and milk used.
+
+<details markdown="1"><summary>Solution</summary>
+
+The appropriate linear combination is
+
+<div class="math-display">
+$$
+2\vec{v}_1+0\vec{v}_2+3\vec{v}_3+2\vec{v}_4
+=2\begin{bmatrix}2\\1\\3\end{bmatrix}
++3\begin{bmatrix}4\\2\\6\end{bmatrix}
++2\begin{bmatrix}1\\1\\2\end{bmatrix}
+=\begin{bmatrix}18\\10\\28\end{bmatrix}.
+$$
+</div>
+
+ Thus, the total is <span class="math-inline">\\(18\\)</span> tbsp of sugar, <span class="math-inline">\\(10\\)</span> cups of flour, and <span class="math-inline">\\(28\\)</span> tbsp of milk.
+</details>
 
 </div>
 </div>
@@ -310,6 +376,15 @@ $$
 <div class="assignment-part-content" markdown="1">
 (2 pts) Sketch <span class="math-inline">\\(\vec{v}\\)</span> in the coordinate plane.
 
+<details markdown="1"><summary>Solution</summary>
+
+Draw an arrow from <span class="math-inline">\\((0,0)\\)</span> to <span class="math-inline">\\((-5,12)\\)</span>, with the axes and endpoint labeled.
+
+<div style="text-align: center;">
+<img src="imgs/hw02-plot-04.png" alt="Coordinate diagram" class="assignment-vector-plot">
+</div>
+</details>
+
 </div>
 </div>
 
@@ -318,6 +393,18 @@ $$
 <div class="assignment-part-content" markdown="1">
 (2 pts) Compute <span class="math-inline">\\(\lVert \vec{v} \rVert\\)</span>.
 
+<details markdown="1"><summary>Solution</summary>
+
+By the Pythagorean theorem,
+
+<div class="math-display">
+$$
+\lVert \vec{v} \rVert=\sqrt{(-5)^2+12^2}=\sqrt{169}=13.
+$$
+</div>
+
+</details>
+
 </div>
 </div>
 
@@ -325,6 +412,20 @@ $$
 <div class="assignment-part-label">c)</div>
 <div class="assignment-part-content" markdown="1">
 (2 pts) Find a unit vector (i.e. a vector of length one) pointing in the same direction as <span class="math-inline">\\(\vec{v}\\)</span>.
+
+<details markdown="1"><summary>Solution</summary>
+
+Dividing by the length gives
+
+<div class="math-display">
+$$
+\frac{\vec{v}}{\lVert \vec{v} \rVert}=\frac1{13}\begin{bmatrix}-5\\12\end{bmatrix}
+=\begin{bmatrix}-\frac5{13}\\[2pt]\frac{12}{13}\end{bmatrix}.
+$$
+</div>
+
+ Its length is <span class="math-inline">\\(1\\)</span>, and the positive scale factor preserves direction.
+</details>
 
 </div>
 </div>
@@ -359,6 +460,22 @@ $$
 <div class="assignment-part-content" markdown="1">
 (2 pts) Let <span class="math-inline">\\(\vec{d}\\)</span> be the vector that describes the displacement from <span class="math-inline">\\(P\\)</span> to <span class="math-inline">\\(Q\\)</span>. Find <span class="math-inline">\\(\vec{d}\\)</span>.
 
+<details markdown="1"><summary>Solution</summary>
+
+Let <span class="math-inline">\\(\vec p, \vec q\\)</span> be the position vectors of <span class="math-inline">\\(P\\)</span>, <span class="math-inline">\\(Q\\)</span> respectively. We obtain <span class="math-inline">\\(\vec d\\)</span> by subtracting the two vectors:
+
+<div class="math-display">
+$$
+\vec{d}=\vec q - \vec p = \begin{bmatrix}6-2\\7-(-1)\\-4-4\end{bmatrix}
+=\begin{bmatrix}4\\8\\-8\end{bmatrix}.
+$$
+</div>
+
+<div style="text-align: center;">
+<img src="imgs/hw02-plot-05.png" alt="Coordinate diagram" class="assignment-vector-plot">
+</div>
+</details>
+
 </div>
 </div>
 
@@ -367,6 +484,18 @@ $$
 <div class="assignment-part-content" markdown="1">
 (2 pts) Find the exact distance traveled by the drone.
 
+<details markdown="1"><summary>Solution</summary>
+
+The distance is the length of the displacement:
+
+<div class="math-display">
+$$
+\lVert \vec{d} \rVert=\sqrt{4^2+8^2+(-8)^2}=\sqrt{144}=12\text{ meters}.
+$$
+</div>
+
+</details>
+
 </div>
 </div>
 
@@ -374,6 +503,25 @@ $$
 <div class="assignment-part-label">c)</div>
 <div class="assignment-part-content" markdown="1">
 (6 pts) Suppose the drone continues to travel another 10 meters in the same direction. What are its coordinates?
+
+<details markdown="1"><summary>Solution</summary>
+
+We divide the displacement by its length <span class="math-inline">\\(12\\)</span> to obtain the unit vector in the direction of <span class="math-inline">\\(\vec d\\)</span>. Scale this unit vector by <span class="math-inline">\\(10\\)</span> and add the additional displacement to <span class="math-inline">\\(Q\\)</span>, where the drone starts this part of its flight:
+
+<div class="math-display">
+$$
+\vec q + \frac{10}{12}\vec{d} = \begin{bmatrix}6\\7\\-4\end{bmatrix}
++\frac{10}{12}\begin{bmatrix}4\\8\\-8\end{bmatrix}
+=\begin{bmatrix}\frac{28}{3}\\[2pt]\frac{41}{3}\\[2pt]-\frac{32}{3}\end{bmatrix}.
+$$
+</div>
+
+ The new coordinates are <span class="math-inline">\\(\left(\frac{28}{3},\frac{41}{3},-\frac{32}{3}\right)\\)</span>. In the figure below, the drone's new position is <span class="math-inline">\\(R\\)</span>.
+
+<div style="text-align: center;">
+<img src="imgs/hw02-plot-06.png" alt="Coordinate diagram" class="assignment-vector-plot">
+</div>
+</details>
 
 </div>
 </div>
@@ -425,6 +573,17 @@ $$
 </div></li>
 </ol>
 
+<details markdown="1"><summary>Solution</summary>
+
+Draw each vector as an arrow from the origin to its coordinates.
+
+<div style="text-align: center;">
+<img src="imgs/hw02-plot-07.png" alt="Coordinate diagram" class="assignment-vector-plot">
+</div>
+
+The dot products are <span class="math-inline">\\(0\\)</span>, <span class="math-inline">\\(15\\)</span>, and <span class="math-inline">\\(12\\)</span>, respectively. The corresponding cosine similarities are <span class="math-inline">\\(0\\)</span>, <span class="math-inline">\\(15/17\\)</span>, and <span class="math-inline">\\(1\\)</span>. Only the first pair is orthogonal.
+</details>
+
 </div>
 </div>
 
@@ -451,6 +610,27 @@ $$
 </div></li>
 </ol>
 
+<details markdown="1"><summary>Solution</summary>
+
+In (i), orthogonality requires
+
+<div class="math-display">
+$$
+\vec u\cdot \vec v = -5k-3k-\frac14=0,
+$$
+</div>
+
+ giving <span class="math-inline">\\(k=-\frac1{32}\\)</span>. In (ii), it requires
+
+<div class="math-display">
+$$
+\vec u\cdot \vec v = 4k^2+8k=4k(k+2)=0,
+$$
+</div>
+
+ giving <span class="math-inline">\\(k=0\\)</span> or <span class="math-inline">\\(k=-2\\)</span>.
+</details>
+
 </div>
 </div>
 
@@ -466,6 +646,20 @@ $$
 </div>
 
  Explain why equality holds exactly when the vectors point in the same or opposite directions. Finally, explain why the inequality also holds if either vector is zero. This inequality is called the Cauchy--Schwarz inequality.
+
+<details markdown="1"><summary>Solution</summary>
+
+Let <span class="math-inline">\\(\theta\\)</span> denote the angle between the vectors <span class="math-inline">\\(\vec u\\)</span> and <span class="math-inline">\\(\vec v\\)</span>. Then since <span class="math-inline">\\(|\cos\theta|\leq1\\)</span>,
+
+<div class="math-display">
+$$
+|\vec{u}\cdot\vec{v}|=\lVert \vec{u} \rVert\lVert \vec{v} \rVert\,|\cos\theta|
+\leq\lVert \vec{u} \rVert\lVert \vec{v} \rVert.
+$$
+</div>
+
+ For nonzero vectors, equality holds exactly when <span class="math-inline">\\(|\cos\theta|=1\\)</span>, so <span class="math-inline">\\(\theta=0^\circ\\)</span> or <span class="math-inline">\\(180^\circ\\)</span>: the vectors point in the same or opposite directions. If either vector is zero, both sides of the inequality are zero.
+</details>
 
 </div>
 </div>
@@ -491,6 +685,24 @@ $$
 <div class="assignment-part-content" markdown="1">
 (4 pts) Find <span class="math-inline">\\(\vec{u}\cdot\vec{v}\\)</span>.
 
+<details markdown="1"><summary>Solution</summary>
+
+Distributing the dot product gives
+
+<div class="math-display">
+$$
+\begin{aligned}
+-71 = (3\vec{u}-4\vec{v})\cdot(\vec{u}+9\vec{v})
+&=3\lVert \vec{u} \rVert^2+27\vec{u}\cdot\vec{v}
+-4\vec{v}\cdot\vec{u}-36\lVert \vec{v} \rVert^2\\
+&=27+23\vec{u}\cdot\vec{v}-144.
+\end{aligned}
+$$
+</div>
+
+ Thus <span class="math-inline">\\(23\vec{u}\cdot\vec{v}=46\\)</span> and <span class="math-inline">\\(\boxed{\vec{u}\cdot\vec{v}=2}\\)</span>.
+</details>
+
 </div>
 </div>
 
@@ -498,6 +710,21 @@ $$
 <div class="assignment-part-label">b)</div>
 <div class="assignment-part-content" markdown="1">
 (2 pts) Find <span class="math-inline">\\(\lVert -2\vec{u} \rVert\\)</span> and <span class="math-inline">\\(\lVert 3\vec{v} \rVert\\)</span>. Explain why neither length is negative.
+
+<details markdown="1"><summary>Solution</summary>
+
+The scaling property gives
+
+<div class="math-display">
+$$
+\lVert -2\vec{u} \rVert=|-2|\lVert \vec{u} \rVert=2(3)=6,
+\qquad
+\lVert 3\vec{v} \rVert=|3|\lVert \vec{v} \rVert=3(2)=6.
+$$
+</div>
+
+ Lengths are nonnegative. A negative scalar reverses direction, but scales length by its absolute value.
+</details>
 
 </div>
 </div>
@@ -507,6 +734,30 @@ $$
 <div class="assignment-part-content" markdown="1">
 (4 pts) Find the cosine similarity of <span class="math-inline">\\(\vec{u}\\)</span> and <span class="math-inline">\\(\vec{v}\\)</span>. Then find the cosine similarity of <span class="math-inline">\\(-2\vec{u}\\)</span> and <span class="math-inline">\\(3\vec{v}\\)</span>. If the two cosine similarities are different, why are they different?
 
+<details markdown="1"><summary>Solution</summary>
+
+The original cosine similarity is
+
+<div class="math-display">
+$$
+\frac{\vec{u}\cdot\vec{v}}{\lVert \vec{u} \rVert\lVert \vec{v} \rVert}
+=\frac{2}{3(2)}=\frac13.
+$$
+</div>
+
+ For the scaled vectors, it is
+
+<div class="math-display">
+$$
+\frac{(-2\vec{u})\cdot(3\vec{v})}{\lVert -2\vec{u} \rVert\lVert 3\vec{v} \rVert}
+=\frac{-6(\vec{u}\cdot\vec{v})}{6(6)}
+=\frac{-12}{36}=-\frac13.
+$$
+</div>
+
+ The cosine similarities differ because multiplying <span class="math-inline">\\(\vec{u}\\)</span> by <span class="math-inline">\\(-2\\)</span> reverses its direction, while multiplying <span class="math-inline">\\(\vec{v}\\)</span> by <span class="math-inline">\\(3\\)</span> preserves its direction. Reversing exactly one vector changes the sign of the cosine similarity; the positive scaling factors cancel between the numerator and denominator.
+</details>
+
 </div>
 </div>
 
@@ -514,6 +765,20 @@ $$
 <div class="assignment-part-label">d)</div>
 <div class="assignment-part-content" markdown="1">
 (2 pts) Find <span class="math-inline">\\(\vec{u}\cdot\vec{u}\\)</span> and <span class="math-inline">\\(\vec{v}\cdot\vec{v}\\)</span>.
+
+<details markdown="1"><summary>Solution</summary>
+
+A vector's dot product with itself is its squared length, so
+
+<div class="math-display">
+$$
+\vec{u}\cdot\vec{u}=\lVert \vec{u} \rVert^2=3^2=9,
+\qquad
+\vec{v}\cdot\vec{v}=\lVert \vec{v} \rVert^2=2^2=4.
+$$
+</div>
+
+</details>
 
 </div>
 </div>
@@ -524,6 +789,21 @@ $$
 (5 pts) Find <span class="math-inline">\\(\lVert \vec{u}+\vec{v} \rVert\\)</span>. Is it equal to <span class="math-inline">\\(\sqrt{\lVert \vec{u} \rVert^2+\lVert \vec{v} \rVert^2}\\)</span>? Explain what condition would make these quantities equal.
 
 <em>Hint: Start by writing <span class="math-inline">\\(\lVert\vec{u}+\vec{v}\rVert^2\\)</span> as <span class="math-inline">\\((\vec{u}+\vec{v})\cdot(\vec{u}+\vec{v})\\)</span>. Then, expand this as we did in <a href="https://notes.math124.org/ch01/01-06/#orthogonality-and-the-pythagorean-theorem">Chapter 1.6</a>.</em>
+
+<details markdown="1"><summary>Solution</summary>
+
+Expanding gives
+
+<div class="math-display">
+$$
+\lVert \vec{u}+\vec{v} \rVert^2
+=\lVert \vec{u} \rVert^2+2\vec{u}\cdot\vec{v}+\lVert \vec{v} \rVert^2
+=9+4+4=17.
+$$
+</div>
+
+ Thus <span class="math-inline">\\(\lVert \vec{u}+\vec{v} \rVert=\sqrt{17}\\)</span>, whereas <span class="math-inline">\\(\sqrt{\lVert \vec{u} \rVert^2+\lVert \vec{v} \rVert^2}=\sqrt{13}\\)</span>. The quantities are equal exactly when <span class="math-inline">\\(\vec{u}\cdot\vec{v}=0\\)</span>, meaning the vectors are orthogonal.
+</details>
 
 </div>
 </div>
@@ -550,6 +830,24 @@ $$
 
  <em>Hint: Start by following the same hint as in Problem 7e, then use the Cauchy--Schwarz inequality.</em>
 
+<details markdown="1"><summary>Solution</summary>
+
+Using distributivity, symmetry, and Cauchy--Schwarz,
+
+<div class="math-display">
+$$
+\begin{aligned}
+\lVert \vec{u}+\vec{v} \rVert^2
+&=\lVert \vec{u} \rVert^2+2\vec{u}\cdot\vec{v}+\lVert \vec{v} \rVert^2\\
+&\leq\lVert \vec{u} \rVert^2+2|\vec{u}\cdot\vec{v}|+\lVert \vec{v} \rVert^2\\
+&\leq\lVert \vec{u} \rVert^2+2\lVert \vec{u} \rVert\lVert \vec{v} \rVert+\lVert \vec{v} \rVert^2\\
+&=(\lVert \vec{u} \rVert+\lVert \vec{v} \rVert)^2.
+\end{aligned}
+$$
+</div>
+
+</details>
+
 </div>
 </div>
 
@@ -563,6 +861,11 @@ $$
 \lVert\vec{u}+\vec{v}\rVert\leq\lVert\vec{u}\rVert+\lVert\vec{v}\rVert
 $$
 </div>
+
+<details markdown="1"><summary>Solution</summary>
+
+Both <span class="math-inline">\\(\lVert \vec{u}+\vec{v} \rVert\\)</span> and <span class="math-inline">\\(\lVert \vec{u} \rVert+\lVert \vec{v} \rVert\\)</span> are nonnegative. Taking square roots preserves the inequality from part (a), giving <span class="math-inline">\\(\lVert \vec{u}+\vec{v} \rVert\leq\lVert \vec{u} \rVert+\lVert \vec{v} \rVert\\)</span>.
+</details>
 
 </div>
 </div>
