@@ -24,7 +24,7 @@ days:
     events:
       - name: LAB 3
         type: lab
-        title: Lab 3
+        title: "Lines, Vectors and Orthogonality in ℝ²"
   - date: "2026-09-17"
     events:
       - name: LEC 6
