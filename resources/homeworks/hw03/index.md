@@ -520,6 +520,49 @@ Team Maize stands uphill from the cart and pulls it up the ramp with a force of 
 
 ## Problem 7: Programming Activity (15 pts)
 
-The Jupyter Notebook for Problem 7 will be posted by Wednesday. Refresh this page (or re-download the PDF) right before lab section to see it.
+Most homeworks and some labs will have a Jupyter Notebook, containing Python code that supplements our understanding of the relevant mathematical ideas of the week.
+
+To open the notebook for Homework 3, click [**this link**](https://colab.research.google.com/github/math-124/fa26-code/blob/main/homeworks/hw03/hw03.ipynb). Instructions on how to use Google Colab are at [math124.org/running-code](https://math124.org/running-code).
+
+You won't need to submit the notebook anywhere. To get credit for the work you did in this notebook, include the following in your PDF submission to Homework 3 on Pensive, specifically under **Problem 7**:
+
+<ol class="assignment-enumeration" markdown="1">
+
+<li markdown="1">
+<div class="assignment-enumeration-label">1.</div>
+<div class="assignment-enumeration-content" markdown="1">
+
+**Task 1 (3 pts):** A screenshot of the plot showing your two wind vectors.
+
+</div></li>
+<li markdown="1">
+<div class="assignment-enumeration-label">2.</div>
+<div class="assignment-enumeration-content" markdown="1">
+
+**Task 2 (0 pts; but must complete):** Nothing to submit.
+
+</div></li>
+<li markdown="1">
+<div class="assignment-enumeration-label">3.</div>
+<div class="assignment-enumeration-content" markdown="1">
+
+**Task 3 (0 pts; but must complete):** Nothing to submit.
+
+</div></li>
+<li markdown="1">
+<div class="assignment-enumeration-label">4.</div>
+<div class="assignment-enumeration-content" markdown="1">
+
+**Task 4 (4 pts):** A screenshot of your completed reconstruction code, plus a written response stating the sign of <span class="math-inline">\\(a\\)</span>, using it to identify whether `w = np.array([10, 0])` is a headwind or tailwind for Runway 24, and stating the crosswind magnitude <span class="math-inline">\\(|b|\\)</span>.
+
+</div></li>
+<li markdown="1">
+<div class="assignment-enumeration-label">5.</div>
+<div class="assignment-enumeration-content" markdown="1">
+
+**Task 5 (8 pts):** Your written answers to both questions (4 pts each). No screenshots are required.
+
+</div></li>
+</ol>
 
 {% endraw %}
