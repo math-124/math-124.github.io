@@ -70,6 +70,9 @@
                   {%- endfor -%}
                 {%- endcapture -%}
                 {%- if reading_count > 0 -%}<button type="button" class="btn btn-info btn-sm expandable-code-btn" onclick="toggleExpandableLinks(this)" data-target-id="reading-links-{{ page.weekNumber }}-{{ forloop.index0 }}-{{ forloop.parentloop.index0 }}" aria-expanded="false" aria-controls="reading-links-{{ page.weekNumber }}-{{ forloop.index0 }}-{{ forloop.parentloop.index0 }}">📕 Readings ▼</button>{%- endif -%}
+                {%- if event.worksheet -%}
+                <a href="{{ event.worksheet }}" class="btn btn-info btn-sm">📝 Worksheet</a>
+                {%- endif -%}
                 {%- if event.live_notes -%}
                 <small><a href="{{ event.live_notes }}" class="btn btn-info btn-sm">📝 In-Class Notes</a></small>
                 {%- endif -%}

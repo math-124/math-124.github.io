@@ -30,6 +30,7 @@ days:
     events:
       - name: LEC 6
         type: lecture
+        worksheet: ../resources/worksheets/lec06-worksheet.pdf
         title: "Geometry in R³: Planes and Lines"
         reading: https://notes.math124.org/ch02/02-03
         reading_text: Ch. 2.3
