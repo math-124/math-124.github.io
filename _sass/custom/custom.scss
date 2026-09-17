@@ -218,12 +218,18 @@ h1, h2, h3, h4, h5, h6 {
   scroll-margin-top: 80px; /* Adjust based on the height of your sticky toolbar */
 }
 
+// Preserve the theme sans-serif as the default; Palatino is an explicit opt-in.
+html:not(.font-palatino) body {
+  font-family: $body-font-family;
+}
+
 // Optional reading font; code and mathematical notation keep their own fonts.
 html.font-palatino body {
   font-family: Palatino, "Palatino Linotype", "Book Antiqua", Georgia, serif;
 }
 
 .font-preference {
+  font-family: $body-font-family;
   position: static;
   border-top: 1px solid $border-color;
 }
