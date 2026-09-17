@@ -32,6 +32,7 @@ days:
         type: lecture
         worksheet: ../resources/worksheets/lec06-worksheet.pdf
         title: "Geometry in R³: Planes and Lines"
+        recording: https://leccap.engin.umich.edu/leccap/player/r/FPY6dQ
         reading: https://notes.math124.org/ch02/02-03
         reading_text: Ch. 2.3
         # reading2: https://notes.math124.org/ch02/02-04
