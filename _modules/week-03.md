@@ -33,6 +33,6 @@ days:
         title: "Geometry in R³: Planes and Lines"
         reading: https://notes.math124.org/ch02/02-03
         reading_text: Ch. 2.3
-        reading2: https://notes.math124.org/ch02/02-04
-        reading2_text: Ch. 2.4
+        # reading2: https://notes.math124.org/ch02/02-04
+        # reading2_text: Ch. 2.4
 ---
