@@ -218,6 +218,16 @@ If you have conflicts with any of the exams, please let us know on the [Welcome 
 
 Exams are to be completed individually, with absolutely no collaboration allowed. Any suspected violations will be reported to the [LSA Honor Council](https://www.lsahc.org/).
 
+### Index cards and calculators
+
+- For Midterm 1, you can bring 1 **handwritten double-sided 4x6" index card**. By handwritten, we mean that you physically write on the index card yourself; you cannot type a document or write one on your iPad and print it out.
+- For Midterm 2, you can bring 2 such index cards.
+- For the Final Exam, you can bring 3 such index cards.
+
+This way, you can reuse your old index cards for future exams (if you want).
+
+Additionally, **calculators will not be allowed on any exams**. We will design the questions such that the arithmetic is not very complicated, in order to have you focus on the conceptual ideas.
+
 ---
 
 ## Course Improvement Surveys
