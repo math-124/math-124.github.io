@@ -12,7 +12,7 @@ days:
     events:
       - name: LEC 7
         type: lecture
-        title: "Geometry in R³: Orthonormal Coordinates and Projection"
+        title: "Geometry in R³: Planes and Lines"
   - date: "2026-09-23"
     events:
       - name: LAB 4
@@ -22,7 +22,7 @@ days:
     events:
       - name: LEC 8
         type: lecture
-        title: Intersections of Lines and Planes
+        title: "Geometry in R³: Orthonormal Coordinates and Projection"
   - date: "2026-09-25"
     events:
       - name: QUIZ

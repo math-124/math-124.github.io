@@ -9,7 +9,7 @@ days:
         title: Homework 5
       - name: EXAM
         type: exam
-        title: Midterm 1
+        title: Midterm 1 (7-9PM, 1360 East Hall)
   - date: "2026-10-06"
     events:
       - name: LEC 11
