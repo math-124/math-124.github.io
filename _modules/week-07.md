@@ -4,9 +4,9 @@ weekNumber: 7
 days:
   - date: "2026-10-12"
     events:
-      - name: HW 6
+      - name: HW 5
         type: hw
-        title: Homework 6
+        title: Homework 5
   - date: "2026-10-13"
     events:
       - name: LEC 13

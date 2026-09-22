@@ -2,11 +2,6 @@
 title: "Week 5: Matrices and Midterm 1 Review"
 weekNumber: 5
 days:
-  - date: "2026-09-28"
-    events:
-      - name: HW 4
-        type: hw
-        title: Homework 4
   - date: "2026-09-29"
     events:
       - name: LEC 9
@@ -22,4 +17,13 @@ days:
       - name: LEC 10
         type: lecture
         title: Matrices and Matrix-Vector Multiplication
+  - date: "2026-10-02"
+    events:
+      - name: REV
+        type: review
+        title: "<b>Practice Exam (4-7PM, B844 East Hall)</b>"
+        note: "From 4-6PM, you will take a practice exam. From 6-7PM, we will take it up. The practice exam will be posted for those who can't attend."
+      - name: HW 4
+        type: hw
+        title: "<b>Homework 4</b>"
 ---

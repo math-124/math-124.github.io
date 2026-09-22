@@ -4,9 +4,6 @@ weekNumber: 6
 days:
   - date: "2026-10-05"
     events:
-      - name: HW 5
-        type: hw
-        title: Homework 5
       - name: EXAM
         type: exam
         title: Midterm 1 (7-9PM, 1360 East Hall)
