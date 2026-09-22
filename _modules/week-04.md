@@ -12,6 +12,7 @@ days:
     events:
       - name: LEC 7
         type: lecture
+        worksheet: ../resources/worksheets/lec07-worksheet.pdf
         title: "Geometry in R³: Planes and Lines"
         reading: https://notes.math124.org/ch02/02-04
         reading_text: Ch. 2.4
