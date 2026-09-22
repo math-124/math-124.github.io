@@ -13,6 +13,8 @@ days:
       - name: LEC 7
         type: lecture
         title: "Geometry in R³: Planes and Lines"
+        reading: https://notes.math124.org/ch02/02-04
+        reading_text: Ch. 2.4
   - date: "2026-09-23"
     events:
       - name: LAB 4
