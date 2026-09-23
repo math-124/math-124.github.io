@@ -170,6 +170,7 @@ mjx-container[jax="CHTML"][display="true"] {
 
 <div class="assignment-actions">
 <a class="btn btn-info assignment-pdf-button" href="/resources/homeworks/hw03/hw03.pdf" target="_blank">View as PDF ✏️</a>
+<a class="btn btn-info assignment-pdf-button" href="/resources/homeworks/hw03/hw03-solutions.pdf" target="_blank">Solutions PDF ✅</a>
 </div>
 
 {: .yellow }
@@ -223,6 +224,60 @@ Thank you for your feedback --- it's helping shape our brand-new course.
 <img src="imgs/hw03-plot-01.png" alt="Coordinate diagram" class="assignment-vector-plot">
 </div>
 
+<details markdown="1"><summary>Solution</summary>
+
+One possible choice is
+
+<div class="math-display">
+$$
+\vec{v}
+      =
+      \begin{bmatrix}
+      3\\
+      -2
+      \end{bmatrix}.
+$$
+</div>
+
+Therefore
+
+<div class="math-display">
+$$
+\ell
+      =
+      \operatorname{span}(\vec{v})
+      =
+      \left\{
+      t
+      \begin{bmatrix}
+      3\\
+      -2
+      \end{bmatrix}
+      :
+      t\in\mathbb{R}
+      \right\}.
+$$
+</div>
+
+Equivalently,
+
+<div class="math-display">
+$$
+\ell
+      =
+      \left\{
+      \begin{bmatrix}
+      3t\\
+      -2t
+      \end{bmatrix}
+      :
+      t\in\mathbb{R}
+      \right\}.
+$$
+</div>
+
+</details>
+
 </div>
 </div>
 
@@ -243,12 +298,137 @@ Thank you for your feedback --- it's helping shape our brand-new course.
 
 (5 pts) Find a vector <span class="math-inline">\\(\vec{v}&#95;0\\)</span> whose endpoint lies on <span class="math-inline">\\(\ell'\\)</span>. Use <span class="math-inline">\\(\vec{v}&#95;0\\)</span> and your vector <span class="math-inline">\\(\vec{v}\\)</span> from part (a) to express <span class="math-inline">\\(\ell'\\)</span> in parametric form.
 
+<details markdown="1"><summary>Solution</summary>
+
+One possible choice is
+
+<div class="math-display">
+$$
+\vec{v}_0
+      =
+      \begin{bmatrix}
+      1\\
+      3
+      \end{bmatrix}.
+$$
+</div>
+
+Using
+
+<div class="math-display">
+$$
+\vec{v}
+      =
+      \begin{bmatrix}
+      3\\
+      -2
+      \end{bmatrix},
+$$
+</div>
+
+ we obtain
+
+<div class="math-display">
+$$
+\ell'
+      =
+      \vec{v}_0+\operatorname{span}(\vec{v})
+      =
+      \left\{
+      \begin{bmatrix}
+      1\\
+      3
+      \end{bmatrix}
+      +
+      t
+      \begin{bmatrix}
+      3\\
+      -2
+      \end{bmatrix}
+      :
+      t\in\mathbb{R}
+      \right\}.
+$$
+</div>
+
+Equivalently,
+
+<div class="math-display">
+$$
+\ell'
+      =
+      \left\{
+      \begin{bmatrix}
+      1+3t\\
+      3-2t
+      \end{bmatrix}
+      :
+      t\in\mathbb{R}
+      \right\}.
+$$
+</div>
+
+</details>
+
 </div></li>
 <li markdown="1">
 <div class="assignment-enumeration-label">ii.</div>
 <div class="assignment-enumeration-content" markdown="1">
 
 (5 pts) Give a different choice of <span class="math-inline">\\(\vec{v}&#95;0\\)</span> and <span class="math-inline">\\(\vec{v}\\)</span> that also works. Use these vectors to express <span class="math-inline">\\(\ell'\\)</span> in parametric form.
+
+<details markdown="1"><summary>Solution</summary>
+
+The point <span class="math-inline">\\((4,1)\\)</span> also lies on <span class="math-inline">\\(\ell'\\)</span>, so we can choose
+
+<div class="math-display">
+$$
+\vec{v}_0
+      =
+      \begin{bmatrix}
+      4\\
+      1
+      \end{bmatrix}.
+$$
+</div>
+
+Any nonzero scalar multiple of the original direction vector works. For example, choose
+
+<div class="math-display">
+$$
+\vec{v}
+      =
+      \begin{bmatrix}
+      -6\\
+      4
+      \end{bmatrix}.
+$$
+</div>
+
+Then
+
+<div class="math-display">
+$$
+\ell'
+      =
+      \left\{
+      \begin{bmatrix}
+      4\\
+      1
+      \end{bmatrix}
+      +
+      t
+      \begin{bmatrix}
+      -6\\
+      4
+      \end{bmatrix}
+      :
+      t\in\mathbb{R}
+      \right\}.
+$$
+</div>
+
+</details>
 
 </div></li>
 </ol>
@@ -295,6 +475,63 @@ Finally, express <span class="math-inline">\\(\ell\\)</span> as a linear equatio
 </div></li>
 </ol>
 
+<details markdown="1"><summary>Solution</summary>
+
+One possible normal vector is
+
+<div class="math-display">
+$$
+\vec{w}
+      =
+      \begin{bmatrix}
+      2\\
+      3
+      \end{bmatrix},
+$$
+</div>
+
+ since
+
+<div class="math-display">
+$$
+\vec{w}\cdot\vec{v}
+      =
+      \begin{bmatrix}
+      2\\
+      3
+      \end{bmatrix}
+      \cdot
+      \begin{bmatrix}
+      3\\
+      -2
+      \end{bmatrix}
+      =
+      6-6
+      =
+      0.
+$$
+</div>
+
+In dot-product form, the equation for <span class="math-inline">\\(\ell\\)</span> is
+
+<div class="math-display">
+$$
+\vec{w}\cdot\begin{bmatrix}
+        x \\ y
+      \end{bmatrix}=0.
+$$
+</div>
+
+Explicitly,
+
+<div class="math-display">
+$$
+2x+3y=0.
+$$
+</div>
+
+</details>
+
 </div>
 </div>
 
@@ -320,6 +557,75 @@ Express <span class="math-inline">\\(\ell'\\)</span> as a linear equation in ter
 
 </div></li>
 </ol>
+
+<details markdown="1"><summary>Solution</summary>
+
+Every point <span class="math-inline">\\((x,y)\\)</span> on <span class="math-inline">\\(\ell'\\)</span> satisfies
+
+<div class="math-display">
+$$
+\vec{w}\cdot \begin{bmatrix}
+        x \\ y
+      \end{bmatrix}
+      =
+      \vec{w}\cdot\vec{v}_0.
+$$
+</div>
+
+Using the point
+
+<div class="math-display">
+$$
+\vec{v}_0
+      =
+      \begin{bmatrix}
+      1\\
+      3
+      \end{bmatrix},
+$$
+</div>
+
+ we compute
+
+<div class="math-display">
+$$
+\vec{w}\cdot\vec{v}_0
+      =
+      \begin{bmatrix}
+      2\\
+      3
+      \end{bmatrix}
+      \cdot
+      \begin{bmatrix}
+      1\\
+      3
+      \end{bmatrix}
+      =
+      2+9
+      =
+      11.
+$$
+</div>
+
+Thus, in dot-product form,
+
+<div class="math-display">
+$$
+\vec{w}\cdot \begin{bmatrix}
+        x \\ y
+      \end{bmatrix}=11.
+$$
+</div>
+
+Explicitly,
+
+<div class="math-display">
+$$
+2x+3y=11.
+$$
+</div>
+
+</details>
 
 </div>
 </div>
@@ -371,6 +677,23 @@ $$
 (6 pts)
 <span class="math-inline">\\(\displaystyle \quad \vec{u} = \begin{bmatrix} \frac35\\\\[2pt] \frac45 \end{bmatrix}, \quad \vec{v} = \begin{bmatrix} \frac45\\\\[2pt] \frac35 \end{bmatrix}\\)</span>
 
+<details markdown="1"><summary>Solution</summary>
+
+Both vectors have length one, but
+
+<div class="math-display">
+$$
+\vec{u}\cdot\vec{v}
+      =
+      \frac{12}{25}+\frac{12}{25}
+      =
+      \frac{24}{25}\neq 0.
+$$
+</div>
+
+Therefore the vectors are not orthogonal, so they do not form an orthonormal basis.
+</details>
+
 </div>
 </div>
 
@@ -379,6 +702,35 @@ $$
 <div class="assignment-part-content" markdown="1">
 (6 pts)
 <span class="math-inline">\\(\displaystyle \quad \vec{u} = \begin{bmatrix} 1\\\\ -2 \end{bmatrix}, \quad \vec{v} = \begin{bmatrix} 2\\\\ 1 \end{bmatrix}\\)</span>
+
+<details markdown="1"><summary>Solution</summary>
+
+The vectors are orthogonal because
+
+<div class="math-display">
+$$
+\vec{u}\cdot\vec{v}
+      =
+      2-2
+      =
+      0.
+$$
+</div>
+
+However,
+
+<div class="math-display">
+$$
+\lVert\vec{u}\rVert
+      =
+      \lVert\vec{v}\rVert
+      =
+      \sqrt{5},
+$$
+</div>
+
+ so they are not unit vectors. Therefore this pair is not an orthonormal basis.
+</details>
 
 </div>
 </div>
@@ -389,6 +741,106 @@ $$
 (6 pts)
 <span class="math-inline">\\(\displaystyle \quad \vec{u} = \begin{bmatrix} \frac{5}{13}\\\\[2pt] \frac{12}{13} \end{bmatrix}, \quad \vec{v} = \begin{bmatrix} -\frac{12}{13}\\\\[2pt] \frac{5}{13} \end{bmatrix}\\)</span>
 
+<details markdown="1"><summary>Solution</summary>
+
+We have
+
+<div class="math-display">
+$$
+\lVert\vec{u}\rVert
+      =
+      \sqrt{\frac{25}{169}+\frac{144}{169}}
+      =
+      1
+$$
+</div>
+
+ and
+
+<div class="math-display">
+$$
+\lVert\vec{v}\rVert
+      =
+      \sqrt{\frac{144}{169}+\frac{25}{169}}
+      =
+      1.
+$$
+</div>
+
+Also,
+
+<div class="math-display">
+$$
+\vec{u}\cdot\vec{v}
+      =
+      -\frac{60}{169}+\frac{60}{169}
+      =
+      0.
+$$
+</div>
+
+Therefore this pair is an orthonormal basis of <span class="math-inline">\\(\mathbb{R}^2\\)</span>.
+
+Since the basis is orthonormal, the coefficients are found using dot products.
+
+First,
+
+<div class="math-display">
+$$
+\vec{w}\cdot\vec{u}
+    =
+    \begin{bmatrix}
+    7\\
+    -4
+    \end{bmatrix}
+    \cdot
+    \begin{bmatrix}
+    \frac{5}{13}\\[2pt]
+    \frac{12}{13}
+    \end{bmatrix}
+    =
+    \frac{35}{13}-\frac{48}{13}
+    =
+    -1.
+$$
+</div>
+
+Next,
+
+<div class="math-display">
+$$
+\vec{w}\cdot\vec{v}
+    =
+    \begin{bmatrix}
+    7\\
+    -4
+    \end{bmatrix}
+    \cdot
+    \begin{bmatrix}
+    -\frac{12}{13}\\[2pt]
+    \frac{5}{13}
+    \end{bmatrix}
+    =
+    -\frac{84}{13}-\frac{20}{13}
+    =
+    -8.
+$$
+</div>
+
+Therefore
+
+<div class="math-display">
+$$
+\boxed{
+    \vec{w}
+    =
+    -\vec{u}-8\vec{v}.
+    }
+$$
+</div>
+
+</details>
+
 </div>
 </div>
 
@@ -397,6 +849,106 @@ $$
 <div class="assignment-part-content" markdown="1">
 (6 pts)
 <span class="math-inline">\\(\displaystyle \quad \vec{u}=\begin{bmatrix}\frac{3}{\sqrt{13}}\\\\[2pt]\frac{2}{\sqrt{13}}\end{bmatrix}, \quad \vec{v}=\begin{bmatrix}-\frac{2}{\sqrt{13}}\\\\[2pt]\frac{3}{\sqrt{13}}\end{bmatrix}\\)</span>
+
+<details markdown="1"><summary>Solution</summary>
+
+We have
+
+<div class="math-display">
+$$
+\lVert\vec{u}\rVert
+      =
+      \sqrt{\frac{9}{13}+\frac{4}{13}}
+      =
+      1
+$$
+</div>
+
+ and
+
+<div class="math-display">
+$$
+\lVert\vec{v}\rVert
+      =
+      \sqrt{\frac{4}{13}+\frac{9}{13}}
+      =
+      1.
+$$
+</div>
+
+Also,
+
+<div class="math-display">
+$$
+\vec{u}\cdot\vec{v}
+      =
+      -\frac{6}{13}+\frac{6}{13}
+      =
+      0.
+$$
+</div>
+
+Therefore this pair is an orthonormal basis of <span class="math-inline">\\(\mathbb{R}^2\\)</span>.
+
+Since the basis is orthonormal, the coefficients are found using dot products.
+
+First,
+
+<div class="math-display">
+$$
+\vec{w}\cdot\vec{u}
+    =
+    \begin{bmatrix}
+    7\\
+    -4
+    \end{bmatrix}
+    \cdot
+    \begin{bmatrix}
+    \frac{3}{\sqrt{13}}\\[2pt]
+    \frac{2}{\sqrt{13}}
+    \end{bmatrix}
+    =
+    \frac{21}{\sqrt{13}}-\frac{8}{\sqrt{13}}
+    =
+    \sqrt{13}.
+$$
+</div>
+
+Next,
+
+<div class="math-display">
+$$
+\vec{w}\cdot\vec{v}
+    =
+    \begin{bmatrix}
+    7\\
+    -4
+    \end{bmatrix}
+    \cdot
+    \begin{bmatrix}
+    -\frac{2}{\sqrt{13}}\\[2pt]
+    \frac{3}{\sqrt{13}}
+    \end{bmatrix}
+    =
+    -\frac{14}{\sqrt{13}}-\frac{12}{\sqrt{13}}
+    =
+    -2\sqrt{13}.
+$$
+</div>
+
+Therefore
+
+<div class="math-display">
+$$
+\boxed{
+    \vec{w}
+    =
+    \sqrt{13}\vec{u}-2\sqrt{13}\vec{v}.
+    }
+$$
+</div>
+
+</details>
 
 </div>
 </div>
@@ -442,6 +994,100 @@ $$
 <div class="assignment-part-content" markdown="1">
 (7 pts) Find the orthogonal projection of <span class="math-inline">\\(\vec{w}\\)</span> onto <span class="math-inline">\\(\ell\\)</span>.
 
+<details markdown="1"><summary>Solution</summary>
+
+Let
+
+<div class="math-display">
+$$
+\vec{d}
+      =
+      \begin{bmatrix}
+      2\\
+      -1
+      \end{bmatrix}.
+$$
+</div>
+
+We may project directly using this direction vector (i.e., <span class="math-inline">\\(\vec d\\)</span> does not need to be a unit vector) as follows:
+
+<div class="math-display">
+$$
+\operatorname{proj}_{\ell}(\vec{w})
+      =
+      \frac{\vec{w}\cdot\vec{d}}
+      {\vec{d}\cdot\vec{d}}
+      \vec{d}.
+$$
+</div>
+
+We have
+
+<div class="math-display">
+$$
+\vec{w}\cdot\vec{d}
+      =
+      \begin{bmatrix}
+      5\\
+      7
+      \end{bmatrix}
+      \cdot
+      \begin{bmatrix}
+      2\\
+      -1
+      \end{bmatrix}
+      =
+      10-7
+      =
+      3
+$$
+</div>
+
+ and
+
+<div class="math-display">
+$$
+\vec{d}\cdot\vec{d}
+      =
+      \begin{bmatrix}
+      2\\
+      -1
+      \end{bmatrix}
+      \cdot
+      \begin{bmatrix}
+      2\\
+      -1
+      \end{bmatrix}
+      =
+      4+1
+      =
+      5.
+$$
+</div>
+
+Therefore
+
+<div class="math-display">
+$$
+\boxed{
+      \operatorname{proj}_{\ell}(\vec{w})
+      =
+      \frac35
+      \begin{bmatrix}
+      2\\
+      -1
+      \end{bmatrix}
+      =
+      \begin{bmatrix}
+      \frac65\\[2pt]
+      -\frac35
+      \end{bmatrix}.
+      }
+$$
+</div>
+
+</details>
+
 </div>
 </div>
 
@@ -480,6 +1126,65 @@ $$
 </div></li>
 </ol>
 
+<details markdown="1"><summary>Solution</summary>
+
+<span class="math-inline">\\(i\\)</span> The component perpendicular to <span class="math-inline">\\(\ell\\)</span> is
+
+<div class="math-display">
+$$
+\begin{aligned}
+\vec{w}
+-
+\operatorname{proj}_{\ell}(\vec{w})
+&=
+\begin{bmatrix}
+5\\
+7
+\end{bmatrix}
+-
+\begin{bmatrix}
+\frac65\\[2pt]
+-\frac35
+\end{bmatrix}\\
+&=
+\boxed{
+\begin{bmatrix}
+\frac{19}{5}\\[2pt]
+\frac{38}{5}
+\end{bmatrix}.
+}
+\end{aligned}
+$$
+</div>
+
+The line <span class="math-inline">\\(\ell\\)</span> and the two vectors are shown below.
+
+<div style="text-align: center;">
+<img src="imgs/hw03-plot-04.png" alt="Coordinate diagram" class="assignment-vector-plot">
+</div>
+
+<span class="math-inline">\\(ii\\)</span> To check that this vector is perpendicular to <span class="math-inline">\\(\ell\\)</span>, take its dot product with the direction vector <span class="math-inline">\\(\vec{d}\\)</span>:
+
+<div class="math-display">
+$$
+\begin{bmatrix}
+      \frac{19}{5}\\[2pt]
+      \frac{38}{5}
+      \end{bmatrix}
+      \cdot
+      \begin{bmatrix}
+      2\\
+      -1
+      \end{bmatrix}
+      =
+      \frac{38}{5}-\frac{38}{5}
+      =
+      0.
+$$
+</div>
+
+</details>
+
 </div>
 </div>
 
@@ -494,7 +1199,7 @@ A heavy equipment cart with a weight of <span class="math-inline">\\(500\\)</spa
 Team Maize stands uphill from the cart and pulls it up the ramp with a force of <span class="math-inline">\\(900\\)</span> N. Team Blue stands downhill from the cart and pulls it down the ramp. Both teams pull in directions parallel to the ramp.
 
 <div style="text-align: center;">
-<img src="imgs/hw03-plot-04.png" alt="Coordinate diagram" class="assignment-vector-plot">
+<img src="imgs/hw03-plot-05.png" alt="Coordinate diagram" class="assignment-vector-plot">
 </div>
 
 <div class="assignment-parts" markdown="1">
@@ -503,6 +1208,127 @@ Team Maize stands uphill from the cart and pulls it up the ramp with a force of 
 <div class="assignment-part-content" markdown="1">
 (8 pts) Find the component of the cart's weight that acts parallel to the ramp. Give both its magnitude and its direction.
 
+<details markdown="1"><summary>Solution</summary>
+
+<img src="imgs/hw03-plot-06.png" alt="Coordinate diagram" class="assignment-vector-plot">
+
+Schematic picture (vectors not to scale).
+
+A direction vector pointing up the ramp is
+
+<div class="math-display">
+$$
+\vec{d}
+      =
+      \begin{bmatrix}
+      7\\
+      6
+      \end{bmatrix}.
+$$
+</div>
+
+In the usual <span class="math-inline">\\(x\\)</span>-<span class="math-inline">\\(y\\)</span> coordinates (i.e., where <span class="math-inline">\\(x\\)</span> is horizontal and <span class="math-inline">\\(y\\)</span> is vertical in the picture above), the cart's weight is
+
+<div class="math-display">
+$$
+\vec{F}_g
+      =
+      \begin{bmatrix}
+      0\\
+      -500
+      \end{bmatrix}
+      \text{ N}.
+$$
+</div>
+
+We can project the weight directly onto the line <span class="math-inline">\\(l = \mathrm{span}(\vec d)\\)</span> parallel to the ramp:
+
+<div class="math-display">
+$$
+\begin{aligned}
+\operatorname{proj}_{l}(\vec{F}_g)
+&=
+\frac{\vec{F}_g\cdot\vec{d}}
+{\vec{d}\cdot\vec{d}}\vec{d}\\
+&=
+\frac{
+\begin{bmatrix}
+0\\
+-500
+\end{bmatrix}
+\cdot
+\begin{bmatrix}
+7\\
+6
+\end{bmatrix}
+}{
+\begin{bmatrix}
+7\\
+6
+\end{bmatrix}
+\cdot
+\begin{bmatrix}
+7\\
+6
+\end{bmatrix}
+}
+\begin{bmatrix}
+7\\
+6
+\end{bmatrix}\\
+&=
+\frac{-3000}{85}
+\begin{bmatrix}
+7\\
+6
+\end{bmatrix}\\
+&=
+\begin{bmatrix}
+-\frac{4200}{17}\\[2pt]
+-\frac{3600}{17}
+\end{bmatrix}
+\text{ N}.
+\end{aligned}
+$$
+</div>
+
+The negative coefficient means that the component points down the ramp. Its magnitude is
+
+<div class="math-display">
+$$
+\begin{aligned}
+\left\|
+\operatorname{proj}_{l}(\vec{F}_g)
+\right\|
+&=
+\left|
+\frac{-3000}{85}
+\right|
+\left\|
+\begin{bmatrix}
+7\\
+6
+\end{bmatrix}
+\right\|\\
+&=
+\frac{3000}{85}\sqrt{85}\\
+&=
+\frac{3000}{\sqrt{85}}.
+\end{aligned}
+$$
+</div>
+
+Therefore the component of the cart's weight parallel to the ramp has magnitude
+
+<div class="math-display">
+$$
+\boxed{\frac{3000}{\sqrt{85}}\text{ N}}
+$$
+</div>
+
+and points down the ramp.
+</details>
+
 </div>
 </div>
 
@@ -510,6 +1336,51 @@ Team Maize stands uphill from the cart and pulls it up the ramp with a force of 
 <div class="assignment-part-label">b)</div>
 <div class="assignment-part-content" markdown="1">
 (4 pts) How hard must Team Blue pull to keep the cart stationary? Give your answer in Newtons.
+
+<details markdown="1"><summary>Solution</summary>
+
+Along the ramp, Team Maize pulls with <span class="math-inline">\\(900\\)</span> N uphill, while gravity pulls with
+
+<div class="math-display">
+$$
+\frac{3000}{\sqrt{85}}\text{ N}
+$$
+</div>
+
+downhill. Let <span class="math-inline">\\(F&#95;B\\)</span> be the magnitude of Team Blue's downhill force.
+
+For the cart to remain stationary, the net force parallel to the ramp must be zero:
+
+<div class="math-display">
+$$
+900-\frac{3000}{\sqrt{85}}-F_B=0.
+$$
+</div>
+
+Therefore
+
+<div class="math-display">
+$$
+\boxed{
+      F_B
+      =
+      900-\frac{3000}{\sqrt{85}}
+      \text{ N}.
+      }
+$$
+</div>
+
+Team Blue must pull down the ramp with a force of
+
+<div class="math-display">
+$$
+\boxed{
+      900-\frac{3000}{\sqrt{85}}\text{ N}.
+      }
+$$
+</div>
+
+</details>
 
 </div>
 </div>
