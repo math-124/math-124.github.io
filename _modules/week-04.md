@@ -21,7 +21,7 @@ days:
     events:
       - name: LAB 4
         type: lab
-        title: Lab 4
+        title: "Lines and Planes in ℝ³"
   - date: "2026-09-24"
     events:
       - name: LEC 8
