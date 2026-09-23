@@ -12,7 +12,7 @@ days:
     events:
       - name: LEC 5
         type: lecture
-        title: "Geometry in R²: Orthonormal Coordinates and Projection"
+        title: "Geometry in ℝ²: Orthonormal Coordinates and Projection"
         reading: https://notes.math124.org/ch02/02-01
         reading_text: Ch. 2.1
         reading2: https://notes.math124.org/ch02/02-02
@@ -31,7 +31,7 @@ days:
       - name: LEC 6
         type: lecture
         worksheet: ../resources/worksheets/lec06-worksheet.pdf
-        title: "Geometry in R³: Planes and Lines"
+        title: "Geometry in ℝ³: Planes and Lines"
         recording: https://leccap.engin.umich.edu/leccap/player/r/FPY6dQ
         reading: https://notes.math124.org/ch02/02-03
         reading_text: Ch. 2.3

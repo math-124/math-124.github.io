@@ -13,7 +13,7 @@ days:
       - name: LEC 7
         type: lecture
         worksheet: ../resources/worksheets/lec07-worksheet.pdf
-        title: "Geometry in R³: Planes and Lines"
+        title: "Geometry in ℝ³: Planes and Lines"
         recording: https://leccap.engin.umich.edu/leccap/player/r/0pidSj
         reading: https://notes.math124.org/ch02/02-04
         reading_text: Ch. 2.4
@@ -26,7 +26,7 @@ days:
     events:
       - name: LEC 8
         type: lecture
-        title: "Geometry in R³: Orthonormal Coordinates and Projection"
+        title: "Geometry in ℝ³: Orthonormal Coordinates and Projection"
   - date: "2026-09-25"
     events:
       - name: QUIZ
