@@ -16,6 +16,9 @@ The events are color-coded:
 
 If you can’t find us, post on Ed! Can’t make it to any of the office hours? Send one of the instructors [an email](./staff).
 
+{: .green }
+**New**: Suraj will host some Zoom office hours by appointment, separate from the office hours listed below. To schedule an appointment, click [**here**](https://calendar.app.google/4yRfRT8zTtXH8q8C9). Availability will be updated weekly.
+
 <div align="center" markdown="1">
 <a class="btn" style="background-color: #e6804d; color: white;" href="https://umich.zoom.us/j/92286161318">Zoom link for remote office hours</a>
 </div>
