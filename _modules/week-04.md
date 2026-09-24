@@ -28,6 +28,7 @@ days:
       - name: LEC 8
         type: lecture
         title: "Geometry in ℝ³: Orthonormal Coordinates and Projection"
+        worksheet: ../resources/worksheets/lec08-worksheet.pdf
   - date: "2026-09-25"
     events:
       - name: QUIZ
