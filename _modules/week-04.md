@@ -17,6 +17,8 @@ days:
         recording: https://leccap.engin.umich.edu/leccap/player/r/0pidSj
         reading: https://notes.math124.org/ch02/02-04
         reading_text: Ch. 2.4
+        reading2: https://notes.math124.org/ch02/02-05
+        reading2_text: Ch. 2.5
   - date: "2026-09-23"
     events:
       - name: LAB 4
@@ -29,6 +31,12 @@ days:
         type: lecture
         title: "Geometry in ℝ³: Orthonormal Coordinates and Projection"
         worksheet: ../resources/worksheets/lec08-worksheet.pdf
+        reading: https://notes.math124.org/ch02/02-04
+        reading_text: Ch. 2.4
+        reading2: https://notes.math124.org/ch02/02-05
+        reading2_text: Ch. 2.5
+        reading3: https://notes.math124.org/ch02/02-06
+        reading3_text: Ch. 2.6
   - date: "2026-09-25"
     events:
       - name: QUIZ
