@@ -6,7 +6,7 @@ days:
     events:
       - name: LEC 9
         type: lecture
-        title: Intersections of Lines and Planes
+        title: "Geometry in ℝ³: Orthonormal Coordinates and Projection"
   - date: "2026-09-30"
     events:
       - name: LAB 5
@@ -16,7 +16,7 @@ days:
     events:
       - name: LEC 10
         type: lecture
-        title: Matrices and Matrix-Vector Multiplication
+        title: Intersections of Lines and Planes
   - date: "2026-10-02"
     events:
       - name: REV
