@@ -30,6 +30,7 @@ days:
       - name: LEC 8
         type: lecture
         title: "Geometry in ℝ³: Planes and Lines III"
+        recording: https://leccap.engin.umich.edu/leccap/player/r/cdHyXk
         worksheet: ../resources/worksheets/lec08-worksheet.pdf
         reading: https://notes.math124.org/ch02/02-04
         reading_text: Ch. 2.4
