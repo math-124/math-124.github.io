@@ -2497,11 +2497,39 @@ def copy_referenced_assets(output_md: Path, source_base_dir: Path, website_root:
         destination_path.parent.mkdir(parents=True, exist_ok=True)
         shutil.copy2(source_path, destination_path)
 
+        # Browsers cannot display a PDF in an img element. Keep the PDF for
+        # download links, but rasterize embedded figures for the web view.
+        image_pattern = re.compile(
+            r'(<img\b[^>]*\bsrc=["\'])' + re.escape(str(relative_path)) + r'(["\'])',
+            re.I,
+        )
+        if source_path.suffix.lower() == ".pdf" and image_pattern.search(markdown):
+            png_path = destination_path.with_suffix(".png")
+            if shutil.which("pdftoppm"):
+                command = [
+                    "pdftoppm", "-png", "-r", "180", "-f", "1", "-l", "1",
+                    "-singlefile", str(source_path), str(png_path.with_suffix("")),
+                ]
+            else:
+                command = [
+                    "gs", "-q", "-dSAFER", "-dBATCH", "-dNOPAUSE",
+                    "-dFirstPage=1", "-dLastPage=1", "-sDEVICE=png16m",
+                    "-r180", "-dTextAlphaBits=4", "-dGraphicsAlphaBits=4",
+                    f"-sOutputFile={png_path}", str(source_path),
+                ]
+            subprocess.run(command, check=True, capture_output=True)
+            png_relative = markdown_asset_path(
+                output_md, website_root, dest_relative.with_suffix(".png")
+            )
+            markdown = image_pattern.sub(
+                lambda match: match.group(1) + png_relative + match.group(2), markdown
+            )
+
         new_path = markdown_asset_path(output_md, website_root, dest_relative)
         if str(relative_path) != new_path:
             path_updates[str(relative_path)] = new_path
 
-    if path_updates:
+    if path_updates or markdown != output_md.read_text():
         updated_markdown = markdown
         for old_path, new_path in path_updates.items():
             updated_markdown = updated_markdown.replace(f"]({old_path})", f"]({new_path})")

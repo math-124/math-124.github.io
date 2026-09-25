@@ -530,7 +530,7 @@ In this problem, we will explore the idea of **reflecting** a vector across a li
 Let <span class="math-inline">\\(\vec w=\begin{bmatrix}1\\\\1\end{bmatrix}\\)</span>. The picture below shows reflection of the vector <span class="math-inline">\\(\vec v=\begin{bmatrix}7\\\\-3\end{bmatrix}\\)</span> across the line <span class="math-inline">\\(\ell=\operatorname{span}(\vec w)=\operatorname{span}\left(\begin{bmatrix}1\\\\1\end{bmatrix}\right)\\)</span>.
 
 <div style="text-align: center;">
-<img src="imgs/reflection-example.pdf" alt="image" style="height: 4.5in; width: auto; max-width: 100%;">
+<img src="imgs/reflection-example.png" alt="image" style="height: 4.5in; width: auto; max-width: 100%;">
 </div>
 
 In the picture above, reflecting <span class="math-inline">\\(\vec{v}=\begin{bmatrix}7\\\\-3\end{bmatrix}\\)</span> across <span class="math-inline">\\(\ell=\operatorname{span}(\vec w)\\)</span> gives us <span class="math-inline">\\(\vec{v}&#95;{\mathrm{ref}}=\begin{bmatrix}-3\\\\7\end{bmatrix}\\)</span>. Notice that <span class="math-inline">\\(\vec{p}=\begin{bmatrix}2\\\\2\end{bmatrix}\\)</span>, the projection of <span class="math-inline">\\(\vec{v}\\)</span> onto <span class="math-inline">\\(\ell=\operatorname{span}(\vec w)\\)</span>, has its tip halfway between the tips of <span class="math-inline">\\(\vec v\\)</span> and <span class="math-inline">\\(\vec v&#95;{\mathrm{ref}}\\)</span>. To get from <span class="math-inline">\\(\vec{v}\\)</span> to <span class="math-inline">\\(\vec{v}&#95;{\mathrm{ref}}\\)</span>, we move to <span class="math-inline">\\(\vec{p}\\)</span>, then keep going the same distance in the same direction.
