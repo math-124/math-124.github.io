@@ -25,5 +25,6 @@ days:
         note: "From 4-6PM, you will take a practice exam. From 6-7PM, we will take it up. The practice exam will be posted for those who can't attend."
       - name: HW 4
         type: hw
-        title: "<b>Homework 4</b>"
+        title: "<b>Lines and Planes in ℝ³</b>"
+        problems: ../resources/homeworks/hw04/
 ---
