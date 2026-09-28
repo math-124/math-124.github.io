@@ -210,8 +210,8 @@ This class has two Midterm Exams and one Final Exam, all of which will be admini
 
 | Exam | Date and Time | Content | Weight |
 | --- | --- | --- | --- |
-| Midterm 1 | Monday, October 5, 7-9PM | Lectures 1-8 | **15%** |
-| Midterm 2 | Monday, November 16, 7-9PM | Lectures 9-19 | **15%** |
+| Midterm 1 | Monday, October 5, 7-9PM | Lectures 1-9 | **15%** |
+| Midterm 2 | Monday, November 16, 7-9PM | Lectures 10-19 | **15%** |
 | Final Exam | Friday, December 18, 4-6PM | Cumulative | **20%** |
 
 If you have conflicts with any of the exams, please let us know on the [Welcome Survey](https://docs.google.com/forms/d/e/1FAIpQLSea-GmUzdWpLHDOmTHa82q4j5b_D8uwsF5A-VRYLoEK7N1JOw/viewform?usp=header). We may provide alternate exam times for students with a valid, documented conflict with a required activity in another course or official university-affiliated activity, or to help students avoid negative academic consequences when their religious obligations conflict with academic requirements.
