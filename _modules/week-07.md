@@ -1,5 +1,5 @@
 ---
-title: "Week 7: Inverses and Linear Systems; Quiz 2"
+title: "Week 7: Matrix Multiplication and Inverses; Quiz 2"
 weekNumber: 7
 days:
   - date: "2026-10-12"
@@ -11,7 +11,7 @@ days:
     events:
       - name: LEC 13
         type: lecture
-        title: Transpose and Inverses
+        title: Matrix Multiplication and Composition
   - date: "2026-10-14"
     events:
       - name: LAB 7
@@ -21,7 +21,7 @@ days:
     events:
       - name: LEC 14
         type: lecture
-        title: Linear Systems, Triangular Systems, and Back Substitution
+        title: Transpose and Inverses
   - date: "2026-10-16"
     events:
       - name: QUIZ

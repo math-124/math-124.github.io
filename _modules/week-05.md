@@ -1,5 +1,5 @@
 ---
-title: "Week 5: Matrices and Midterm 1 Review"
+title: "Week 5: Geometry in ℝ³"
 weekNumber: 5
 days:
   - date: "2026-09-29"

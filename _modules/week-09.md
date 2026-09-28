@@ -1,5 +1,5 @@
 ---
-title: "Week 9: PLU and Subspaces<br><small>Signups for Quiz 3 open on October 26.</small>"
+title: "Week 9: PLU Factorization<br><small>Signups for Quiz 3 open on October 26.</small>"
 weekNumber: 9
 days:
   - date: "2026-10-26"
@@ -11,7 +11,7 @@ days:
     events:
       - name: LEC 16
         type: lecture
-        title: PLU Factorization in General
+        title: PLU Factorization for Invertible Matrices
   - date: "2026-10-28"
     events:
       - name: LAB 9
@@ -21,5 +21,5 @@ days:
     events:
       - name: LEC 17
         type: lecture
-        title: Subspaces, Span, and Column Space
+        title: PLU Factorization in General
 ---

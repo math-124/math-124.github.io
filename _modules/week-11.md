@@ -1,5 +1,5 @@
 ---
-title: "Week 11: Orthogonal Transformations and Midterm 2 Review"
+title: "Week 11: Orthonormal Bases, QR, and Orthogonal Transformations"
 weekNumber: 11
 days:
   - date: "2026-11-09"
@@ -11,7 +11,7 @@ days:
     events:
       - name: LEC 20
         type: lecture
-        title: Orthogonal Matrices and Orthogonal Transformations
+        title: Orthonormal Bases and QR Factorization
   - date: "2026-11-11"
     events:
       - name: LAB 11
@@ -21,5 +21,5 @@ days:
     events:
       - name: LEC 21
         type: lecture
-        title: Review and Catchup
+        title: Orthogonal Matrices and Orthogonal Transformations
 ---

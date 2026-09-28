@@ -1,5 +1,5 @@
 ---
-title: "Week 10: Bases, Dimension, and QR; Quiz 3"
+title: "Week 10: Subspaces, Bases, and Dimension; Quiz 3"
 weekNumber: 10
 days:
   - date: "2026-11-02"
@@ -11,7 +11,7 @@ days:
     events:
       - name: LEC 18
         type: lecture
-        title: Bases and Dimension
+        title: Subspaces, Span, and Column Space
   - date: "2026-11-04"
     events:
       - name: LAB 10
@@ -21,7 +21,7 @@ days:
     events:
       - name: LEC 19
         type: lecture
-        title: Orthonormal Bases and QR Factorization
+        title: Bases and Dimension
   - date: "2026-11-06"
     events:
       - name: QUIZ

@@ -1,5 +1,5 @@
 ---
-title: "Week 8: Fall Break and PLU"
+title: "Week 8: Fall Break and Linear Systems"
 weekNumber: 8
 days:
   - date: "2026-10-19"
@@ -21,5 +21,5 @@ days:
     events:
       - name: LEC 15
         type: lecture
-        title: PLU Factorization for Invertible Matrices
+        title: Linear Systems, Triangular Systems, and Back Substitution
 ---

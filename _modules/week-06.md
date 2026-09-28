@@ -1,5 +1,5 @@
 ---
-title: "Week 6: Linear Transformations and Matrix Multiplication; Midterm 1<br><small>Signups for Quiz 2 open on October 5.</small>"
+title: "Week 6: Midterm 1; Matrices<br><small>Signups for Quiz 2 open on October 5.</small>"
 weekNumber: 6
 days:
   - date: "2026-10-05"
@@ -11,7 +11,7 @@ days:
     events:
       - name: LEC 11
         type: lecture
-        title: Linear Transformations
+        title: Matrices and Matrix-Vector Multiplication
   - date: "2026-10-07"
     events:
       - name: LAB 6
@@ -21,5 +21,5 @@ days:
     events:
       - name: LEC 12
         type: lecture
-        title: Matrix Multiplication and Composition
+        title: Linear Transformations
 ---
