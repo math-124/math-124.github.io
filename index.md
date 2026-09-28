@@ -39,13 +39,19 @@ Math 124, Fall 2026 at the <b><span style="background-color: #FFCB05; color: #00
     /* Module dates list class meetings, but a course week runs Monday through Sunday. */
     start.setDate(start.getDate() - ((start.getDay() + 6) % 7));
     end.setDate(end.getDate() + ((7 - end.getDay()) % 7));
-    return { start, end, header };
+    return { start, end, header, moduleEl };
   }).filter(Boolean).sort((a, b) => a.start - b.start);
 
   if (!moduleData.length) return;
-  const now = new Date();
-  const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  const date = new Intl.DateTimeFormat('en-CA', {
+    timeZone: 'America/Detroit', year: 'numeric', month: '2-digit', day: '2-digit'
+  }).format(new Date());
+  const today = parseDate(date);
   let target = moduleData.find((module) => today >= module.start && today <= module.end);
+  if (target) {
+    target.moduleEl.classList.add('module-current');
+    target.moduleEl.setAttribute('aria-current', 'true');
+  }
   if (!target) target = today < moduleData[0].start ? moduleData[0] : moduleData[moduleData.length - 1];
   jumpLink.setAttribute('href', '#' + target.header.id);
 })();
