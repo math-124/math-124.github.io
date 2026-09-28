@@ -228,6 +228,19 @@ This way, you can reuse your old index cards for future exams (if you want).
 
 Additionally, **calculators will not be allowed on any exams**. We will design the questions such that the arithmetic is not very complicated, in order to have you focus on the conceptual ideas.
 
+### Redemption Policy
+
+The specific lecture numbers in the table above are subject to change slightly. Midterm 2 is not cumulative. The Final Exam will be cumulative, and broken into three parts:
+
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+
+1. **Part 1** of the Final Exam will be based on Midterm 1 content. If you score higher on Part 1 than you did on Midterm 1, we will replace your Midterm 1 score with $$\frac{\text{Part 1 score} + \text{Midterm 1 score}}{2}$$.
+2. **Part 2** of the Final Exam will be based on Midterm 2 content. If you score higher on Part 2 than you did on Midterm 2, we will replace your Midterm 2 score with $$\frac{\text{Part 2 score} + \text{Midterm 2 score}}{2}$$.
+3. **Part 3** of the Final Exam will be based on the content introduced after Midterm 2.
+
+This "redemption policy" for Parts 1 and 2 is designed to help you boost your Midterm 1 and Midterm 2 scores if you didn't do as well as you'd hoped. This policy can only help your grade; it can't hurt. To be clear, all three parts of the Final Exam are required and part of your Final Exam score.
+
+
 ---
 
 ## Course Improvement Surveys

@@ -1,5 +1,5 @@
 ---
-title: "Week 8: Fall Break and Linear Systems"
+title: "Week 8: Fall Break; Linear Systems; Quiz 2"
 weekNumber: 8
 days:
   - date: "2026-10-19"
@@ -22,4 +22,12 @@ days:
       - name: LEC 15
         type: lecture
         title: Linear Systems, Triangular Systems, and Back Substitution
+  - date: "2026-10-23"
+    events:
+      - name: QUIZ
+        type: quiz
+        title: Quiz 2 (open Oct 21-23; slots open Oct 12)
+        buttons:
+          - label: "📝 Logistics"
+            url: /quiz-logistics/
 ---

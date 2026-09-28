@@ -32,8 +32,8 @@ Quizzes, on the other hand, are administered in person, but in the College of En
 | --- | --- | --- | --- |
 | Quiz 0 | September 8 to September 11 | August 31 | High school algebra and geometry |
 | Quiz 1 | September 21 to September 25 | September 14 | Lectures 2–6 |
-| Quiz 2 | October 12 to October 16 | October 5 | Lectures 9–12 |
-| Quiz 3 | November 2 to November 6 | October 26 | Lectures 13–17 |
+| Quiz 2 | 🆕 October 21 to October 23 | October 12 | Lectures 11-14 |
+| Quiz 3 | November 2 to November 6 | October 26 | Lectures 15–17 |
 | Quiz 4 | November 30 to December 4 | November 23 | Lectures 22–26 |
 
 With this system, you can schedule each quiz at a time that is convenient for you. When you go to take your quiz, there may be students taking assessments from other classes at the same time!

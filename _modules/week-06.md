@@ -1,5 +1,5 @@
 ---
-title: "Week 6: Midterm 1; Matrices<br><small>Signups for Quiz 2 open on October 5.</small>"
+title: "Week 6: Midterm 1; Matrices"
 weekNumber: 6
 days:
   - date: "2026-10-05"
@@ -7,6 +7,9 @@ days:
       - name: EXAM
         type: exam
         title: Midterm 1 (7-9PM, 1360 East Hall)
+        buttons:
+          - label: "📝 Logistics"
+            url: https://edstem.org/us/courses/103314/discussion/8322098
   - date: "2026-10-06"
     events:
       - name: LEC 11

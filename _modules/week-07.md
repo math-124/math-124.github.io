@@ -1,5 +1,5 @@
 ---
-title: "Week 7: Matrix Multiplication and Inverses; Quiz 2"
+title: "Week 7: Matrix Multiplication and Inverses<br><small>Signups for Quiz 2 open on October 12.</small>"
 weekNumber: 7
 days:
   - date: "2026-10-12"
@@ -22,12 +22,4 @@ days:
       - name: LEC 14
         type: lecture
         title: Transpose and Inverses
-  - date: "2026-10-16"
-    events:
-      - name: QUIZ
-        type: quiz
-        title: Quiz 2 (open Oct 12-16; slots open Oct 5)
-        buttons:
-          - label: "📝 Logistics"
-            url: /quiz-logistics/
 ---
