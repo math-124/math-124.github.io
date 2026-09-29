@@ -6,6 +6,7 @@ days:
     events:
       - name: LEC 9
         type: lecture
+        worksheet: ../resources/worksheets/lec09-worksheet.pdf
         title: "Geometry in ℝ³: Orthonormal Coordinates and Projection"
   - date: "2026-09-30"
     events:
