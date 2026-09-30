@@ -8,6 +8,7 @@ days:
         type: lecture
         worksheet: ../resources/worksheets/lec09-worksheet.pdf
         title: "Geometry in ℝ³: Orthonormal Coordinates and Projection"
+        recording: https://leccap.engin.umich.edu/leccap/player/r/j30SCJ
   - date: "2026-09-30"
     events:
       - name: LAB 5
