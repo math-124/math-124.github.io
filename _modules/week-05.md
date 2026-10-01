@@ -20,6 +20,7 @@ days:
     events:
       - name: LEC 10
         type: lecture
+        worksheet: ../resources/worksheets/lec10-worksheet.pdf
         title: Intersections of Lines and Planes
   - date: "2026-10-02"
     events:
