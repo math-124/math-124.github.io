@@ -22,6 +22,7 @@ days:
         type: lecture
         worksheet: ../resources/worksheets/lec10-worksheet.pdf
         title: Intersections of Lines and Planes
+        recording: https://leccap.engin.umich.edu/leccap/player/r/cjWNoi
   - date: "2026-10-02"
     events:
       - name: REV
