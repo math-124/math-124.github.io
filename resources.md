@@ -57,6 +57,22 @@ Kartik has recorded a series of short videos that visualize various concepts in 
   </figure>
 </div>
 
+### Other videos
+
+Here are a few other videos we've made:
+
+<ul>
+  <li>
+    <a href="https://youtu.be/fuDVAyv-3Ag?si=2luVS_DvR7GNRNC2">Finding the equation of the plane spanned by two vectors in ℝ³</a>
+    <div class="video-grid">
+      <figure class="video-card">
+        <iframe src="https://www.youtube-nocookie.com/embed/fuDVAyv-3Ag" title="Finding the equation of the plane spanned by two vectors in R3" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </figure>
+    </div>
+  </li>
+  <li><a href="https://www.youtube.com/playlist?list=PLYUNPCpJ6xgs">Practice Midterm 1 walkthrough video</a></li>
+</ul>
+
 ---
 
 If you've found other resources on the internet helpful, let us know and we'll add them here!

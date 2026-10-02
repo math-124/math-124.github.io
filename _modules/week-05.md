@@ -27,8 +27,9 @@ days:
     events:
       - name: REV
         type: review
-        title: "<b>Practice Exam (4-7PM, B844 East Hall)</b>"
-        note: "From 4-6PM, you will take a practice exam. From 6-7PM, we will take it up. The practice exam will be posted for those who can't attend."
+        url: /resources/exams/practice-mt1/
+        title: "<b>Practice Midterm 1 (4-7PM, B844 East Hall)</b>"
+        note: 'From 4-6PM, you will take a <a href="/resources/exams/practice-mt1/">practice exam</a>. From 6-7PM, we will take it up. A walkthrough video of the exam is linked above.'
       - name: HW 4
         type: hw
         title: "<b>Lines and Planes in ℝ³</b>"
