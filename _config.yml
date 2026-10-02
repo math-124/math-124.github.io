@@ -114,5 +114,5 @@ defaults:
       layout: announcement
 
 # Shared UI updates reach every course without rebuilding this site.
-smart_search_url: https://surajrampure.github.io/course-search/v1
+smart_search_url: https://rampure.org/course-search/v1
 smart_search_config: https://math124.org/assets/course-search/config.json
