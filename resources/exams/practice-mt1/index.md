@@ -163,21 +163,8 @@ mjx-container[jax="CHTML"][display="true"] {
   border: 0;
 }
 .main-content h2 a.problem-video-button {
-  background-color: #FFCB05;
-  color: #00274C;
-  display: inline-block;
-  padding: 0.25rem 0.6rem;
-  border-radius: 4px;
-  font-size: 0.875rem;
-  font-weight: 500;
   margin-left: 0.5rem;
   vertical-align: middle;
-  text-decoration: none;
-  white-space: nowrap;
-}
-.main-content h2 a.problem-video-button:hover {
-  background-color: #e6b800;
-  text-decoration: none;
 }
 </style>
 
@@ -205,7 +192,7 @@ mjx-container[jax="CHTML"][display="true"] {
 
 ---
 
-<h2 id="problem-1-9-pts" markdown="span">Problem 1 (9 pts) <a class="problem-video-button" href="https://youtu.be/HVlCDE2MwNY" target="_blank" rel="noopener" aria-label="Walkthrough video for Problem 1">🎥 Walkthrough</a></h2>
+<h2 id="problem-1-9-pts" markdown="span">Problem 1 (9 pts) <a class="btn btn-info assignment-pdf-button problem-video-button" href="https://youtu.be/HVlCDE2MwNY" target="_blank" rel="noopener" aria-label="Walkthrough video for Problem 1">🎥 Walkthrough</a></h2>
 
 Consider the points
 
@@ -295,7 +282,7 @@ $$
 
 ---
 
-<h2 id="problem-2-16-pts" markdown="span">Problem 2 (16 pts) <a class="problem-video-button" href="https://youtu.be/2EzvyV4OoeY" target="_blank" rel="noopener" aria-label="Walkthrough video for Problem 2">🎥 Walkthrough</a></h2>
+<h2 id="problem-2-16-pts" markdown="span">Problem 2 (16 pts) <a class="btn btn-info assignment-pdf-button problem-video-button" href="https://youtu.be/2EzvyV4OoeY" target="_blank" rel="noopener" aria-label="Walkthrough video for Problem 2">🎥 Walkthrough</a></h2>
 
 Suppose <span class="math-inline">\\(\vec u,\vec v\in\mathbb R^3\\)</span> satisfy
 
@@ -409,7 +396,7 @@ $$
 
 ---
 
-<h2 id="problem-3-14-pts" markdown="span">Problem 3 (14 pts) <a class="problem-video-button" href="https://youtu.be/a0ucVLmbJDk" target="_blank" rel="noopener" aria-label="Walkthrough video for Problem 3">🎥 Walkthrough</a></h2>
+<h2 id="problem-3-14-pts" markdown="span">Problem 3 (14 pts) <a class="btn btn-info assignment-pdf-button problem-video-button" href="https://youtu.be/a0ucVLmbJDk" target="_blank" rel="noopener" aria-label="Walkthrough video for Problem 3">🎥 Walkthrough</a></h2>
 
 <div class="assignment-parts" markdown="1">
 <div class="assignment-part" markdown="1">
@@ -502,7 +489,7 @@ Select <span class="math-inline">\\(\boxed{\text{the first, third, and fourth op
 
 ---
 
-<h2 id="problem-4-14-pts" markdown="span">Problem 4 (14 pts) <a class="problem-video-button" href="https://youtu.be/4nDllJnq--8" target="_blank" rel="noopener" aria-label="Walkthrough video for Problem 4">🎥 Walkthrough</a></h2>
+<h2 id="problem-4-14-pts" markdown="span">Problem 4 (14 pts) <a class="btn btn-info assignment-pdf-button problem-video-button" href="https://youtu.be/4nDllJnq--8" target="_blank" rel="noopener" aria-label="Walkthrough video for Problem 4">🎥 Walkthrough</a></h2>
 
 The vectors
 
@@ -606,7 +593,7 @@ $$
 
 ---
 
-<h2 id="problem-5-19-pts" markdown="span">Problem 5 (19 pts) <a class="problem-video-button" href="https://youtu.be/qbKAUGUNbg8" target="_blank" rel="noopener" aria-label="Walkthrough video for Problem 5">🎥 Walkthrough</a></h2>
+<h2 id="problem-5-19-pts" markdown="span">Problem 5 (19 pts) <a class="btn btn-info assignment-pdf-button problem-video-button" href="https://youtu.be/qbKAUGUNbg8" target="_blank" rel="noopener" aria-label="Walkthrough video for Problem 5">🎥 Walkthrough</a></h2>
 
 Let <span class="math-inline">\\(P\\)</span> be the plane through the points
 
@@ -701,7 +688,7 @@ $$
 
 ---
 
-<h2 id="problem-6-18-pts" markdown="span">Problem 6 (18 pts) <a class="problem-video-button" href="https://youtu.be/Ggli3iB3DEw" target="_blank" rel="noopener" aria-label="Walkthrough video for Problem 6">🎥 Walkthrough</a></h2>
+<h2 id="problem-6-18-pts" markdown="span">Problem 6 (18 pts) <a class="btn btn-info assignment-pdf-button problem-video-button" href="https://youtu.be/Ggli3iB3DEw" target="_blank" rel="noopener" aria-label="Walkthrough video for Problem 6">🎥 Walkthrough</a></h2>
 
 Consider the line <span class="math-inline">\\(\ell\\)</span> in <span class="math-inline">\\(\mathbb R^3\\)</span> given by
 
@@ -778,7 +765,7 @@ $$
 
 ---
 
-<h2 id="problem-7-10-pts" markdown="span">Problem 7 (10 pts) <a class="problem-video-button" href="https://youtu.be/LIOhnTC4ti4" target="_blank" rel="noopener" aria-label="Walkthrough video for Problem 7">🎥 Walkthrough</a></h2>
+<h2 id="problem-7-10-pts" markdown="span">Problem 7 (10 pts) <a class="btn btn-info assignment-pdf-button problem-video-button" href="https://youtu.be/LIOhnTC4ti4" target="_blank" rel="noopener" aria-label="Walkthrough video for Problem 7">🎥 Walkthrough</a></h2>
 
 Let
 
