@@ -23,6 +23,8 @@ days:
         worksheet: ../resources/worksheets/lec10-worksheet.pdf
         title: Intersections of Lines and Planes
         recording: https://leccap.engin.umich.edu/leccap/player/r/cjWNoi
+        reading: https://notes.math124.org/ch02/02-08
+        reading_text: Ch. 2.8
   - date: "2026-10-02"
     events:
       - name: REV
