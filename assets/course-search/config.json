@@ -5,7 +5,8 @@
     "Lectures",
     "Notes",
     "Homeworks",
-    "Labs"
+    "Labs",
+    "Past exams"
   ],
   "dataBase": "./data/",
   "footerLinks": [
@@ -14,6 +15,11 @@
       "url": "https://notes.math124.org"
     }
   ],
-  "lecturePDFLabel": "Open worksheet",
-  "queryShorthand": {}
+  "lecturePDFLabel": "Open lecture worksheet",
+  "queryShorthand": {},
+  "categoryLabels": {
+    "Past exams": "Exams"
+  },
+  "lecturePDFPageLabel": "worksheet page",
+  "lecturePDFCategoryLabel": "Lecture worksheets"
 }

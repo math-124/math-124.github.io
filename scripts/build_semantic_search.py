@@ -12,7 +12,7 @@ def convert(data, output):
     records = []
     for doc in data["documents"]:
         for passage in doc["passages"]:
-            category = {"notes":"Notes", "homeworks":"Homeworks", "labs":"Labs", "lectures":"Lecture PDFs"}[doc["type"]]
+            category = {"notes":"Notes", "homeworks":"Homeworks", "labs":"Labs", "lectures":"Lecture PDFs", "exams":"Past exams"}[doc["type"]]
             url = passage["url"]
             if url.startswith('/'):
                 url = 'https://math124.org' + url

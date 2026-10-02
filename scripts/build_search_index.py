@@ -172,7 +172,22 @@ def build(site, notes, output):
                 documents.append({"id": f"{kind}-{number}", "type": {"lecture": "lectures", "lab": "labs", "hw": "homeworks"}[kind],
                                   "title": f"{name} {number}: {title}", "url": url, "date": day["date"], "release":release,
                                   "links": links, "passages": passages})
-    counts = {kind: sum(d["type"] == kind for d in documents) for kind in ("lectures", "notes", "homeworks", "labs")}
+    # Only exam pages linked from the published site enter the corpus.
+    linked = {urljoin("https://math124.org/", a["href"]).split("#")[0].split("?")[0].rstrip("/")
+              for page in (site / "_site/index.html", site / "_site/resources/index.html") if page.exists()
+              for a in BeautifulSoup(page.read_text(), "html.parser").select("a[href]")}
+    for source in sorted((site / "resources/exams").glob("*/index.md")):
+        url = "/" + str(source.parent.relative_to(site)) + "/"
+        if ("https://math124.org" + url).rstrip("/") not in linked:
+            continue
+        dates = subprocess.check_output(["git", "-C", str(site), "log", "--reverse", "--format=%cI", "--", str(source.relative_to(site))], text=True).splitlines()
+        if not dates:
+            raise ValueError(f"No public source history for {source}")
+        documents.append({"id": "exam-" + source.parent.name, "type": "exams", "title": metadata(source)["title"],
+                          "url": url, "release": dates[0][:10], "date": dates[0][:10],
+                          "links": [{"label": "Problems", "url": url}],
+                          "passages": html_passages(site / "_site" / url.lstrip("/") / "index.html", url)})
+    counts = {kind: sum(d["type"] == kind for d in documents) for kind in ("lectures", "notes", "homeworks", "labs", "exams")}
     payload = {"version": 1, "counts": counts, "recordings": recordings,
                "transcribed": transcribed, "documents": documents,
                "sources": {"websiteCommit":subprocess.check_output(['git','-C',str(site),'rev-parse','HEAD'],text=True).strip(),
