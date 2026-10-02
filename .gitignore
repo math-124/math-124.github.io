@@ -3,3 +3,8 @@ _site/
 CURSOR.md
 .leccap_cookie
 .leccap_storage_state.json
+
+assets/course-search/data/
+.search-notes/
+.shared-search/
+__pycache__/

@@ -17,6 +17,7 @@ jobs:
   build-and-deploy:
     if: |
       github.event_name == 'push' ||
+      github.event_name == 'workflow_dispatch' ||
       (github.event_name == 'workflow_run' && github.event.workflow_run.conclusion == 'success')
 
     runs-on: ubuntu-latest
@@ -50,6 +51,41 @@ jobs:
         run: bundle exec jekyll build --source . --destination ./_site
         env:
           JEKYLL_ENV: production
+
+      - name: Check out published course notes for search
+        uses: actions/checkout@v5
+        with:
+          repository: math-124/notes
+          path: .search-notes
+
+      - name: Set up Python for course search
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Check out shared search implementation
+        uses: actions/checkout@v5
+        with:
+          repository: surajrampure/course-search
+          ref: main
+          path: .shared-search
+
+      - name: Set up shared search runtime
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: .shared-search/package-lock.json
+
+      - name: Index released course materials
+        run: |
+          python -m pip install -r scripts/search-requirements.txt
+          npm ci --prefix .shared-search
+          python scripts/build_semantic_search.py --notes .search-notes --output .shared-search/search-index.json
+          (cd .shared-search && npm run embed)
+          mkdir -p _site/assets/course-search/data
+          cp .shared-search/public/data/* _site/assets/course-search/data/
+          MATH124_DATA=public/data npm test --prefix .shared-search
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v4

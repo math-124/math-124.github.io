@@ -11,6 +11,8 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - LICENSE
+  - scripts
+  - _data/lecture-transcripts
   - node_modules
   - vendor/bundle
   - vendor/cache
@@ -19,7 +21,7 @@ exclude:
 
 theme: just-the-docs
 color_scheme: um
-search_enabled: true
+search_enabled: false
 heading_anchors: true
 permalink: pretty
 
@@ -110,3 +112,7 @@ defaults:
       type: announcements
     values:
       layout: announcement
+
+# Shared UI updates reach every course without rebuilding this site.
+smart_search_url: https://surajrampure.github.io/course-search/v1
+smart_search_config: https://math124.org/assets/course-search/config.json

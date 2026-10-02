@@ -1,0 +1,19 @@
+{
+  "courseName": "Math 124",
+  "websiteURL": "https://math124.org",
+  "categories": [
+    "Lectures",
+    "Notes",
+    "Homeworks",
+    "Labs"
+  ],
+  "dataBase": "./data/",
+  "footerLinks": [
+    {
+      "label": "Course notes",
+      "url": "https://notes.math124.org"
+    }
+  ],
+  "lecturePDFLabel": "Open worksheet",
+  "queryShorthand": {}
+}
