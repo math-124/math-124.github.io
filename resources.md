@@ -22,6 +22,7 @@ Kartik has recorded a series of short videos that visualize various concepts in 
   gap: 1.5rem;
   margin: 1.5rem 0;
 }
+.playlist-preview { margin-right: 1.5rem; }
 .video-card { min-width: 0; margin: 0; }
 .video-card iframe {
   display: block;
@@ -36,24 +37,9 @@ Kartik has recorded a series of short videos that visualize various concepts in 
 }
 </style>
 
-<div class="video-grid">
+<div class="video-grid playlist-preview">
   <figure class="video-card">
-    <iframe src="https://www.youtube-nocookie.com/embed/BwCKKKied9I" title="What Does a Vector in 3D Look Like?" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-  </figure>
-  <figure class="video-card">
-    <iframe src="https://www.youtube-nocookie.com/embed/NZ3Zf6diubo" title="Why Does One Vector Span a Line?" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-  </figure>
-  <figure class="video-card">
-    <iframe src="https://www.youtube-nocookie.com/embed/ELVbshKqEbs" title="Why Do Two Vectors (Usually) Span a Plane?" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-  </figure>
-  <figure class="video-card">
-    <iframe src="https://www.youtube-nocookie.com/embed/g4QeHiwjeak" title="How Do We Find the Equation of a Line in R2?" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-  </figure>
-  <figure class="video-card">
-    <iframe src="https://www.youtube-nocookie.com/embed/K0PXW9Lqmqg" title="How Do We Visualize a Line in R3? | Desmos 3D" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-  </figure>
-  <figure class="video-card">
-    <iframe src="https://www.youtube-nocookie.com/embed/-oxBFKX2Ttg" title="How Do We Visualize a Plane in R3? | Desmos 3D" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    <iframe src="https://www.youtube.com/embed/videoseries?si=paNNLq23v39ZqRHK&amp;list=PLasz2011S7Os" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
   </figure>
 </div>
 
