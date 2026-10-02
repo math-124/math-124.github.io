@@ -30,8 +30,12 @@ days:
       - name: REV
         type: review
         url: /resources/exams/practice-mt1/
-        title: "<b>Practice Midterm 1 (4-7PM, B844 East Hall)</b>"
-        note: 'From 4-6PM, you will take a <a href="/resources/exams/practice-mt1/">practice exam</a>. From 6-7PM, we will take it up. A walkthrough video of the exam is linked above.'
+        title: "<b>Practice Midterm 1</b>"
+        buttons:
+          - label: 📺 Recording (all 7 problems)
+            url: https://www.youtube.com/playlist?list=PLYUNPCpJ6xgs
+          - label: 📺 Recording (live in review session)
+            url: https://leccap.engin.umich.edu/leccap/player/r/eTCWVO
       - name: HW 4
         type: hw
         title: "<b>Lines and Planes in ℝ³</b>"
