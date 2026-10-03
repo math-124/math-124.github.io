@@ -11,3 +11,5 @@ Caption caches under `_data/lecture-transcripts` were captured read-only from th
 Run the importer after Jekyll with Python packages from `search-requirements.txt`, passing `--notes` a clean public notes checkout and `--output` the shared checkout's `search-index.json`. Run `npm run embed` there; copy its `public/data` to `_site/assets/course-search/data`. The workflow automates these steps. To add recordings later, acquire authentic timed captions, review their class boundaries, import and commit the new cache, then rebuild.
 
 Practice exams linked from the homepage or Resources page are indexed by problem, including published solutions. The Math 124 interface calls lecture PDFs “Lecture worksheets” and past exams “Exams”.
+
+“Other videos” indexes only the titles and direct video links in `_data/other-videos.json`: the six reviewed videos from Kartik's “Linear Algebra, Visually” playlist and the standalone plane-equation video on Resources. Builds use this fixed list without fetching YouTube or indexing transcripts. Edit the list explicitly to change the searchable videos.

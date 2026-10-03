@@ -187,11 +187,20 @@ def build(site, notes, output):
                           "url": url, "release": dates[0][:10], "date": dates[0][:10],
                           "links": [{"label": "Problems", "url": url}],
                           "passages": html_passages(site / "_site" / url.lstrip("/") / "index.html", url)})
-    counts = {kind: sum(d["type"] == kind for d in documents) for kind in ("lectures", "notes", "homeworks", "labs", "exams")}
+    # A reviewed fixed list, indexed by title without fetching YouTube at build time.
+    videos = json.loads((site / "_data/other-videos.json").read_text())
+    for number, video in enumerate(videos, 1):
+        title, url = video["title"], video["url"]
+        documents.append({"id": f"other-video-{number}", "type": "other-videos",
+                          "title": title, "url": url,
+                          "links": [{"label": "Watch video", "url": url}],
+                          "passages": [{"text": title, "label": "Watch video", "url": url}]})
+    counts = {kind: sum(d["type"] == kind for d in documents) for kind in ("lectures", "notes", "homeworks", "labs", "exams", "other-videos")}
     payload = {"version": 1, "counts": counts, "recordings": recordings,
                "transcribed": transcribed, "documents": documents,
                "sources": {"websiteCommit":subprocess.check_output(['git','-C',str(site),'rev-parse','HEAD'],text=True).strip(),
                            "notesCommit":subprocess.check_output(['git','-C',str(notes),'rev-parse','HEAD'],text=True).strip(),
+                           "otherVideos":hashlib.sha256((site/'_data/other-videos.json').read_bytes()).hexdigest(),
                            "transcripts":{p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted((site/'_data/lecture-transcripts').glob('*.json'))}}}
     output.parent.mkdir(parents=True, exist_ok=True)
     output.write_text(json.dumps(payload, ensure_ascii=False, separators=(",", ":")) + "\n")

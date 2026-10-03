@@ -12,7 +12,7 @@ def convert(data, output):
     records = []
     for doc in data["documents"]:
         for passage in doc["passages"]:
-            category = {"notes":"Notes", "homeworks":"Homeworks", "labs":"Labs", "lectures":"Lecture PDFs", "exams":"Past exams"}[doc["type"]]
+            category = {"notes":"Notes", "homeworks":"Homeworks", "labs":"Labs", "lectures":"Lecture PDFs", "exams":"Past exams", "other-videos":"Other videos"}[doc["type"]]
             url = passage["url"]
             if url.startswith('/'):
                 url = 'https://math124.org' + url
@@ -42,7 +42,7 @@ def convert(data, output):
                 ('basis',r'basis|bases|orthonormal'),
             ] if re.search(pattern,text,re.I)]
             records.append({"id":str(len(records)),"category":category,"title":doc["title"],
-                            "section":section,"text":text,"url":url,"detail":"Lecture captions" if category=='Lecture recordings' else "Published course material",
+                            "section":section,"text":text,"url":url,"detail":"Lecture captions" if category=='Lecture recordings' else "Video title" if category=='Other videos' else "Published course material",
                             "concepts":tags,"releaseAt":doc.get('release',doc.get('date','2026-08-01'))+'T00:00:00-04:00',"semester":"Fall 2026",**extra})
     payload={"records":records,"metadata":{"builtAt":dt.datetime.now(dt.timezone.utc).isoformat(),
              "errors":[],"course":"Math 124","coverage":data['counts'],"sources":data['sources'],

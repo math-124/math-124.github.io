@@ -6,7 +6,8 @@
     "Notes",
     "Homeworks",
     "Labs",
-    "Past exams"
+    "Past exams",
+    "Other videos"
   ],
   "dataBase": "./data/",
   "footerLinks": [
