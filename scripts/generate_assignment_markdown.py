@@ -498,6 +498,7 @@ def render_pgfplots_for_web(text: str, output_md: Path) -> str:
             plot_tex.write_text(
                 r"\documentclass[border=6pt]{standalone}" + "\n"
                 r"\usepackage{pgfplots,amsmath,amssymb,fontspec}" + "\n"
+                r"\usetikzlibrary{arrows.meta}" + "\n"
                 r"\definecolor{courseblue}{HTML}{1F5FBF}" + "\n"
                 r"\definecolor{lightgray}{gray}{0.94}" + "\n"
                 r"\IfFontExistsTF{Palatino}{\setmainfont{Palatino}}{}" + "\n"
@@ -668,6 +669,19 @@ def strip_latex_comment_lines(text: str) -> str:
 
 
 def strip_layout_commands(text: str) -> str:
+    def preserve_code(match: re.Match[str]) -> str:
+        code = match.group(1).strip()
+        code = code.replace(r"\hspace*{2em}", "    ")
+        code = code.replace("\\\\", "")
+        code = "\n".join(line[1:] if line.startswith(" ") else line for line in code.splitlines())
+        return "\\begin{lstlisting}[language=Python]\n" + code + "\n\\end{lstlisting}"
+
+    text = re.sub(
+        r"(?s)\\begin\{flushleft\}\s*\\ttfamily\s*(.*?)\\end\{flushleft\}",
+        preserve_code,
+        text,
+    )
+    text = re.sub(r"\\(?:begin|end)\{samepage\}", "", text)
     text = re.sub(r"\\noindent\s*\\rule\{\\textwidth\}\{[^{}]*\}", "", text)
     text = re.sub(
         r"\\noindent\s*\\makebox\[[^\]]+\]\{\\rule\{\\textwidth\}\{[^{}]*\}\}",
@@ -1118,6 +1132,13 @@ def format_heading_for_toc(heading: str) -> str:
 
 
 def cleanup_markdown(text: str, use_point_badges: bool = True) -> str:
+    code_blocks: list[str] = []
+
+    def protect_code(match: re.Match[str]) -> str:
+        code_blocks.append(match.group(0).replace('``` {.python language="Python"}', '```python'))
+        return f"FENCEDCODEPLACEHOLDER{len(code_blocks) - 1}"
+
+    text = re.sub(r"(?ms)^```[^\n]*\n.*?^```[ \t]*$", protect_code, text)
     text = text.replace("\\\u2019", "'")
     text = re.sub(r"(?<!\\)\\&", "&", text)
     text = text.replace('\\"', '"')
@@ -1171,6 +1192,8 @@ def cleanup_markdown(text: str, use_point_badges: bool = True) -> str:
         lambda m: m[0].replace("\\\\", "\\"),
         text,
     )
+    for index, block in enumerate(code_blocks):
+        text = text.replace(f"FENCEDCODEPLACEHOLDER{index}", block)
     return text.strip()
 
 

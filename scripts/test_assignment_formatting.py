@@ -5,7 +5,7 @@ from pathlib import Path
 
 from check_assignment_html import check_source_markdown
 from generate_assignment_markdown import (cleanup_markdown, fence_indented_code_blocks,
-    replace_itemize_with_html_placeholders)
+    replace_itemize_with_html_placeholders, strip_layout_commands, latex_fragment_to_markdown)
 
 
 class SolutionFormattingTests(unittest.TestCase):
@@ -55,6 +55,22 @@ $$"""
         self.assertIn('<span class="currency tex2jax_ignore">$87.50</span>', rendered)
         self.assertIn('class="math-inline"', rendered)
         self.assertIn("x=3", rendered)
+
+    def test_solution_function_keeps_its_header_and_indentation(self):
+        source = r"""\begin{flushleft}
+\ttfamily
+ def reflection(v, w):\\
+ \hspace*{2em}p = np.dot(v, w) / np.dot(w, w) * w\\
+ \hspace*{2em}return 2 * p - v
+\end{flushleft}"""
+        rendered = latex_fragment_to_markdown(strip_layout_commands(source))
+        self.assertIn("```python\ndef reflection(v, w):\n    p = np.dot(v, w) / np.dot(w, w) * w\n    return 2 * p - v\n```", rendered)
+
+    def test_samepage_retains_solution_content_without_layout_fences(self):
+        rendered = latex_fragment_to_markdown(strip_layout_commands(
+            r"\begin{samepage}Substituting gives $x=6t$.\end{samepage}"))
+        self.assertIn("Substituting gives", rendered)
+        self.assertNotIn(":::", rendered)
 
     def test_real_python_still_gets_a_code_fence(self):
         rendered = fence_indented_code_blocks("    x = 3\n    print(x)")
