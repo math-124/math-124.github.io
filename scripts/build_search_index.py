@@ -69,14 +69,25 @@ def published_notes(notes):
     toc = yaml.safe_load((notes / "myst.yml").read_text())["project"]["toc"]
     def walk(items):
         for item in items:
+            if item.get("hidden"):
+                continue
             if item.get("file", "").startswith("ch"):
                 path = notes / item["file"]
                 url = "https://notes.math124.org/" + str(Path(item["file"]).with_suffix("")) + "/"
                 cells = json.loads(path.read_text())["cells"]
+                title = item.get("title")
+                if not title:
+                    for cell in cells:
+                        if cell["cell_type"] == "markdown":
+                            heading = re.search(r"^#\s+(.+)", "".join(cell["source"]), re.M)
+                            if heading:
+                                title = clean(heading[1])
+                                break
+                title = title or path.stem
                 rendered = BeautifulSoup(urlopen(url,timeout=30).read(), 'html.parser')
                 anchors = {clean(h.get_text(' ',strip=True).replace('¶','')): h.get('id')
                            for h in rendered.select('article h2, article h3, article h4') if h.get('id')}
-                passages, label = [], item["title"]
+                passages, label = [], title
                 section_url = url
                 for cell in cells:
                     if cell["cell_type"] != "markdown":
@@ -89,7 +100,7 @@ def published_notes(notes):
                     text = clean(source)
                     if text and text != label:
                         passages.append({"text": text, "label": label, "url": section_url})
-                yield {"id": "note-" + path.stem, "type": "notes", "title": item["title"],
+                yield {"id": "note-" + path.stem, "type": "notes", "title": title,
                        "url": url, "links": [{"label": "Read note", "url": url}], "passages": passages}
             yield from walk(item.get("children", []))
     return list(walk(toc))
