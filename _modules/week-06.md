@@ -15,6 +15,7 @@ days:
       - name: LEC 11
         type: lecture
         title: Matrices and Matrix-Vector Multiplication
+        worksheet: ../resources/worksheets/lec11-worksheet.pdf
   - date: "2026-10-07"
     events:
       - name: LAB 6
