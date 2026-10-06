@@ -2,11 +2,11 @@
 title: "Week 10: Subspaces, Bases, and Dimension; Quiz 3"
 weekNumber: 10
 days:
-  - date: "2026-11-02"
-    events:
-      - name: HW 8
-        type: hw
-        title: Homework 8
+#   - date: "2026-11-02"
+#     events:
+#       - name: HW 8
+#         type: hw
+#         title: Homework 8
   - date: "2026-11-03"
     events:
       - name: LEC 18

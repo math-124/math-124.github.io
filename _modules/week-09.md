@@ -2,11 +2,11 @@
 title: "Week 9: PLU Factorization<br><small>Signups for Quiz 3 open on October 26.</small>"
 weekNumber: 9
 days:
-  - date: "2026-10-26"
-    events:
-      - name: HW 7
-        type: hw
-        title: Homework 7
+#   - date: "2026-10-26"
+#     events:
+#       - name: HW 7
+#         type: hw
+#         title: Homework 7
   - date: "2026-10-27"
     events:
       - name: LEC 16

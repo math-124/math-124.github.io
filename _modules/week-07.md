@@ -2,11 +2,6 @@
 title: "Week 7: Matrix Multiplication and Inverses<br><small>Signups for Quiz 2 open on October 12.</small>"
 weekNumber: 7
 days:
-  - date: "2026-10-12"
-    events:
-      - name: HW 5
-        type: hw
-        title: Homework 5
   - date: "2026-10-13"
     events:
       - name: LEC 13
@@ -22,4 +17,9 @@ days:
       - name: LEC 14
         type: lecture
         title: Transpose and Inverses
+  - date: "2026-10-16"
+    events:
+      - name: HW 5
+        type: hw
+        title: Homework 5
 ---

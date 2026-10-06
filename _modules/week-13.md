@@ -2,11 +2,11 @@
 title: "Week 13: Determinants and Thanksgiving<br><small>Signups for Quiz 4 open on November 23.</small>"
 weekNumber: 13
 days:
-  - date: "2026-11-23"
-    events:
-      - name: HW 11
-        type: hw
-        title: Homework 11
+#   - date: "2026-11-23"
+#     events:
+#       - name: HW 11
+#         type: hw
+#         title: Homework 11
   - date: "2026-11-24"
     events:
       - name: LEC 24

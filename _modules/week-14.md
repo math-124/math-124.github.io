@@ -2,11 +2,11 @@
 title: "Week 14: Eigenvalues and Diagonalization; Quiz 4"
 weekNumber: 14
 days:
-  - date: "2026-11-30"
-    events:
-      - name: HW 12
-        type: hw
-        title: Homework 12
+#   - date: "2026-11-30"
+#     events:
+#       - name: HW 12
+#         type: hw
+#         title: Homework 12
   - date: "2026-12-01"
     events:
       - name: LEC 25

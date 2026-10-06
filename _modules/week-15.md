@@ -2,11 +2,11 @@
 title: "Week 15: Spectral Theorem and Applications"
 weekNumber: 15
 days:
-  - date: "2026-12-07"
-    events:
-      - name: HW 13
-        type: hw
-        title: Homework 13
+#   - date: "2026-12-07"
+#     events:
+#       - name: HW 13
+#         type: hw
+#         title: Homework 13
   - date: "2026-12-08"
     events:
       - name: LEC 27

@@ -4,9 +4,9 @@ weekNumber: 12
 days:
   - date: "2026-11-16"
     events:
-      - name: HW 10
-        type: hw
-        title: Homework 10
+#       - name: HW 10
+#         type: hw
+#         title: Homework 10
       - name: EXAM
         type: exam
         title: Midterm 2
