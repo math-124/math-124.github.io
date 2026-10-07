@@ -17,6 +17,8 @@ days:
         title: Matrices and Matrix-Vector Multiplication
         reading: https://notes.math124.org/ch03/03-01
         reading_text: Ch. 3.1
+        reading2: https://notes.math124.org/ch03/03-02
+        reading2_text: Ch. 3.2
         recording: https://leccap.engin.umich.edu/leccap/player/r/kGbMcO
         worksheet: ../resources/worksheets/lec11-worksheet.pdf
   - date: "2026-10-07"
