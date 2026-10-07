@@ -23,7 +23,7 @@ days:
     events:
       - name: LAB 6
         type: lab
-        title: Lab 6
+        title: "Matrix-Vector Multiplication"
         colab_link: https://colab.research.google.com/github/math-124/fa26-code/blob/main/labs/lab06/lab06.ipynb
   - date: "2026-10-08"
     events:
