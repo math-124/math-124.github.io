@@ -26,10 +26,11 @@ days:
       - name: LAB 6
         type: lab
         title: "Matrix-Vector Multiplication"
-        colab_link: https://colab.research.google.com/github/math-124/fa26-code/blob/main/labs/lab06/lab06.ipynb
+        problems: ../resources/labs/lab06/
   - date: "2026-10-08"
     events:
       - name: LEC 12
         type: lecture
         title: Linear Transformations
+        recording: https://leccap.engin.umich.edu/leccap/player/r/Fkx1Fh
 ---
