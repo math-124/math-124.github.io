@@ -32,4 +32,6 @@ days:
       - name: LEC 12
         type: lecture
         title: Linear Transformations
+        reading: https://notes.math124.org/ch03/03-03
+        reading_text: Ch. 3.3
 ---
