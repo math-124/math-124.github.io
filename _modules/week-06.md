@@ -34,4 +34,5 @@ days:
         title: Linear Transformations
         reading: https://notes.math124.org/ch03/03-03
         reading_text: Ch. 3.3
+        worksheet: ../resources/worksheets/lec12-worksheet.pdf
 ---
