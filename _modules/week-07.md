@@ -23,4 +23,7 @@ days:
         type: hw
         title: "<b>Matrices and Linear Transformations</b>"
         problems: ../resources/homeworks/hw05/
+      - name: SUR
+        type: survey
+        title: Mid-Semester Feedback Form
 ---
