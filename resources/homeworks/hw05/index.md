@@ -644,7 +644,7 @@ $$
 
 Your goal here is to build a very basic image editing app, called **Canva124**, using what you've learned about linear transformations and matrix multiplication.
 
-The notebook for Homework 5 will be posted separately. Instructions on how to use Google Colab are at [math124.org/running-code](https://math124.org/running-code).
+To open the notebook for Homework 5, click [**this link**](https://colab.research.google.com/github/math-124/fa26-code/blob/main/homeworks/hw05/hw05.ipynb). Instructions on how to use Google Colab are at [math124.org/running-code](https://math124.org/running-code).
 
 You won't need to submit the notebook anywhere. To get credit, complete all six tasks in the notebook and include the requested screenshots and written responses in your PDF submission to Homework 5 on Pensive, specifically under **Problem 11**. The notebook specifies what to submit for each task:
 
