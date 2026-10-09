@@ -28,6 +28,12 @@ Compute the products.
         self.assertEqual(before.count('<div'), before.count('</div>'))
         self.assertTrue(after.lstrip().startswith('## Problem 7:'))
 
+    def test_multiparagraph_web_notice_has_divider_and_one_alert(self):
+        rendered = cleanup_markdown("Problem text.\n\nWEBNOTICEBEGIN\n\nFirst paragraph.\n\nSecond paragraph.\n\nWEBNOTICEEND")
+        self.assertIn("---\n\n{: .yellow }\n> First paragraph.\n>\n> Second paragraph.", rendered)
+        self.assertEqual(rendered.count("{: .yellow }"), 1)
+        self.assertNotIn("WEBNOTICE", rendered)
+
 
 if __name__ == '__main__':
     unittest.main()

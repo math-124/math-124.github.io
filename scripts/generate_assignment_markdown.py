@@ -462,6 +462,8 @@ def transform_assignment_tex(text: str, include_solutions: bool = False) -> str:
     text = replace_crossnumber_tikz_grids(text)
     text = mark_enumerate_environments(text)
     text = strip_layout_commands(text)
+    text = text.replace(r"\begin{webnotice}", "\n\nWEBNOTICEBEGIN\n\n")
+    text = text.replace(r"\end{webnotice}", "\n\nWEBNOTICEEND\n\n")
     text = replace_youtube_embed_markers(text)
     text = expand_labcodelinks(text)
     text = replace_fbox_markers(text)
@@ -1157,6 +1159,14 @@ def cleanup_markdown(text: str, use_point_badges: bool = True) -> str:
     text = remove_blank_table_headers(text)
     text = escape_blank_rules(text)
     text = replace_recap_markers(text)
+    text = re.sub(
+        r"WEBNOTICEBEGIN\s*(.*?)\s*WEBNOTICEEND",
+        lambda match: "---\n\n{: .yellow }\n" + "\n".join(
+            "> " + line if line else ">" for line in match.group(1).splitlines()
+        ),
+        text,
+        flags=re.S,
+    )
     text = add_item_separators(text)
     text = promote_interstitial_callouts(text)
     text = promote_extra_practice_callouts(text)
