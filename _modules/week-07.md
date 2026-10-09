@@ -21,5 +21,6 @@ days:
     events:
       - name: HW 5
         type: hw
-        title: Homework 5
+        title: "<b>Matrices and Linear Transformations</b>"
+        problems: ../resources/homeworks/hw05/
 ---
