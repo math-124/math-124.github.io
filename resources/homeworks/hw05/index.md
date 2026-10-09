@@ -415,14 +415,15 @@ Let <span class="math-inline">\\(\displaystyle A=\begin{bmatrix}4&amp;-6\\\\-2&a
 <div class="assignment-part-content" markdown="1">
 (2 pts) Using your inputs from part (a), find a nonzero input with output <span class="math-inline">\\(\vec0\\)</span>. Explain why your construction works using linearity.
 
-**Note: Problems 7--11 require material from Tuesday's lecture.**
-
 </div>
 </div>
 
 </div>
 
 ---
+
+{: .yellow }
+> **Note: Problems 7--11 require material from Tuesday's lecture.**
 
 ## Problem 7: Matrix Products (12 pts)
 
@@ -641,6 +642,56 @@ $$
 
 ## Problem 11: Programming Activity (20 pts)
 
-The programming activity will be posted separately. It will be worth 20 points.
+Your goal here is to build a very basic image editing app, called **Canva124**, using what you've learned about linear transformations and matrix multiplication.
+
+The notebook for Homework 5 will be posted separately. Instructions on how to use Google Colab are at [math124.org/running-code](https://math124.org/running-code).
+
+You won't need to submit the notebook anywhere. To get credit, complete all six tasks in the notebook and include the requested screenshots and written responses in your PDF submission to Homework 5 on Pensive, specifically under **Problem 11**. The notebook specifies what to submit for each task:
+
+<ol class="assignment-enumeration" markdown="1">
+
+<li markdown="1">
+<div class="assignment-enumeration-label">1.</div>
+<div class="assignment-enumeration-content" markdown="1">
+
+**Task 1 (3 pts):** Grayscale.
+
+</div></li>
+<li markdown="1">
+<div class="assignment-enumeration-label">2.</div>
+<div class="assignment-enumeration-content" markdown="1">
+
+**Task 2 (3 pts):** Sepia.
+
+</div></li>
+<li markdown="1">
+<div class="assignment-enumeration-label">3.</div>
+<div class="assignment-enumeration-content" markdown="1">
+
+**Task 3 (4 pts):** Color tint.
+
+</div></li>
+<li markdown="1">
+<div class="assignment-enumeration-label">4.</div>
+<div class="assignment-enumeration-content" markdown="1">
+
+**Task 4 (3 pts):** Stretching and shearing.
+
+</div></li>
+<li markdown="1">
+<div class="assignment-enumeration-label">5.</div>
+<div class="assignment-enumeration-content" markdown="1">
+
+**Task 5 (3 pts):** Rotation.
+
+</div></li>
+<li markdown="1">
+<div class="assignment-enumeration-label">6.</div>
+<div class="assignment-enumeration-content" markdown="1">
+
+**Task 6 (4 pts):** Reflection.
+
+</div></li>
+</ol>
 
 {% endraw %}

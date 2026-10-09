@@ -1325,6 +1325,15 @@ def collapse_repeated_section_separators(text: str) -> str:
 
 def promote_interstitial_callouts(text: str) -> str:
     """Move standalone prose before the next item boundary into that item block."""
+    # Pandoc preserves standalone LaTeX boxes as fenced divs. Unwrap a
+    # bold-only box at an item boundary so it can use the usual yellow alert.
+    text = re.sub(
+        rf"(?m)^::: tcolorbox[ \t]*\n+"
+        rf"(?P<message>\*\*[^\n]+\*\*)(?:\n+:::[ \t]*)?"
+        rf"(?=\n+{re.escape(SECTION_SEPARATOR)}\n+## (?:Problem|Activity) \d+)",
+        lambda match: match.group("message"),
+        text,
+    )
     pattern = re.compile(
         rf"\n\n(?P<message>(?:\*\*|<strong>)(?:(?!\n\n).)+?(?:\*\*|</strong>))[ \t]*"
         rf"\n\n{re.escape(SECTION_SEPARATOR)}\n\n(?P<heading>## (?:Problem|Activity) \d+)",
