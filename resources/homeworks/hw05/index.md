@@ -646,7 +646,7 @@ Your goal here is to build a very basic image editing app, called **Canva124**, 
 
 To open the notebook for Homework 5, click [**this link**](https://colab.research.google.com/github/math-124/fa26-code/blob/main/homeworks/hw05/hw05.ipynb). Instructions on how to use Google Colab are at [math124.org/running-code](https://math124.org/running-code).
 
-You won't need to submit the notebook anywhere. To get credit, complete all six tasks in the notebook and include the requested screenshots and written responses in your PDF submission to Homework 5 on Pensive, specifically under **Problem 11**. The notebook specifies what to submit for each task:
+You won't need to submit the notebook anywhere. To get credit, complete all five tasks in the notebook and include the requested screenshots in your PDF submission to Homework 5 on Pensive, specifically under **Problem 11**. The notebook specifies what to submit for each task:
 
 <ol class="assignment-enumeration" markdown="1">
 
@@ -654,42 +654,35 @@ You won't need to submit the notebook anywhere. To get credit, complete all six 
 <div class="assignment-enumeration-label">1.</div>
 <div class="assignment-enumeration-content" markdown="1">
 
-**Task 1 (3 pts):** Grayscale.
+**Task 1 (0 pts; required):** Grayscale.
 
 </div></li>
 <li markdown="1">
 <div class="assignment-enumeration-label">2.</div>
 <div class="assignment-enumeration-content" markdown="1">
 
-**Task 2 (3 pts):** Sepia.
+**Task 2 (5 pts):** Sepia.
 
 </div></li>
 <li markdown="1">
 <div class="assignment-enumeration-label">3.</div>
 <div class="assignment-enumeration-content" markdown="1">
 
-**Task 3 (4 pts):** Color tint.
+**Task 3 (5 pts):** Color tint.
 
 </div></li>
 <li markdown="1">
 <div class="assignment-enumeration-label">4.</div>
 <div class="assignment-enumeration-content" markdown="1">
 
-**Task 4 (3 pts):** Stretching and shearing.
+**Task 4 (5 pts):** Stretching and shearing.
 
 </div></li>
 <li markdown="1">
 <div class="assignment-enumeration-label">5.</div>
 <div class="assignment-enumeration-content" markdown="1">
 
-**Task 5 (3 pts):** Rotation.
-
-</div></li>
-<li markdown="1">
-<div class="assignment-enumeration-label">6.</div>
-<div class="assignment-enumeration-content" markdown="1">
-
-**Task 6 (4 pts):** Reflection.
+**Task 5 (5 pts):** Rotation.
 
 </div></li>
 </ol>
