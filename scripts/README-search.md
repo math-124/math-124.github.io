@@ -13,3 +13,7 @@ Run the importer after Jekyll with Python packages from `search-requirements.txt
 Practice exams linked from the homepage or Resources page are indexed by problem, including published solutions. The Math 124 interface calls lecture PDFs “Lecture worksheets” and past exams “Exams”.
 
 “Other videos” indexes only the titles and direct video links in `_data/other-videos.json`: the six reviewed videos from Kartik's “Linear Algebra, Visually” playlist and the standalone plane-equation video on Resources. Builds use this fixed list without fetching YouTube or indexing transcripts. Edit the list explicitly to change the searchable videos.
+
+### Recording poster transcript refresh
+
+`scripts/update_recording.py` now downloads the current WebVTT track using the same authenticated browser context as title editing. It refreshes captions even when the recording link is unchanged, then commits the link and caption cache together and pushes; the push triggers the existing site build and search rebuild. `--title-count N` refreshes captions for each of the N selected recordings. Missing, malformed, or unauthenticated captions stop publication without replacing an existing cache; rerun once captions are ready. Math 124 refreshes preserve any existing reviewed lecture bounds; new recordings use the complete available caption track. Builds remain offline with respect to Leccap.
