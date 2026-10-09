@@ -929,20 +929,51 @@ def save_storage_state(login_url, manage_url, output_path):
         browser.close()
 
 
-def run_git_commands(path, lecture_name, recording_url, push):
-    subprocess.run(["git", "add", path], cwd=REPO_ROOT, check=True)
-    lecture_fragment = lecture_name or "lecture recording"
-    message = f"Add recording link for {lecture_fragment}"
-    subprocess.run(["git", "commit", "-m", message], cwd=REPO_ROOT, check=True)
-    if push:
-        subprocess.run(["git", "push"], cwd=REPO_ROOT, check=True)
-    else:
-        subprocess.run(["bundle", "exec", "jekyll", "serve"], cwd=REPO_ROOT, check=True)
+def git(*args, capture=False):
+    return subprocess.run(
+        ["git", *args], cwd=REPO_ROOT, check=True, text=True,
+        stdout=subprocess.PIPE if capture else None,
+    )
+
+
+def synchronize_git():
+    """Rebase onto the upstream while preserving unrelated tracked edits and staging."""
+    git("fetch")
+    upstream = git("rev-parse", "--abbrev-ref", "@{upstream}", capture=True).stdout.strip()
+    behind = int(git("rev-list", "--count", f"HEAD..{upstream}", capture=True).stdout)
+    if not behind:
+        return
+    saved = None
+    if git("status", "--porcelain", "--untracked-files=no", capture=True).stdout:
+        git("stash", "push", "-m", "Recording updater: preserve local edits")
+        saved = git("rev-parse", "stash@{0}", capture=True).stdout.strip()
+    try:
+        git("rebase", upstream)
+    except subprocess.CalledProcessError as exc:
+        git("rebase", "--abort")
+        raise RuntimeError("GitHub changes conflict with local commits; recording was not pushed.") from exc
+    finally:
+        if saved:
+            # Keep the stash if restoration fails, so no local edits are lost.
+            git("stash", "apply", "--index", saved)
+            if git("rev-parse", "stash@{0}", capture=True).stdout.strip() == saved:
+                git("stash", "drop", "stash@{0}")
+
+
+def run_git_commands(path, lecture_name, recording_url):
+    # Compare to HEAD so an unchanged retry still commits previously saved edits.
+    if git("diff", "HEAD", "--", path, capture=True).stdout:
+        lecture_fragment = lecture_name or "lecture recording"
+        git("commit", "--only", "-m", f"Add recording link for {lecture_fragment}", "--", path)
+    # Always retry publication, including when an earlier run already committed.
+    synchronize_git()
+    git("push")
+    print(f"Recording link pushed: {recording_url}", flush=True)
 
 
 def main():
     parser = argparse.ArgumentParser(description="Update latest Leccap recording link.")
-    parser.add_argument("--push", action="store_true", help="Commit and push changes.")
+    parser.add_argument("--push", action="store_true", help="Commit and push changes (always enabled; retained for compatibility).")
     parser.add_argument(
         "--update-title",
         action="store_true",
@@ -975,6 +1006,8 @@ def main():
         print(f"Saved storage state to {LECCAP_STORAGE_STATE}")
         return
 
+    synchronize_git()
+
     if args.update_title:
         try:
             from playwright.sync_api import sync_playwright
@@ -991,7 +1024,7 @@ def main():
 
                 latest = select_latest_recording(recordings)
                 latest_target = build_recording_target(latest)
-                updated, _, _ = update_recording(
+                update_recording(
                     latest_target["module_path"],
                     latest_target["date_str"],
                     latest_target["recording_url"],
@@ -1004,6 +1037,12 @@ def main():
                     print(f"Lecture: {latest_target['recording_url']}")
                 print(f"Lecture title: {latest_target['lecture_title']}")
                 print(f"Leccap title: {latest_target['recording_title']}")
+
+                run_git_commands(
+                    latest_target["module_path"],
+                    latest_target["lecture_name"] or "lecture",
+                    latest_target["recording_url"],
+                )
 
                 for recording in select_recent_recordings(recordings, args.title_count):
                     title_target = build_recording_target(recording)
@@ -1029,18 +1068,9 @@ def main():
                             raise
                         _warn(
                             f"title update failed for {title_target['date_str']} "
-                            f"but website update will continue: {title_exc}"
+                            f"after website link was pushed: {title_exc}"
                         )
 
-                if updated:
-                    run_git_commands(
-                        latest_target["module_path"],
-                        latest_target["lecture_name"] or "lecture",
-                        latest_target["recording_url"],
-                        args.push,
-                    )
-                else:
-                    print("Recording link already up to date; no changes made.")
                 return
             finally:
                 browser.close()
@@ -1051,7 +1081,7 @@ def main():
 
     latest = select_latest_recording(recordings)
     latest_target = build_recording_target(latest)
-    updated, _, _ = update_recording(
+    update_recording(
         latest_target["module_path"], latest_target["date_str"], latest_target["recording_url"]
     )
     if latest_target["lecture_number"]:
@@ -1063,15 +1093,11 @@ def main():
     print(f"Lecture title: {latest_target['lecture_title']}")
     print(f"Leccap title: {latest_target['recording_title']}")
 
-    if updated:
-        run_git_commands(
-            latest_target["module_path"],
-            latest_target["lecture_name"] or "lecture",
-            latest_target["recording_url"],
-            args.push,
-        )
-    else:
-        print("Recording link already up to date; no changes made.")
+    run_git_commands(
+        latest_target["module_path"],
+        latest_target["lecture_name"] or "lecture",
+        latest_target["recording_url"],
+    )
 
 
 if __name__ == "__main__":
