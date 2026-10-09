@@ -1,0 +1,56 @@
+name: Publish Lab 6 at 5 PM Eastern
+
+on:
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+  actions: write
+
+concurrency:
+  group: publish-lab06-2026-10-07
+  cancel-in-progress: false
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: main
+
+      - name: Validate the pinned Lab 6 release
+        run: python3 .github/scripts/release_lab06.py validate
+
+      - name: Wait until October 7 at 5 PM Eastern (21:00 UTC)
+        run: |
+          python3 -u - <<'PY'
+          from datetime import datetime, timezone
+          import time
+          target = datetime(2026, 10, 7, 21, tzinfo=timezone.utc).timestamp()
+          cutoff = datetime(2026, 10, 8, 1, tzinfo=timezone.utc).timestamp()
+          assert time.time() < cutoff, "The one-time release window has passed"
+          assert target - time.time() < 5 * 3600, "Too early for this waiting job"
+          print("Release validated. Waiting until 5:00 PM America/Detroit on October 7, 2026.", flush=True)
+          while time.time() < target:
+              time.sleep(min(60, target - time.time()))
+          PY
+
+      - name: Publish files and update the homepage
+        run: python3 .github/scripts/release_lab06.py publish
+
+      - name: Start the site build
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run build-site.yml --ref main
+
+      - name: Verify the live homepage and all Lab 6 assets
+        run: python3 .github/scripts/release_lab06.py verify
+
+      - name: Record completion and disable this one-time workflow
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          echo 'Lab 6 is live: https://math124.org/resources/labs/lab06/' >> "$GITHUB_STEP_SUMMARY"
+          gh api --method PUT "repos/$GITHUB_REPOSITORY/actions/workflows/release-lab06.yml/disable"
