@@ -7,6 +7,9 @@ days:
       - name: EXAM
         type: exam
         title: Midterm 1 (7-9PM, 1360 East Hall)
+        url: ../resources/exams/fa26-mt1/
+        problems: ../resources/exams/fa26-mt1/
+        solutions: true
         buttons:
           - label: "📝 Logistics"
             url: https://edstem.org/us/courses/103314/discussion/8322098
