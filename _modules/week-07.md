@@ -11,7 +11,7 @@ days:
     events:
       - name: LAB 7
         type: lab
-        title: Lab 7
+        title: Homework 5 Work Session
   - date: "2026-10-15"
     events:
       - name: LEC 14
