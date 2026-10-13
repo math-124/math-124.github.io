@@ -14,6 +14,7 @@ Math 124, Fall 2026 at the <b><span style="background-color: #FFCB05; color: #00
 **Lectures**: Tuesday and Thursdays, 2:30-4PM, G127 Angell Hall • **Labs**: Various [times](calendar) on Wednesday
 
 <a class="btn" style="background-color: #00274C; color: white;" data-current-week-link href="#{{ site.modules.first.title | slugify }}">Jump to the current week</a>
+<a class="btn" href="https://umich.qualtrics.com/jfe/form/SV_2fXpWuQGqxoo0Hs">Mid-semester feedback form</a>
 
 {% for module in site.modules %}
 {{ module }}
