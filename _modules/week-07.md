@@ -26,5 +26,5 @@ days:
         problems: ../resources/homeworks/hw05/
       - name: SUR
         type: survey
-        title: '<a href="https://umich.qualtrics.com/jfe/form/SV_2fXpWuQGqxoo0Hs">Mid-Semester Feedback Form</a>'
+        title: '<a href="https://umich.qualtrics.com/jfe/form/SV_2fXpWuQGqxoo0Hs"><strong>Mid-Semester Feedback Form</strong></a>'
 ---
