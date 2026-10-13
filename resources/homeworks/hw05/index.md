@@ -692,6 +692,6 @@ You won't need to submit the notebook anywhere. To get credit, complete all five
 {: .yellow }
 > Additionally, in class on Tuesday, October 13th, we will be visited by staff from the Foundational Course Initiative team, who will ask for your feedback on the course both in-person and through a form -- the **[Mid-Semester Feedback form](https://umich.qualtrics.com/jfe/form/SV_2fXpWuQGqxoo0Hs)**. Completing this form will earn you 0.5% of your overall course grade, as part of the 3% of your course grade that is dedicated to course improvement.
 >
-> This form is due on Friday, October 16th, along with Homework 5. Math 124 staff will not see the results of the form directly; instead, the Foundational Course Initiative staff will summarize the results and share them with us.
+> The **[Mid-Semester Feedback form](https://umich.qualtrics.com/jfe/form/SV_2fXpWuQGqxoo0Hs)** is due on Friday, October 16th, along with Homework 5. Math 124 staff will not see the results of the form directly; instead, the Foundational Course Initiative staff will summarize the results and share them with us.
 
 {% endraw %}
