@@ -28,4 +28,7 @@ days:
         buttons:
           - label: "📝 Logistics"
             url: /quiz-logistics/
+          - label: Practice Quiz
+            url: https://us.prairielearn.com/pl/course_instance/228907/assessment_instance/15452608/
+            icon: prairielearn
 ---
