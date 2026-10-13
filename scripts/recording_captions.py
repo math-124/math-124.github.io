@@ -50,6 +50,27 @@ def _write(path, data):
         temporary.replace(path)
 
 
+def _captions_are_processing(context, recording_url):
+    """Confirm CAEN's processing notice; never infer readiness from a bad response."""
+    page = context.new_page()
+    try:
+        page.goto(recording_url, wait_until='domcontentloaded', timeout=30000)
+        notice = page.get_by_text('Captions are processing and can take up to 12 hours', exact=True)
+        notice.wait_for(state='attached', timeout=5000)
+        return (page.url.split('?')[0].rstrip('/') == recording_url.rstrip('/')
+                and notice.count() > 0)
+    except Exception:
+        return False
+    finally:
+        page.close()
+
+
+def _report_pending_captions(target):
+    print(f"Lecture {target['lecture_number']} captions are still processing at CAEN; "
+          "publishing the recording link. Rerun when ready to import captions.", flush=True)
+    return []
+
+
 def refresh_captions(context, target, repo, course):
     """Always fetch current captions, even when the link/title already matches."""
     repo = Path(repo)
@@ -61,9 +82,16 @@ def refresh_captions(context, target, repo, course):
     source = 'https://leccap.engin.umich.edu/leccap/player/api/webvtt/?rk=' + key
     response = context.request.get(source, timeout=30000)
     if not response.ok:
+        if _captions_are_processing(context, recording_url):
+            return _report_pending_captions(target)
         raise RuntimeError(f'Caption download failed (HTTP {response.status}); recording has not been published')
     raw = response.body()
-    cues = parse_captions(raw)  # Validate before touching a previous cache.
+    try:
+        cues = parse_captions(raw)  # Validate before touching a previous cache.
+    except ValueError:
+        if _captions_are_processing(context, recording_url):
+            return _report_pending_captions(target)
+        raise
     digest = hashlib.sha256(raw).hexdigest()
     metadata = dict(status='available', recordingUrl=recording_url, sourceUrl=source,
                     method='Authenticated recording poster caption-track export',

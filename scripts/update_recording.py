@@ -305,7 +305,7 @@ def _wait_for_manage_recordings_page(page, manage_url, interactive_login):
     )
 
 
-def _fetch_leccap_recordings_with_context(context, url):
+def _fetch_leccap_recordings_with_context(context, url, interactive_login=False):
     from playwright.sync_api import TimeoutError as PlaywrightTimeout
 
     page = context.new_page()
@@ -314,6 +314,10 @@ def _fetch_leccap_recordings_with_context(context, url):
     found = False
     last_error = None
     while time.monotonic() < deadline:
+        if _is_login_url(page.url):
+            _ensure_logged_in(page, url, interactive_login)
+            deadline = time.monotonic() + (LECCAP_TIMEOUT_MS / 1000.0)
+            continue
         if _safe_page_title(page).strip().lower() == "just a moment...":
             page.wait_for_timeout(500)
             continue
@@ -1021,7 +1025,10 @@ def main():
             browser = _launch_browser(p, args.interactive_login or LECCAP_INTERACTIVE_LOGIN)
             context = _create_context(browser)
             try:
-                recordings = _fetch_leccap_recordings_with_context(context, LECCAP_SITE_URL)
+                recordings = _fetch_leccap_recordings_with_context(
+                    context, LECCAP_SITE_URL,
+                    interactive_login=args.interactive_login or LECCAP_INTERACTIVE_LOGIN,
+                )
                 if not recordings:
                     raise RuntimeError("no recordings found on Leccap page")
 
