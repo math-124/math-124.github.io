@@ -7,6 +7,7 @@ days:
       - name: LEC 13
         type: lecture
         title: Matrix Multiplication and Composition
+        worksheet: ../resources/worksheets/lec13-worksheet.pdf
   - date: "2026-10-14"
     events:
       - name: LAB 7
