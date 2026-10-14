@@ -84,6 +84,35 @@ class PublicationTests(unittest.TestCase):
         self.assertEqual((self.local / 'schedule').read_text(), 'local lecture\n')
         self.assertEqual(git(self.remote, 'show', 'HEAD:schedule'), 'remote lecture\n')
 
+    def test_caption_refresh_publishes_only_caches_and_rebuilds_when_unchanged(self):
+        cache = self.local / '_data/lecture-transcripts/lec01.json'
+        cache.parent.mkdir(parents=True)
+        cache.write_text('{"segments": []}\n')
+        (self.local / 'unrelated').write_text('staged\n')
+        git(self.local, 'add', 'unrelated')
+        before = git(self.local, 'diff', '--cached')
+        recording.run_caption_git_commands([str(cache)])
+        self.assertEqual(git(self.remote, 'show', 'HEAD:_data/lecture-transcripts/lec01.json'), cache.read_text())
+        self.assertEqual(git(self.remote, 'show', 'HEAD:unrelated'), 'original\n')
+        self.assertEqual(git(self.remote, 'show', 'HEAD:schedule'), 'lecture\n')
+        self.assertEqual(git(self.local, 'diff', '--cached'), before)
+        prior = git(self.remote, 'rev-parse', 'HEAD').strip()
+        recording.run_caption_git_commands([str(cache)])
+        self.assertNotEqual(git(self.remote, 'rev-parse', 'HEAD').strip(), prior)
+        self.assertEqual(git(self.local, 'diff', '--cached'), before)
+
+    def test_empty_caption_refresh_preserves_unrelated_staging(self):
+        (self.local / 'unrelated').write_text('staged\n')
+        git(self.local, 'add', 'unrelated')
+        before = git(self.local, 'diff', '--cached')
+        recording.run_caption_git_commands([])
+        self.assertEqual(git(self.remote, 'show', 'HEAD:unrelated'), 'original\n')
+        self.assertEqual(git(self.local, 'diff', '--cached'), before)
+
+    def test_caption_publication_rejects_unrelated_paths(self):
+        with self.assertRaisesRegex(ValueError, 'only lecture caption caches'):
+            recording.run_caption_git_commands([str(self.local / 'schedule')])
+
 
 if __name__ == '__main__':
     unittest.main()

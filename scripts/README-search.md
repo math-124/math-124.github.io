@@ -14,6 +14,10 @@ Practice exams linked from the homepage or Resources page are indexed by problem
 
 “Other videos” indexes only the titles and direct video links in `_data/other-videos.json`: the six reviewed videos from Kartik's “Linear Algebra, Visually” playlist and the standalone plane-equation video on Resources. Builds use this fixed list without fetching YouTube or indexing transcripts. Edit the list explicitly to change the searchable videos.
 
-### Recording poster transcript refresh
+### Separate recording and caption buttons
 
-`scripts/update_recording.py` now downloads the current WebVTT track using the same authenticated browser context as title editing. It refreshes captions even when the recording link is unchanged, then commits the link and caption cache together and pushes; the push triggers the existing site build and search rebuild. `--title-count N` refreshes captions for each of the N selected recordings. Missing, malformed, or unauthenticated captions stop publication without replacing an existing cache; rerun once captions are ready. Math 124 refreshes preserve any existing reviewed lecture bounds; new recordings use the complete available caption track. Builds remain offline with respect to Leccap.
+The **124 Recording** Apple Shortcut runs `scripts/update_recording.py --recording-only --interactive-login`. It publishes the latest recording link and updates the selected CAEN recording titles. It never requests captions, so caption availability and caption download errors cannot block recording publication. `--title-count N` selects the number of recording titles to update.
+
+The **124 Captions & Search** Apple Shortcut runs `scripts/update_recording.py --refresh-captions --interactive-login`. It downloads current WebVTT captions for all released lectures that already have recording links. It does not edit links or titles. Confirmed CAEN processing notices are reported and skipped; malformed or unauthenticated responses fail without replacing an existing cache. Existing reviewed lecture bounds are preserved; new caches use the complete available caption track.
+
+The caption button commits only caption caches and triggers the existing website build, which rebuilds the full search index and semantic embeddings. An unchanged refresh still triggers a rebuild so it can repair a failed or stale index. Wait for the website deployment to finish before expecting new captions in public search. Builds remain offline with respect to Leccap; no browser session or credentials are committed.

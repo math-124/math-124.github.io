@@ -964,22 +964,94 @@ def synchronize_git():
                 git("stash", "drop", "stash@{0}")
 
 
-def run_git_commands(path, lecture_name, recording_url, caption_paths=()):
-    paths = [path, *caption_paths]
+def run_git_commands(path, lecture_name, recording_url):
+    paths = [path]
     def run(*args):
         return subprocess.run(["git", *args], cwd=REPO_ROOT, check=True,
                               stdout=subprocess.PIPE, text=True)
     # Stage only this publication; preserve unrelated staged work.
     run("add", "--", *paths)
     if run("diff", "HEAD", "--", *paths).stdout:
-        run("commit", "--only", "-m", f"Update recording and captions for {lecture_name or 'lecture'}", "--", *paths)
+        run("commit", "--only", "-m", f"Update recording for {lecture_name or 'lecture'}", "--", *paths)
     synchronize_git()
     run("push")
-    print(f"Recording and captions pushed; site build will refresh search: {recording_url}", flush=True)
+    print(f"Recording link pushed: {recording_url}", flush=True)
+
+
+def published_recording_targets():
+    """Refresh only recordings already linked in released lecture entries."""
+    from pathlib import Path
+    from zoneinfo import ZoneInfo
+    import yaml
+
+    today = dt.datetime.now(ZoneInfo('America/Detroit')).date()
+    targets = []
+    for module in sorted(Path(MODULES_DIR).glob('week-*.md')):
+        data = yaml.safe_load(module.read_text().split('---', 2)[1])
+        for day in data.get('days', []):
+            date = dt.date.fromisoformat(str(day['date']))
+            if date > today:
+                continue
+            for event in day.get('events', []):
+                if event.get('type') != 'lecture' or not event.get('recording'):
+                    continue
+                number = lecture_number_from_name(event.get('name', ''))
+                if not number:
+                    raise RuntimeError(f"Missing lecture number in {module} on {date}")
+                targets.append(dict(recording_url=event['recording'],
+                                    lecture_number=number, lecture_name=event['name']))
+    return targets
+
+
+def run_caption_git_commands(paths):
+    """Publish caption caches and trigger the existing complete search rebuild."""
+    from pathlib import Path
+
+    cache = (Path(REPO_ROOT) / '_data/lecture-transcripts').resolve()
+    paths = sorted(set(paths))
+    if any(not Path(path).resolve().is_relative_to(cache) for path in paths):
+        raise ValueError('Caption publication must contain only lecture caption caches')
+    if paths:
+        git('add', '--', *paths)
+    # --only protects unrelated staged edits; an unchanged refresh still repairs
+    # search by triggering a fresh build, including its semantic embeddings.
+    git('commit', '--only', '--allow-empty', '-m', 'Refresh lecture captions and rebuild search', '--', *paths)
+    synchronize_git()
+    git('push')
+    print('Caption refresh pushed; the website build will rebuild course search.', flush=True)
+
+
+def refresh_published_captions(context, interactive_login):
+    from recording_captions import refresh_captions
+
+    targets = published_recording_targets()
+    if not targets:
+        raise RuntimeError('No published lecture recordings to refresh')
+    page = context.new_page()
+    try:
+        # Authenticate without editing titles or changing the recording links.
+        _wait_for_manage_recordings_page(page, LECCAP_MANAGE_URL, interactive_login)
+    finally:
+        page.close()
+    paths = []
+    ready = 0
+    for target in targets:
+        refreshed = refresh_captions(context, target, REPO_ROOT, '124')
+        ready += bool(refreshed)
+        paths.extend(refreshed)
+    print(f'Captions ready: {ready}/{len(targets)}; still processing: {len(targets) - ready}.', flush=True)
+    run_caption_git_commands(paths)
 
 
 def main():
     parser = argparse.ArgumentParser(description="Update latest Leccap recording link.")
+    modes = parser.add_mutually_exclusive_group()
+    modes.add_argument(
+        '--refresh-captions', action='store_true',
+        help='Refresh captions for published recordings and rebuild search; do not edit links or titles.',
+    )
+    modes.add_argument('--recording-only', action='store_true',
+                       help='Publish the recording link and titles without requesting captions (default).')
     parser.add_argument("--push", action="store_true", help="Commit and push changes (always enabled; retained for compatibility).")
     parser.add_argument(
         "--update-title",
@@ -1025,6 +1097,11 @@ def main():
             browser = _launch_browser(p, args.interactive_login or LECCAP_INTERACTIVE_LOGIN)
             context = _create_context(browser)
             try:
+                if args.refresh_captions:
+                    refresh_published_captions(
+                        context, args.interactive_login or LECCAP_INTERACTIVE_LOGIN,
+                    )
+                    return
                 recordings = _fetch_leccap_recordings_with_context(
                     context, LECCAP_SITE_URL,
                     interactive_login=args.interactive_login or LECCAP_INTERACTIVE_LOGIN,
@@ -1047,9 +1124,6 @@ def main():
                     print(f"Lecture: {latest_target['recording_url']}")
                 print(f"Lecture title: {latest_target['lecture_title']}")
                 print(f"Leccap title: {latest_target['recording_title']}")
-
-                from recording_captions import refresh_captions
-                caption_paths = []
 
                 for recording in select_recent_recordings(recordings, args.title_count):
                     title_target = build_recording_target(recording)
@@ -1077,15 +1151,10 @@ def main():
                             f"before publication: {title_exc}"
                         )
 
-                    # The title editor has authenticated this same browser context.
-                    # Caption failures must propagate even with lenient title updates.
-                    caption_paths.extend(refresh_captions(context, title_target, REPO_ROOT, "124"))
-
                 run_git_commands(
                     latest_target["module_path"],
                     latest_target["lecture_name"] or "lecture",
                     latest_target["recording_url"],
-                    caption_paths,
                 )
                 return
             finally:

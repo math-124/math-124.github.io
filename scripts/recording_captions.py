@@ -67,7 +67,7 @@ def _captions_are_processing(context, recording_url):
 
 def _report_pending_captions(target):
     print(f"Lecture {target['lecture_number']} captions are still processing at CAEN; "
-          "publishing the recording link. Rerun when ready to import captions.", flush=True)
+          "leaving its caption cache unchanged. Rerun when ready to import captions.", flush=True)
     return []
 
 
@@ -84,7 +84,7 @@ def refresh_captions(context, target, repo, course):
     if not response.ok:
         if _captions_are_processing(context, recording_url):
             return _report_pending_captions(target)
-        raise RuntimeError(f'Caption download failed (HTTP {response.status}); recording has not been published')
+        raise RuntimeError(f'Caption download failed (HTTP {response.status}); caption cache has not been replaced')
     raw = response.body()
     try:
         cues = parse_captions(raw)  # Validate before touching a previous cache.
