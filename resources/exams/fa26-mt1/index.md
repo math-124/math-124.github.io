@@ -822,6 +822,58 @@ $$
 
 <details markdown="1"><summary>Solution</summary>
 
+**Method 1: Find a direction vector and a position vector.** The intersection line lies in both planes, so its direction vector must be parallel to both planes. Thus it must be perpendicular to both normal vectors,
+
+<div class="math-display">
+$$
+\vec n_1=\begin{bmatrix}5\\3\\0\end{bmatrix},\qquad
+\vec n_2=\begin{bmatrix}2\\6\\4\end{bmatrix}.
+$$
+</div>
+
+ Write the direction vector as <span class="math-inline">\\(\vec v=\begin{bmatrix}a\\\\b\\\\c\end{bmatrix}\\)</span>. Requiring both dot products to be zero gives
+
+<div class="math-display">
+$$
+\vec v\cdot\vec n_1=5a+3b=0,\qquad
+\vec v\cdot\vec n_2=2a+6b+4c=0.
+$$
+</div>
+
+ The first equation gives <span class="math-inline">\\(b=-5a/3\\)</span>. Substituting into the second,
+
+<div class="math-display">
+$$
+2a+6\left(-\frac{5a}{3}\right)+4c=0
+\quad\Longrightarrow\quad -8a+4c=0
+\quad\Longrightarrow\quad c=2a.
+$$
+</div>
+
+ Therefore <span class="math-inline">\\(\vec v=a\begin{bmatrix}1\\\\-5/3\\\\2\end{bmatrix}\\)</span>. We need a nonzero direction vector; choosing <span class="math-inline">\\(a=3\\)</span> gives <span class="math-inline">\\(b=-5\\)</span>, <span class="math-inline">\\(c=6\\)</span>, and <span class="math-inline">\\(\vec v=\begin{bmatrix}3\\\\-5\\\\6\end{bmatrix}\\)</span>.
+
+To find a position vector, find any one point that lies on *both* planes, so we know it is on their intersection line. Set <span class="math-inline">\\(y=0\\)</span>. Then <span class="math-inline">\\(P&#95;1\\)</span> gives <span class="math-inline">\\(5x=10\\)</span>, so <span class="math-inline">\\(x=2\\)</span>, and <span class="math-inline">\\(P&#95;2\\)</span> gives <span class="math-inline">\\(4+4z=20\\)</span>, so <span class="math-inline">\\(z=4\\)</span>. Indeed,
+
+<div class="math-display">
+$$
+5(2)+3(0)=10,\qquad 2(2)+6(0)+4(4)=20.
+$$
+</div>
+
+ Thus we can use <span class="math-inline">\\(\begin{bmatrix}2\\\\0\\\\4\end{bmatrix}\\)</span> as a position vector, giving
+
+<div class="math-display">
+$$
+\boxed{\begin{bmatrix}x\\y\\z\end{bmatrix}
+=\begin{bmatrix}2\\0\\4\end{bmatrix}
++t\begin{bmatrix}3\\-5\\6\end{bmatrix},\qquad t\in\mathbb R.}
+$$
+</div>
+
+ The normals are not parallel, so the planes intersect in a line; this point and nonzero direction vector describe that entire line.
+
+**Method 2: Solve directly for the common points.**
+
 First solve for <span class="math-inline">\\(y\\)</span> in terms of <span class="math-inline">\\(x\\)</span> using the first equation:
 
 <div class="math-display">
