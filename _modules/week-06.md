@@ -38,5 +38,7 @@ days:
         recording: https://leccap.engin.umich.edu/leccap/player/r/Fkx1Fh
         reading: https://notes.math124.org/ch03/03-03
         reading_text: Ch. 3.3
+        reading2: https://notes.math124.org/ch03/03-04
+        reading2_text: Ch. 3.4
         worksheet: ../resources/worksheets/lec12-worksheet.pdf
 ---
