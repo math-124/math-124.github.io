@@ -23,6 +23,7 @@ days:
       - name: LEC 14
         type: lecture
         title: Transpose and Inverses
+        recording: https://leccap.engin.umich.edu/leccap/player/r/xDGfm2
         reading: https://notes.math124.org/ch03/03-05
         reading_text: Ch. 3.5
         reading2: https://notes.math124.org/ch03/03-06
