@@ -28,8 +28,6 @@ days:
         reading_text: Ch. 3.5
         reading2: https://notes.math124.org/ch03/03-06
         reading2_text: Ch. 3.6
-        reading3: https://notes.math124.org/ch03/03-07
-        reading3_text: Ch. 3.7
         worksheet: ../resources/worksheets/lec14-worksheet.pdf
   - date: "2026-10-16"
     events:
