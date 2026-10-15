@@ -19,6 +19,7 @@ days:
       - name: LEC 14
         type: lecture
         title: Transpose and Inverses
+        worksheet: ../resources/worksheets/lec14-worksheet.pdf
   - date: "2026-10-16"
     events:
       - name: HW 5
