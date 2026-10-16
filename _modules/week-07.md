@@ -31,11 +31,13 @@ days:
         worksheet: ../resources/worksheets/lec14-worksheet.pdf
   - date: "2026-10-16"
     events:
+      - name: SUR
+        type: survey
+        title: '<a href="https://umich.qualtrics.com/jfe/form/SV_2fXpWuQGqxoo0Hs"><strong>Mid-Semester Feedback Form</strong></a>'
+  - date: "2026-10-18"
+    events:
       - name: HW 5
         type: hw
         title: "<b>Matrices and Linear Transformations</b>"
         problems: ../resources/homeworks/hw05/
-      - name: SUR
-        type: survey
-        title: '<a href="https://umich.qualtrics.com/jfe/form/SV_2fXpWuQGqxoo0Hs"><strong>Mid-Semester Feedback Form</strong></a>'
 ---

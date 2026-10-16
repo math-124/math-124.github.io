@@ -1,6 +1,6 @@
 ---
 layout: page
-title: 📚 Resources 🆕
+title: 📚 Resources
 description: Supplementary resources for Math 124.
 nav_order: 5.5
 permalink: /resources/
