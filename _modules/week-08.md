@@ -11,7 +11,7 @@ days:
     events:
       - name: LAB 8
         type: lab
-        title: Lab 8
+        title: Inverses
   - date: "2026-10-22"
     events:
       - name: LEC 15
