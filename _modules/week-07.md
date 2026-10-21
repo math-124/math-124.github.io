@@ -39,6 +39,6 @@ days:
       - name: HW 5
         type: hw
         solutions: true
-        title: "Matrices and Linear Transformations"
+        title: "<b>Matrices and Linear Transformations</b>"
         problems: ../resources/homeworks/hw05/
 ---

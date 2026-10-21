@@ -1308,9 +1308,7 @@ $$
 </div>
 
  For example, <span class="math-inline">\\(\begin{bmatrix}60\\\\120\\\\210\end{bmatrix}\\)</span> and <span class="math-inline">\\(\begin{bmatrix}90\\\\150\\\\150\end{bmatrix}\\)</span> have the same grayscale output: the entries of each vector add up to <span class="math-inline">\\(390\\)</span>. Knowing the average doesn't tell us the three original color values, so we can't always recover the original pixel.
-</details>
 
-<details markdown="1"><summary>Solution</summary>
 
 **Task 2: Sepia.** Each row tells us how to compute one output color. We put the coefficients for red in the first row, green in the second, and blue in the third:
 
@@ -1322,9 +1320,7 @@ def sepia_matrix():
 ```
 
 The first row says that the new red value is <span class="math-inline">\\(0.393R+0.769G+0.189B\\)</span>. The first column says that one unit of original red contributes <span class="math-inline">\\(0.393\\)</span> units to the new red value, <span class="math-inline">\\(0.349\\)</span> to green, and <span class="math-inline">\\(0.272\\)</span> to blue. These are the values before the app rounds them and limits them to the range from <span class="math-inline">\\(0\\)</span> to <span class="math-inline">\\(255\\)</span>.
-</details>
 
-<details markdown="1"><summary>Solution</summary>
 
 **Task 3: Color tint.** We want to scale each color separately, so we use a diagonal matrix:
 
@@ -1346,9 +1342,7 @@ $$
 $$
 </div>
 
-</details>
 
-<details markdown="1"><summary>Solution</summary>
 
 **Task 4: Stretching and shearing.** Each column of <span class="math-inline">\\(X\\)</span> holds one position vector. Multiplying <span class="math-inline">\\(AX\\)</span> transforms all of those vectors at once, which is why we can reuse the same function for stretching, shearing, and rotation:
 
@@ -1370,9 +1364,7 @@ def shear_matrix(k):
 ```
 
 For example, <span class="math-inline">\\(k=0.75\\)</span> sends <span class="math-inline">\\(\begin{bmatrix}x\\\\y\end{bmatrix}\\)</span> to <span class="math-inline">\\(\begin{bmatrix}x+0.75y\\\\y\end{bmatrix}\\)</span>. The <span class="math-inline">\\(x\\)</span>-coordinate changes by <span class="math-inline">\\(0.75y\\)</span> and the <span class="math-inline">\\(y\\)</span>-coordinate stays fixed. Every point on the <span class="math-inline">\\(x\\)</span>-axis has <span class="math-inline">\\(y=0\\)</span>, so it remains in place.
-</details>
 
-<details markdown="1"><summary>Solution</summary>
 
 **Task 5: Rotation.** Recall the rotation matrix from Lab 6. The app already converts the slider's angle to radians, so we can use `theta` directly:
 
@@ -1383,9 +1375,7 @@ def rotation_matrix(theta):
 ```
 
 One example uses the Rotate slider at <span class="math-inline">\\(30^\circ\\)</span>, which rotates the image counterclockwise. A stretching example uses <span class="math-inline">\\(s&#95;x=1.5\\)</span> and <span class="math-inline">\\(s&#95;y=0.75\\)</span>: the image becomes <span class="math-inline">\\(50\%\\)</span> wider and <span class="math-inline">\\(25\%\\)</span> shorter. These are separate selections in Canva124.
-</details>
 
-<details markdown="1"><summary>Solution</summary>
 
 **Optional connection to Problem 10.** Reflection is not a task in the released notebook, but we can implement it using the matrix <span class="math-inline">\\(R=2P-I\\)</span> we found in Problem 10:
 
