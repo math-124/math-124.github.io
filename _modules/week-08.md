@@ -12,6 +12,7 @@ days:
       - name: LAB 8
         type: lab
         title: Inverses
+        problems: ../resources/labs/lab08/
   - date: "2026-10-22"
     events:
       - name: LEC 15
