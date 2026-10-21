@@ -192,7 +192,7 @@ Before proceeding, make sure you're familiar with the [collaboration policy](htt
 - [Problem 1: Midterm 1 Solutions Reflection](#problem-1-midterm-1-solutions-reflection-6-pts)
 - [Problem 2: Matrix--Vector Practice](#problem-2-matrix--vector-practice-8-pts)
 - [Problem 3: Is It Linear?](#problem-3-is-it-linear-9-pts)
-- [Problem 4: What Linearity Tells Us](#problem-4-what-linearity-tells-us-8-pts)
+- [Problem 4: Using the Fact That $T$ Is a Linear Transformation](#problem-4-using-the-fact-that-t-is-a-linear-transformation-8-pts)
 - [Problem 5: Finding a Transformation's Matrix](#problem-5-finding-a-transformations-matrix-8-pts)
 - [Problem 6: Can We Work Backward?](#problem-6-can-we-work-backward-6-pts)
 - [Problem 7: Matrix Products](#problem-7-matrix-products-12-pts)
@@ -215,7 +215,6 @@ Alternatively, if one of your solutions is significantly better than the posted 
 
 <details markdown="1"><summary>Solution</summary>
 
-Your answers will depend on the parts you chose. For each part, include your original work and explain what you would change. The goal is to identify what you learned from comparing your reasoning with the posted solution.
 </details>
 
 ---
@@ -314,7 +313,7 @@ For each transformation, decide whether it is linear. A linear transformation mu
 
 -   **Compatibility with scaling:** <span class="math-inline">\\(T(c\vec v)=cT(\vec v)\\)</span>.
 
-For a linear transformation, verify both properties for arbitrary inputs. For a nonlinear transformation, give a specific counterexample to at least one property. State your inputs and show that the two sides are different.
+For a linear transformation, state its associated matrix. For a nonlinear transformation, give a specific counterexample to at least one property. State your inputs and show that the two sides are different.
 
 <div class="assignment-parts" markdown="1">
 <div class="assignment-part" markdown="1">
@@ -358,39 +357,18 @@ $$
 
 <details markdown="1"><summary>Solution</summary>
 
-**Linear.** Let's first simplify the expression for <span class="math-inline">\\(T\\)</span>:
+We know that every linear transformation has an associated matrix, and multiplying by a matrix defines a linear transformation. Here,
 
 <div class="math-display">
 $$
 T\!\left(\begin{bmatrix}x\\y\\z\end{bmatrix}\right)
 =\begin{bmatrix}4x-2y-3z\\-x+2y+5z\end{bmatrix}
+=\underbrace{\begin{bmatrix}4&-2&-3\\-1&2&5\end{bmatrix}}_{\text{associated matrix}}
+\begin{bmatrix}x\\y\\z\end{bmatrix},
 $$
 </div>
 
- Let <span class="math-inline">\\(\vec u=\begin{bmatrix}u&#95;1\\\\u&#95;2\\\\u&#95;3\end{bmatrix}\\)</span> and <span class="math-inline">\\(\vec v=\begin{bmatrix}v&#95;1\\\\v&#95;2\\\\v&#95;3\end{bmatrix}\\)</span> be arbitrary. Then
-
-<div class="math-display">
-$$
-\begin{align*}
-T(\vec u+\vec v)
-&=\begin{bmatrix}4(u_1+v_1)-2(u_2+v_2)-3(u_3+v_3)\\-(u_1+v_1)+2(u_2+v_2)+5(u_3+v_3)\end{bmatrix}\\
-&=\begin{bmatrix}4u_1-2u_2-3u_3\\-u_1+2u_2+5u_3\end{bmatrix}
-+\begin{bmatrix}4v_1-2v_2-3v_3\\-v_1+2v_2+5v_3\end{bmatrix}\\
-&=T(\vec u)+T(\vec v)
-\end{align*}
-$$
-</div>
-
-For any scalar <span class="math-inline">\\(c\\)</span>,
-
-<div class="math-display">
-$$
-T(c\vec v)=\begin{bmatrix}4cv_1-2cv_2-3cv_3\\-cv_1+2cv_2+5cv_3\end{bmatrix}
-=c\begin{bmatrix}4v_1-2v_2-3v_3\\-v_1+2v_2+5v_3\end{bmatrix}=cT(\vec v)
-$$
-</div>
-
- We've verified both properties for arbitrary vectors and scalars, so <span class="math-inline">\\(T\\)</span> is linear.
+ so <span class="math-inline">\\(T\\)</span> is a linear transformation.
 </details>
 
 </div>
@@ -423,7 +401,7 @@ $$
 
 ---
 
-## Problem 4: What Linearity Tells Us (8 pts)
+## Problem 4: Using the Fact That <span class="math-inline">\\(T\\)</span> Is a Linear Transformation (8 pts)
 
 Let <span class="math-inline">\\(T:\mathbb R^3\to\mathbb R^2\\)</span> be a linear transformation, and let
 
@@ -443,7 +421,7 @@ T(2\vec u-3\vec v)=\begin{bmatrix}9\\-8\end{bmatrix}.
 $$
 </div>
 
- Use linearity directly; you do not need to find the matrix of <span class="math-inline">\\(T\\)</span>.
+ Use the fact that <span class="math-inline">\\(T\\)</span> is a linear transformation directly; you do not need to find the matrix of <span class="math-inline">\\(T\\)</span>.
 
 <div class="assignment-parts" markdown="1">
 <div class="assignment-part" markdown="1">
@@ -453,21 +431,60 @@ $$
 
 <details markdown="1"><summary>Solution</summary>
 
-We want to isolate <span class="math-inline">\\(\vec u\\)</span> using the two inputs whose outputs we know. Multiplying the first input by <span class="math-inline">\\(3\\)</span> and adding the second cancels <span class="math-inline">\\(\vec v\\)</span>: <span class="math-inline">\\(3(3\vec u+\vec v)+(2\vec u-3\vec v)=11\vec u\\)</span>. By linearity,
+Using the fact that <span class="math-inline">\\(T\\)</span> is a linear transformation, we can rewrite the two given equations as
 
 <div class="math-display">
 $$
-11T(\vec u)=3T(3\vec u+\vec v)+T(2\vec u-3\vec v)
-=3\begin{bmatrix}8\\-1\end{bmatrix}+\begin{bmatrix}9\\-8\end{bmatrix}
-=\begin{bmatrix}33\\-11\end{bmatrix}
+\begin{align*}
+3T(\vec u)+T(\vec v)&=\begin{bmatrix}8\\-1\end{bmatrix},\\
+2T(\vec u)-3T(\vec v)&=\begin{bmatrix}9\\-8\end{bmatrix}.
+\end{align*}
 $$
 </div>
 
- Thus <span class="math-inline">\\(\boxed{T(\vec u)=\begin{bmatrix}3\\\\-1\end{bmatrix}}\\)</span>. Since <span class="math-inline">\\(\vec v=(3\vec u+\vec v)-3\vec u\\)</span>,
+We now have two equations in the two unknown vectors <span class="math-inline">\\(T(\vec u)\\)</span> and <span class="math-inline">\\(T(\vec v)\\)</span>. To eliminate <span class="math-inline">\\(T(\vec v)\\)</span>, multiply the first equation by <span class="math-inline">\\(3\\)</span>:
 
 <div class="math-display">
 $$
-\boxed{T(\vec v)=\begin{bmatrix}8\\-1\end{bmatrix}-3\begin{bmatrix}3\\-1\end{bmatrix}=\begin{bmatrix}-1\\2\end{bmatrix}}
+9T(\vec u)+3T(\vec v)=3\begin{bmatrix}8\\-1\end{bmatrix}
+=\begin{bmatrix}24\\-3\end{bmatrix}.
+$$
+</div>
+
+ Adding this equation to the second equation gives
+
+<div class="math-display">
+$$
+\bigl(9T(\vec u)+3T(\vec v)\bigr)+\bigl(2T(\vec u)-3T(\vec v)\bigr)
+=\begin{bmatrix}24\\-3\end{bmatrix}+\begin{bmatrix}9\\-8\end{bmatrix},
+$$
+</div>
+
+ so
+
+<div class="math-display">
+$$
+11T(\vec u)=\begin{bmatrix}33\\-11\end{bmatrix}
+\quad\Longrightarrow\quad
+\boxed{T(\vec u)=\begin{bmatrix}3\\-1\end{bmatrix}}.
+$$
+</div>
+
+ Now substitute this result into the first equation:
+
+<div class="math-display">
+$$
+3\begin{bmatrix}3\\-1\end{bmatrix}+T(\vec v)=\begin{bmatrix}8\\-1\end{bmatrix}.
+$$
+</div>
+
+ Subtracting <span class="math-inline">\\(3T(\vec u)\\)</span> from both sides gives
+
+<div class="math-display">
+$$
+T(\vec v)=\begin{bmatrix}8\\-1\end{bmatrix}
+-\begin{bmatrix}9\\-3\end{bmatrix}
+=\boxed{\begin{bmatrix}-1\\2\end{bmatrix}}.
 $$
 </div>
 
@@ -491,7 +508,7 @@ $$
 $$
 </div>
 
- The first two equations give <span class="math-inline">\\(a=3\\)</span> and <span class="math-inline">\\(b=-2\\)</span>. These values also satisfy the third equation, so we can use linearity:
+ The first two equations give <span class="math-inline">\\(a=3\\)</span> and <span class="math-inline">\\(b=-2\\)</span>. These values also satisfy the third equation, so we can use the fact that <span class="math-inline">\\(T\\)</span> is a linear transformation:
 
 <div class="math-display">
 $$
@@ -513,7 +530,7 @@ $$
 
 <details markdown="1"><summary>Solution</summary>
 
-**No.** The input is <span class="math-inline">\\(2\vec u+\vec v\\)</span>, so linearity requires
+**No.** The input is <span class="math-inline">\\(2\vec u+\vec v\\)</span>, so the fact that <span class="math-inline">\\(T\\)</span> is a linear transformation tells us that
 
 <div class="math-display">
 $$
@@ -681,7 +698,7 @@ $$
 <div class="assignment-part" markdown="1">
 <div class="assignment-part-label">c)</div>
 <div class="assignment-part-content" markdown="1">
-(2 pts) Using your inputs from part (a), find a nonzero input with output <span class="math-inline">\\(\vec0\\)</span>. Explain why your construction works using linearity.
+(2 pts) Using your inputs from part (a), find a nonzero input with output <span class="math-inline">\\(\vec0\\)</span>. Explain why your construction works using the fact that multiplication by <span class="math-inline">\\(A\\)</span> is a linear transformation.
 
 <details markdown="1"><summary>Solution</summary>
 
@@ -693,7 +710,7 @@ $$
 $$
 </div>
 
- This vector is nonzero, and linearity gives
+ This vector is nonzero. Using the fact that multiplication by <span class="math-inline">\\(A\\)</span> is a linear transformation, we get
 
 <div class="math-display">
 $$
