@@ -17,7 +17,8 @@ days:
     events:
       - name: LEC 15
         type: lecture
-        title: Linear Systems, Triangular Systems, and Back Substitution
+        title: Linear Systems and LU Factorization
+        worksheet: ../resources/worksheets/lec15-worksheet.pdf
   - date: "2026-10-23"
     events:
       - name: HW 6
