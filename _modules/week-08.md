@@ -18,6 +18,7 @@ days:
       - name: LEC 15
         type: lecture
         title: Linear Systems and LU Factorization
+        recording: https://leccap.engin.umich.edu/leccap/player/r/9FvQVM
         worksheet: ../resources/worksheets/lec15-worksheet.pdf
   - date: "2026-10-23"
     events:
