@@ -22,4 +22,9 @@ days:
       - name: LEC 17
         type: lecture
         title: PLU Factorization in General
+  - date: "2026-10-30"
+    events:
+      - name: HW 6
+        type: hw
+        title: Inverses and LU Factorization
 ---
