@@ -18,6 +18,12 @@ days:
       - name: LEC 15
         type: lecture
         title: Linear Systems and LU Factorization
+        reading: https://notes.math124.org/ch04/04-01
+        reading_text: Ch. 4.1
+        reading2: https://notes.math124.org/ch04/04-02
+        reading2_text: Ch. 4.2
+        reading3: https://notes.math124.org/ch04/04-03
+        reading3_text: Ch. 4.3
         recording: https://leccap.engin.umich.edu/leccap/player/r/9FvQVM
         worksheet: ../resources/worksheets/lec15-worksheet.pdf
   - date: "2026-10-23"
