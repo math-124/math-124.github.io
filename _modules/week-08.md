@@ -22,9 +22,6 @@ days:
         worksheet: ../resources/worksheets/lec15-worksheet.pdf
   - date: "2026-10-23"
     events:
-      - name: HW 6
-        type: hw
-        title: Homework 6
       - name: QUIZ
         type: quiz
         title: Quiz 2 (open Oct 21-23; slots open Oct 12)
