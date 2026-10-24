@@ -449,6 +449,9 @@ def find_unescaped_percent(line: str) -> int | None:
 
 
 def transform_assignment_tex(text: str, include_solutions: bool = False) -> str:
+    # Resolve document-defined colors before the preamble is removed.
+    for name, color in re.findall(r"\\definecolor\{([^{}]+)\}\{HTML\}\{([0-9A-Fa-f]{6})\}", text):
+        text = text.replace(r"\textcolor{" + name + "}", r"\textcolor[HTML]{" + color + "}")
     text = strip_document_wrapper(text)
     text = strip_false_blocks(text)
     text = strip_latex_comments(text)
@@ -587,6 +590,19 @@ def replace_itemize_with_html_placeholders(text: str) -> tuple[str, list[str]]:
 
 def latex_tabular_to_html(tabular: str) -> str:
     """Let Pandoc preserve LaTeX's explicit header semantics in HTML."""
+    stacks: list[str] = []
+    while match := re.search(r"\\shortstack(?:\[[^\]]*\])?\s*\{", tabular):
+        body, end = extract_braced(tabular, match.end() - 1)
+        lines = []
+        for line in re.split(r"\\\\", body):
+            rendered = latex_tabular_to_html(line)
+            rendered = re.sub(r"^<p>(.*?)</p>$", r"\1", rendered, flags=re.S)
+            if r"\scriptsize" in line:
+                rendered = "<small>" + rendered + "</small>"
+            lines.append(rendered)
+        marker = f"SHORTSTACKHTMLPLACEHOLDER{len(stacks)}"
+        stacks.append("<br>".join(lines))
+        tabular = tabular[:match.start()] + marker + tabular[end:]
     command = [
         "pandoc",
         "--from=latex",
@@ -601,9 +617,12 @@ def latex_tabular_to_html(tabular: str) -> str:
         capture_output=True,
         check=True,
     )
-    return result.stdout.strip().replace(
+    rendered = result.stdout.strip().replace(
         '<span class="math inline">', '<span class="math-inline">'
     )
+    for index, stack in enumerate(stacks):
+        rendered = rendered.replace(f"SHORTSTACKHTMLPLACEHOLDER{index}", stack)
+    return rendered
 
 
 def restore_tabular_html(markdown: str, tables: list[str]) -> str:
@@ -1214,6 +1233,8 @@ def enumeration_label(template: str, number: int) -> str:
 
 
 def render_marked_enumerations(text: str) -> str:
+    # Pandoc may join a preceding point label to the opening marker.
+    text = re.sub(r"(?m)^(\S[^\n]*?)\s+(ENUMERATION_START:[0-9a-f]+)\s*$", r"\1\n\n\2", text)
     rendered: list[str] = []
     template = None
     number = 0

@@ -26,5 +26,6 @@ days:
     events:
       - name: HW 6
         type: hw
-        title: Inverses and LU Factorization
+        title: "<b>Inverses and LU Factorization</b>"
+        problems: ../resources/homeworks/hw06/
 ---

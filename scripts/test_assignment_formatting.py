@@ -5,10 +5,29 @@ from pathlib import Path
 
 from check_assignment_html import check_source_markdown
 from generate_assignment_markdown import (cleanup_markdown, fence_indented_code_blocks,
-    replace_itemize_with_html_placeholders, strip_layout_commands, latex_fragment_to_markdown)
+    replace_itemize_with_html_placeholders, strip_layout_commands, latex_fragment_to_markdown,
+    transform_assignment_tex, replace_tabulars_with_html_placeholders)
 
 
 class SolutionFormattingTests(unittest.TestCase):
+    def test_points_before_roman_list_do_not_leak_markers(self):
+        rendered = cleanup_markdown("(6 pts) ENUMERATION_START:5c726f6d616e2a29\n\nENUMERATION_ITEM\n\nQuestion\n\nENUMERATION_END")
+        self.assertNotIn("ENUMERATION_", rendered)
+        self.assertIn('assignment-enumeration-label">i)', rendered)
+
+    def test_document_defined_submission_color_is_resolved(self):
+        source = r"\definecolor{submissionorange}{HTML}{E67E22}\begin{document}\textcolor{submissionorange}{In Your PDF}\end{document}"
+        rendered = transform_assignment_tex(source)
+        self.assertIn(r"\textcolor[HTML]{E67E22}", rendered)
+
+    def test_stacked_table_header_stays_in_one_cell(self):
+        source = r"\begin{tabular}{cc}\shortstack{Speaker 1\\{\scriptsize (Song 1)}} & Speaker 2\\ 0.9 & 0.8\end{tabular}"
+        _, tables = replace_tabulars_with_html_placeholders(source)
+        self.assertEqual(tables[0].count('<tr'), 2)
+        self.assertEqual(tables[0].count('<td'), 4)
+        self.assertIn('Speaker 1<br><small>', tables[0])
+        self.assertNotIn('SHORTSTACKHTMLPLACEHOLDER', tables[0])
+
     def test_nested_bullets_preserve_display_math_and_case_continuation(self):
         source = r"""\begin{itemize}
 \item First approach: $$0<x<\frac{1}{2}.$$
