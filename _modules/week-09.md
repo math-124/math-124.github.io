@@ -13,6 +13,10 @@ days:
         type: lecture
         title: PLU Factorization for Invertible Matrices
         worksheet: ../resources/worksheets/lec16-worksheet.pdf
+        reading: https://notes.math124.org/ch04/04-03
+        reading_text: Ch. 4.3
+        reading2: https://notes.math124.org/ch04/04-04
+        reading2_text: Ch. 4.4
   - date: "2026-10-28"
     events:
       - name: LAB 9
