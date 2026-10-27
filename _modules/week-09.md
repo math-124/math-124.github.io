@@ -12,6 +12,7 @@ days:
       - name: LEC 16
         type: lecture
         title: PLU Factorization for Invertible Matrices
+        recording: https://leccap.engin.umich.edu/leccap/player/r/DcNDY5
         worksheet: ../resources/worksheets/lec16-worksheet.pdf
         reading: https://notes.math124.org/ch04/04-03
         reading_text: Ch. 4.3

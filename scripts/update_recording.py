@@ -3,6 +3,9 @@ import argparse
 import datetime as dt
 import os
 import re
+import shutil
+import tempfile
+from pathlib import Path
 import subprocess
 import sys
 import time
@@ -941,22 +944,47 @@ def git(*args, capture=False):
 
 
 def synchronize_git():
-    """Rebase onto the upstream while preserving unrelated tracked edits and staging."""
+    """Rebase onto the upstream while preserving local files, edits, and staging."""
     git("fetch")
     upstream = git("rev-parse", "--abbrev-ref", "@{upstream}", capture=True).stdout.strip()
     behind = int(git("rev-list", "--count", f"HEAD..{upstream}", capture=True).stdout)
     if not behind:
         return
+    # Incoming tracked files can collide with local untracked assignment assets.
+    # Save these outside the working tree, then restore them as local edits.
+    untracked = set(git("ls-files", "--others", "--exclude-standard", "-z", capture=True).stdout.split("\0"))
+    incoming = set(git("ls-tree", "-r", "--name-only", "-z", upstream, capture=True).stdout.split("\0"))
+    collisions = sorted((untracked & incoming) - {""})
+    backup = None
+    if collisions:
+        git_dir = git("rev-parse", "--absolute-git-dir", capture=True).stdout.strip()
+        backup = Path(tempfile.mkdtemp(prefix="recording-local-files-", dir=git_dir))
+        for name in collisions:
+            source = Path(REPO_ROOT) / name
+            target = backup / name
+            target.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copy2(source, target, follow_symlinks=False)
+        print(f"Preserved local files in {backup}", flush=True)
     saved = None
     if git("status", "--porcelain", "--untracked-files=no", capture=True).stdout:
         git("stash", "push", "-m", "Recording updater: preserve local edits")
         saved = git("rev-parse", "stash@{0}", capture=True).stdout.strip()
     try:
+        for name in collisions:
+            (Path(REPO_ROOT) / name).unlink()
         git("rebase", upstream)
     except subprocess.CalledProcessError as exc:
-        git("rebase", "--abort")
+        # A checkout failure can happen before Git creates a rebase state.
+        git_dir = Path(git("rev-parse", "--absolute-git-dir", capture=True).stdout.strip())
+        if any((git_dir / name).exists() for name in ("rebase-merge", "rebase-apply")):
+            git("rebase", "--abort")
         raise RuntimeError("GitHub changes conflict with local commits; recording was not pushed.") from exc
     finally:
+        if backup:
+            for name in collisions:
+                target = Path(REPO_ROOT) / name
+                target.parent.mkdir(parents=True, exist_ok=True)
+                shutil.copy2(backup / name, target, follow_symlinks=False)
         if saved:
             # Keep the stash if restoration fails, so no local edits are lost.
             git("stash", "apply", "--index", saved)

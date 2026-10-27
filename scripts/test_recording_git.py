@@ -71,6 +71,19 @@ class PublicationTests(unittest.TestCase):
         self.assertEqual(git(self.remote, 'show', 'HEAD:schedule'), 'lecture\nrecording retry\n')
         self.assertEqual(git(self.local, 'diff', '--cached'), before)
 
+    def test_incoming_files_preserve_untracked_local_versions(self):
+        self.remote_change('released', 'published version\n')
+        (self.local / 'released').write_text('local draft\n')
+        (self.local / 'unrelated').write_text('staged\n')
+        git(self.local, 'add', 'unrelated')
+        (self.local / 'unrelated').write_text('staged plus unstaged\n')
+        before = git(self.local, 'diff', '--cached')
+        recording.synchronize_git()
+        self.assertEqual((self.local / 'released').read_text(), 'local draft\n')
+        self.assertEqual(git(self.local, 'show', 'HEAD:released'), 'published version\n')
+        self.assertEqual(git(self.local, 'diff', '--cached'), before)
+        self.assertEqual((self.local / 'unrelated').read_text(), 'staged plus unstaged\n')
+
     def test_conflict_aborts_and_restores_staging(self):
         self.remote_change('schedule', 'remote lecture\n')
         (self.local / 'schedule').write_text('local lecture\n')
