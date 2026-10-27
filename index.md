@@ -13,6 +13,9 @@ Math 124, Fall 2026 at the <b><span style="background-color: #FFCB05; color: #00
 {: .fs-6 .fw-300 .mb-2 }
 **Lectures**: Tuesday and Thursdays, 2:30-4PM, G127 Angell Hall • **Labs**: Various [times](calendar) on Wednesday
 
+{: .green }
+> **Quiz 3 has been moved to November 9-13 and will cover Lectures 15-19.** Signups open on November 2. See [Quiz Logistics](quiz-logistics/) for details.
+
 <a class="btn" style="background-color: #00274C; color: white;" data-current-week-link href="#{{ site.modules.first.title | slugify }}">Jump to the current week</a>
 
 {% for module in site.modules %}

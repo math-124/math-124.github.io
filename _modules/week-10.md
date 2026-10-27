@@ -1,5 +1,5 @@
 ---
-title: "Week 10: Subspaces, Bases, and Dimension; Quiz 3"
+title: "Week 10: Subspaces, Bases, and Dimension<br><small>Signups for Quiz 3 open on November 2.</small>"
 weekNumber: 10
 days:
 #   - date: "2026-11-02"
@@ -22,12 +22,4 @@ days:
       - name: LEC 19
         type: lecture
         title: Bases and Dimension
-  - date: "2026-11-06"
-    events:
-      - name: QUIZ
-        type: quiz
-        title: Quiz 3 (open Nov 2-6; slots open Oct 26)
-        buttons:
-          - label: "📝 Logistics"
-            url: /quiz-logistics/
 ---

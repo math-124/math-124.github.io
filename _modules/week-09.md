@@ -1,5 +1,5 @@
 ---
-title: "Week 9: PLU Factorization<br><small>Signups for Quiz 3 open on October 26.</small>"
+title: "Week 9: PLU Factorization"
 weekNumber: 9
 days:
 #   - date: "2026-10-26"

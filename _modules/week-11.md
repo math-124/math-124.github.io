@@ -1,5 +1,5 @@
 ---
-title: "Week 11: Orthonormal Bases, QR, and Orthogonal Transformations"
+title: "Week 11: Orthonormal Bases, QR, and Orthogonal Transformations; Quiz 3"
 weekNumber: 11
 days:
 #   - date: "2026-11-09"
@@ -22,4 +22,12 @@ days:
       - name: LEC 21
         type: lecture
         title: Orthogonal Matrices and Orthogonal Transformations
+  - date: "2026-11-13"
+    events:
+      - name: QUIZ
+        type: quiz
+        title: Quiz 3 (open Nov 9-13; slots open Nov 2)
+        buttons:
+          - label: "📝 Logistics"
+            url: /quiz-logistics/
 ---
