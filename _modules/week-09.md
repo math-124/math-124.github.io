@@ -12,6 +12,7 @@ days:
       - name: LEC 16
         type: lecture
         title: PLU Factorization for Invertible Matrices
+        worksheet: ../resources/worksheets/lec16-worksheet.pdf
   - date: "2026-10-28"
     events:
       - name: LAB 9
