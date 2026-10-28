@@ -1,0 +1,70 @@
+name: Publish Lab 9 at 5 PM Eastern
+
+on:
+  schedule:
+    # Start early and wait for 21:00 UTC = 5 PM EDT on October 28.
+    - cron: '45 20 28 10 *'
+    # Retry if a scheduled run is delayed or fails.
+    - cron: '15,45 21 28 10 *'
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+  actions: write
+
+concurrency:
+  group: publish-lab09-2026-10-28
+  cancel-in-progress: false
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - name: Check the one-time release window
+        id: window
+        run: |
+          python3 - <<'PYCODE'
+          import os
+          from datetime import datetime, timezone
+          now = datetime.now(timezone.utc)
+          begin = datetime(2026, 10, 28, 20, tzinfo=timezone.utc)
+          end = datetime(2026, 10, 29, 3, tzinfo=timezone.utc)
+          with open(os.environ['GITHUB_OUTPUT'], 'a') as output:
+              output.write(f"proceed={str(begin <= now < end).lower()}\n")
+          PYCODE
+
+      - name: Wait until October 28 at 5 PM Eastern
+        if: steps.window.outputs.proceed == 'true'
+        run: |
+          python3 -u - <<'PYCODE'
+          import time
+          from datetime import datetime, timezone
+          target = datetime(2026, 10, 28, 21, tzinfo=timezone.utc).timestamp()
+          while time.time() < target:
+              time.sleep(min(30, max(0, target - time.time())))
+          PYCODE
+
+      - uses: actions/checkout@v5
+        if: steps.window.outputs.proceed == 'true'
+        with:
+          ref: main
+
+      - name: Add the Lab 9 homepage link
+        if: steps.window.outputs.proceed == 'true'
+        run: python3 .github/scripts/release_lab09.py
+
+      # GITHUB_TOKEN pushes do not trigger push workflows, so dispatch explicitly.
+      - name: Deploy the updated homepage
+        if: steps.window.outputs.proceed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run build-site.yml --ref main
+
+      - name: Disable the completed one-time schedule
+        if: steps.window.outputs.proceed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          echo 'Lab 9 homepage link released; Pages deployment requested.' >> "$GITHUB_STEP_SUMMARY"
+          gh api --method PUT "repos/$GITHUB_REPOSITORY/actions/workflows/release-lab09.yml/disable"
