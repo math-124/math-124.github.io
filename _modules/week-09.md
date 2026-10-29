@@ -23,6 +23,8 @@ days:
       - name: LAB 9
         type: lab
         title: LU Decomposition and Permutation Matrices
+        problems: ../resources/labs/lab09/
+        solutions: true
   - date: "2026-10-29"
     events:
       - name: LEC 17
