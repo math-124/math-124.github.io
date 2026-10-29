@@ -30,6 +30,7 @@ days:
       - name: LEC 17
         type: lecture
         title: PLU Factorization in General
+        recording: https://leccap.engin.umich.edu/leccap/player/r/5pqLEJ
         worksheet: ../resources/worksheets/lec17-worksheet.pdf
   - date: "2026-10-30"
     events:
