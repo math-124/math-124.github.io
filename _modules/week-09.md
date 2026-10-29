@@ -30,6 +30,7 @@ days:
       - name: LEC 17
         type: lecture
         title: PLU Factorization in General
+        worksheet: ../resources/worksheets/lec17-worksheet.pdf
   - date: "2026-10-30"
     events:
       - name: HW 6
