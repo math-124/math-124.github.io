@@ -38,4 +38,5 @@ days:
         type: hw
         title: "<b>Inverses and LU Factorization</b>"
         problems: ../resources/homeworks/hw06/
+        solutions: true
 ---

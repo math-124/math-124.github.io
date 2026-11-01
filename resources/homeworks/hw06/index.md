@@ -137,6 +137,9 @@ mjx-container[jax="CHTML"][display="true"] {
   padding: 0.35rem 0.5rem;
   white-space: nowrap;
 }
+.main-content details table td:last-child {
+  white-space: normal;
+}
 .crossnumber-grid {
   display: grid;
   grid-template-columns: repeat(3, 2.4rem);
@@ -167,6 +170,11 @@ mjx-container[jax="CHTML"][display="true"] {
 # Homework 6: Inverses and LU Factorization
 
 **due** Friday, October 30th at 11:59PM
+
+<div class="assignment-actions">
+<a class="btn btn-info assignment-pdf-button" href="/resources/homeworks/hw06/hw06.pdf" target="_blank">View as PDF ✏️</a>
+<a class="btn btn-info assignment-pdf-button" href="/resources/homeworks/hw06/hw06-solutions.pdf" target="_blank">Solutions PDF ✅</a>
+</div>
 
 {: .yellow }
 <div markdown="1">
@@ -206,6 +214,10 @@ Review [the solutions to Homework 5](https://math124.org/resources/homeworks/hw0
 
 Alternatively, if you think one of your solutions is significantly better than the posted one, copy it here and explain why you think it is better. If you didn't do Homework 5, choose two problem parts from it that look challenging to you, and in a few sentences, explain the key ideas behind their solutions in your own words.
 
+<details markdown="1"><summary>Solution</summary>
+
+</details>
+
 ---
 
 ## Problem 2: Finding Inverses (8 pts)
@@ -220,6 +232,38 @@ $$
 </div>
 
  Find <span class="math-inline">\\(B^{-1}\\)</span>. For full credit, you may only use the formula for the inverse of a <span class="math-inline">\\(2\times2\\)</span> matrix **once**; you do not need to find <span class="math-inline">\\(B\\)</span> first.
+
+<details markdown="1"><summary>Solution</summary>
+
+Start with <span class="math-inline">\\(A=BC\\)</span>. Multiplying on the left by <span class="math-inline">\\(B^{-1}\\)</span> gives <span class="math-inline">\\(B^{-1}A=C\\)</span>, and then multiplying on the right by <span class="math-inline">\\(A^{-1}\\)</span> gives
+
+<div class="math-display">
+$$
+B^{-1}=CA^{-1}.
+$$
+</div>
+
+ We only need to use the inverse formula for <span class="math-inline">\\(A\\)</span>:
+
+<div class="math-display">
+$$
+A^{-1}=\frac{1}{1(3)-5(0)}\begin{bmatrix}3&-5\\0&1\end{bmatrix}
+=\begin{bmatrix}1&-5/3\\0&1/3\end{bmatrix}.
+$$
+</div>
+
+ Therefore,
+
+<div class="math-display">
+$$
+B^{-1}=\begin{bmatrix}1&2\\-1&1\end{bmatrix}
+\begin{bmatrix}1&-5/3\\0&1/3\end{bmatrix}
+=\boxed{\begin{bmatrix}1&-1\\-1&2\end{bmatrix}}.
+$$
+</div>
+
+ The order matters: we multiply by <span class="math-inline">\\(A^{-1}\\)</span> on the right so that <span class="math-inline">\\(A\\)</span> and <span class="math-inline">\\(A^{-1}\\)</span> are next to each other.
+</details>
 
 ---
 
@@ -241,6 +285,26 @@ $$
 <div class="assignment-part-content" markdown="1">
 (3 pts) Find <span class="math-inline">\\(R&#95;\theta^{-1}\\)</span>.
 
+<details markdown="1"><summary>Solution</summary>
+
+Using the <span class="math-inline">\\(2\times2\\)</span> inverse formula, the denominator is
+
+<div class="math-display">
+$$
+\cos^2\theta-(-\sin\theta)(\sin\theta)=\cos^2\theta+\sin^2\theta=1.
+$$
+</div>
+
+ So
+
+<div class="math-display">
+$$
+\boxed{R_\theta^{-1}=\begin{bmatrix}\cos\theta&\sin\theta\\-\sin\theta&\cos\theta\end{bmatrix}}.
+$$
+</div>
+
+</details>
+
 </div>
 </div>
 
@@ -249,6 +313,19 @@ $$
 <div class="assignment-part-content" markdown="1">
 (2 pts) Now, find <span class="math-inline">\\(R&#95;{-\theta}\\)</span> for a rotation of <span class="math-inline">\\(\theta\\)</span> radians clockwise, i.e. for <span class="math-inline">\\(-\theta\\)</span>. What do you notice, and why?
 
+<details markdown="1"><summary>Solution</summary>
+
+Since <span class="math-inline">\\(\cos(-\theta)=\cos\theta\\)</span> and <span class="math-inline">\\(\sin(-\theta)=-\sin\theta\\)</span>,
+
+<div class="math-display">
+$$
+R_{-\theta}=\begin{bmatrix}\cos\theta&\sin\theta\\-\sin\theta&\cos\theta\end{bmatrix}=R_\theta^{-1}.
+$$
+</div>
+
+ This makes sense geometrically: to undo a counterclockwise rotation by <span class="math-inline">\\(\theta\\)</span>, rotate clockwise by the same angle.
+</details>
+
 </div>
 </div>
 
@@ -256,6 +333,52 @@ $$
 <div class="assignment-part-label">c)</div>
 <div class="assignment-part-content" markdown="1">
 (3 pts) A linear transformation <span class="math-inline">\\(T:\mathbb R^2\to\mathbb R^2\\)</span> first rotates vectors counterclockwise by <span class="math-inline">\\(30^\circ\\)</span>, then multiplies their horizontal coordinates by <span class="math-inline">\\(5\\)</span> and their vertical coordinates by <span class="math-inline">\\(\frac12\\)</span>. Find the matrix of <span class="math-inline">\\(T^{-1}\\)</span>. <em>Hint: While it's possible to do this by first finding the matrix for <span class="math-inline">\\(T\\)</span>, that is not necessary!</em>
+
+<details markdown="1"><summary>Solution</summary>
+
+To undo <span class="math-inline">\\(T\\)</span>, we undo its steps in reverse order. First, multiply the horizontal coordinate by <span class="math-inline">\\(1/5\\)</span> and the vertical coordinate by <span class="math-inline">\\(2\\)</span>. Then rotate **clockwise** by <span class="math-inline">\\(30^\circ\\)</span>; remember that regular rotations are counterclockwise, so this is the same as using the rotation matrix for <span class="math-inline">\\(-30^\circ\\)</span>.
+
+The scaling in the inverse transformation acts first --- remember <span class="math-inline">\\((AB)^{-1}=B^{-1}A^{-1}\\)</span> --- so the diagonal matrix goes on the right here:
+
+<div class="math-display">
+$$
+\begin{bmatrix}\sqrt3/2&1/2\\-1/2&\sqrt3/2\end{bmatrix}
+\begin{bmatrix}1/5&0\\0&2\end{bmatrix}
+=\boxed{\begin{bmatrix}\sqrt3/10&1\\-1/10&\sqrt3\end{bmatrix}}.
+$$
+</div>
+
+ Just to illustrate another way of doing this, we could also find the matrix for <span class="math-inline">\\(T\\)</span> and invert it. In <span class="math-inline">\\(T\\)</span>, the rotation acts first, so its matrix goes on the right:
+
+<div class="math-display">
+$$
+A=\begin{bmatrix}5&0\\0&1/2\end{bmatrix}
+\begin{bmatrix}\sqrt3/2&-1/2\\1/2&\sqrt3/2\end{bmatrix}
+=\begin{bmatrix}5\sqrt3/2&-5/2\\1/4&\sqrt3/4\end{bmatrix}.
+$$
+</div>
+
+ Using the <span class="math-inline">\\(2\times2\\)</span> inverse formula, the denominator is
+
+<div class="math-display">
+$$
+\left(\frac{5\sqrt3}{2}\right)\left(\frac{\sqrt3}{4}\right)
+-\left(-\frac52\right)\left(\frac14\right)
+=\frac{15}{8}+\frac58=\frac52.
+$$
+</div>
+
+ Therefore, the matrix for <span class="math-inline">\\(T^{-1}\\)</span> is
+
+<div class="math-display">
+$$
+A^{-1}=\frac{2}{5}\begin{bmatrix}\sqrt3/4&5/2\\-1/4&5\sqrt3/2\end{bmatrix}
+=\boxed{\begin{bmatrix}\sqrt3/10&1\\-1/10&\sqrt3\end{bmatrix}},
+$$
+</div>
+
+ which agrees with our first approach.
+</details>
 
 </div>
 </div>
@@ -289,6 +412,77 @@ $$
 $$
 </div>
 
+<details markdown="1"><summary>Solution</summary>
+
+We solve a separate system for each of the three vectors.
+
+-   **(i)** The system is
+
+<div class="math-display">
+$$
+\begin{aligned}
+    2c_1-3c_2+4c_3&=1,\\
+    c_1-2c_2+3c_3&=0,\\
+    3c_1-5c_2+8c_3&=0.
+    \end{aligned}
+$$
+</div>
+
+ Subtract twice the second equation from the first, and three times the second equation from the third:
+
+<div class="math-display">
+$$
+c_2-2c_3=1,\qquad c_2-c_3=0.
+$$
+</div>
+
+ Subtracting these two equations gives <span class="math-inline">\\(c&#95;3=-1\\)</span>. Then <span class="math-inline">\\(c&#95;2-(-1)=0\\)</span> gives <span class="math-inline">\\(c&#95;2=-1\\)</span>. Substituting into the original second equation gives <span class="math-inline">\\(c&#95;1-2(-1)+3(-1)=0\\)</span>, so <span class="math-inline">\\(c&#95;1=1\\)</span>. Our coefficient vector is <span class="math-inline">\\(\boxed{\begin{bmatrix}1\\\\-1\\\\-1\end{bmatrix}}\\)</span>.
+
+-   **(ii)** The system is
+
+<div class="math-display">
+$$
+\begin{aligned}
+    2c_1-3c_2+4c_3&=0,\\
+    c_1-2c_2+3c_3&=1,\\
+    3c_1-5c_2+8c_3&=0.
+    \end{aligned}
+$$
+</div>
+
+ Subtract twice the second equation from the first, and three times the second equation from the third:
+
+<div class="math-display">
+$$
+c_2-2c_3=-2,\qquad c_2-c_3=-3.
+$$
+</div>
+
+ Subtracting these two equations gives <span class="math-inline">\\(c&#95;3=-1\\)</span>. Then <span class="math-inline">\\(c&#95;2-(-1)=-3\\)</span> gives <span class="math-inline">\\(c&#95;2=-4\\)</span>. The original second equation becomes <span class="math-inline">\\(c&#95;1-2(-4)+3(-1)=1\\)</span>, so <span class="math-inline">\\(c&#95;1=-4\\)</span>. Our coefficient vector is <span class="math-inline">\\(\boxed{\begin{bmatrix}-4\\\\-4\\\\-1\end{bmatrix}}\\)</span>.
+
+-   **(iii)** The system is
+
+<div class="math-display">
+$$
+\begin{aligned}
+    2c_1-3c_2+4c_3&=0,\\
+    c_1-2c_2+3c_3&=0,\\
+    3c_1-5c_2+8c_3&=1.
+    \end{aligned}
+$$
+</div>
+
+ Subtract twice the second equation from the first, and three times the second equation from the third:
+
+<div class="math-display">
+$$
+c_2-2c_3=0,\qquad c_2-c_3=1.
+$$
+</div>
+
+ Subtracting these two equations gives <span class="math-inline">\\(c&#95;3=1\\)</span>. Then <span class="math-inline">\\(c&#95;2-1=1\\)</span> gives <span class="math-inline">\\(c&#95;2=2\\)</span>. The original second equation becomes <span class="math-inline">\\(c&#95;1-2(2)+3(1)=0\\)</span>, so <span class="math-inline">\\(c&#95;1=1\\)</span>. Our coefficient vector is <span class="math-inline">\\(\boxed{\begin{bmatrix}1\\\\2\\\\1\end{bmatrix}}\\)</span>.
+</details>
+
 </div>
 </div>
 
@@ -297,6 +491,21 @@ $$
 <div class="assignment-part-content" markdown="1">
 (3 pts) Place your three coefficient vectors in the columns of a matrix <span class="math-inline">\\(X\\)</span>, in the order above. Explain why <span class="math-inline">\\(AX=I&#95;3\\)</span> and why this means <span class="math-inline">\\(X=A^{-1}\\)</span>. You may use the fact that for square matrices, <span class="math-inline">\\(AX=I&#95;3\\)</span> also implies <span class="math-inline">\\(XA=I&#95;3\\)</span>.
 
+<details markdown="1"><summary>Solution</summary>
+
+Putting the coefficient vectors in columns gives
+
+<div class="math-display">
+$$
+X=\begin{bmatrix}1&-4&1\\-1&-4&2\\-1&-1&1\end{bmatrix}.
+$$
+</div>
+
+ Recall that each column of <span class="math-inline">\\(AX\\)</span> is <span class="math-inline">\\(A\\)</span> times the corresponding column of <span class="math-inline">\\(X\\)</span>. We chose these columns so that the three products are the three standard basis vectors, in order. Thus <span class="math-inline">\\(AX=I&#95;3\\)</span>.
+
+Since both matrices are square, the given fact also tells us that <span class="math-inline">\\(XA=I&#95;3\\)</span>. These are exactly the two identities in the definition of an inverse, so <span class="math-inline">\\(\boxed{X=A^{-1}}\\)</span>.
+</details>
+
 </div>
 </div>
 
@@ -304,6 +513,30 @@ $$
 <div class="assignment-part-label">c)</div>
 <div class="assignment-part-content" markdown="1">
 (3 pts) Use your inverse to solve <span class="math-inline">\\(A\vec x=\begin{bmatrix}11\\\\7\\\\19\end{bmatrix}\\)</span>. Verify your work by multiplying <span class="math-inline">\\(A\vec x\\)</span> and checking it is equal to <span class="math-inline">\\(\begin{bmatrix}11\\\\7\\\\19\end{bmatrix}\\)</span>.
+
+<details markdown="1"><summary>Solution</summary>
+
+Multiplying on the left by <span class="math-inline">\\(A^{-1}\\)</span> gives
+
+<div class="math-display">
+$$
+\vec x=A^{-1}\begin{bmatrix}11\\7\\19\end{bmatrix}
+=\begin{bmatrix}11-28+19\\-11-28+38\\-11-7+19\end{bmatrix}
+=\boxed{\begin{bmatrix}2\\-1\\1\end{bmatrix}}.
+$$
+</div>
+
+ Checking in the original system,
+
+<div class="math-display">
+$$
+A\vec x=\begin{bmatrix}2(2)-3(-1)+4(1)\\2-2(-1)+3(1)\\3(2)-5(-1)+8(1)\end{bmatrix}
+=\begin{bmatrix}11\\7\\19\end{bmatrix},
+$$
+</div>
+
+ as required.
+</details>
 
 </div>
 </div>
@@ -344,6 +577,13 @@ There, we provide instructions on how to compute a matrix's inverse using `np.li
 <div class="assignment-part-content" markdown="1">
 (4 pts) For all six matrices, try to compute their inverse. Report which ones are invertible and which are not.
 
+<details markdown="1"><summary>Solution</summary>
+
+For each matrix, we can check if it is invertible by running `np.linalg.inv(M)`.
+
+The invertible matrices are <span class="math-inline">\\(\boxed{M&#95;1,M&#95;3,M&#95;6}\\)</span>. The matrices <span class="math-inline">\\(\boxed{M&#95;2,M&#95;4,M&#95;5}\\)</span> are not invertible; each raises `LinAlgError: Singular matrix`.
+</details>
+
 </div>
 </div>
 
@@ -352,6 +592,23 @@ There, we provide instructions on how to compute a matrix's inverse using `np.li
 <div class="assignment-part-content" markdown="1">
 (4 pts) For the matrices that are invertible, multiply their inverse by the original matrix and show that the result is the identity matrix. <span style="color: #E67E22">**In Your PDF:** Include a screenshot that contains this check for all invertible matrices.</span>
 
+<details markdown="1"><summary>Solution</summary>
+
+For <span class="math-inline">\\(M&#95;1\\)</span>, one of the invertible matrices, we can run
+
+```python
+M1 @ np.linalg.inv(M1)
+```
+and we see the identity matrix:
+
+```python
+[[1. 0. 0.]
+ [0. 1. 0.]
+ [0. 0. 1.]]
+```
+We get the same result for <span class="math-inline">\\(M&#95;3\\)</span> and <span class="math-inline">\\(M&#95;6\\)</span>.
+</details>
+
 </div>
 </div>
 
@@ -359,6 +616,29 @@ There, we provide instructions on how to compute a matrix's inverse using `np.li
 <div class="assignment-part-label">c)</div>
 <div class="assignment-part-content" markdown="1">
 (4 pts) For each non-invertible matrix, suppose the columns are named <span class="math-inline">\\(\vec x\\)</span>, <span class="math-inline">\\(\vec y\\)</span>, and <span class="math-inline">\\(\vec z\\)</span>, from left to right. Write one column as a linear combination of the other two. For example, you could write <span class="math-inline">\\(\vec z=a\vec x+b\vec y\\)</span> for specific numbers <span class="math-inline">\\(a\\)</span> and <span class="math-inline">\\(b\\)</span>, or express <span class="math-inline">\\(\vec x\\)</span> or <span class="math-inline">\\(\vec y\\)</span> in terms of the other two columns. The coefficients may be zero. What do all the non-invertible matrices have in common?
+
+<details markdown="1"><summary>Solution</summary>
+
+The three non-invertible matrices are
+
+<div class="math-display">
+$$
+M_2=\begin{bmatrix}1&2&0\\2&4&1\\4&8&-1\end{bmatrix},\qquad
+M_4=\begin{bmatrix}1&0&1\\2&2&4\\-1&1&0\end{bmatrix},\qquad
+M_5=\begin{bmatrix}1&0&2\\0&0&1\\2&0&-1\end{bmatrix}.
+$$
+</div>
+
+ We can read the relationships directly from their columns:
+
+-   For <span class="math-inline">\\(M&#95;2\\)</span>, <span class="math-inline">\\(\boxed{\vec y=2\vec x+0\vec z}\\)</span>, since <span class="math-inline">\\(\begin{bmatrix}2\\\\4\\\\8\end{bmatrix}=2\begin{bmatrix}1\\\\2\\\\4\end{bmatrix}\\)</span>.
+
+-   For <span class="math-inline">\\(M&#95;4\\)</span>, <span class="math-inline">\\(\boxed{\vec z=\vec x+\vec y}\\)</span>, since <span class="math-inline">\\(\begin{bmatrix}1\\\\4\\\\0\end{bmatrix}=\begin{bmatrix}1\\\\2\\\\-1\end{bmatrix}+\begin{bmatrix}0\\\\2\\\\1\end{bmatrix}\\)</span>.
+
+-   For <span class="math-inline">\\(M&#95;5\\)</span>, <span class="math-inline">\\(\boxed{\vec y=0\vec x+0\vec z}\\)</span>, since its second column is the zero vector.
+
+In every case, one column can be written as a linear combination of the others. When we can write one vector as a linear combination of others, we say that the collection of vectors is **not linearly independent**. This means two different vectors, <span class="math-inline">\\(\vec u\\)</span> and <span class="math-inline">\\(\vec v\\)</span>, may both have the same output when multiplied by <span class="math-inline">\\(A\\)</span>, so <span class="math-inline">\\(A\\)</span> cannot be inverted.
+</details>
 
 </div>
 </div>
@@ -401,6 +681,70 @@ A=\begin{bmatrix}4&3\\8&9\end{bmatrix},\qquad
 $$
 </div>
 
+<details markdown="1"><summary>Solution</summary>
+
+Write the factors in the required shapes and match entries:
+
+<div class="math-display">
+$$
+\begin{bmatrix}1&0\\\ell&1\end{bmatrix}
+\begin{bmatrix}p&q\\0&r\end{bmatrix}
+=\begin{bmatrix}p&q\\\ell p&\ell q+r\end{bmatrix}
+=\begin{bmatrix}4&3\\8&9\end{bmatrix}.
+$$
+</div>
+
+ The first row gives <span class="math-inline">\\(p=4\\)</span>, <span class="math-inline">\\(q=3\\)</span>. Next, <span class="math-inline">\\(4\ell=8\\)</span> gives <span class="math-inline">\\(\ell=2\\)</span>, and <span class="math-inline">\\(2(3)+r=9\\)</span> gives <span class="math-inline">\\(r=3\\)</span>. No row swap is needed, so
+
+<div class="math-display">
+$$
+\boxed{P=I_2,\qquad L=\begin{bmatrix}1&0\\2&1\end{bmatrix},\qquad
+U=\begin{bmatrix}4&3\\0&3\end{bmatrix}}.
+$$
+</div>
+
+ To solve each system, set <span class="math-inline">\\(\vec y=U\vec x\\)</span>. First solve <span class="math-inline">\\(L\vec y=\vec b\\)</span> by forward substitution, then <span class="math-inline">\\(U\vec x=\vec y\\)</span> by back substitution.
+
+**For <span class="math-inline">\\(\vec b&#95;1\\)</span>:** The equation <span class="math-inline">\\(L\vec y=\vec b&#95;1\\)</span> is
+
+<div class="math-display">
+$$
+\begin{bmatrix}1&0\\2&1\end{bmatrix}\begin{bmatrix}y_1\\y_2\end{bmatrix}
+=\begin{bmatrix}11\\25\end{bmatrix}.
+$$
+</div>
+
+ Forward substitution gives <span class="math-inline">\\(y&#95;1=11\\)</span> and <span class="math-inline">\\(2(11)+y&#95;2=25\\)</span>, so <span class="math-inline">\\(\vec y=\begin{bmatrix}11\\\\3\end{bmatrix}\\)</span>. Back substitution gives
+
+<div class="math-display">
+$$
+3x_2=3\ \Longrightarrow\ x_2=1,\qquad
+4x_1+3(1)=11\ \Longrightarrow\ x_1=2.
+$$
+</div>
+
+ Thus <span class="math-inline">\\(\boxed{\vec x=\begin{bmatrix}2\\\\1\end{bmatrix}}\\)</span>.
+
+**For <span class="math-inline">\\(\vec b&#95;2\\)</span>:** Forward substitution gives <span class="math-inline">\\(y&#95;1=5\\)</span> and <span class="math-inline">\\(2(5)+y&#95;2=19\\)</span>, so <span class="math-inline">\\(\vec y=\begin{bmatrix}5\\\\9\end{bmatrix}\\)</span>. Back substitution gives
+
+<div class="math-display">
+$$
+3x_2=9\ \Longrightarrow\ x_2=3,\qquad
+4x_1+3(3)=5\ \Longrightarrow\ x_1=-1.
+$$
+</div>
+
+ Thus <span class="math-inline">\\(\boxed{\vec x=\begin{bmatrix}-1\\\\3\end{bmatrix}}\\)</span>. As checks,
+
+<div class="math-display">
+$$
+A\begin{bmatrix}2\\1\end{bmatrix}=\begin{bmatrix}8+3\\16+9\end{bmatrix}=\vec b_1,\qquad
+A\begin{bmatrix}-1\\3\end{bmatrix}=\begin{bmatrix}-4+9\\-8+27\end{bmatrix}=\vec b_2.
+$$
+</div>
+
+</details>
+
 </div>
 </div>
 
@@ -415,6 +759,89 @@ A=\begin{bmatrix}0&5\\6&4\end{bmatrix},\qquad
 \vec b_2=\begin{bmatrix}-10\\10\end{bmatrix}.
 $$
 </div>
+
+<details markdown="1"><summary>Solution</summary>
+
+Without a row swap, the first row of <span class="math-inline">\\(U\\)</span> would be <span class="math-inline">\\(\begin{bmatrix}0&amp;5\end{bmatrix}\\)</span>. Then the bottom-left entry of <span class="math-inline">\\(LU\\)</span> would be <span class="math-inline">\\(\ell\cdot0=0\\)</span>, but it needs to be <span class="math-inline">\\(6\\)</span>. So we swap the rows using
+
+<div class="math-display">
+$$
+P=\begin{bmatrix}0&1\\1&0\end{bmatrix}.
+$$
+</div>
+
+ The first row of <span class="math-inline">\\(P\\)</span> selects the second row of <span class="math-inline">\\(A\\)</span>, and the second row of <span class="math-inline">\\(P\\)</span> selects the first row of <span class="math-inline">\\(A\\)</span>. Thus multiplying on the left by <span class="math-inline">\\(P\\)</span> swaps the rows:
+
+<div class="math-display">
+$$
+PA=\begin{bmatrix}0&1\\1&0\end{bmatrix}\begin{bmatrix}0&5\\6&4\end{bmatrix}
+=\begin{bmatrix}6&4\\0&5\end{bmatrix}.
+$$
+</div>
+
+ The matrix <span class="math-inline">\\(PA\\)</span> is already upper triangular, so <span class="math-inline">\\(PA=U\\)</span>, and <span class="math-inline">\\(L\\)</span> is just the identity matrix:
+
+<div class="math-display">
+$$
+\boxed{L=\begin{bmatrix}1&0\\0&1\end{bmatrix},\qquad U=\begin{bmatrix}6&4\\0&5\end{bmatrix}}.
+$$
+</div>
+
+ To solve <span class="math-inline">\\(A\vec x=\vec b\\)</span>, multiply both sides by <span class="math-inline">\\(P\\)</span>, giving <span class="math-inline">\\(LU\vec x=P\vec b\\)</span>. Set <span class="math-inline">\\(\vec y=U\vec x\\)</span> and first solve <span class="math-inline">\\(L\vec y=P\vec b\\)</span>. Since <span class="math-inline">\\(L=I&#95;2\\)</span>, this gives <span class="math-inline">\\(\vec y=P\vec b\\)</span>: we swap the entries of the right-hand side too.
+
+**For <span class="math-inline">\\(\vec b&#95;1\\)</span>:**
+
+<div class="math-display">
+$$
+\vec y=P\vec b_1=\begin{bmatrix}0&1\\1&0\end{bmatrix}\begin{bmatrix}15\\24\end{bmatrix}
+=\begin{bmatrix}24\\15\end{bmatrix},\qquad
+\begin{bmatrix}6&4\\0&5\end{bmatrix}\begin{bmatrix}x_1\\x_2\end{bmatrix}
+=\begin{bmatrix}24\\15\end{bmatrix}.
+$$
+</div>
+
+ Back substitution in <span class="math-inline">\\(U\vec x=\vec y\\)</span> gives
+
+<div class="math-display">
+$$
+5x_2=15\ \Longrightarrow\ x_2=3,\qquad
+6x_1+4(3)=24\ \Longrightarrow\ x_1=2.
+$$
+</div>
+
+ Thus <span class="math-inline">\\(\boxed{\vec x=\begin{bmatrix}2\\\\3\end{bmatrix}}\\)</span>.
+
+**For <span class="math-inline">\\(\vec b&#95;2\\)</span>:** Using the same factors,
+
+<div class="math-display">
+$$
+\vec y=P\vec b_2=\begin{bmatrix}0&1\\1&0\end{bmatrix}\begin{bmatrix}-10\\10\end{bmatrix}
+=\begin{bmatrix}10\\-10\end{bmatrix},\qquad
+\begin{bmatrix}6&4\\0&5\end{bmatrix}\begin{bmatrix}x_1\\x_2\end{bmatrix}
+=\begin{bmatrix}10\\-10\end{bmatrix}.
+$$
+</div>
+
+ Back substitution gives
+
+<div class="math-display">
+$$
+5x_2=-10\ \Longrightarrow\ x_2=-2,\qquad
+6x_1+4(-2)=10\ \Longrightarrow\ x_1=3.
+$$
+</div>
+
+ Thus <span class="math-inline">\\(\boxed{\vec x=\begin{bmatrix}3\\\\-2\end{bmatrix}}\\)</span>. Checking in the original row order,
+
+<div class="math-display">
+$$
+A\begin{bmatrix}2\\3\end{bmatrix}=\begin{bmatrix}15\\12+12\end{bmatrix}=\vec b_1,\qquad
+A\begin{bmatrix}3\\-2\end{bmatrix}=\begin{bmatrix}-10\\18-8\end{bmatrix}=\vec b_2.
+$$
+</div>
+
+ We reordered equations, so the entries of <span class="math-inline">\\(\vec x\\)</span> stay in their original order.
+</details>
 
 </div>
 </div>
@@ -439,6 +866,79 @@ A=\begin{bmatrix}3&4&-2\\6&13&-1\\-3&6&12\end{bmatrix},\qquad
 $$
 </div>
 
+<details markdown="1"><summary>Solution</summary>
+
+As in lecture, use a lower triangular <span class="math-inline">\\(L\\)</span> with ones on its diagonal and an upper triangular <span class="math-inline">\\(U\\)</span>. Write placeholders for their unknown entries:
+
+<div class="math-display">
+$$
+L=\begin{bmatrix}1&0&0\\\ell_{21}&1&0\\\ell_{31}&\ell_{32}&1\end{bmatrix},\qquad
+U=\begin{bmatrix}u_{11}&u_{12}&u_{13}\\0&u_{22}&u_{23}\\0&0&u_{33}\end{bmatrix}.
+$$
+</div>
+
+ Matching the first row of <span class="math-inline">\\(LU\\)</span> to <span class="math-inline">\\(A\\)</span> gives <span class="math-inline">\\(u&#95;{11}=3\\)</span>, <span class="math-inline">\\(u&#95;{12}=4\\)</span>, and <span class="math-inline">\\(u&#95;{13}=-2\\)</span>. Matching the first column next gives <span class="math-inline">\\(3\ell&#95;{21}=6\\)</span>, so <span class="math-inline">\\(\ell&#95;{21}=2\\)</span>, and <span class="math-inline">\\(3\ell&#95;{31}=-3\\)</span>, so <span class="math-inline">\\(\ell&#95;{31}=-1\\)</span>. Now find the second row of <span class="math-inline">\\(U\\)</span>, then the remaining entries:
+
+<div class="math-display">
+$$
+\begin{aligned}
+2(4)+u_{22}=13&\quad\Longrightarrow\quad u_{22}=5,\\
+2(-2)+u_{23}=-1&\quad\Longrightarrow\quad u_{23}=3,\\
+(-1)(4)+5\ell_{32}=6&\quad\Longrightarrow\quad\ell_{32}=2,\\
+(-1)(-2)+2(3)+u_{33}=12&\quad\Longrightarrow\quad u_{33}=4.
+\end{aligned}
+$$
+</div>
+
+ No row swap is needed. Our factors are
+
+<div class="math-display">
+$$
+\boxed{P=I_3,\qquad L=\begin{bmatrix}1&0&0\\2&1&0\\-1&2&1\end{bmatrix},\qquad
+U=\begin{bmatrix}3&4&-2\\0&5&3\\0&0&4\end{bmatrix}}.
+$$
+</div>
+
+ Multiplying these factors gives <span class="math-inline">\\(LU=A\\)</span>. Set <span class="math-inline">\\(\vec y=U\vec x\\)</span>. Forward substitution in <span class="math-inline">\\(L\vec y=\vec b\\)</span> gives
+
+<div class="math-display">
+$$
+y_1=-4,\qquad 2(-4)+y_2=-4\ \Longrightarrow\ y_2=4,
+$$
+</div>
+
+
+
+<div class="math-display">
+$$
+-(-4)+2(4)+y_3=24\ \Longrightarrow\ y_3=12.
+$$
+</div>
+
+ So <span class="math-inline">\\(\vec y=\begin{bmatrix}-4\\\\4\\\\12\end{bmatrix}\\)</span>. Back substitution in <span class="math-inline">\\(U\vec x=\vec y\\)</span> gives
+
+<div class="math-display">
+$$
+\begin{aligned}
+4x_3=12&\quad\Longrightarrow\quad x_3=3,\\
+5x_2+3(3)=4&\quad\Longrightarrow\quad x_2=-1,\\
+3x_1+4(-1)-2(3)=-4&\quad\Longrightarrow\quad x_1=2.
+\end{aligned}
+$$
+</div>
+
+ Our solution and its check are
+
+<div class="math-display">
+$$
+\boxed{\vec x=\begin{bmatrix}2\\-1\\3\end{bmatrix}},\qquad
+A\vec x=\begin{bmatrix}6-4-6\\12-13-3\\-6-6+36\end{bmatrix}
+=\begin{bmatrix}-4\\-4\\24\end{bmatrix}=\vec b.
+$$
+</div>
+
+</details>
+
 </div>
 </div>
 
@@ -452,6 +952,73 @@ A=\begin{bmatrix}3&3&0\\6&6&5\\3&7&2\end{bmatrix},\qquad
 \vec b=\begin{bmatrix}3\\21\\5\end{bmatrix}.
 $$
 </div>
+
+<details markdown="1"><summary>Solution</summary>
+
+If we start without swapping rows, the first row of <span class="math-inline">\\(U\\)</span> is <span class="math-inline">\\(\begin{bmatrix}3&amp;3&amp;0\end{bmatrix}\\)</span>, and <span class="math-inline">\\(\ell&#95;{21}=2\\)</span>, <span class="math-inline">\\(\ell&#95;{31}=1\\)</span>. Then <span class="math-inline">\\(2(3)+u&#95;{22}=6\\)</span> gives <span class="math-inline">\\(u&#95;{22}=0\\)</span>. Matching entry <span class="math-inline">\\((3,2)\\)</span> would require <span class="math-inline">\\(1(3)+\ell&#95;{32}(0)=7\\)</span>, which is impossible. Let's swap the second and third rows and restart:
+
+<div class="math-display">
+$$
+P=\begin{bmatrix}1&0&0\\0&0&1\\0&1&0\end{bmatrix},\qquad
+PA=\begin{bmatrix}3&3&0\\3&7&2\\6&6&5\end{bmatrix}.
+$$
+</div>
+
+ The first row of <span class="math-inline">\\(U\\)</span> is still <span class="math-inline">\\(\begin{bmatrix}3&amp;3&amp;0\end{bmatrix}\\)</span>. Matching the first column now gives <span class="math-inline">\\(\ell&#95;{21}=1\\)</span> and <span class="math-inline">\\(\ell&#95;{31}=2\\)</span>. Continuing,
+
+<div class="math-display">
+$$
+\begin{aligned}
+1(3)+u_{22}=7&\quad\Longrightarrow\quad u_{22}=4,\\
+1(0)+u_{23}=2&\quad\Longrightarrow\quad u_{23}=2,\\
+2(3)+4\ell_{32}=6&\quad\Longrightarrow\quad\ell_{32}=0,\\
+2(0)+0(2)+u_{33}=5&\quad\Longrightarrow\quad u_{33}=5.
+\end{aligned}
+$$
+</div>
+
+ Thus
+
+<div class="math-display">
+$$
+\boxed{L=\begin{bmatrix}1&0&0\\1&1&0\\2&0&1\end{bmatrix},\qquad
+U=\begin{bmatrix}3&3&0\\0&4&2\\0&0&5\end{bmatrix}}.
+$$
+</div>
+
+ Multiplying these factors gives <span class="math-inline">\\(LU=PA\\)</span>.
+
+The reordered right-hand side is <span class="math-inline">\\(P\vec b=\begin{bmatrix}3\\\\5\\\\21\end{bmatrix}\\)</span>. Forward substitution in <span class="math-inline">\\(L\vec y=P\vec b\\)</span> gives
+
+<div class="math-display">
+$$
+y_1=3,\qquad 3+y_2=5,\qquad 2(3)+y_3=21,
+$$
+</div>
+
+ so <span class="math-inline">\\(\vec y=\begin{bmatrix}3\\\\2\\\\15\end{bmatrix}\\)</span>. Back substitution gives
+
+<div class="math-display">
+$$
+\begin{aligned}
+5x_3=15&\quad\Longrightarrow\quad x_3=3,\\
+4x_2+2(3)=2&\quad\Longrightarrow\quad x_2=-1,\\
+3x_1+3(-1)=3&\quad\Longrightarrow\quad x_1=2.
+\end{aligned}
+$$
+</div>
+
+ Our solution and its check in the original system are
+
+<div class="math-display">
+$$
+\boxed{\vec x=\begin{bmatrix}2\\-1\\3\end{bmatrix}},\qquad
+A\vec x=\begin{bmatrix}6-3\\12-6+15\\6-7+6\end{bmatrix}
+=\begin{bmatrix}3\\21\\5\end{bmatrix}=\vec b.
+$$
+</div>
+
+</details>
 
 </div>
 </div>
@@ -556,6 +1123,39 @@ $$
 
  State <span class="math-inline">\\(A\\)</span> and its shape.
 
+<details markdown="1"><summary>Solution</summary>
+
+Each row of the table gives one equation:
+
+<div class="math-display">
+$$
+\begin{aligned}
+0.9x_1+0.8x_2+0.6x_3+0.5x_4+0.7x_5&=b_1,\\
+0.7x_1+0.9x_2+0.8x_3+0.7x_4+0.6x_5&=b_2,\\
+0.5x_1+0.6x_2+0.8x_3+0.9x_4+0.8x_5&=b_3,\\
+0.8x_1+0.7x_2+0.9x_3+0.8x_4+0.6x_5&=b_4,\\
+0.6x_1+0.8x_2+0.7x_3+0.6x_4+0.9x_5&=b_5.
+\end{aligned}
+$$
+</div>
+
+ These equations are <span class="math-inline">\\(A\vec x=\vec b\\)</span>, with
+
+<div class="math-display">
+$$
+\boxed{A=\begin{bmatrix}
+0.9&0.8&0.6&0.5&0.7\\
+0.7&0.9&0.8&0.7&0.6\\
+0.5&0.6&0.8&0.9&0.8\\
+0.8&0.7&0.9&0.8&0.6\\
+0.6&0.8&0.7&0.6&0.9
+\end{bmatrix}}.
+$$
+</div>
+
+ Its shape is <span class="math-inline">\\(5\times5\\)</span>: one row per microphone and one column per speaker.
+</details>
+
 </div>
 </div>
 
@@ -565,6 +1165,58 @@ $$
 (3 pts) In the notebook, enter your matrix <span class="math-inline">\\(A\\)</span> and use `scipy.linalg.lu` to find <span class="math-inline">\\(P,L,U\\)</span> satisfying <span class="math-inline">\\(PA=LU\\)</span>. The notebook explains how to use SciPy to do this. Verify that <span class="math-inline">\\(PA=LU\\)</span>, and then use <span class="math-inline">\\(L\\)</span> and <span class="math-inline">\\(U\\)</span> to solve for the five speaker amplitudes, i.e., <span class="math-inline">\\(\vec x\\)</span>, for the one instant <span class="math-inline">\\(\vec b\\)</span> selected in the notebook.
 
 <span style="color: #E67E22">**In Your PDF:** Include a screenshot of the microphone amplitudes and the recovered speaker amplitudes for the one instant provided.</span>
+
+<details markdown="1"><summary>Solution</summary>
+
+Enter the matrix and compute the factors using the notebook's convention:
+
+```python
+A = np.array([[0.9, 0.8, 0.6, 0.5, 0.7],
+              [0.7, 0.9, 0.8, 0.7, 0.6],
+              [0.5, 0.6, 0.8, 0.9, 0.8],
+              [0.8, 0.7, 0.9, 0.8, 0.6],
+              [0.6, 0.8, 0.7, 0.6, 0.9]])
+Q, L, U = lu(A)
+P = Q.T
+print(P @ A)
+print(L @ U)
+print(np.allclose(P @ A, L @ U))
+```
+SciPy returns <span class="math-inline">\\(A=QLU\\)</span>, so we use <span class="math-inline">\\(P=Q^T\\)</span> to get <span class="math-inline">\\(PA=LU\\)</span>. Both displayed products are
+
+<div class="math-display">
+$$
+\begin{bmatrix}
+0.9&0.8&0.6&0.5&0.7\\
+0.7&0.9&0.8&0.7&0.6\\
+0.8&0.7&0.9&0.8&0.6\\
+0.5&0.6&0.8&0.9&0.8\\
+0.6&0.8&0.7&0.6&0.9
+\end{bmatrix},
+$$
+</div>
+
+ and the check returns `True`. Now solve <span class="math-inline">\\(L\vec y=P\vec b\\)</span>, followed by <span class="math-inline">\\(U\vec x=\vec y\\)</span>:
+
+```python
+sample_index = 12345
+b = B1[:, sample_index]
+y = solve_triangular(L, P @ b, lower=True)
+x = solve_triangular(U, y, lower=False)
+print(b)
+print(x)
+```
+At this instant, the amplitudes are approximately
+
+<div class="math-display">
+$$
+\vec b=\begin{bmatrix}-0.055508\\-0.048642\\-0.080100\\-0.072407\\-0.067431\end{bmatrix},\qquad
+\boxed{\vec x=\begin{bmatrix}-0.028620\\0.071907\\-0.057106\\-0.008108\\-0.069940\end{bmatrix}}.
+$$
+</div>
+
+ The notebook displays these values rounded to three decimal places.
+</details>
 
 </div>
 </div>
@@ -578,6 +1230,18 @@ Using the LU decomposition from part b), follow the notebook's instructions to s
 
 <span style="color: #E67E22">**In Your PDF:** Include a screenshot of the code that starts with `X1 =` and of the five audio players that appear afterwards.</span>
 
+<details markdown="1"><summary>Solution</summary>
+
+Pass all of `B1` to the supplied function, using the same factors:
+
+```python
+X1 = solve_with_factors(P, L, U, B1)
+print("Recovered recordings shape:", X1.shape)
+play_channels(X1, "Session 1: recovered speaker")
+```
+The shape is `(5, 32000)`. We are solving <span class="math-inline">\\(AX&#95;1=B&#95;1\\)</span>, one column at a time: each column contains the five speaker amplitudes at one instant. Each row of <span class="math-inline">\\(X&#95;1\\)</span> is one recovered song clip, in the speaker order given in the problem. The call to `play_channels` displays five audio players.
+</details>
+
 </div>
 </div>
 
@@ -587,6 +1251,18 @@ Using the LU decomposition from part b), follow the notebook's instructions to s
 (2 pts) In the second session, each speaker plays a different excerpt of its song. Recover these five clips **without computing another LU factorization**. Check your answer and listen to the recovered clips.
 
 <span style="color: #E67E22">**In Your PDF:** Include a screenshot of your code and check for the second recording session.</span>
+
+<details markdown="1"><summary>Solution</summary>
+
+Use the same function with `B2`:
+
+```python
+X2 = solve_with_factors(P, L, U, B2)
+print(np.allclose(A @ X2, B2))
+play_channels(X2, "Session 2: recovered speaker")
+```
+The check returns `True`: mixing the recovered clips with the original weights reproduces the second set of microphone recordings, up to rounding error. Again, <span class="math-inline">\\(X&#95;2\\)</span> has shape <span class="math-inline">\\(5\times32000\\)</span>, with one recovered clip in each row.
+</details>
 
 </div>
 </div>
@@ -612,6 +1288,29 @@ Using the LU decomposition from part b), follow the notebook's instructions to s
 
 </div></li>
 </ol>
+
+<details markdown="1"><summary>Solution</summary>
+
+**i)** The weights stayed fixed, so the coefficient matrix <span class="math-inline">\\(A\\)</span> stayed fixed. The factors <span class="math-inline">\\(P\\)</span>, <span class="math-inline">\\(L\\)</span>, and <span class="math-inline">\\(U\\)</span> depend on <span class="math-inline">\\(A\\)</span>, not on the right-hand side. The second recording session changes the microphone amplitudes, so we have new right-hand sides but can reuse the same two triangular solves.
+
+**ii)** No. One microphone gives just one equation:
+
+<div class="math-display">
+$$
+0.9x_1+0.8x_2+0.6x_3+0.5x_4+0.7x_5=b_1.
+$$
+</div>
+
+ We can choose <span class="math-inline">\\(x&#95;2,x&#95;3,x&#95;4,x&#95;5\\)</span> freely and then set
+
+<div class="math-display">
+$$
+x_1=\frac{b_1-0.8x_2-0.6x_3-0.5x_4-0.7x_5}{0.9}.
+$$
+</div>
+
+ So there are infinitely many sets of speaker amplitudes with the same microphone recording. For example, increasing <span class="math-inline">\\(x&#95;1\\)</span> by <span class="math-inline">\\(0.8\\)</span> and decreasing <span class="math-inline">\\(x&#95;2\\)</span> by <span class="math-inline">\\(0.9\\)</span> changes the recorded amplitude by <span class="math-inline">\\(0.9(0.8)-0.8(0.9)=0\\)</span>. There isn't enough information to recover all five amplitudes uniquely.
+</details>
 </div>
 </div>
 
