@@ -22,4 +22,10 @@ days:
       - name: LEC 19
         type: lecture
         title: Bases and Dimension
+  - date: "2026-11-08"
+    events:
+      - name: HW 7
+        type: hw
+        title: "<b>Linear Systems</b>"
+        problems: ../resources/homeworks/hw07/
 ---
