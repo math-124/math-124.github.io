@@ -9,7 +9,7 @@ days:
 #         title: Homework 10
       - name: EXAM
         type: exam
-        title: Midterm 2
+        title: Midterm 2 (7-9PM, CCCB 0460)
   - date: "2026-11-17"
     events:
       - name: LEC 22

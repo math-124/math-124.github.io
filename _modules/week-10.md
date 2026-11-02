@@ -11,7 +11,7 @@ days:
     events:
       - name: LEC 18
         type: lecture
-        title: Subspaces, Span, and Column Space
+        title: Span, Column Space, and Subspaces
   - date: "2026-11-04"
     events:
       - name: LAB 10
