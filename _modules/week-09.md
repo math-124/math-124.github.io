@@ -32,6 +32,8 @@ days:
         title: PLU Factorization in General
         recording: https://leccap.engin.umich.edu/leccap/player/r/5pqLEJ
         worksheet: ../resources/worksheets/lec17-worksheet.pdf
+        reading: https://notes.math124.org/ch04/04-05
+        reading_text: Ch. 4.5
   - date: "2026-10-30"
     events:
       - name: HW 6
