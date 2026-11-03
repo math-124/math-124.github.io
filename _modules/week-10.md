@@ -12,6 +12,7 @@ days:
       - name: LEC 18
         type: lecture
         title: Span, Column Space, and Subspaces
+        worksheet: ../resources/worksheets/lec18-worksheet.pdf
   - date: "2026-11-04"
     events:
       - name: LAB 10
