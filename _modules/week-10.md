@@ -18,7 +18,7 @@ days:
     events:
       - name: LAB 10
         type: lab
-        title: Lab 10
+        title: Column Space
   - date: "2026-11-05"
     events:
       - name: LEC 19
