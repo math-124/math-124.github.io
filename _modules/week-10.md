@@ -26,6 +26,7 @@ days:
       - name: LEC 19
         type: lecture
         title: Bases and Dimension
+        worksheet: ../resources/worksheets/lec19-worksheet.pdf
   - date: "2026-11-08"
     events:
       - name: HW 7
