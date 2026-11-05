@@ -19,6 +19,8 @@ days:
       - name: LAB 10
         type: lab
         title: Column Space
+        problems: ../resources/labs/lab10/
+        solutions: true
   - date: "2026-11-05"
     events:
       - name: LEC 19
