@@ -11,7 +11,7 @@ days:
     events:
       - name: LEC 18
         type: lecture
-        title: Span, Column Space, and Subspaces
+        title: Span and Column Space
         recording: https://leccap.engin.umich.edu/leccap/player/r/HTw4mJ
         worksheet: ../resources/worksheets/lec18-worksheet.pdf
   - date: "2026-11-04"
@@ -25,7 +25,7 @@ days:
     events:
       - name: LEC 19
         type: lecture
-        title: Bases and Dimension
+        title: Subspaces and Rank
         worksheet: ../resources/worksheets/lec19-worksheet.pdf
   - date: "2026-11-08"
     events:
