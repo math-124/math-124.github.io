@@ -33,4 +33,8 @@ days:
           - label: Practice Quiz
             url: https://us.prairielearn.com/pl/course_instance/228907/assessment_instance/15989181
             icon: prairielearn
+      - name: HW 8
+        type: hw
+        title: "<b>Subspaces, Bases, and Rank</b>"
+        problems: ../resources/homeworks/hw08/
 ---
