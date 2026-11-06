@@ -26,6 +26,7 @@ days:
       - name: LEC 19
         type: lecture
         title: Subspaces and Rank
+        recording: https://leccap.engin.umich.edu/leccap/player/r/tPmcOB
         worksheet: ../resources/worksheets/lec19-worksheet.pdf
   - date: "2026-11-08"
     events:
