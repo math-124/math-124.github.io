@@ -12,6 +12,7 @@ days:
       - name: LEC 20
         type: lecture
         title: Orthonormal Bases and QR Factorization
+        worksheet: ../resources/worksheets/lec20-worksheet.pdf
   - date: "2026-11-11"
     events:
       - name: LAB 11
