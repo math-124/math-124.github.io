@@ -10,6 +10,9 @@ days:
       - name: EXAM
         type: exam
         title: Midterm 2 (7-9PM, 0460 CCCB)
+        buttons:
+          - label: "📝 Logistics"
+            url: https://edstem.org/us/courses/103314/discussion/8499677
   - date: "2026-11-17"
     events:
       - name: LEC 22

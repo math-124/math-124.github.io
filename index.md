@@ -13,6 +13,9 @@ Math 124, Fall 2026 at the <b><span style="background-color: #FFCB05; color: #00
 {: .fs-6 .fw-300 .mb-2 }
 **Lectures**: Tuesday and Thursdays, 2:30-4PM, G127 Angell Hall • **Labs**: Various [times](calendar) on Wednesday
 
+**Midterm 2 is on Monday, November 16th from 7-9PM in 0460 CCCB. Read all relevant logistics [here](https://edstem.org/us/courses/103314/discussion/8499677).**
+{: .green }
+
 <a class="btn" style="background-color: #00274C; color: white;" data-current-week-link href="#{{ site.modules.first.title | slugify }}">Jump to the current week</a>
 
 {% for module in site.modules %}
