@@ -32,6 +32,7 @@ days:
     events:
       - name: HW 7
         type: hw
-        title: "<b>Linear Systems</b>"
+        solutions: true
+        title: "Linear Systems"
         problems: ../resources/homeworks/hw07/
 ---
