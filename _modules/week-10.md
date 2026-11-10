@@ -33,6 +33,6 @@ days:
       - name: HW 7
         type: hw
         solutions: true
-        title: "Linear Systems"
+        title: "<b>Linear Systems</b>"
         problems: ../resources/homeworks/hw07/
 ---
