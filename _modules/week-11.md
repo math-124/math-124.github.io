@@ -14,6 +14,8 @@ days:
         title: Orthonormal Bases and QR Factorization
         recording: https://leccap.engin.umich.edu/leccap/player/r/QFk3EJ
         worksheet: ../resources/worksheets/lec20-worksheet.pdf
+        reading: https://notes.math124.org/ch06/06-01/
+        reading_text: Ch. 6.1
   - date: "2026-11-11"
     events:
       - name: LAB 11
