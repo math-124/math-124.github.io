@@ -12,6 +12,7 @@ days:
       - name: LEC 20
         type: lecture
         title: Orthonormal Bases and QR Factorization
+        recording: https://leccap.engin.umich.edu/leccap/player/r/QFk3EJ
         worksheet: ../resources/worksheets/lec20-worksheet.pdf
   - date: "2026-11-11"
     events:
