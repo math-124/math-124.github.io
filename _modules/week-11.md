@@ -21,6 +21,7 @@ days:
       - name: LAB 11
         type: lab
         title: Gram-Schmidt and QR Factorization
+        problems: ../resources/labs/lab11/
   - date: "2026-11-12"
     events:
       - name: LEC 21
