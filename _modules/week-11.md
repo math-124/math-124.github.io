@@ -27,6 +27,7 @@ days:
       - name: LEC 21
         type: lecture
         title: Orthogonal Matrices and Orthogonal Transformations
+        worksheet: ../resources/worksheets/lec21-worksheet.pdf
   - date: "2026-11-13"
     events:
       - name: QUIZ
