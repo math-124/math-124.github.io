@@ -43,4 +43,11 @@ days:
         type: hw
         title: "<b>Subspaces, Bases, and Rank</b>"
         problems: ../resources/homeworks/hw08/
+  - date: "2026-11-14"
+    events:
+      - name: REV
+        type: review
+        url: /resources/exams/practice-mt2/
+        title: "<b>Practice Midterm 2</b>"
+        note: "There is no live review session, but a walkthrough video playlist is coming soon."
 ---
