@@ -299,7 +299,15 @@ Shape:
 
 **i)** The domain is <span class="math-inline">\\(\mathbb R^3\\)</span> and the codomain is <span class="math-inline">\\(\mathbb R^2\\)</span>, so the matrix has shape <span class="math-inline">\\(\boxed{2\times3}\\)</span>.
 
-**ii)** Observe that 
+**ii)** Recall that a linear transformation preserves addition and scalar multiplication: for all vectors <span class="math-inline">\\(\vec u,\vec v\\)</span> in its domain and all scalars <span class="math-inline">\\(c\\)</span>,
+
+<div class="math-display">
+$$
+T(\vec u+\vec v)=T(\vec u)+T(\vec v),\qquad T(c\vec u)=cT(\vec u).
+$$
+</div>
+
+ Because we know <span class="math-inline">\\(T\\)</span> at two inputs, we look for a linear combination of those inputs that equals the requested input. The same coefficients will then combine their outputs. Observe that
 
 <div class="math-display">
 $$
@@ -420,7 +428,25 @@ $$
 
 <details markdown="1"><summary>Solution</summary>
 
-The diagram gives <span class="math-inline">\\(T(\vec e&#95;1)=\begin{bmatrix}4\\\\1\end{bmatrix}\\)</span> and <span class="math-inline">\\(T(\vec e&#95;2)=\begin{bmatrix}-2\\\\3\end{bmatrix}\\)</span>. These are the first and second columns of the matrix, respectively, so 
+In general, if <span class="math-inline">\\(T(\vec x)=A\vec x\\)</span>, then
+
+<div class="math-display">
+$$
+T(\vec e_1)=A\vec e_1=A\begin{bmatrix}1\\0\end{bmatrix}
+=\text{first column of }A.
+$$
+</div>
+
+ Multiplication by <span class="math-inline">\\(\begin{bmatrix}1\\\\0\end{bmatrix}\\)</span> takes one copy of the first column and zero copies of the second. Similarly,
+
+<div class="math-display">
+$$
+T(\vec e_2)=A\vec e_2=A\begin{bmatrix}0\\1\end{bmatrix}
+=\text{second column of }A.
+$$
+</div>
+
+ Here the matrix is called <span class="math-inline">\\(B\\)</span>. The diagram gives <span class="math-inline">\\(T(\vec e&#95;1)=\begin{bmatrix}4\\\\1\end{bmatrix}\\)</span> and <span class="math-inline">\\(T(\vec e&#95;2)=\begin{bmatrix}-2\\\\3\end{bmatrix}\\)</span>, so placing these outputs in the first and second columns gives
 
 <div class="math-display">
 $$
@@ -766,57 +792,15 @@ $$
 $$
 </div>
 
- Solve the first equation for <span class="math-inline">\\(x&#95;1\\)</span>: 
+ Observe what happens when we add the last two equations:
 
 <div class="math-display">
 $$
-x_1=\frac{s}{2}+2x_2-3x_3.
+2x_1-4x_2+6x_3=5.
 $$
 </div>
 
- Substituting this into the second equation gives 
-
-<div class="math-display">
-$$
-\begin{aligned}
--4\left(\frac{s}{2}+2x_2-3x_3\right)+8x_2-9x_3+6x_4&=1,\\
--2s+3x_3+6x_4&=1,\\
-3x_3+6x_4&=1+2s.
-\end{aligned}
-$$
-</div>
-
- Substituting the same expression for <span class="math-inline">\\(x&#95;1\\)</span> into the third equation gives 
-
-<div class="math-display">
-$$
-\begin{aligned}
-6\left(\frac{s}{2}+2x_2-3x_3\right)-12x_2+15x_3-6x_4&=4,\\
-3s-3x_3-6x_4&=4,\\
-3x_3+6x_4&=3s-4.
-\end{aligned}
-$$
-</div>
-
- These two equations have the same left-hand side, so they are only consistent if 
-
-<div class="math-display">
-$$
-1+2s=3s-4\qquad\Longrightarrow\qquad\boxed{s=5}.
-$$
-</div>
-
- When <span class="math-inline">\\(s=5\\)</span>, both equations become <span class="math-inline">\\(3x&#95;3+6x&#95;4=11\\)</span>. We can choose <span class="math-inline">\\(x&#95;2=t\\)</span> and <span class="math-inline">\\(x&#95;4=u\\)</span> freely, then obtain 
-
-<div class="math-display">
-$$
-x_3=\frac{11}{3}-2u,\qquad
-x_1=\frac52+2t-3\left(\frac{11}{3}-2u\right)
-=-\frac{17}{2}+2t+6u.
-$$
-</div>
-
- Every choice of <span class="math-inline">\\(t,u\in\mathbb R\\)</span> gives a solution of all three original equations. Thus there are infinitely many solutions when <span class="math-inline">\\(s=5\\)</span>, and no solutions for any other value of <span class="math-inline">\\(s\\)</span>.
+ For this to be consistent with the first equation, we need <span class="math-inline">\\(\boxed{s=5}\\)</span>. Otherwise, there is no solution.
 
 </details>
 
@@ -996,41 +980,78 @@ $$
 
 <details markdown="1"><summary>Solution</summary>
 
-The rank is the dimension of the column space.
+The rank is the number of vectors in a basis for the column space. We will keep linearly independent columns and express the remaining columns as linear combinations of them. Recall that vectors are linearly independent if none can be written as a linear combination of the others.
 
-**<span class="math-inline">\\(A\\)</span>: rank 3.** All four columns lie in <span class="math-inline">\\(\operatorname{span}(\vec p,\vec q,\vec r)\\)</span>, so the rank is at most 3. Conversely, writing its columns as <span class="math-inline">\\(\vec a&#95;1,\ldots,\vec a&#95;4\\)</span>, 
+**<span class="math-inline">\\(A\\)</span>: rank 3.** The first column, <span class="math-inline">\\(\vec p+\vec q\\)</span>, is nonzero: otherwise <span class="math-inline">\\(\vec p=-\vec q\\)</span>, contradicting the independence of <span class="math-inline">\\(\vec p,\vec q,\vec r\\)</span>.
 
-<div class="math-display">
-$$
-\vec r=\tfrac14\vec a_4,\qquad\vec q=\vec a_2-\tfrac14\vec a_4,\qquad
-\vec p=\vec a_3-\tfrac14\vec a_4.
-$$
-</div>
-
- Its column space therefore contains the three independent vectors <span class="math-inline">\\(\vec p,\vec q,\vec r\\)</span>, giving <span class="math-inline">\\(\boxed{\operatorname{rank}(A)=3}\\)</span>.
-
-**<span class="math-inline">\\(B\\)</span>: rank 1.** Its second column is four times its first. The first column is nonzero, since <span class="math-inline">\\(2\vec p-\vec q=\vec0\\)</span> would contradict the independence of <span class="math-inline">\\(\vec p,\vec q,\vec r\\)</span>. Thus <span class="math-inline">\\(\boxed{\operatorname{rank}(B)=1}\\)</span>.
-
-**<span class="math-inline">\\(C\\)</span>: rank 2.** Its third column is twice its first plus its second. The first two are independent: if 
+The second column cannot be a multiple of the first. If <span class="math-inline">\\(\vec q+\vec r=c(\vec p+\vec q)\\)</span>, then
 
 <div class="math-display">
 $$
-\alpha(\vec p+2\vec q)+\beta(3\vec q-\vec r)=\vec0,
+\vec r=c\vec p+(c-1)\vec q,
 $$
 </div>
 
- then <span class="math-inline">\\(\alpha\vec p+(2\alpha+3\beta)\vec q-\beta\vec r=\vec0\\)</span>. Independence of <span class="math-inline">\\(\vec p,\vec q,\vec r\\)</span> forces <span class="math-inline">\\(\alpha=\beta=0\\)</span>. Hence <span class="math-inline">\\(\boxed{\operatorname{rank}(C)=2}\\)</span>.
+ which would write <span class="math-inline">\\(\vec r\\)</span> as a linear combination of <span class="math-inline">\\(\vec p\\)</span> and <span class="math-inline">\\(\vec q\\)</span>.
 
-**<span class="math-inline">\\(D\\)</span>: rank 2.** Let <span class="math-inline">\\(\vec d&#95;1=\vec p+\vec q\\)</span> and <span class="math-inline">\\(\vec d&#95;2=\vec q+\vec r\\)</span>. The remaining columns are <span class="math-inline">\\(\vec d&#95;1-\vec d&#95;2\\)</span> and <span class="math-inline">\\(2\vec d&#95;1-\vec d&#95;2\\)</span>. Moreover, 
+The third column cannot be a linear combination of the first two either. Suppose
 
 <div class="math-display">
 $$
-\alpha\vec d_1+\beta\vec d_2
-=\alpha\vec p+(\alpha+\beta)\vec q+\beta\vec r=\vec0
+\vec p+\vec r=a(\vec p+\vec q)+b(\vec q+\vec r)
+=a\vec p+(a+b)\vec q+b\vec r.
 $$
 </div>
 
- forces <span class="math-inline">\\(\alpha=\beta=0\\)</span>. Thus <span class="math-inline">\\(\vec d&#95;1,\vec d&#95;2\\)</span> are a basis for the column space, and <span class="math-inline">\\(\boxed{\operatorname{rank}(D)=2}\\)</span>.
+ The coefficients of <span class="math-inline">\\(\vec p,\vec q,\vec r\\)</span> on the two sides must match: if any coefficient differed, rearranging would express that vector as a linear combination of the other two. The <span class="math-inline">\\(\vec p\\)</span> and <span class="math-inline">\\(\vec r\\)</span> coefficients require <span class="math-inline">\\(a=b=1\\)</span>, but then the <span class="math-inline">\\(\vec q\\)</span> coefficient is <span class="math-inline">\\(a+b=2\\)</span>, whereas it is <span class="math-inline">\\(0\\)</span> on the left. This is impossible.
+
+Thus the first three columns are linearly independent. The fourth is a linear combination of them:
+
+<div class="math-display">
+$$
+4\vec r=-2(\vec p+\vec q)+2(\vec q+\vec r)+2(\vec p+\vec r).
+$$
+</div>
+
+ The first three columns therefore form a basis for the column space, so <span class="math-inline">\\(\boxed{\operatorname{rank}(A)=3}\\)</span>.
+
+**<span class="math-inline">\\(B\\)</span>: rank 1.** The second column is four times the first. The first column, <span class="math-inline">\\(2\vec p-\vec q\\)</span>, is nonzero, since otherwise <span class="math-inline">\\(\vec q=2\vec p\\)</span>. Thus the first column alone is a basis for the column space, and <span class="math-inline">\\(\boxed{\operatorname{rank}(B)=1}\\)</span>.
+
+**<span class="math-inline">\\(C\\)</span>: rank 2.** The first column, <span class="math-inline">\\(\vec p+2\vec q\\)</span>, is nonzero, since otherwise <span class="math-inline">\\(\vec p=-2\vec q\\)</span>. The second column cannot be a multiple of it: if <span class="math-inline">\\(3\vec q-\vec r=c(\vec p+2\vec q)\\)</span>, then
+
+<div class="math-display">
+$$
+\vec r=-c\vec p+(3-2c)\vec q,
+$$
+</div>
+
+ contradicting the independence of <span class="math-inline">\\(\vec p,\vec q,\vec r\\)</span>. The first two columns are therefore linearly independent. The third is twice the first plus the second:
+
+<div class="math-display">
+$$
+2\vec p+7\vec q-\vec r=2(\vec p+2\vec q)+(3\vec q-\vec r).
+$$
+</div>
+
+ Thus the first two columns form a basis for the column space, and <span class="math-inline">\\(\boxed{\operatorname{rank}(C)=2}\\)</span>.
+
+**<span class="math-inline">\\(D\\)</span>: rank 2.** The first two columns are <span class="math-inline">\\(\vec p+\vec q\\)</span> and <span class="math-inline">\\(\vec q+\vec r\\)</span>, which we showed are linearly independent when analyzing <span class="math-inline">\\(A\\)</span>. The third and fourth columns are linear combinations of these two:
+
+<div class="math-display">
+$$
+\vec p-\vec r=(\vec p+\vec q)-(\vec q+\vec r),
+$$
+</div>
+
+
+
+<div class="math-display">
+$$
+2\vec p+\vec q-\vec r=2(\vec p+\vec q)-(\vec q+\vec r).
+$$
+</div>
+
+ Thus the first two columns form a basis for the column space, and <span class="math-inline">\\(\boxed{\operatorname{rank}(D)=2}\\)</span>.
 
 </details>
 
@@ -1107,8 +1128,6 @@ $$
 <details markdown="1"><summary>Solution</summary>
 
 **Yes.** Since <span class="math-inline">\\(G\\)</span> has rank 4 and 4 columns, its echelon factor <span class="math-inline">\\(U\\)</span> has a pivot in every column. There are no free variables, so any consistent system has exactly one solution, determined by back substitution.
-
-For example, choose <span class="math-inline">\\(\vec b=\vec0\\)</span>. This system is consistent because <span class="math-inline">\\(\vec x=\vec0\\)</span> is a solution. Since there are no free variables, this solution is unique.
 
 </details>
 
