@@ -175,6 +175,7 @@ mjx-container[jax="CHTML"][display="true"] {
 <div class="assignment-actions">
 <a class="btn btn-info assignment-pdf-button" href="/resources/exams/practice-mt2/practice-mt2.pdf" target="_blank">View as PDF ✏️</a>
 <a class="btn btn-info assignment-pdf-button" href="/resources/exams/practice-mt2/practice-mt2-solutions.pdf" target="_blank">Solutions PDF ✅</a>
+<a class="btn btn-info assignment-pdf-button" href="https://www.youtube.com/playlist?list=PLWQsSvehReUk" target="_blank" rel="noopener">Video Walkthroughs 🎥</a>
 </div>
 
 *This page is meant to give you quick access to problems and their solutions. Refer to the original exam PDF, linked above, for test-taking instructions and formatting. Note that we’ve kept the problem text identical, which is why you may see things like “write your answer in the box below” despite there not being a box on this page.*
@@ -195,7 +196,7 @@ mjx-container[jax="CHTML"][display="true"] {
 
 ---
 
-## Problem 1 (8 pts)
+<h2 id="problem-1-8-pts" markdown="span">Problem 1 (8 pts) <a class="btn btn-info assignment-pdf-button problem-video-button" href="https://youtu.be/QUz1Sc0KBvY" target="_blank" rel="noopener" aria-label="Walkthrough video for Problem 1">🎥 Walkthrough</a></h2>
 
 Let <span class="math-inline">\\(c\\)</span> be a real constant, and let 
 
@@ -272,7 +273,7 @@ $$
 
 ---
 
-## Problem 2 (10 pts)
+<h2 id="problem-2-10-pts" markdown="span">Problem 2 (10 pts) <a class="btn btn-info assignment-pdf-button problem-video-button" href="https://youtu.be/IjBUKvubtS8" target="_blank" rel="noopener" aria-label="Walkthrough video for Problem 2">🎥 Walkthrough</a></h2>
 
 
 
@@ -382,7 +383,7 @@ $$
 
 ---
 
-## Problem 3 (10 pts)
+<h2 id="problem-3-10-pts" markdown="span">Problem 3 (10 pts) <a class="btn btn-info assignment-pdf-button problem-video-button" href="https://youtu.be/t41Q_LIlh5Q" target="_blank" rel="noopener" aria-label="Walkthrough video for Problem 3">🎥 Walkthrough</a></h2>
 
 
 
@@ -462,7 +463,7 @@ $$
 
 ---
 
-## Problem 4 (13 pts)
+<h2 id="problem-4-13-pts" markdown="span">Problem 4 (13 pts) <a class="btn btn-info assignment-pdf-button problem-video-button" href="https://youtu.be/WYO4hZ_p3AU" target="_blank" rel="noopener" aria-label="Walkthrough video for Problem 4">🎥 Walkthrough</a></h2>
 
 
 
@@ -582,7 +583,7 @@ $$
 
 ---
 
-## Problem 5 (16 pts)
+<h2 id="problem-5-16-pts" markdown="span">Problem 5 (16 pts) <a class="btn btn-info assignment-pdf-button problem-video-button" href="https://youtu.be/mzH1JRxcl-s" target="_blank" rel="noopener" aria-label="Walkthrough video for Problem 5">🎥 Walkthrough</a></h2>
 
 
 
@@ -723,7 +724,7 @@ $$
 
 ---
 
-## Problem 6 (16 pts)
+<h2 id="problem-6-16-pts" markdown="span">Problem 6 (16 pts) <a class="btn btn-info assignment-pdf-button problem-video-button" href="https://youtu.be/oSgA3kJHb4M" target="_blank" rel="noopener" aria-label="Walkthrough video for Problem 6">🎥 Walkthrough</a></h2>
 
 
 
@@ -863,7 +864,7 @@ $$
 
 ---
 
-## Problem 7 (11 pts)
+<h2 id="problem-7-11-pts" markdown="span">Problem 7 (11 pts) <a class="btn btn-info assignment-pdf-button problem-video-button" href="https://youtu.be/n46UCNag9_c" target="_blank" rel="noopener" aria-label="Walkthrough video for Problem 7">🎥 Walkthrough</a></h2>
 
 
 
@@ -944,7 +945,7 @@ $$
 
 ---
 
-## Problem 8 (16 pts)
+<h2 id="problem-8-16-pts" markdown="span">Problem 8 (16 pts) <a class="btn btn-info assignment-pdf-button problem-video-button" href="https://youtu.be/ST9k_UpGHI4" target="_blank" rel="noopener" aria-label="Walkthrough video for Problem 8">🎥 Walkthrough</a></h2>
 
 
 
