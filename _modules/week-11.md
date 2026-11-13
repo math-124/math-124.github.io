@@ -50,5 +50,8 @@ days:
         type: review
         url: /resources/exams/practice-mt2/
         title: "<b>Practice Midterm 2</b>"
-        note: "There is no live review session, but a walkthrough video playlist is coming soon."
+        buttons:
+          - label: 🎥 Video Walkthroughs
+            url: https://www.youtube.com/playlist?list=PLWQsSvehReUk
+        note: "There is no live review session, but there is a walkthrough video playlist."
 ---
