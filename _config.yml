@@ -21,6 +21,7 @@ exclude:
 
 theme: just-the-docs
 color_scheme: um
+logo: "/assets/site-images/logo.svg"
 search_enabled: false
 heading_anchors: true
 permalink: pretty

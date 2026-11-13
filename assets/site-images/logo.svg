@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 93 28">
+  <title>Math 124</title>
+  <style>
+    text { fill: #27262b; }
+    @media (prefers-color-scheme: dark) { text { fill: #f1ece3; } }
+  </style>
+  <text x="0" y="21" font-family="system-ui, sans-serif" font-size="18">Math 124</text>
+</svg>
