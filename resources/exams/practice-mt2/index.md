@@ -174,7 +174,7 @@ mjx-container[jax="CHTML"][display="true"] {
 
 <div class="assignment-actions">
 <a class="btn btn-info assignment-pdf-button" href="/resources/exams/practice-mt2/practice-mt2.pdf" target="_blank">View as PDF ✏️</a>
-<a class="btn btn-info assignment-pdf-button" href="/resources/exams/practice-mt2/practice-mt2-solutions.pdf" target="_blank">Solutions PDF ✅</a>
+<a class="btn btn-info assignment-pdf-button" href="/resources/exams/practice-mt2/practice-mt2-solutions.pdf?v=2" target="_blank">Solutions PDF ✅</a>
 <a class="btn btn-info assignment-pdf-button" href="https://www.youtube.com/playlist?list=PLWQsSvehReUk" target="_blank" rel="noopener">Video Walkthroughs 🎥</a>
 </div>
 
