@@ -13,8 +13,8 @@ import time
 from datetime import datetime, timedelta, timezone
 from urllib.request import Request, urlopen
 
-START = datetime(2026, 11, 14, 5, 1, tzinfo=timezone.utc)
-END = datetime(2026, 11, 15, 5, tzinfo=timezone.utc)
+START = datetime(2026, 11, 15, 5, 1, tzinfo=timezone.utc)
+END = datetime(2026, 11, 16, 5, tzinfo=timezone.utc)
 SITE = "https://math124.org"
 RESOURCE = Path("resources/homeworks/hw08")
 PACKAGE = Path("_incoming/hw08-solutions-2026.tar.gz.enc")
@@ -30,7 +30,7 @@ HOMEWORK_LINK = "../resources/homeworks/hw08/"
 
 def wait_for_release():
     now = datetime.now(timezone.utc)
-    if not START - timedelta(minutes=15) <= now < END:
+    if not START - timedelta(hours=6) <= now < END:
         return False
     while (remaining := (START - datetime.now(timezone.utc)).total_seconds()) > 0:
         time.sleep(min(remaining, 30))

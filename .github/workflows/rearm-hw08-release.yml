@@ -1,0 +1,19 @@
+name: Rearm corrected HW8 release
+on:
+  push:
+    branches: [main]
+    paths: [.github/workflows/rearm-hw08-release.yml]
+permissions:
+  actions: write
+jobs:
+  rearm:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Enable corrected release and start waiting until Sunday 12:01 a.m. Eastern
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          gh workflow enable release-hw08-solutions.yml
+          gh workflow run release-hw08-solutions.yml --ref main -f validate_only=false
+          gh workflow disable rearm-hw08-release.yml

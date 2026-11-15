@@ -8,10 +8,10 @@ on:
       - .github/scripts/release_hw08_solutions.py
       - _incoming/hw08-solutions-2026.tar.gz.enc
   schedule:
-    # Start the runner early, then wait until 05:01 UTC (12:01 a.m. Eastern) on November 14.
-    - cron: '46 4 14 11 *'
-    - cron: '1,21,41 5 14 11 *'
-    - cron: '16 6,8,12 14 11 *'
+    # Start the runner early, then wait until 05:01 UTC (12:01 a.m. Eastern) on November 15.
+    - cron: '46 4 15 11 *'
+    - cron: '1,21,41 5 15 11 *'
+    - cron: '16 6,8,12 15 11 *'
   workflow_dispatch:
     inputs:
       validate_only:
@@ -30,7 +30,7 @@ concurrency:
 jobs:
   release:
     runs-on: ubuntu-latest
-    timeout-minutes: 65
+    timeout-minutes: 360
     env:
       VALIDATE_ONLY: ${{ (github.event_name == 'push' || (github.event_name == 'workflow_dispatch' && inputs.validate_only)) && 'true' || 'false' }}
     steps:
