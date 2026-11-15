@@ -44,6 +44,7 @@ days:
         type: hw
         title: "<b>Subspaces, Bases, and Rank</b>"
         problems: ../resources/homeworks/hw08/
+        solutions: true
   - date: "2026-11-14"
     events:
       - name: REV
