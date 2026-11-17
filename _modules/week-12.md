@@ -18,6 +18,7 @@ days:
       - name: LEC 22
         type: lecture
         title: Projecting onto the Column Space
+        recording: https://leccap.engin.umich.edu/leccap/player/r/FfnLUP
         worksheet: ../resources/worksheets/lec22-worksheet.pdf
   - date: "2026-11-18"
     events:
