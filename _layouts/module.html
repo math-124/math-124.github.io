@@ -19,7 +19,7 @@
               {% endif %}
               {% if event.type == "lab" or event.type == "hw" %}
                 {% if event.problems %}
-                <a href="{{ event.problems }}">{{ event.title }}</a>
+                <a href="{{ event.problems }}">{% if event.type == "hw" %}<b>{{ event.title }}</b>{% else %}{{ event.title }}{% endif %}</a>
                 {% else %}
                 {{ event.title }}
                 {% endif %}

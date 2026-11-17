@@ -15,7 +15,8 @@ from pathlib import Path
 
 MATHJAX_SNIPPET = """<script>
 window.MathJax = {
-  tex: {inlineMath: [['$', '$'], ['\\\\(', '\\\\)']]},
+  loader: {load: ['[tex]/html']},
+  tex: {packages: {'[+]': ['html']}, inlineMath: [['$', '$'], ['\\\\(', '\\\\)']]},
   options: {ignoreHtmlClass: 'tex2jax_ignore'}
 };
 </script>
@@ -94,6 +95,9 @@ mjx-container[jax="CHTML"][display="true"] {
 }
 .main-content ol.assignment-enumeration > li::before {
   content: none;
+}
+.main-content ol.assignment-enumeration > li.assignment-task {
+  grid-template-columns: 4.3em minmax(0, 1fr);
 }
 .assignment-enumeration-label {
   text-align: right;
@@ -449,9 +453,17 @@ def find_unescaped_percent(line: str) -> int | None:
 
 
 def transform_assignment_tex(text: str, include_solutions: bool = False) -> str:
+    # Expand colored vector components before discarding their definitions.
+    colors = dict(re.findall(r"\\definecolor\{([^{}]+)\}\{HTML\}\{([0-9A-Fa-f]{6})\}", text))
+    text = re.sub(r"\\crosscomponent\{([^{}]+)\}\{([^{}]+)\}",
+                  lambda m: r"\style{color:rgb(" + ",".join(str(int(colors.get(m[1], "000000")[i:i+2],16)) for i in (0,2,4)) + r")}{\boldsymbol{" + m[2] + "}}", text)
+    text = re.sub(r"\\R\b", lambda m: r"\mathbb{R}", text)
+    text = re.sub(r"\\blank\b", lambda m: r"\boxed{\phantom{-10}}", text)
     # Resolve document-defined colors before the preamble is removed.
     for name, color in re.findall(r"\\definecolor\{([^{}]+)\}\{HTML\}\{([0-9A-Fa-f]{6})\}", text):
         text = text.replace(r"\textcolor{" + name + "}", r"\textcolor[HTML]{" + color + "}")
+    # Preserve picture environments inside print-only size wrappers.
+    text = re.sub(r"(?s)\\resizebox\{\\linewidth\}\{!\}\{\s*(?:\\setlength\{\\unitlength\}\{[^}]+\}\s*)?(\\begin\{picture\}.*?\\end\{picture\})\s*\}", lambda m: m[1], text)
     text = strip_document_wrapper(text)
     text = strip_false_blocks(text)
     text = strip_latex_comments(text)
@@ -487,7 +499,7 @@ def transform_assignment_tex(text: str, include_solutions: bool = False) -> str:
 
 def render_pgfplots_for_web(text: str, output_md: Path) -> str:
     """Keep source-drawn coordinate plots in the generated assignment page."""
-    pattern = re.compile(r"(?s)\\begin\{tikzpicture\}.*?\\end\{tikzpicture\}")
+    pattern = re.compile(r"(?s)\\begin\{tikzpicture\}.*?\\end\{tikzpicture\}|\\begin\{picture\}.*?\\end\{picture\}")
     plot_number = 0
 
     def replace(match: re.Match[str]) -> str:
@@ -502,7 +514,7 @@ def render_pgfplots_for_web(text: str, output_md: Path) -> str:
             plot_tex = temp_dir / "plot.tex"
             plot_tex.write_text(
                 r"\documentclass[border=6pt]{standalone}" + "\n"
-                r"\usepackage{pgfplots,amsmath,amssymb,fontspec}" + "\n"
+                r"\usepackage{pgfplots,amsmath,amssymb,fontspec,pict2e}" + "\n"
                 r"\usetikzlibrary{arrows.meta}" + "\n"
                 r"\definecolor{courseblue}{HTML}{1F5FBF}" + "\n"
                 r"\definecolor{lightgray}{gray}{0.94}" + "\n"
@@ -1250,7 +1262,9 @@ def render_marked_enumerations(text: str) -> str:
                 rendered.append("</div></li>")
             number += 1
             label = html.escape(enumeration_label(template, number))
-            rendered.append('<li markdown="1">')
+            label = re.sub(r"\\textbf\{([^{}]+)\}", r"<strong>\1</strong>", label)
+            task_class = ' class="assignment-task"' if "Task " in template else ""
+            rendered.append(f'<li{task_class} markdown="1">')
             rendered.append(f'<div class="assignment-enumeration-label">{label}</div>')
             rendered.append('<div class="assignment-enumeration-content" markdown="1">')
             continue

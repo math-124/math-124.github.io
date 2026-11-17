@@ -9,6 +9,10 @@ days:
 #         title: Homework 11
   - date: "2026-11-24"
     events:
+      - name: HW 9
+        type: hw
+        title: Orthogonality and Least Squares
+        problems: ../resources/homeworks/hw09/
       - name: LEC 24
         type: lecture
         title: Determinants as Area and Volume Scale Factors
