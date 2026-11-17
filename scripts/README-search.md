@@ -20,4 +20,6 @@ The **124 Recording** Apple Shortcut runs `scripts/update_recording.py --recordi
 
 The **124 Captions & Search** Apple Shortcut runs `scripts/update_recording.py --refresh-captions --interactive-login`. It downloads current WebVTT captions for all released lectures that already have recording links. It does not edit links or titles. Confirmed CAEN processing notices are reported and skipped; malformed or unauthenticated responses fail without replacing an existing cache. Existing reviewed lecture bounds are preserved; new caches use the complete available caption track.
 
+Both shortcuts publish from a fresh temporary checkout of the website’s GitHub main branch. The desktop checkout can hold local drafts and staged edits while either shortcut runs.
+
 The caption button commits only caption caches and triggers the existing website build, which rebuilds the full search index and semantic embeddings. An unchanged refresh still triggers a rebuild so it can repair a failed or stale index. Wait for the website deployment to finish before expecting new captions in public search. Builds remain offline with respect to Leccap; no browser session or credentials are committed.

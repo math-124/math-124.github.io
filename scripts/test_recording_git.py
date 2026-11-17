@@ -22,10 +22,11 @@ class PublicationTests(unittest.TestCase):
         self.addCleanup(self.temp.cleanup)
         root = Path(self.temp.name)
         self.remote = root / 'remote.git'
-        subprocess.check_call(['git', 'init', '--bare', '-q', str(self.remote)])
+        subprocess.check_call(['git', 'init', '--bare', '--initial-branch=main', '-q', str(self.remote)])
+        git(self.remote, 'config', 'uploadpack.allowFilter', 'true')
         self.local = root / 'local'
         self.other = root / 'other'
-        git(root, 'clone', str(self.remote), str(self.local))
+        git(root, 'clone', self.remote.as_uri(), str(self.local))
         for key, value in [('user.name', 'Test'), ('user.email', 'test@example.com')]:
             git(self.local, 'config', key, value)
         (self.local / 'schedule').write_text('lecture\n')
@@ -33,16 +34,9 @@ class PublicationTests(unittest.TestCase):
         git(self.local, 'add', '.')
         git(self.local, 'commit', '-m', 'Initial')
         git(self.local, 'push', '-u', 'origin', 'HEAD')
-        git(root, 'clone', str(self.remote), str(self.other))
+        git(root, 'clone', self.remote.as_uri(), str(self.other))
         for key, value in [('user.name', 'Test'), ('user.email', 'test@example.com')]:
             git(self.other, 'config', key, value)
-        original = recording.REPO_ROOT
-        recording.REPO_ROOT = str(self.local)
-        self.addCleanup(setattr, recording, 'REPO_ROOT', original)
-
-    def publish(self):
-        with contextlib.redirect_stdout(io.StringIO()):
-            recording.run_git_commands(str(self.local / 'schedule'), 'LEC 12', 'https://example.com/recording')
 
     def remote_change(self, filename, text):
         (self.other / filename).write_text(text)
@@ -50,81 +44,86 @@ class PublicationTests(unittest.TestCase):
         git(self.other, 'commit', '-m', 'Remote update')
         git(self.other, 'push')
 
-    def test_sync_publish_and_unchanged_retry_preserve_staged_edits(self):
-        (self.local / 'unrelated').write_text('staged\n')
+    def test_publish_ignores_desktop_drafts_and_rebases_on_new_releases(self):
+        (self.local / 'unrelated').write_text('staged draft\n')
         git(self.local, 'add', 'unrelated')
-        (self.local / 'unrelated').write_text('staged plus unstaged\n')
-        before = git(self.local, 'diff', '--cached')
-        self.remote_change('released', 'Lab 6\n')
-        (self.local / 'schedule').write_text('lecture\nrecording\n')
-        self.publish()
-        self.assertEqual(git(self.local, 'diff', '--cached'), before)
-        self.assertEqual((self.local / 'unrelated').read_text(), 'staged plus unstaged\n')
-        self.assertEqual(git(self.remote, 'show', 'HEAD:unrelated'), 'original\n')
-        self.assertEqual(git(self.remote, 'show', 'HEAD:schedule'), 'lecture\nrecording\n')
-        self.assertTrue((self.local / 'released').exists())
-        # Simulate a successful local commit whose push never happened.
-        (self.local / 'schedule').write_text('lecture\nrecording retry\n')
-        git(self.local, 'commit', '--only', '-m', 'Pending recording', '--', 'schedule')
-        self.publish()
-        self.publish()
-        self.assertEqual(git(self.remote, 'show', 'HEAD:schedule'), 'lecture\nrecording retry\n')
-        self.assertEqual(git(self.local, 'diff', '--cached'), before)
-
-    def test_incoming_files_preserve_untracked_local_versions(self):
+        (self.local / 'unrelated').write_text('staged and unstaged drafts\n')
+        (self.local / 'released').write_text('untracked draft\n')
+        (self.local / 'schedule').write_text('schedule draft\n')
+        head = git(self.local, 'rev-parse', 'HEAD')
+        staged = git(self.local, 'diff', '--cached')
+        unstaged = git(self.local, 'diff')
+        self.remote_change('unrelated', 'overlapping release\n')
         self.remote_change('released', 'published version\n')
-        (self.local / 'released').write_text('local draft\n')
-        (self.local / 'unrelated').write_text('staged\n')
-        git(self.local, 'add', 'unrelated')
-        (self.local / 'unrelated').write_text('staged plus unstaged\n')
-        before = git(self.local, 'diff', '--cached')
-        recording.synchronize_git()
-        self.assertEqual((self.local / 'released').read_text(), 'local draft\n')
-        self.assertEqual(git(self.local, 'show', 'HEAD:released'), 'published version\n')
-        self.assertEqual(git(self.local, 'diff', '--cached'), before)
-        self.assertEqual((self.local / 'unrelated').read_text(), 'staged plus unstaged\n')
 
-    def test_conflict_aborts_and_restores_staging(self):
-        self.remote_change('schedule', 'remote lecture\n')
-        (self.local / 'schedule').write_text('local lecture\n')
-        git(self.local, 'commit', '--only', '-m', 'Local update', '--', 'schedule')
-        (self.local / 'unrelated').write_text('staged\n')
-        git(self.local, 'add', 'unrelated')
-        before = git(self.local, 'diff', '--cached')
-        with self.assertRaisesRegex(RuntimeError, 'conflict'):
-            recording.synchronize_git()
-        self.assertEqual(git(self.local, 'diff', '--cached'), before)
-        self.assertEqual((self.local / 'schedule').read_text(), 'local lecture\n')
-        self.assertEqual(git(self.remote, 'show', 'HEAD:schedule'), 'remote lecture\n')
+        with recording.publication_checkout(self.local) as checkout:
+            self.assertEqual(git(checkout, 'rev-parse', '--is-shallow-repository').strip(), 'true')
+            self.assertEqual((checkout / 'schedule').read_text(), 'lecture\n')
+            (checkout / 'schedule').write_text('lecture\nrecording\n')
+            self.remote_change('another-release', 'newer release\n')
+            with contextlib.redirect_stdout(io.StringIO()):
+                recording.run_git_commands(
+                    checkout, checkout / 'schedule', 'LEC 12', 'https://example.com/recording',
+                )
+
+        self.assertFalse(checkout.exists())
+        self.assertEqual(git(self.local, 'rev-parse', 'HEAD'), head)
+        self.assertEqual(git(self.local, 'diff', '--cached'), staged)
+        self.assertEqual(git(self.local, 'diff'), unstaged)
+        self.assertEqual((self.local / 'released').read_text(), 'untracked draft\n')
+        self.assertEqual(git(self.remote, 'show', 'HEAD:unrelated'), 'overlapping release\n')
+        self.assertEqual(git(self.remote, 'show', 'HEAD:released'), 'published version\n')
+        self.assertEqual(git(self.remote, 'show', 'HEAD:another-release'), 'newer release\n')
+        self.assertEqual(git(self.remote, 'show', 'HEAD:schedule'), 'lecture\nrecording\n')
+
+        published = git(self.remote, 'rev-parse', 'HEAD')
+        with recording.publication_checkout(self.local) as checkout:
+            with contextlib.redirect_stdout(io.StringIO()):
+                recording.run_git_commands(
+                    checkout, checkout / 'schedule', 'LEC 12', 'https://example.com/recording',
+                )
+        self.assertEqual(git(self.remote, 'rev-parse', 'HEAD'), published)
+
+    def test_conflict_keeps_remote_release_and_desktop_checkout(self):
+        with recording.publication_checkout(self.local) as checkout:
+            (checkout / 'schedule').write_text('recording update\n')
+            self.remote_change('schedule', 'concurrent schedule update\n')
+            with self.assertRaises(subprocess.CalledProcessError):
+                recording.run_git_commands(
+                    checkout, checkout / 'schedule', 'LEC 12', 'https://example.com/recording',
+                )
+
+        self.assertFalse(checkout.exists())
+        self.assertEqual((self.local / 'schedule').read_text(), 'lecture\n')
+        self.assertEqual(git(self.remote, 'show', 'HEAD:schedule'), 'concurrent schedule update\n')
 
     def test_caption_refresh_publishes_only_caches_and_rebuilds_when_unchanged(self):
-        cache = self.local / '_data/lecture-transcripts/lec01.json'
-        cache.parent.mkdir(parents=True)
-        cache.write_text('{"segments": []}\n')
         (self.local / 'unrelated').write_text('staged\n')
         git(self.local, 'add', 'unrelated')
         before = git(self.local, 'diff', '--cached')
-        recording.run_caption_git_commands([str(cache)])
-        self.assertEqual(git(self.remote, 'show', 'HEAD:_data/lecture-transcripts/lec01.json'), cache.read_text())
-        self.assertEqual(git(self.remote, 'show', 'HEAD:unrelated'), 'original\n')
-        self.assertEqual(git(self.remote, 'show', 'HEAD:schedule'), 'lecture\n')
-        self.assertEqual(git(self.local, 'diff', '--cached'), before)
-        prior = git(self.remote, 'rev-parse', 'HEAD').strip()
-        recording.run_caption_git_commands([str(cache)])
-        self.assertNotEqual(git(self.remote, 'rev-parse', 'HEAD').strip(), prior)
+        with recording.publication_checkout(self.local) as checkout:
+            cache = checkout / '_data/lecture-transcripts/lec01.json'
+            cache.parent.mkdir(parents=True)
+            cache.write_text('{"segments": []}\n')
+            recording.run_caption_git_commands(checkout, [str(cache)])
+            self.assertEqual(git(self.remote, 'show', 'HEAD:_data/lecture-transcripts/lec01.json'), cache.read_text())
+            self.assertEqual(git(self.remote, 'show', 'HEAD:unrelated'), 'original\n')
+            self.assertEqual(git(self.remote, 'show', 'HEAD:schedule'), 'lecture\n')
+            prior = git(self.remote, 'rev-parse', 'HEAD')
+            recording.run_caption_git_commands(checkout, [str(cache)])
+            self.assertNotEqual(git(self.remote, 'rev-parse', 'HEAD'), prior)
         self.assertEqual(git(self.local, 'diff', '--cached'), before)
 
-    def test_empty_caption_refresh_preserves_unrelated_staging(self):
-        (self.local / 'unrelated').write_text('staged\n')
-        git(self.local, 'add', 'unrelated')
-        before = git(self.local, 'diff', '--cached')
-        recording.run_caption_git_commands([])
+    def test_empty_caption_refresh_still_pushes_a_rebuild_commit(self):
+        prior = git(self.remote, 'rev-parse', 'HEAD')
+        with recording.publication_checkout(self.local) as checkout:
+            recording.run_caption_git_commands(checkout, [])
+        self.assertNotEqual(git(self.remote, 'rev-parse', 'HEAD'), prior)
         self.assertEqual(git(self.remote, 'show', 'HEAD:unrelated'), 'original\n')
-        self.assertEqual(git(self.local, 'diff', '--cached'), before)
 
     def test_caption_publication_rejects_unrelated_paths(self):
         with self.assertRaisesRegex(ValueError, 'only lecture caption caches'):
-            recording.run_caption_git_commands([str(self.local / 'schedule')])
+            recording.run_caption_git_commands(self.local, [str(self.local / 'schedule')])
 
 
 if __name__ == '__main__':

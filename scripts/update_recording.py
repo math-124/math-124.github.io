@@ -3,8 +3,8 @@ import argparse
 import datetime as dt
 import os
 import re
-import shutil
 import tempfile
+from contextlib import contextmanager
 from pathlib import Path
 import subprocess
 import sys
@@ -13,14 +13,13 @@ from urllib.parse import urljoin
 
 
 LECCAP_BASE_URL = "https://leccap.engin.umich.edu"
-REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+SOURCE_REPO = Path(__file__).resolve().parents[1]
 LECCAP_SITE_ID = os.getenv("LECCAP_SITE_ID", "dtgdwqyr5zw2s34ddaf")
 LECCAP_SITE_URL = os.getenv("LECCAP_SITE_URL", f"{LECCAP_BASE_URL}/leccap/site/{LECCAP_SITE_ID}")
 LECCAP_MANAGE_URL = os.getenv(
     "LECCAP_MANAGE_URL",
     f"{LECCAP_BASE_URL}/leccap/manage/site/recordings/{LECCAP_SITE_ID}/?q=&f=any",
 )
-MODULES_DIR = os.path.join(REPO_ROOT, "_modules")
 LECCAP_TIMEOUT_MS = int(os.getenv("LECCAP_TIMEOUT_MS", "20000"))
 LECCAP_DEBUG_DIR = os.getenv("LECCAP_DEBUG_DIR")
 LECCAP_COOKIE = os.getenv("LECCAP_COOKIE")
@@ -472,15 +471,16 @@ def select_recent_recordings(recordings, limit):
     return recordings[-limit:]
 
 
-def find_module_by_date(date_str):
+def find_module_by_date(repo, date_str):
+    modules = repo / "_modules"
     date_pattern = re.compile(rf"^\s*-\s*date:\s*['\"]?{re.escape(date_str)}['\"]?\s*$")
     module_files = sorted(
         path
-        for path in os.listdir(MODULES_DIR)
+        for path in os.listdir(modules)
         if path.startswith("week-") and path.endswith(".md")
     )
     for filename in module_files:
-        path = os.path.join(MODULES_DIR, filename)
+        path = modules / filename
         with open(path, "r", encoding="utf-8") as handle:
             for line in handle:
                 if date_pattern.match(line):
@@ -804,7 +804,7 @@ def _verify_recording_title(page, manage_url, title, date_obj, recording_url, in
         )
 
 
-def build_recording_target(recording):
+def build_recording_target(repo, recording):
     if not recording.get("href"):
         raise RuntimeError("recording missing href")
     recording_url = urljoin(LECCAP_BASE_URL, recording["href"])
@@ -812,7 +812,7 @@ def build_recording_target(recording):
     if not date_obj:
         raise RuntimeError(f"unable to parse date: {recording.get('date_text', '').strip()}")
     date_str = date_obj.strftime("%Y-%m-%d")
-    module_path = find_module_by_date(date_str)
+    module_path = find_module_by_date(repo, date_str)
     if not module_path:
         raise RuntimeError(f"no module found for date {date_str}")
     lecture_name, lecture_title = lecture_metadata_for_date(module_path, date_str)
@@ -936,85 +936,46 @@ def save_storage_state(login_url, manage_url, output_path):
         browser.close()
 
 
-def git(*args, capture=False):
+def git(repo, *args, capture=False):
     return subprocess.run(
-        ["git", *args], cwd=REPO_ROOT, check=True, text=True,
+        ["git", *args], cwd=repo, check=True, text=True,
         stdout=subprocess.PIPE if capture else None,
     )
 
 
-def synchronize_git():
-    """Rebase onto the upstream while preserving local files, edits, and staging."""
-    git("fetch")
-    upstream = git("rev-parse", "--abbrev-ref", "@{upstream}", capture=True).stdout.strip()
-    behind = int(git("rev-list", "--count", f"HEAD..{upstream}", capture=True).stdout)
-    if not behind:
-        return
-    # Incoming tracked files can collide with local untracked assignment assets.
-    # Save these outside the working tree, then restore them as local edits.
-    untracked = set(git("ls-files", "--others", "--exclude-standard", "-z", capture=True).stdout.split("\0"))
-    incoming = set(git("ls-tree", "-r", "--name-only", "-z", upstream, capture=True).stdout.split("\0"))
-    collisions = sorted((untracked & incoming) - {""})
-    backup = None
-    if collisions:
-        git_dir = git("rev-parse", "--absolute-git-dir", capture=True).stdout.strip()
-        backup = Path(tempfile.mkdtemp(prefix="recording-local-files-", dir=git_dir))
-        for name in collisions:
-            source = Path(REPO_ROOT) / name
-            target = backup / name
-            target.parent.mkdir(parents=True, exist_ok=True)
-            shutil.copy2(source, target, follow_symlinks=False)
-        print(f"Preserved local files in {backup}", flush=True)
-    saved = None
-    if git("status", "--porcelain", "--untracked-files=no", capture=True).stdout:
-        git("stash", "push", "-m", "Recording updater: preserve local edits")
-        saved = git("rev-parse", "stash@{0}", capture=True).stdout.strip()
-    try:
-        for name in collisions:
-            (Path(REPO_ROOT) / name).unlink()
-        git("rebase", upstream)
-    except subprocess.CalledProcessError as exc:
-        # A checkout failure can happen before Git creates a rebase state.
-        git_dir = Path(git("rev-parse", "--absolute-git-dir", capture=True).stdout.strip())
-        if any((git_dir / name).exists() for name in ("rebase-merge", "rebase-apply")):
-            git("rebase", "--abort")
-        raise RuntimeError("GitHub changes conflict with local commits; recording was not pushed.") from exc
-    finally:
-        if backup:
-            for name in collisions:
-                target = Path(REPO_ROOT) / name
-                target.parent.mkdir(parents=True, exist_ok=True)
-                shutil.copy2(backup / name, target, follow_symlinks=False)
-        if saved:
-            # Keep the stash if restoration fails, so no local edits are lost.
-            git("stash", "apply", "--index", saved)
-            if git("rev-parse", "stash@{0}", capture=True).stdout.strip() == saved:
-                git("stash", "drop", "stash@{0}")
+@contextmanager
+def publication_checkout(source):
+    """Publish from GitHub's main branch, isolated from the desktop checkout."""
+    origin = git(source, "remote", "get-url", "origin", capture=True).stdout.strip()
+    with tempfile.TemporaryDirectory(prefix="math124-recording-") as tmp:
+        git(tmp, "clone", "--depth=1", "--filter=blob:none", "--sparse",
+            "--single-branch", "--branch", "main", "--", origin, "website")
+        repo = Path(tmp) / "website"
+        git(repo, "sparse-checkout", "set", "_modules", "_data/lecture-transcripts")
+        yield repo
 
 
-def run_git_commands(path, lecture_name, recording_url):
-    paths = [path]
-    def run(*args):
-        return subprocess.run(["git", *args], cwd=REPO_ROOT, check=True,
-                              stdout=subprocess.PIPE, text=True)
-    # Stage only this publication; preserve unrelated staged work.
-    run("add", "--", *paths)
-    if run("diff", "HEAD", "--", *paths).stdout:
-        run("commit", "--only", "-m", f"Update recording for {lecture_name or 'lecture'}", "--", *paths)
-    synchronize_git()
-    run("push")
+def push_publication(repo):
+    git(repo, "pull", "--rebase")
+    git(repo, "push")
+
+
+def run_git_commands(repo, path, lecture_name, recording_url):
+    if git(repo, "diff", "HEAD", "--", path, capture=True).stdout:
+        git(repo, "commit", "--only", "-m",
+            f"Update recording for {lecture_name or 'lecture'}", "--", path)
+    push_publication(repo)
     print(f"Recording link pushed: {recording_url}", flush=True)
 
 
-def published_recording_targets():
+def published_recording_targets(repo):
     """Refresh only recordings already linked in released lecture entries."""
-    from pathlib import Path
     from zoneinfo import ZoneInfo
     import yaml
 
     today = dt.datetime.now(ZoneInfo('America/Detroit')).date()
     targets = []
-    for module in sorted(Path(MODULES_DIR).glob('week-*.md')):
+    for module in sorted((repo / '_modules').glob('week-*.md')):
         data = yaml.safe_load(module.read_text().split('---', 2)[1])
         for day in data.get('days', []):
             date = dt.date.fromisoformat(str(day['date']))
@@ -1031,28 +992,25 @@ def published_recording_targets():
     return targets
 
 
-def run_caption_git_commands(paths):
+def run_caption_git_commands(repo, paths):
     """Publish caption caches and trigger the existing complete search rebuild."""
-    from pathlib import Path
-
-    cache = (Path(REPO_ROOT) / '_data/lecture-transcripts').resolve()
+    cache = (repo / '_data/lecture-transcripts').resolve()
     paths = sorted(set(paths))
     if any(not Path(path).resolve().is_relative_to(cache) for path in paths):
         raise ValueError('Caption publication must contain only lecture caption caches')
     if paths:
-        git('add', '--', *paths)
+        git(repo, 'add', '--', *paths)
     # --only protects unrelated staged edits; an unchanged refresh still repairs
     # search by triggering a fresh build, including its semantic embeddings.
-    git('commit', '--only', '--allow-empty', '-m', 'Refresh lecture captions and rebuild search', '--', *paths)
-    synchronize_git()
-    git('push')
+    git(repo, 'commit', '--only', '--allow-empty', '-m', 'Refresh lecture captions and rebuild search', '--', *paths)
+    push_publication(repo)
     print('Caption refresh pushed; the website build will rebuild course search.', flush=True)
 
 
-def refresh_published_captions(context, interactive_login):
+def refresh_published_captions(repo, context, interactive_login):
     from recording_captions import refresh_captions
 
-    targets = published_recording_targets()
+    targets = published_recording_targets(repo)
     if not targets:
         raise RuntimeError('No published lecture recordings to refresh')
     page = context.new_page()
@@ -1064,11 +1022,11 @@ def refresh_published_captions(context, interactive_login):
     paths = []
     ready = 0
     for target in targets:
-        refreshed = refresh_captions(context, target, REPO_ROOT, '124')
+        refreshed = refresh_captions(context, target, repo, '124')
         ready += bool(refreshed)
         paths.extend(refreshed)
     print(f'Captions ready: {ready}/{len(targets)}; still processing: {len(targets) - ready}.', flush=True)
-    run_caption_git_commands(paths)
+    run_caption_git_commands(repo, paths)
 
 
 def main():
@@ -1081,12 +1039,8 @@ def main():
     modes.add_argument('--recording-only', action='store_true',
                        help='Publish the recording link and titles without requesting captions (default).')
     parser.add_argument("--push", action="store_true", help="Commit and push changes (always enabled; retained for compatibility).")
-    parser.add_argument(
-        "--update-title",
-        action="store_true",
-        default=True,
-        help="Update Leccap recording title (default; retained for compatibility).",
-    )
+    parser.add_argument("--update-title", action="store_true",
+                        help="Update Leccap recording title (default; retained for compatibility).")
     parser.add_argument(
         "--interactive-login",
         action="store_true",
@@ -1113,80 +1067,83 @@ def main():
         print(f"Saved storage state to {LECCAP_STORAGE_STATE}")
         return
 
-    synchronize_git()
+    with publication_checkout(SOURCE_REPO) as repo:
+        run_publication(repo, args)
 
-    if args.update_title:
+
+def run_publication(repo, args):
+    try:
+        from playwright.sync_api import sync_playwright
+    except ImportError as exc:
+        raise RuntimeError("playwright is required; install with `pip install playwright`") from exc
+
+    with sync_playwright() as p:
+        browser = _launch_browser(p, args.interactive_login or LECCAP_INTERACTIVE_LOGIN)
+        context = _create_context(browser)
         try:
-            from playwright.sync_api import sync_playwright
-        except ImportError as exc:
-            raise RuntimeError("playwright is required; install with `pip install playwright`") from exc
-
-        with sync_playwright() as p:
-            browser = _launch_browser(p, args.interactive_login or LECCAP_INTERACTIVE_LOGIN)
-            context = _create_context(browser)
-            try:
-                if args.refresh_captions:
-                    refresh_published_captions(
-                        context, args.interactive_login or LECCAP_INTERACTIVE_LOGIN,
-                    )
-                    return
-                recordings = _fetch_leccap_recordings_with_context(
-                    context, LECCAP_SITE_URL,
-                    interactive_login=args.interactive_login or LECCAP_INTERACTIVE_LOGIN,
-                )
-                if not recordings:
-                    raise RuntimeError("no recordings found on Leccap page")
-
-                latest = select_latest_recording(recordings)
-                latest_target = build_recording_target(latest)
-                update_recording(
-                    latest_target["module_path"],
-                    latest_target["date_str"],
-                    latest_target["recording_url"],
-                )
-                if latest_target["lecture_number"]:
-                    print(f"Lecture {latest_target['lecture_number']}: {latest_target['recording_url']}")
-                elif latest_target["lecture_name"]:
-                    print(f"{latest_target['lecture_name']}: {latest_target['recording_url']}")
-                else:
-                    print(f"Lecture: {latest_target['recording_url']}")
-                print(f"Lecture title: {latest_target['lecture_title']}")
-                print(f"Leccap title: {latest_target['recording_title']}")
-
-                for recording in select_recent_recordings(recordings, args.title_count):
-                    title_target = build_recording_target(recording)
-                    if not title_target["recording_title"]:
-                        raise RuntimeError(f"Missing lecture title for {title_target['date_str']}")
-                    print(
-                        f"Attempting Leccap title update for {title_target['date_str']}: "
-                        f"{title_target['recording_title']}"
-                    )
-                    try:
-                        update_recording_title(
-                            LECCAP_MANAGE_URL,
-                            title_target["recording_title"],
-                            date_obj=title_target["date_obj"],
-                            recording_url=title_target["recording_url"],
-                            interactive_login=args.interactive_login or LECCAP_INTERACTIVE_LOGIN,
-                            context=context,
-                        )
-                        print(f"Updated Leccap title for {title_target['date_str']}")
-                    except Exception as title_exc:
-                        if LECCAP_STRICT_TITLE_UPDATE:
-                            raise
-                        _warn(
-                            f"title update failed for {title_target['date_str']} "
-                            f"before publication: {title_exc}"
-                        )
-
-                run_git_commands(
-                    latest_target["module_path"],
-                    latest_target["lecture_name"] or "lecture",
-                    latest_target["recording_url"],
+            if args.refresh_captions:
+                refresh_published_captions(
+                    repo, context, args.interactive_login or LECCAP_INTERACTIVE_LOGIN,
                 )
                 return
-            finally:
-                browser.close()
+            recordings = _fetch_leccap_recordings_with_context(
+                context, LECCAP_SITE_URL,
+                interactive_login=args.interactive_login or LECCAP_INTERACTIVE_LOGIN,
+            )
+            if not recordings:
+                raise RuntimeError("no recordings found on Leccap page")
+
+            latest = select_latest_recording(recordings)
+            latest_target = build_recording_target(repo, latest)
+            update_recording(
+                latest_target["module_path"],
+                latest_target["date_str"],
+                latest_target["recording_url"],
+            )
+            if latest_target["lecture_number"]:
+                print(f"Lecture {latest_target['lecture_number']}: {latest_target['recording_url']}")
+            elif latest_target["lecture_name"]:
+                print(f"{latest_target['lecture_name']}: {latest_target['recording_url']}")
+            else:
+                print(f"Lecture: {latest_target['recording_url']}")
+            print(f"Lecture title: {latest_target['lecture_title']}")
+            print(f"Leccap title: {latest_target['recording_title']}")
+
+            for recording in select_recent_recordings(recordings, args.title_count):
+                title_target = build_recording_target(repo, recording)
+                if not title_target["recording_title"]:
+                    raise RuntimeError(f"Missing lecture title for {title_target['date_str']}")
+                print(
+                    f"Attempting Leccap title update for {title_target['date_str']}: "
+                    f"{title_target['recording_title']}"
+                )
+                try:
+                    update_recording_title(
+                        LECCAP_MANAGE_URL,
+                        title_target["recording_title"],
+                        date_obj=title_target["date_obj"],
+                        recording_url=title_target["recording_url"],
+                        interactive_login=args.interactive_login or LECCAP_INTERACTIVE_LOGIN,
+                        context=context,
+                    )
+                    print(f"Updated Leccap title for {title_target['date_str']}")
+                except Exception as title_exc:
+                    if LECCAP_STRICT_TITLE_UPDATE:
+                        raise
+                    _warn(
+                        f"title update failed for {title_target['date_str']} "
+                        f"before publication: {title_exc}"
+                    )
+
+            run_git_commands(
+                repo,
+                latest_target["module_path"],
+                latest_target["lecture_name"] or "lecture",
+                latest_target["recording_url"],
+            )
+            return
+        finally:
+            browser.close()
 
 
 if __name__ == "__main__":
