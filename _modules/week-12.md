@@ -24,7 +24,8 @@ days:
     events:
       - name: LAB 12
         type: lab
-        title: Lab 12
+        title: Projecting onto the Column Space
+        problems: ../resources/labs/lab12/
   - date: "2026-11-19"
     events:
       - name: LEC 23
