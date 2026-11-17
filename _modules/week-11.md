@@ -29,6 +29,8 @@ days:
         title: Orthogonal Matrices and Orthogonal Transformations
         recording: https://leccap.engin.umich.edu/leccap/player/r/euzZS9
         worksheet: ../resources/worksheets/lec21-worksheet.pdf
+        reading: https://notes.math124.org/ch06/06-02/
+        reading_text: Ch. 6.2
   - date: "2026-11-13"
     events:
       - name: QUIZ
