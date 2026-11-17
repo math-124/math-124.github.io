@@ -174,6 +174,7 @@ mjx-container[jax="CHTML"][display="true"] {
 
 <div class="assignment-actions">
 <a class="btn btn-info assignment-pdf-button" href="/resources/labs/lab12/lab12.pdf" target="_blank">View as PDF ✏️</a>
+<a class="btn btn-info assignment-pdf-button" href="/resources/labs/lab12/lab12-solutions.pdf" target="_blank">Solutions PDF ✅</a>
 </div>
 
 {: .yellow }
