@@ -17,7 +17,7 @@ days:
     events:
       - name: LEC 22
         type: lecture
-        title: Least Squares
+        title: Projecting onto the Column Space
         worksheet: ../resources/worksheets/lec22-worksheet.pdf
   - date: "2026-11-18"
     events:
