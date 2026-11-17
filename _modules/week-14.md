@@ -27,6 +27,7 @@ days:
       - name: QUIZ
         type: quiz
         title: Quiz 4 (open Nov 30-Dec 4; slots open Nov 23)
+        note: Lectures 20-24
         buttons:
           - label: "📝 Logistics"
             url: /quiz-logistics/
