@@ -10,6 +10,9 @@ days:
       - name: EXAM
         type: exam
         title: Midterm 2 (7-9PM, 0460 CCCB)
+        url: ../resources/exams/fa26-mt2/
+        problems: ../resources/exams/fa26-mt2/
+        solutions: true
         buttons:
           - label: "📝 Logistics"
             url: https://edstem.org/us/courses/103314/discussion/8499677
