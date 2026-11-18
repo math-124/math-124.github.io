@@ -20,6 +20,10 @@ days:
         title: Projecting onto the Column Space
         recording: https://leccap.engin.umich.edu/leccap/player/r/FfnLUP
         worksheet: ../resources/worksheets/lec22-worksheet.pdf
+        reading: https://notes.math124.org/ch07/07-01/
+        reading_text: Ch. 7.1
+        reading2: https://notes.math124.org/ch07/07-02/
+        reading2_text: Ch. 7.2
   - date: "2026-11-18"
     events:
       - name: LAB 12
