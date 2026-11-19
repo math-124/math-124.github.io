@@ -34,6 +34,9 @@ days:
         title: "<b>Projecting onto the Column Space</b>"
         problems: ../resources/labs/lab12/
         solutions: true
+        buttons:
+          - label: "✅ Solutions"
+            url: /resources/labs/lab12/lab12-solutions.pdf
   - date: "2026-11-19"
     events:
       - name: LEC 23
