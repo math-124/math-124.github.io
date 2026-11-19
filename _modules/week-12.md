@@ -39,4 +39,5 @@ days:
       - name: LEC 23
         type: lecture
         title: Applications of Least Squares
+        worksheet: ../resources/worksheets/lec23-worksheet.pdf
 ---
