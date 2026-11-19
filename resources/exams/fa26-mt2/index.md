@@ -365,6 +365,24 @@ y_1&amp;=4,\\
 <p>The last row of <span class="math-inline">\(U\vec x=\vec y\)</span> is therefore <span class="math-inline">\(0=c+3\)</span>. If <span class="math-inline">\(c\ne-3\)</span>, this is impossible, so there are no solutions.</p>
 <p>If <span class="math-inline">\(c=-3\)</span>, the last equation is <span class="math-inline">\(0=0\)</span>. The second equation determines <span class="math-inline">\(x&#95;3\)</span> after choosing <span class="math-inline">\(x&#95;4,x&#95;5\)</span>, and the first determines <span class="math-inline">\(x&#95;1\)</span> after choosing <span class="math-inline">\(x&#95;2\)</span>. Thus the system is consistent when <span class="math-inline">\(c=-3\)</span>, and the requested values are exactly</p>
 <div class="math-display">\[\boxed{c\ne-3.}\]</div>
+<p id="problem-6a-alternative">Alternatively, multiplying <span class="math-inline">\(L\)</span> and <span class="math-inline">\(U\)</span> gives <span class="math-inline">\(PA\)</span>. Undoing the permutation gives</p>
+<div class="math-display">\[
+A=\begin{bmatrix}
+12&amp;-24&amp;4&amp;16&amp;-20\\
+4&amp;-8&amp;3&amp;2&amp;-5\\
+-8&amp;16&amp;-1&amp;-14&amp;15
+\end{bmatrix}.
+\]</div>
+<p>So <span class="math-inline">\(A\vec x=\begin{bmatrix}c\\4\\7\end{bmatrix}\)</span> is the system</p>
+<div class="math-display">\[
+\begin{aligned}
+12x_1-24x_2+4x_3+16x_4-20x_5 &amp;= c,\\
+4x_1-8x_2+3x_3+2x_4-5x_5 &amp;= 4,\\
+-8x_1+16x_2-x_3-14x_4+15x_5 &amp;= 7.
+\end{aligned}
+\]</div>
+<p>Notice that the expression on the left of the first equation is the difference of the expressions on the left of the second and third equations. So any <span class="math-inline">\(\vec x\)</span> that satisfies the second and third equations makes that first expression equal to <span class="math-inline">\(4-7=-3\)</span>. If <span class="math-inline">\(c\ne -3\)</span>, all three equations cannot hold at once.</p>
+<p>When <span class="math-inline">\(c=-3\)</span>, the first equation holds whenever the other two do. For example, <span class="math-inline">\(x&#95;1=-\frac54\)</span>, <span class="math-inline">\(x&#95;3=3\)</span>, and <span class="math-inline">\(x&#95;2=x&#95;4=x&#95;5=0\)</span> give <span class="math-inline">\(4(-\frac54)+3(3)=4\)</span> and <span class="math-inline">\(-8(-\frac54)-3=7\)</span>. Thus the system has no solutions exactly when <span class="math-inline">\(\boxed{c\ne -3}\)</span>.</p>
 </details>
 </div></div>
 <div class="assignment-part"><div class="assignment-part-label">b)</div><div class="assignment-part-content">
