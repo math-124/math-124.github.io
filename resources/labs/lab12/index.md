@@ -212,6 +212,20 @@ $$
 <div class="assignment-part-content" markdown="1">
 Find a nonzero vector <span class="math-inline">\\(\vec n\\)</span> perpendicular to both columns of <span class="math-inline">\\(A\\)</span>. Use it to write an equation for the plane <span class="math-inline">\\(\operatorname{colsp}(A)\\)</span>. Is <span class="math-inline">\\(\vec b\\)</span> in this plane?
 
+<details markdown="1"><summary>Solution</summary>
+
+Take <span class="math-inline">\\(\vec n=(1,1,-2)^T\\)</span>. Its dot products with the columns of <span class="math-inline">\\(A\\)</span> are <span class="math-inline">\\(1+1-2=0\\)</span> and <span class="math-inline">\\(2-2+0=0\\)</span>. The columns are independent, so their span is the plane normal to <span class="math-inline">\\(\vec n\\)</span>:
+
+<div class="math-display">
+$$
+\operatorname{colsp}(A)=\left\{\begin{bmatrix}x\\y\\z\end{bmatrix}:x+y-2z=0\right\}.
+$$
+</div>
+
+For <span class="math-inline">\\(\vec b\\)</span>, the left-hand side is <span class="math-inline">\\(-7+13-2(0)=6\\)</span>, so <span class="math-inline">\\(\vec b\\)</span> does not lie in the plane.
+
+</details>
+
 </div>
 </div>
 
@@ -219,6 +233,32 @@ Find a nonzero vector <span class="math-inline">\\(\vec n\\)</span> perpendicula
 <div class="assignment-part-label">b)</div>
 <div class="assignment-part-content" markdown="1">
 Project <span class="math-inline">\\(\vec b\\)</span> onto the line spanned by <span class="math-inline">\\(\vec n\\)</span>. Subtract this projection from <span class="math-inline">\\(\vec b\\)</span> to find <span class="math-inline">\\(\vec p\\)</span>. Explain why subtracting the normal component gives the closest vector in the plane.
+
+<details markdown="1"><summary>Solution</summary>
+
+The component of <span class="math-inline">\\(\vec b\\)</span> along the normal is
+
+<div class="math-display">
+$$
+\operatorname{proj}_{\operatorname{span}\{\vec n\}}(\vec b)
+=\frac{\vec b\cdot\vec n}{\vec n\cdot\vec n}\vec n
+=\frac{6}{6}\vec n=\begin{bmatrix}1\\1\\-2\end{bmatrix}.
+$$
+</div>
+
+Subtracting it gives
+
+<div class="math-display">
+$$
+\vec p=\begin{bmatrix}-7\\13\\0\end{bmatrix}
+-\begin{bmatrix}1\\1\\-2\end{bmatrix}
+=\begin{bmatrix}-8\\12\\2\end{bmatrix}.
+$$
+</div>
+
+The result lies in the plane because <span class="math-inline">\\(-8+12-2(2)=0\\)</span>. The residual <span class="math-inline">\\(\vec b-\vec p=\vec n\\)</span> is perpendicular to the plane. Moving from <span class="math-inline">\\(\vec p\\)</span> to any other point in the plane adds a nonzero perpendicular leg to that residual, increasing the distance by the Pythagorean theorem.
+
+</details>
 
 </div>
 </div>
@@ -228,6 +268,21 @@ Project <span class="math-inline">\\(\vec b\\)</span> onto the line spanned by <
 <div class="assignment-part-content" markdown="1">
 Find <span class="math-inline">\\(\vec x^{\ast}\\)</span> that satisfies <span class="math-inline">\\(A^TA\vec x^{\ast}=A^T\vec b\\)</span>.
 
+<details markdown="1"><summary>Solution</summary>
+
+The residual <span class="math-inline">\\(\vec b-A\vec x^\ast\\)</span> must be perpendicular to both columns, so <span class="math-inline">\\(A^T(\vec b-A\vec x^\ast)=\vec 0\\)</span>. The normal equations are
+
+<div class="math-display">
+$$
+A^TA=\begin{bmatrix}3&0\\0&8\end{bmatrix},\qquad
+A^T\vec b=\begin{bmatrix}6\\-40\end{bmatrix}.
+$$
+</div>
+
+Solving <span class="math-inline">\\(3x&#95;1^\ast=6\\)</span> and <span class="math-inline">\\(8x&#95;2^\ast=-40\\)</span> gives <span class="math-inline">\\(\vec x^\ast=(2,-5)^T\\)</span>.
+
+</details>
+
 </div>
 </div>
 
@@ -236,6 +291,21 @@ Find <span class="math-inline">\\(\vec x^{\ast}\\)</span> that satisfies <span c
 <div class="assignment-part-content" markdown="1">
 Compute <span class="math-inline">\\(A\vec x^{\ast}\\)</span> and verify that it equals the vector <span class="math-inline">\\(\vec p\\)</span> you found geometrically. How many entries does each vector have? Explain how the entries of <span class="math-inline">\\(\vec x^{\ast}\\)</span> combine the columns of <span class="math-inline">\\(A\\)</span> to produce <span class="math-inline">\\(\vec p\\)</span>.
 
+<details markdown="1"><summary>Solution</summary>
+
+<div class="math-display">
+$$
+A\vec x^\ast=2\vec a_1-5\vec a_2
+=2\begin{bmatrix}1\\1\\1\end{bmatrix}
+-5\begin{bmatrix}2\\-2\\0\end{bmatrix}
+=\begin{bmatrix}-8\\12\\2\end{bmatrix}=\vec p.
+$$
+</div>
+
+The two entries of <span class="math-inline">\\(\vec x^\ast\\)</span> weight the two columns of <span class="math-inline">\\(A\\)</span>. The three entries of <span class="math-inline">\\(\vec p\\)</span> are the coordinates of their weighted sum in <span class="math-inline">\\(\mathbb R^3\\)</span>.
+
+</details>
+
 </div>
 </div>
 
@@ -243,6 +313,21 @@ Compute <span class="math-inline">\\(A\vec x^{\ast}\\)</span> and verify that it
 <div class="assignment-part-label">e)</div>
 <div class="assignment-part-content" markdown="1">
 Keep <span class="math-inline">\\(A\\)</span> fixed. Can <span class="math-inline">\\(\vec p\\)</span> be viewed as a linear transformation of <span class="math-inline">\\(\vec b\\)</span>? Find the corresponding matrix <span class="math-inline">\\(P\\)</span> in terms of <span class="math-inline">\\(A\\)</span>. State its shape. You may leave <span class="math-inline">\\(P\\)</span> as a product of matrices. Explain the difference between <span class="math-inline">\\(\vec x^{\ast}\\)</span>, <span class="math-inline">\\(\vec p\\)</span>, and <span class="math-inline">\\(P\\)</span>.
+
+<details markdown="1"><summary>Solution</summary>
+
+Yes. The columns are independent, so <span class="math-inline">\\(A^TA\\)</span> is invertible. Substituting the solution of the normal equations into <span class="math-inline">\\(\vec p=A\vec x^\ast\\)</span> gives
+
+<div class="math-display">
+$$
+\vec x^\ast=(A^TA)^{-1}A^T\vec b,\qquad
+\vec p=P\vec b,\qquad P=A(A^TA)^{-1}A^T.
+$$
+</div>
+
+The factors have shapes <span class="math-inline">\\((3\times2)(2\times2)(2\times3)\\)</span>, so <span class="math-inline">\\(P\\)</span> is <span class="math-inline">\\(3\times3\\)</span>. The vector <span class="math-inline">\\(\vec x^\ast\\)</span> gives coefficients, <span class="math-inline">\\(\vec p\\)</span> is the projected vector for this input, and <span class="math-inline">\\(P\\)</span> projects any input onto the same plane.
+
+</details>
 
 </div>
 </div>
@@ -259,6 +344,12 @@ $$
 </div>
 
  Without doing any new matrix calculations, explain whether this changes the column space, the closest vector to <span class="math-inline">\\(\vec b\\)</span>, or the minimum possible distance to <span class="math-inline">\\(\vec b\\)</span>.
+
+<details markdown="1"><summary>Solution</summary>
+
+The new column is already a linear combination of the first two, so it adds no new direction and the original columns still span the plane. Thus <span class="math-inline">\\(\operatorname{colsp}(\widetilde A)=\operatorname{colsp}(A)\\)</span>. With the same plane and the same <span class="math-inline">\\(\vec b\\)</span>, the closest vector and minimum distance are unchanged.
+
+</details>
 
 </div>
 </div>
@@ -297,5 +388,22 @@ Consider the dataset below. Find the line <span class="math-inline">\\(y=c+mt\\)
 </table>
 
 <img src="imgs/lab12-line-data.png" alt="image" style="width: 4in; max-width: 100%;">
+
+<details markdown="1"><summary>Solution</summary>
+
+An exact fit would give the equations <span class="math-inline">\\(c+2m=-7\\)</span>, <span class="math-inline">\\(c-2m=13\\)</span>, and <span class="math-inline">\\(c=0\\)</span>. With <span class="math-inline">\\(\vec x=(c,m)^T\\)</span>, this is the same system <span class="math-inline">\\(A\vec x=\vec b\\)</span> as in Activity 1. Minimizing the sum of squared errors means minimizing <span class="math-inline">\\(\|\vec b-A\vec x\|^2\\)</span>. Activity 1(c) gave <span class="math-inline">\\(\vec x^\ast=(2,-5)^T\\)</span>, so the best-fit line is <span class="math-inline">\\(y=2-5t\\)</span>.
+
+The predictions, in table order, are <span class="math-inline">\\(-8,12,2\\)</span>, the entries of <span class="math-inline">\\(\vec p\\)</span>. To draw the line, connect <span class="math-inline">\\((0,2)\\)</span> and <span class="math-inline">\\((2,-8)\\)</span>.
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 245" width="400" style="max-width:100%;height:auto" role="img" aria-label="Scatter plot with data points at (−2, 13), (0, 0), and (2, −7), and the least-squares line y equals 2 minus 5t">
+<path d="M34 128H293 M160 20V212" fill="none" stroke="currentColor"/>
+<path d="M80 124v8 M240 124v8 M156 58h8 M156 198h8" fill="none" stroke="currentColor"/>
+<g fill="currentColor" font-size="12"><text x="294" y="124">t</text><text x="168" y="24">y</text><text x="72" y="146">−2</text><text x="237" y="146">2</text><text x="137" y="62">10</text><text x="128" y="202">−10</text></g>
+<path d="M50 17.75L270 210.25" fill="none" stroke="#a64b16" stroke-width="3"/>
+<g fill="currentColor"><circle cx="80" cy="37" r="4"/><circle cx="160" cy="128" r="4"/><circle cx="240" cy="177" r="4"/></g>
+<path d="M39 230h24" fill="none" stroke="#a64b16" stroke-width="3"/><text x="69" y="234" fill="currentColor" font-size="13">y = 2 − 5t</text>
+</svg>
+
+</details>
 
 {% endraw %}
