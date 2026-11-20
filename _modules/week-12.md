@@ -42,5 +42,6 @@ days:
       - name: LEC 23
         type: lecture
         title: Applications of Least Squares
+        recording: https://leccap.engin.umich.edu/leccap/player/r/roEfaf
         worksheet: ../resources/worksheets/lec23-worksheet.pdf
 ---
