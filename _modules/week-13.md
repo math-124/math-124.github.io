@@ -1,5 +1,5 @@
 ---
-title: "Week 13: Determinants and Thanksgiving<br><small>Signups for Quiz 4 open on November 23.</small>"
+title: "Week 13: Determinants; Thanksgiving<br><small>Signups for Quiz 4 open on November 23.</small>"
 weekNumber: 13
 days:
 #   - date: "2026-11-23"
@@ -15,7 +15,7 @@ days:
         problems: ../resources/homeworks/hw09/
       - name: LEC 24
         type: lecture
-        title: Determinants as Area and Volume Scale Factors
+        title: Determinants
   - date: "2026-11-25"
     events:
       - name: BREAK
