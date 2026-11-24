@@ -16,6 +16,7 @@ days:
       - name: LEC 24
         type: lecture
         title: Determinants
+        worksheet: ../resources/worksheets/lec24-worksheet.pdf
   - date: "2026-11-25"
     events:
       - name: BREAK
