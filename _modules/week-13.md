@@ -16,6 +16,7 @@ days:
       - name: LEC 24
         type: lecture
         title: Determinants
+        recording: https://leccap.engin.umich.edu/leccap/player/r/eLbvjk
         worksheet: ../resources/worksheets/lec24-worksheet.pdf
   - date: "2026-11-25"
     events:
