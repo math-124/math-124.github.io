@@ -18,6 +18,14 @@ days:
         title: Determinants
         recording: https://leccap.engin.umich.edu/leccap/player/r/eLbvjk
         worksheet: ../resources/worksheets/lec24-worksheet.pdf
+        reading: https://notes.math124.org/ch08/08-01/
+        reading_text: Ch. 8.1
+        reading2: https://notes.math124.org/ch08/08-02/
+        reading2_text: Ch. 8.2
+        reading3: https://notes.math124.org/ch08/08-03/
+        reading3_text: Ch. 8.3
+        reading4: https://notes.math124.org/ch08/08-04/
+        reading4_text: Ch. 8.4
   - date: "2026-11-25"
     events:
       - name: BREAK
